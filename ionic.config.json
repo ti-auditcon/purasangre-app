@@ -1,0 +1,7 @@
+{
+  "name": "pscrossfitc",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
