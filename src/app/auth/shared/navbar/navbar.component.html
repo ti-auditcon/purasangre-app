@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+
+    <!-- <ion-title start class="font-bold">{{ this.titulo }}</ion-title> -->
+
+    <ion-title slot="start" align-self-center class="font-bold" *ngIf="this.titulo == 'Dashboard'; else normalTitle">
+      <img class="logo" src="assets/img/logo.png" alt="PuraSangre CrossFit">
+    </ion-title>
+
+    <ng-template #normalTitle>
+      <ion-title start class="font-bold">{{ this.titulo }}</ion-title>
+    </ng-template>
+
+    <ion-buttons slot="end" *ngIf="this.titulo == 'Dashboard'">
+      <ion-button href="home/(dashboard:perfil)">
+        <ion-icon slot="icon-only" name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" *ngIf="this.titulo == 'Tu Perfil'">
+      <ion-button (click)="logout()">
+        <!-- <ion-icon slot="icon-only" name="log-out"></ion-icon> -->
+        <ion-icon slot="icon-only" name="power"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <img class="shield" src="assets/brand/ma_purasangre.png">
+
+  </ion-toolbar>
+</ion-header>
+
+<!-- <header class="main-navbar">
+  <ion-grid>
+    <ion-row>
+      <ion-col> -->
+        <!-- <img class="logo" src="assets/brand/logo.png" alt="PuraSangre Crossfit"> -->
+        <!-- <h3 class="navbar-title">Titulo</h3>
+        <img class="shield" src="assets/brand/ma_purasangre.png"> -->
+        <!-- <ion-button (click)="logout()">
+          <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        </ion-button> -->
+        <!-- <span class="icon-logout icon-auth-logout" (click)="logout()"></span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</header> -->

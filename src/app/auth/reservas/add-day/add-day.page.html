@@ -1,0 +1,41 @@
+<app-navbar titulo="Nueva Reserva"></app-navbar>
+
+<ion-content padding>
+
+  <!-- <ion-button (click)="goToAddHour()"></ion-button> -->
+  <div class="reserva">
+
+    <h1 class="titleReserva-section">Selecciona<br>un día</h1>
+
+    <div class="section grid-days">
+
+      <div class="item-day" text-center (click)="goToAddHour()">
+        <p>Lunes</p>
+        <h1>16</h1>
+      </div>
+      <div class="item-day" text-center (click)="goToAddHour()">
+        <p>Martes</p>
+        <h1>17</h1>
+      </div>
+      <div class="item-day" text-center (click)="goToAddHour()">
+        <p>Miércoles</p>
+        <h1>18</h1>
+      </div>
+      <div class="item-day today" text-center (click)="goToAddHour()">
+        <p>Jueves</p>
+        <h1>19</h1>
+      </div>
+      <div class="item-day" text-center (click)="goToAddHour()">
+        <p>Viernes</p>
+        <h1>20</h1>
+      </div>
+      <div class="item-day" text-center (click)="goToAddHour()">
+        <p>Sábado</p>
+        <h1>21</h1>
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-content>
