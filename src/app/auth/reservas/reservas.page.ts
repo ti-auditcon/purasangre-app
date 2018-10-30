@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
-import { ElementRef, ViewChild } from '@angular/core';
+// import { ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-reservas',
@@ -11,9 +11,16 @@ import { ElementRef, ViewChild } from '@angular/core';
 export class ReservasPage {
 
   buttonFix: string = "";
+  // buttonFixAndroid: any = "";
+
+  // divToChange = <HTMLElement>document.getElementById('button-fix');
+
+  // alturaSinTabBar:any;
+  // variable = "inherit";
+
   // alturaTabBar = document.querySelector('.clase-card');
   // printAlturaBar = this.alturaTabBar.offsetHeight;
-  elemento = <HTMLElement>document.querySelector('.sc-ion-tabbar-md-h');
+  // elemento = <HTMLElement>document.querySelector('.card-alert');
   // altura = this.elemento.offsetHeight;
 
   // boton = document.querySelector('.buttonFix');
@@ -25,17 +32,21 @@ export class ReservasPage {
   // viewHeight: number;
 
   constructor( private navCtrl: NavController, public plt: Platform ) {
-    // this.viewHeight = this.elementView.nativeElement.offsetHeight;
 
-    if (this.plt.is('ios')) {
-      // this.changeClassIOS.classList.add('button-fix-ios');
-      // This will only print when on iOS
-      this.buttonFix = "button-fix button-fix-ios";
-      // console.log('Este es un dispositivo iOS');
-    } else {
-      this.buttonFix = "button-fix";
-      // console.log(this.altura);
-    }
+    // plt.ready().then((readySource) => {
+    //   // console.log('Width: ' + plt.width());
+    //   console.log('Height: ' + plt.height());
+    //   console.log(plt.height() - 56);
+    //
+    //   let alturaSinTabBar = this.plt.height() -56;
+    //
+    // });
+
+    // if (this.plt.is('ios')) {
+    //   this.buttonFix = "button-fix button-fix-ios";
+    // } else {
+    //   this.buttonFix = "button-fix";
+    // }
   }
 
   goToEditHour() {

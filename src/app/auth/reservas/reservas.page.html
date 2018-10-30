@@ -2,6 +2,15 @@
 
 <ion-content padding>
 
+  <!-- <ion-fab vertical="bottom" horizontal="start" edge slot="fixed">
+     <ion-fab-button>
+       <ion-icon name="settings"></ion-icon>
+     </ion-fab-button>
+     <ion-fab-list side="end">
+       <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
+     </ion-fab-list>
+   </ion-fab> -->
+
   <div class="card card-alert">
     <ion-grid>
       <ion-row>
@@ -88,9 +97,17 @@
     </div>
   </div>
 
-  <div [ngClass]="buttonFix">
+  <!-- <div [ngClass]="buttonFix" id="button-fix" [style.bottom]="this.variable"> -->
     <!-- <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button> -->
-    <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
-  </div>
+    <!-- <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button> -->
+  <!-- </div> -->
 
 </ion-content>
+
+<ion-footer>
+  <!-- <ion-toolbar> -->
+    <div class="button-fix">
+      <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
+    </div>
+  <!-- </ion-toolbar> -->
+</ion-footer>

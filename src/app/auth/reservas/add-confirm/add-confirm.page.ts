@@ -13,14 +13,14 @@ export class AddConfirmPage implements OnInit {
   constructor( public plt: Platform ) { }
 
   ngOnInit() {
-    if (this.plt.is('ios')) {
-      // this.changeClassIOS.classList.add('button-fix-ios');
-      // This will only print when on iOS
-      this.buttonFix = "button-fix button-fix-ios";
-      console.log('Este es un dispositivo iOS');
-    } else {
-      this.buttonFix = "button-fix";
-    }
+    // if (this.plt.is('ios')) {
+    //   // this.changeClassIOS.classList.add('button-fix-ios');
+    //   // This will only print when on iOS
+    //   this.buttonFix = "button-fix button-fix-ios";
+    //   console.log('Este es un dispositivo iOS');
+    // } else {
+    //   this.buttonFix = "button-fix";
+    // }
   }
 
 }
