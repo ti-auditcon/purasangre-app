@@ -11,9 +11,9 @@
           </div>
         </ion-col>
         <ion-col size="9" class="persona-item-data">
-          <h1 class="persona-nombre">Pablo Rioseco</h1>
-          <h5 class="persona-plan">Plan Full Fit</h5>
-          <p class="persona-vencimiento">Vencimiento 21 de Julio</p>
+          <h1 class="persona-nombre">{{user?.nombre}} {{user?.apellido}}</h1>
+          <h5 class="persona-plan">{{user_plan?.nombrePlan}}</h5>
+          <p class="persona-vencimiento">{{user_plan?.vencimiento}}</p>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -45,19 +45,19 @@
       <h1 class="title-section">Datos</h1>
       <div class="datos-item">
         <h5>Género</h5>
-        <p>Hombre</p>
+        <p>{{user?.genero}}</p>
       </div>
       <div class="datos-item">
         <h5>Correo</h5>
-        <p>pablo.rioseco@auditcon.cl</p>
+        <p>{{user?.correo}}</p>
       </div>
       <div class="datos-item">
         <h5>Cumpleaños</h5>
-        <p>6 de Marzo</p>
+        <p>{{user?.fechaNacimiento}}</p>
       </div>
       <div class="datos-item">
         <h5>Dirección</h5>
-        <p>Calle Valle del Mar #3320</p>
+        <p>{{user?.direccion}}</p>
       </div>
     </div>
   </div>
