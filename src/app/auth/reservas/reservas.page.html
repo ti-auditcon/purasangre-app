@@ -97,17 +97,14 @@
     </div>
   </div>
 
-  <!-- <div [ngClass]="buttonFix" id="button-fix" [style.bottom]="this.variable"> -->
-    <!-- <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button> -->
-    <!-- <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button> -->
-  <!-- </div> -->
+  <div [ngClass]="buttonFixIOS">
+    <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
+  </div>
 
 </ion-content>
 
 <ion-footer>
-  <!-- <ion-toolbar> -->
-    <div class="button-fix">
-      <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
-    </div>
-  <!-- </ion-toolbar> -->
+  <div [ngClass]="buttonFixAndroid">
+    <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
+  </div>
 </ion-footer>

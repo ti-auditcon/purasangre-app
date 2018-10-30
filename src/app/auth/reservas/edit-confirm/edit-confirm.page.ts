@@ -8,17 +8,21 @@ import { Platform } from '@ionic/angular';
 })
 export class EditConfirmPage implements OnInit {
 
-  buttonFix: string = "";
+  buttonFixIOS: string = "";
+  buttonFixAndroid: string = "";
 
   constructor( public plt: Platform ) {
-    // if (this.plt.is('ios')) {
-    //   // this.changeClassIOS.classList.add('button-fix-ios');
-    //   // This will only print when on iOS
-    //   this.buttonFix = "button-fix button-fix-ios"
-    //   // console.log('Este es un dispositivo iOS');
-    // } else {
-    //   this.buttonFix = "button-fix"
-    // }
+
+    if (this.plt.is('ios')) {
+      //Si es iOS
+      this.buttonFixIOS = "button-fix-ios";
+      this.buttonFixAndroid = "display-none";
+    } else {
+      //Si es Android
+      this.buttonFixIOS = "display-none";
+      this.buttonFixAndroid = "button-fix";
+    }
+
   }
 
   ngOnInit() {

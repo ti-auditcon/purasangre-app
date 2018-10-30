@@ -10,7 +10,8 @@ import { Platform } from '@ionic/angular';
 })
 export class ReservasPage {
 
-  buttonFix: string = "";
+  buttonFixIOS: string = "";
+  buttonFixAndroid: string = "";
   // buttonFixAndroid: any = "";
 
   // divToChange = <HTMLElement>document.getElementById('button-fix');
@@ -42,11 +43,15 @@ export class ReservasPage {
     //
     // });
 
-    // if (this.plt.is('ios')) {
-    //   this.buttonFix = "button-fix button-fix-ios";
-    // } else {
-    //   this.buttonFix = "button-fix";
-    // }
+    if (this.plt.is('ios')) {
+      //Si es iOS
+      this.buttonFixIOS = "button-fix-ios";
+      this.buttonFixAndroid = "display-none";
+    } else {
+      //Si es Android
+      this.buttonFixIOS = "display-none";
+      this.buttonFixAndroid = "button-fix";
+    }
   }
 
   goToEditHour() {
