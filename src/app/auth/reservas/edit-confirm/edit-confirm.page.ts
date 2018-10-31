@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
+import { Platform, ModalController } from '@ionic/angular';
+import { ConfirmPage } from '../confirm/confirm.page';
 
 @Component({
   selector: 'app-edit-confirm',
@@ -10,8 +11,10 @@ export class EditConfirmPage implements OnInit {
 
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
+  value = "0";
 
-  constructor( public plt: Platform ) {
+  constructor( public plt: Platform,
+               private modalController: ModalController ) {
 
     if (this.plt.is('ios')) {
       //Si es iOS
@@ -23,6 +26,17 @@ export class EditConfirmPage implements OnInit {
       this.buttonFixAndroid = "button-fix";
     }
 
+  }
+
+  async openModal(){
+    const modal = await this.modalController.create({
+      component: ConfirmPage,
+      componentProps: {
+        custom_id: this.value
+      },
+      cssClass: 'modal-confirm'
+    });
+    return await modal.present();
   }
 
   ngOnInit() {

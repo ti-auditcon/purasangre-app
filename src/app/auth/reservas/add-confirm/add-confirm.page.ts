@@ -29,17 +29,6 @@ export class AddConfirmPage implements OnInit {
 
   }
 
-  // async presentAlert() {
-  //   const alert = await this.alertController.create({
-  //     header: '¿Reservas esta hora?',
-  //     subHeader: '21 de Septiembre de 19:00 a 20:00 hrs',
-  //     message: 'Luego tendrás que confirmar tu asistencia a la clase',
-  //     buttons: ['Si']
-  //   });
-  //
-  //   await alert.present();
-  // }
-
   async openModal(){
     const modal = await this.modalController.create({
       component: ConfirmPage,
@@ -51,6 +40,16 @@ export class AddConfirmPage implements OnInit {
     return await modal.present();
   }
 
+  // async presentAlert() {
+  //   const alert = await this.alertController.create({
+  //     header: '¿Reservas esta hora?',
+  //     subHeader: '21 de Septiembre de 19:00 a 20:00 hrs',
+  //     message: 'Luego tendrás que confirmar tu asistencia a la clase',
+  //     buttons: ['Si']
+  //   });
+  //
+  //   await alert.present();
+  // }
 
   ngOnInit() {}
 
