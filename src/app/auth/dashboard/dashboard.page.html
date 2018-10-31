@@ -18,8 +18,8 @@
   </div>
 
   <div class="plan-resumen">
-    <h1 class="plan-title">Plan Full Fit</h1>
-    <p class="plan-vencimiento">Vencimiento 21 de Julio</p>
+    <h1 class="plan-title">{{user_plan?.nombrePlan}}</h1>
+    <p class="plan-vencimiento">{{user_plan?.vencimiento}}</p>
     <div class="card card-info">
       <ion-grid>
         <ion-row>
@@ -45,14 +45,9 @@
     <div class="card card-resumen">
       <div class="text-box-resumen">
         <p>
-          4 RxT<br>
-          7 power clean*<br>
-          7 front squat*<br>
-          14 push ups (sólo pecho)
+          {{wod?.rels?.stages.wod }}
         </p>
-        <p>
-          *(135/85) UNBROKEN
-        </p>
+
       </div>
       <button class="button-bottom" (click)="verWOD()">Ver Workout del Día</button>
     </div>
