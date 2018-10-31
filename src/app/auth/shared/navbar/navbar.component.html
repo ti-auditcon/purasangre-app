@@ -2,9 +2,9 @@
   <ion-toolbar>
 
     <!-- <ion-title start class="font-bold">{{ this.titulo }}</ion-title> -->
-    <!-- <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons> -->
+    <ion-buttons slot="start" *ngIf="this.titulo != 'Dashboard' && this.titulo != 'Tus Clases' && this.titulo != 'Tus Reservas' && this.titulo != 'Tus Pagos'">
+      <ion-back-button defaultHref="home" mode="md"></ion-back-button>
+    </ion-buttons>
 
     <ion-title slot="start" align-self-center class="font-bold" *ngIf="this.titulo == 'Dashboard'; else normalTitle">
       <img class="logo" src="assets/img/logo.png" alt="PuraSangre CrossFit">
@@ -16,14 +16,14 @@
 
     <ion-buttons slot="end" *ngIf="this.titulo == 'Dashboard'">
       <ion-button href="home/(dashboard:perfil)">
-        <ion-icon slot="icon-only" name="person"></ion-icon>
+        <ion-icon slot="icon-only" name="person" color="light"></ion-icon>
       </ion-button>
     </ion-buttons>
 
     <ion-buttons slot="end" *ngIf="this.titulo == 'Tu Perfil'">
       <ion-button (click)="logout()">
         <!-- <ion-icon slot="icon-only" name="log-out"></ion-icon> -->
-        <ion-icon slot="icon-only" name="power"></ion-icon>
+        <ion-icon slot="icon-only" name="power" color="light"></ion-icon>
       </ion-button>
     </ion-buttons>
 

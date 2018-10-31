@@ -20,6 +20,8 @@ import { AddHourPageModule } from '../reservas/add-hour/add-hour.module';
 import { AddConfirmPageModule } from '../reservas/add-confirm/add-confirm.module';
 import { PagosPageModule } from '../pagos/pagos.module';
 
+import { ConfirmPage } from '../reservas/confirm/confirm.page';
+
 @NgModule({
   imports: [
     IonicModule,
@@ -39,6 +41,9 @@ import { PagosPageModule } from '../pagos/pagos.module';
     EditConfirmPageModule,
     PagosPageModule
   ],
-  declarations: [HomePage]
+  entryComponents: [
+    ConfirmPage
+  ],
+  declarations: [HomePage, ConfirmPage]
 })
 export class HomePageModule {}

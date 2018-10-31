@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: '', canActivate: [AuthGuardService], loadChildren: './auth/home/home.module#HomePageModule' },
   { path: 'perfil', loadChildren: './auth/dashboard/perfil/perfil.module#PerfilPageModule' },
   { path: 'login', loadChildren: './public/login/login.module#LoginPageModule' },
+  { path: 'confirm', loadChildren: './auth/reservas/confirm/confirm.module#ConfirmPageModule' },
   // { path: 'hoy', loadChildren: './auth/clases/hoy/hoy.module#HoyPageModule' },
   // { path: 'add-day', loadChildren: './auth/reservas/add-day/add-day.module#AddDayPageModule' },
   // { path: 'add-confirm', loadChildren: './auth/reservas/add-confirm/add-confirm.module#AddConfirmPageModule' },

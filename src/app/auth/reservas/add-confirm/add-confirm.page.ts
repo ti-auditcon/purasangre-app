@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
+import { Platform, ModalController } from '@ionic/angular';
+import { ConfirmPage } from '../confirm/confirm.page';
 
 @Component({
   selector: 'app-add-confirm',
@@ -10,8 +11,11 @@ export class AddConfirmPage implements OnInit {
 
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
+  value = "0";
 
-  constructor( public plt: Platform ) {
+  constructor( public plt: Platform,
+               // private alertController: AlertController,
+               private modalController: ModalController ) {
 
     if (this.plt.is('ios')) {
       //Si es iOS
@@ -22,8 +26,31 @@ export class AddConfirmPage implements OnInit {
       this.buttonFixIOS = "display-none";
       this.buttonFixAndroid = "button-fix";
     }
-    
+
   }
+
+  // async presentAlert() {
+  //   const alert = await this.alertController.create({
+  //     header: '¿Reservas esta hora?',
+  //     subHeader: '21 de Septiembre de 19:00 a 20:00 hrs',
+  //     message: 'Luego tendrás que confirmar tu asistencia a la clase',
+  //     buttons: ['Si']
+  //   });
+  //
+  //   await alert.present();
+  // }
+
+  async openModal(){
+    const modal = await this.modalController.create({
+      component: ConfirmPage,
+      componentProps: {
+        custom_id: this.value
+      },
+      cssClass: 'modal-confirm'
+    });
+    return await modal.present();
+  }
+
 
   ngOnInit() {}
 

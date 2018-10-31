@@ -8,7 +8,8 @@ import { AuthenticationService } from '../../../services/authentication.service'
 })
 export class NavbarComponent implements OnInit {
 
-  @Input() titulo: string;
+  @Input() titulo: string
+  mainTabs = ['Dashboard', 'Tus Clases'];
 
   constructor(private authService: AuthenticationService) { }
 

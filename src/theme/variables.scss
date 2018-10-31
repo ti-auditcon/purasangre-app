@@ -646,3 +646,60 @@
     animation: buttonGradientSuccess 3s ease infinite;
   }
 }
+
+.modal-confirm {
+  // width: 80%;
+  // height: 60%;
+  background: rgba(0, 0, 0, 0.3);
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  color: white;
+  // background: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%) !important;
+  // box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  // border-radius: 2px;
+  .modal-wrapper {
+    width: 80%;
+    height: 300px;
+    background: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%) !important;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+  }
+}
+
+.confirm-modal-content {
+  height: 100%;
+  padding: 20px 14px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  ion-icon {
+    font-size: 90px;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 19px;
+  }
+  p {
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 21px;
+  }
+  .confirm-modal-button {
+    background: #2CB70A;
+    padding: 8px 20px;
+    color: white;
+    border-radius: 4px;
+  }
+}
