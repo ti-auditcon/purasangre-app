@@ -45,7 +45,7 @@ export class AuthenticationService {
       password: registerCredentials.password,
       grant_type: 'password',
       client_id: 2,
-      client_secret: 'Bf024PrnuOozJzNwv0DaGXl3KTWTEMAyybzlzYq2',
+      client_secret: 'JqqNsmXRAQRqW3uxgIiiDHz5gwqJWxdxqP8PqMUJ',
     });
     const httpOptions = {
       headers: new HttpHeaders({
