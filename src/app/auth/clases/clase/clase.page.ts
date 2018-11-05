@@ -7,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClasePage implements OnInit {
 
-  constructor( ) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  botoncito = document.getElementById('buttonEdit');
+  // input = document.getElementById('inputEdit');
+
+  focusInput(){
+    document.getElementById('inputEdit').focus();
+  }
 
 }

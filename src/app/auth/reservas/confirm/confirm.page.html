@@ -1,10 +1,10 @@
 <ion-content padding>
 
   <div class="confirm-modal-content">
-    <ion-icon name="information-circle"></ion-icon>
+    <ion-icon name="{{ this.buttonIcon }}"></ion-icon>
     <!-- <ion-icon name="checkmark-circle"></ion-icon> -->
-    <h1 *ngIf="this.value == 'confirm'">Reservar esta hora</h1>
-    <p>Viernes 13 de 19:00 a 20:00 hrs</p>
+    <h1>{{ this.title }}</h1>
+    <p>{{ this.message }}</p>
     <button class="confirm-modal-button" ion-button block (click)="closeModal()">Ok</button>
   </div>
 

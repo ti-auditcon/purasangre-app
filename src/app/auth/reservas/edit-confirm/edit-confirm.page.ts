@@ -12,6 +12,9 @@ export class EditConfirmPage implements OnInit {
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
   value;
+  title;
+  message;
+  buttonIcon;
 
   constructor( public plt: Platform,
                private modalController: ModalController,
@@ -33,12 +36,16 @@ export class EditConfirmPage implements OnInit {
     const modal = await this.modalController.create({
       component: ConfirmPage,
       componentProps: {
-        custom_id: "confirm"
+        custom_id: 1,
+        title: 'Reservar esta hora',
+        message: 'Viernes 13 de 19:00 a 20:00 hrs',
+        buttonIcon: 'information-circle'
       },
       cssClass: 'modal-confirm'
     });
-    this.value = modal.componentProps.custom_id;
-    console.log(this.value);
+    this.title = modal.componentProps.title;
+    this.message = modal.componentProps.message;
+    this.buttonIcon = modal.componentProps.buttonIcon;
     return await modal.present();
   }
 
@@ -46,12 +53,16 @@ export class EditConfirmPage implements OnInit {
     const modal = await this.modalController.create({
       component: ConfirmPage,
       componentProps: {
-        custom_id: "ceder"
+        custom_id: 0,
+        title: 'Ceder tu Cupo',
+        message: 'Si cedes tu cupo podrás reservar en otro horario',
+        buttonIcon: 'information-circle'
       },
       cssClass: 'modal-confirm'
     });
-    this.value = modal.componentProps.custom_id;
-    console.log(this.value);
+    this.title = modal.componentProps.title;
+    this.message = modal.componentProps.message;
+    this.buttonIcon = modal.componentProps.buttonIcon;
     return await modal.present();
   }
 
