@@ -1,9 +1,33 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>forgot</ion-title>
-  </ion-toolbar>
-</ion-header>
+<section padding class="auth-content">
+  <div class="auth-inner">
 
-<ion-content padding>
+    <div class="logo-auth-container">
+      <img class="logo-auth" src="assets/img/ps_logo.png" alt="Pura Sangre Crossfit">
+    </div>
+    <form (ngSubmit)="login()" #registerForm="ngForm">
+      <div class="form-inner">
 
-</ion-content>
+        <div class="a-input">
+          <p class="texto-forgot">Ingresa tu correo para poder restablecer tu contraseña</p>
+          <span class="icon-input-auth icon-auth-mail"></span>
+          <input type="text" class="input-email" placeholder="Correo" name="email" [(ngModel)]="registerCredentials.email" required>
+        </div>
+
+      </div>
+      <ion-col class="signup-col">
+
+        <button class="submit-login-auth" full type="submit" expand="block" (click)="openModalForgot()">Enviar</button>
+        <!-- <ion-button (click)="openModalForgot()">Enviar</ion-button> -->
+
+        <br><br>
+
+        <a class="link-forget" (click)="backToLogin()">Volver</a>
+
+      </ion-col>
+      <!-- <ion-col>
+        <span>{{this.alert}}</span>
+      </ion-col> -->
+    </form>
+
+  </div>
+</section>

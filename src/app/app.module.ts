@@ -12,12 +12,13 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ConfirmPage } from './public/confirm/confirm.page';
 // import { BottombuttonComponent } from './auth/shared/bottombutton/bottombutton.component';
 // import { NavbarComponent } from './auth/shared/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, ConfirmPage],
+  entryComponents: [ ConfirmPage ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
