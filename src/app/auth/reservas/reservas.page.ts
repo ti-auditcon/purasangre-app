@@ -54,8 +54,8 @@ export class ReservasPage {
     }
   }
 
-  goToEditHour() {
-    this.navCtrl.navigateForward( '/home/(reservas:edit-hour)' );
+  goToEditConfirm() {
+    this.navCtrl.navigateForward( '/home/(reservas:edit-confirm)' );
   }
   goToAddDay() {
     this.navCtrl.navigateForward( '/home/(reservas:add-day)' );
