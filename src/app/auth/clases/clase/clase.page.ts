@@ -12,4 +12,6 @@ export class ClasePage implements OnInit {
   ngOnInit() {
   }
 
+  botoncito = document.getElementById('buttonEdit');
+
 }

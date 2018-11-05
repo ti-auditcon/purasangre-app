@@ -666,13 +666,13 @@
     height: 300px;
     background: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%) !important;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-    border-radius: 2px;
+    border-radius: 4px;
   }
 }
 
 .confirm-modal-content {
   height: 100%;
-  padding: 20px 14px;
+  padding: 16px 14px 20px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -680,7 +680,7 @@
   align-items: center;
   ion-icon {
     font-size: 90px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     width: 100%;
   }
   h1 {
@@ -688,7 +688,7 @@
     font-weight: 700;
     text-align: center;
     margin: 0;
-    margin-bottom: 19px;
+    margin-bottom: 15px;
     width: 100%;
   }
   p {
@@ -696,13 +696,14 @@
     display: block;
     text-align: center;
     margin-top: 0;
-    margin-bottom: 21px;
+    margin-bottom: 22px;
     width: 100%;
   }
   .confirm-modal-button {
     background: #2CB70A;
-    padding: 8px 20px;
+    padding: 8px 22px;
     color: white;
-    border-radius: 4px;
+    border-radius: 3px;
+    font-weight: 700;
   }
 }
