@@ -1,3 +1,6 @@
+//env
+import { environment, SERVER_URL} from '../../../../environments/environment';
+//imports
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
@@ -29,11 +32,11 @@ export class HoyPage implements OnInit {
         })};
 
 
-        this.http.get("http://purasangreapi.asomic.com/todaywods", httpOptions)
+        this.http.get(SERVER_URL+"/todaywods", httpOptions)
         .subscribe((result: any) => {
           this.wod = result.data[0];
           console.log('ENTRE WOD');
-          console.log(this.wod);
+          console.log(result);
         });
 
     });

@@ -1,10 +1,12 @@
-
+//env
+import { environment, SERVER_URL, API_KEY} from '../../environments/environment';
+//imports
 import { Platform, NavController  } from '@ionic/angular';
-
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+
 
 
 let TOKEN_KEY = 'auth-token';
@@ -45,7 +47,7 @@ export class AuthenticationService {
       password: registerCredentials.password,
       grant_type: 'password',
       client_id: 2,
-      client_secret: 'JqqNsmXRAQRqW3uxgIiiDHz5gwqJWxdxqP8PqMUJ',
+      client_secret: API_KEY,
     });
     const httpOptions = {
       headers: new HttpHeaders({
@@ -53,7 +55,7 @@ export class AuthenticationService {
 
       })};
 
-    this.http.post("http://purasangreapi.asomic.com/oauth/token",data, httpOptions)
+    this.http.post(SERVER_URL+"/oauth/token",data, httpOptions)
     .subscribe(
         (result: any) => {
               console.log('success 200');

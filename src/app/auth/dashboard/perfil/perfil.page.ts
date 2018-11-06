@@ -1,3 +1,6 @@
+//env
+import { environment, SERVER_URL} from '../../../../environments/environment';
+//imports
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { Storage } from '@ionic/storage';
@@ -29,7 +32,7 @@ export class PerfilPage implements OnInit {
           'Authorization': 'Bearer '+ Bearer//updated
         })};
 
-      this.http.get("http://purasangreapi.asomic.com/profile", httpOptions)
+      this.http.get(SERVER_URL+"/profile", httpOptions)
                   .subscribe((result: any) => {
                     this.user = result.data;
                     console.log('entre');

@@ -3,8 +3,11 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 export const environment = {
-  production: false
+  production: false,
 };
+
+export const SERVER_URL = 'http://purasangre-api.test';
+export const API_KEY = 'BnasJcpWFNNgnJkqNO5QXz4PSUWGlEn2eXlGo9d2';
 
 /*
  * In development mode, to ignore zone related error stack frames such as

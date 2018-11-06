@@ -1,6 +1,12 @@
+//env
+import { environment, SERVER_URL} from '../../../environments/environment';
+//imports
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
-// import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+
+let TOKEN_KEY = 'auth-token';
 
 @Component({
   selector: 'app-clases',
@@ -9,7 +15,13 @@ import { NavController } from '@ionic/angular';
 })
 export class ClasesPage {
 
-  constructor ( private navCtrl: NavController) {}
+  constructor(private storage: Storage,  private http: HttpClient) {}
+
+
+
+  ngOnInit() {
+
+  }
 
   irAClase(){
     // this.router.navigateByUrl( '/home/(clases:clase)' );

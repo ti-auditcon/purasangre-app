@@ -1,8 +1,12 @@
+//env
+import { environment, SERVER_URL} from '../../../environments/environment';
+//imports
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+
 
 let TOKEN_KEY = 'auth-token';
 
@@ -33,7 +37,7 @@ export class DashboardPage implements OnInit {
           'Authorization': 'Bearer '+ Bearer//updated
         })};
 
-      this.http.get("http://purasangreapi.asomic.com/profile", httpOptions)
+      this.http.get(SERVER_URL+"/profile", httpOptions)
           .subscribe((result: any) => {
             this.user = result.data;
             console.log('entre');
@@ -48,7 +52,7 @@ export class DashboardPage implements OnInit {
                  });
         });
 
-        this.http.get("http://purasangreapi.asomic.com/todaywods", httpOptions)
+        this.http.get(SERVER_URL+"/todaywods", httpOptions)
         .subscribe((result: any) => {
           this.wod = result.data[0];
           console.log('ENTRE WOD');
