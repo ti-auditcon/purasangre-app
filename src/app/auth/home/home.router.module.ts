@@ -24,7 +24,8 @@ const routes: Routes = [
       { path: 'perfil', outlet: 'dashboard', component: PerfilPage },
 
       { path: 'clases', outlet: 'clases', component: ClasesPage },
-      { path: 'clase', outlet: 'clases', component: ClasePage },
+      //{ path: 'clase/:id', outlet: 'clases', component: ClasePage },
+      { path: 'clase/:id', outlet: 'clases', component: ClasePage },
       { path: 'hoy', outlet: 'clases', component: HoyPage },
 
       { path: 'reservas', outlet: 'reservas', component: ReservasPage },

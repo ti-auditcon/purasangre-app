@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController, NavParams } from '@ionic/angular';
+import { ActivatedRoute } from  '@angular/router';
+
+
 
 @Component({
   selector: 'app-clase',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClasePage implements OnInit {
 
-  constructor() { }
+  constructor( public activatedRoute: ActivatedRoute) {
+
+  }
 
   ngOnInit() {
+    //console.log('entre amigos mios a la clase id:');
+     //console.log(this.activatedRoute.snapshot);
+     console.log(this.activatedRoute.snapshot.paramMap.get('id'));
   }
 
   // input = document.getElementById('inputEdit');
