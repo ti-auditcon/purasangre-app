@@ -5,15 +5,15 @@
   <div class="clase-page">
 
     <div class="section">
-      <h1 class="titleDay-section">Jueves 12 de Septiembre 2018</h1>
-      <h4 class="hour-section">18:00 - 19:00 hrs</h4>
+      <h1 class="titleDay-section">{{clase.dateHuman}}</h1>
+      <h4 class="hour-section">{{clase.start}} - {{clase.end}} hrs</h4>
     </div>
 
     <div class="section">
       <h1 class="title-section">Notas</h1>
       <div class="card card-resumen">
         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni necessitatibus aut, totam suscipit placeat doloremque explicabo, qui temporibus veniam ullam reprehenderit provident? Sapiente culpa tempore qui beatae distinctio voluptatibus voluptates?</p> -->
-        <textarea id="inputEdit" type="text" class="input-notas-day" placeholder="No tienes notas para esta clase"></textarea>
+        <textarea id="inputEdit" type="text" class="input-notas-day" placeholder="No tienes notas para esta clase">{{reservation.details}}</textarea>
         <button class="button-bottom button-success" (click)="focusInput()">Editar Nota</button>
       </div>
     </div>
@@ -24,28 +24,15 @@
         <div class="info-content">
           <h3>Warm Up</h3>
           <p>
-            Amrap 7'<br>
-            2 sprint<br>
-            10 dislocate<br>
-            8 WGS<br>
-            10 squat sobre medball<br>
-            10" plancha<br>
-            5 push up
+            {{wod?.rels?.stages.warmup }}
           </p>
           <h3>SKILLS</h3>
           <p>
-            Power clean + hang squat clean + front squat<br>
-            2  -  2  -  2  -  2<br>
-            UNBROKEN
+            {{wod?.rels?.stages.skill }}
           </p>
           <h3>W.O.D.</h3>
           <p>
-            4 RxT<br>
-            7 power clean*<br>
-            7 front squat*<br>
-            14 push ups (sólo pecho)<br>
-            <br>
-            *(135/85) UNBROKEN
+            {{wod?.rels?.stages.wod }}
           </p>
         </div>
       </div>

@@ -16,7 +16,7 @@ let TOKEN_KEY = 'auth-token';
   styleUrls: ['clases.page.scss']
 })
 export class ClasesPage {
-    public hclases: any = [];
+  public clases: any = [];
 
   constructor(
 
@@ -39,19 +39,19 @@ export class ClasesPage {
       this.http.get(SERVER_URL+"/clases-historic", httpOptions)
           .subscribe((result: any) => {
             console.log('entre al historico');
-            this.hclases = result.data;
-            console.log(this.hclases);
+            this.clases = result.data;
+            console.log(this.clases);
            });
 
     });
   }
 
-  irAClase(){
+  irAClase(private id: string = "0"){
     // this.router.navigateByUrl( '/home/(clases:clase)' );
   //  this.storage.set('clase_id', '1');
   //  this.navCtrl.navigateForward( '/home/(clases:clase/{{1}})')
    //this.router.navigate('/home/(clases:clase/1)');
-   let id = '2';
+
    this.navCtrl.navigateForward( '/home/(clases:clase/'+id+')');
 
 
