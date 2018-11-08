@@ -29,7 +29,7 @@ export class ClasePage implements OnInit {
   ngOnInit() {
     //console.log('entre amigos mios a la clase id:');
      //console.log(this.activatedRoute.snapshot);
-     let id = this.activatedRoute.snapshot.paramMap.get('id'));
+     let id = this.activatedRoute.snapshot.paramMap.get('id');
      this.storage.get(TOKEN_KEY).then((value) => {
 
        let Bearer = value;
@@ -47,11 +47,11 @@ export class ClasePage implements OnInit {
              this.reservation = this.clase.rels.auth_reservation;
 
              this.http.get(this.clase.rels.wod.href, httpOptions)
-                         .subscribe((result: any) => {
-                           console.log('tiene wod');
-                           this.wod = result.data;
-                           console.log(this.wod);
-                          });
+                 .subscribe((result: any) => {
+                   console.log('tiene wod');
+                   this.wod = result.data;
+                   console.log(this.wod);
+                  });
               });
      });
   }
@@ -60,6 +60,10 @@ export class ClasePage implements OnInit {
 
   focusInput(){
     document.getElementById('inputEdit').focus();
+  }
+
+  editDetails(){
+
   }
 
 }

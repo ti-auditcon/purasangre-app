@@ -45,7 +45,7 @@ export class EditConfirmPage implements OnInit {
       this.buttonFixAndroid = "button-fix";
     }
     console.log('hola entre a la clase para editar');
-    let id = this.activatedRoute.snapshot.paramMap.get('id'));
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
     console.log('sii');
     this.storage.get(TOKEN_KEY).then((value) => {
 
@@ -55,13 +55,13 @@ export class EditConfirmPage implements OnInit {
           'Authorization': 'Bearer '+ Bearer//updated
         })};
 
-      this.http.get(SERVER_URL+"/reservations/"+id, httpOptions)
+      this.http.get(SERVER_URL+"/clases/"+id, httpOptions)
           .subscribe((result: any) => {
             console.log(' http entre a la clase para editar');
-            this.reservation = result.data;
-            console.log(this.reservation);
-            this.clase = this.reservation.rels.clase;
-            this.http.get(this.clase.users.href, httpOptions)
+            this.clase = result.data;
+            console.log(this.clase);
+            this.reservation = this.clase.rels.auth_reservation;
+            this.http.get(this.clase.rels.users.href, httpOptions)
                 .subscribe((result: any) => {
                   console.log('tiene users');
                   this.users = result.data;
@@ -69,7 +69,8 @@ export class EditConfirmPage implements OnInit {
                  });
              });
 
-        });
+
+      });
 
 
   }

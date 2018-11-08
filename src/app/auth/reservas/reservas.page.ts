@@ -15,7 +15,7 @@ let TOKEN_KEY = 'auth-token';
   styleUrls: ['reservas.page.scss']
 })
 export class ReservasPage {
-  public reservations: any = [];
+  public clases: any = [];
 
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
@@ -44,17 +44,16 @@ export class ReservasPage {
     this.storage.get(TOKEN_KEY).then((value) => {
 
       let Bearer = value;
-
       const httpOptions = {
         headers: new HttpHeaders({
           'Authorization': 'Bearer '+ Bearer//updated
         })};
 
-      this.http.get(SERVER_URL+"/reservations-coming?sort_by_asc=fecha", httpOptions)
+      this.http.get(SERVER_URL+"/clases-coming?sort_by_asc=date", httpOptions)
           .subscribe((result: any) => {
-            console.log('entre a las reservas');
-            this.reservations = result.data;
-            console.log(this.reservations);
+            console.log('entre a las calses coming');
+            this.clases = result.data;
+            console.log(this.clases);
            });
 
     });

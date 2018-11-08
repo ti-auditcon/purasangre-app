@@ -30,12 +30,12 @@
   <div class="section">
     <h1 class="title-section">Próximas Reservas</h1>
     <div class="clases-cards">
-      <div class="clase-card " *ngFor="let reservation of reservations" (click)="goToEditConfirm(reservation.reservation_id)">
+      <div class="clase-card " *ngFor="let clase of clases" (click)="goToEditConfirm(clase.clase_id)">
         <ion-grid>
           <ion-row align-items-center>
             <ion-col size="11">
-              <h2>{{reservation.rels.clase.dateHuman}}  </h2>
-              <p>{{reservation.rels.clase.start}} - {{reservation.rels.clase.end}} hrs</p>
+              <h2>{{clase.dateHuman}}  </h2>
+              <p>{{clase.start}} - {{clase.end}} hrs</p>
             </ion-col>
             <ion-col size="1">
               <ion-icon name="arrow-dropright"></ion-icon>
