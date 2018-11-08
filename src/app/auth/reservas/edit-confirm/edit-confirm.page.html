@@ -7,14 +7,14 @@
       Cambia el horario o cede tu cupo
     </h1>
     <h4 class="date-section">
-      Viernes 13 de 19:00 - 20:00 hrs
+      {{clase.dateHuman}} de {{clase.start}} - {{clase.end}} hrs
     </h4>
 
     <div class="cupos">
       <h5>Cupos</h5>
       <div class="cupos-wrapper">
-        <ion-col size="5" class="cupos-item">17 Disponibles</ion-col>
-        <ion-col size="7" class="cupos-item">05 Reservados</ion-col>
+        <ion-col size="5" class="cupos-item">{{clase.quota - clase.rels?.users.count}} Disponibles</ion-col>
+        <ion-col size="7" class="cupos-item">{{clase.rels?.users.count}} Reservados</ion-col>
       </div>
     </div>
 
@@ -30,65 +30,16 @@
       <div class="content">
         <ion-grid>
 
-          <ion-row class="item-crossfiters">
+          <ion-row class="item-crossfiters" *ngFor="let user of users" >
             <ion-col size="2" class="item-img">
-              <img src="assets/img/image.jpg">
+              <img src="{{user.avatar}}">
             </ion-col>
             <ion-col size="10" class="item-data">
-              <h6>Francisco Inostroza</h6>
+              <h6>{{user.nombre}}</h6>
               <p>Atleta hace 1 año</p>
             </ion-col>
           </ion-row>
 
-          <ion-row class="item-crossfiters">
-            <ion-col size="2" class="item-img">
-              <img src="assets/img/image.jpg">
-            </ion-col>
-            <ion-col size="10" class="item-data">
-              <h6>Francisco Inostroza</h6>
-              <p>Atleta hace 1 año</p>
-            </ion-col>
-          </ion-row>
-
-          <ion-row class="item-crossfiters">
-            <ion-col size="2" class="item-img">
-              <img src="assets/img/image.jpg">
-            </ion-col>
-            <ion-col size="10" class="item-data">
-              <h6>Francisco Inostroza</h6>
-              <p>Atleta hace 1 año</p>
-            </ion-col>
-          </ion-row>
-
-          <ion-row class="item-crossfiters">
-            <ion-col size="2" class="item-img">
-              <img src="assets/img/image.jpg">
-            </ion-col>
-            <ion-col size="10" class="item-data">
-              <h6>Francisco Inostroza</h6>
-              <p>Atleta hace 1 año</p>
-            </ion-col>
-          </ion-row>
-
-          <ion-row class="item-crossfiters">
-            <ion-col size="2" class="item-img">
-              <img src="assets/img/image.jpg">
-            </ion-col>
-            <ion-col size="10" class="item-data">
-              <h6>Francisco Inostroza</h6>
-              <p>Atleta hace 1 año</p>
-            </ion-col>
-          </ion-row>
-
-          <ion-row class="item-crossfiters">
-            <ion-col size="2" class="item-img">
-              <img src="assets/img/image.jpg">
-            </ion-col>
-            <ion-col size="10" class="item-data">
-              <h6>Francisco Inostroza</h6>
-              <p>Atleta hace 1 año</p>
-            </ion-col>
-          </ion-row>
 
         </ion-grid>
       </div>
@@ -96,13 +47,13 @@
   </div>
 
   <div [ngClass]="buttonFixIOS">
-    <button class="reservar" (click)="openModal()">Reservar esta hora</button>
+    <button class="reservar" (click)="openModal()">Confirmar esta hora</button>
   </div>
 
 </ion-content>
 
 <ion-footer>
   <div [ngClass]="buttonFixAndroid">
-    <button class="reservar" (click)="openModal()">Reservar esta hora</button>
+    <button class="reservar" (click)="openModal()">Confirmar esta hora</button>
   </div>
 </ion-footer>

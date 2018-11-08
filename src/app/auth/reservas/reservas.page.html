@@ -20,6 +20,7 @@
         <ion-col class="text">
           <p>
             Tienes una clase reservada a las 19:00hrs ¡Confírma tu asistencia!
+
           </p>
         </ion-col>
       </ion-row>
@@ -29,12 +30,12 @@
   <div class="section">
     <h1 class="title-section">Próximas Reservas</h1>
     <div class="clases-cards">
-      <div class="clase-card today" (click)="goToEditConfirm()">
+      <div class="clase-card " *ngFor="let clase of clases" (click)="goToEditConfirm(clase.clase_id)">
         <ion-grid>
           <ion-row align-items-center>
             <ion-col size="11">
-              <h2>Martes 10</h2>
-              <p>18:00 - 19:00 hrs</p>
+              <h2>{{clase.dateHuman}}  </h2>
+              <p>{{clase.start}} - {{clase.end}} hrs</p>
             </ion-col>
             <ion-col size="1">
               <ion-icon name="arrow-dropright"></ion-icon>
@@ -42,58 +43,9 @@
           </ion-row>
         </ion-grid>
       </div>
-      <div class="clase-card" (click)="goToEditConfirm()">
-        <ion-grid>
-          <ion-row align-items-center>
-            <ion-col size="11">
-              <h2>Viernes 13</h2>
-              <p>18:00 - 19:00 hrs</p>
-            </ion-col>
-            <ion-col size="1">
-              <ion-icon name="arrow-dropright"></ion-icon>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
-      <div class="clase-card" (click)="goToEditConfirm()">
-        <ion-grid>
-          <ion-row align-items-center>
-            <ion-col size="11">
-              <h2>Martes 17</h2>
-              <p>18:00 - 19:00 hrs</p>
-            </ion-col>
-            <ion-col size="1">
-              <ion-icon name="arrow-dropright"></ion-icon>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
-      <div class="clase-card" (click)="goToEditConfirm()">
-        <ion-grid>
-          <ion-row align-items-center>
-            <ion-col size="11">
-              <h2>Martes 17</h2>
-              <p>18:00 - 19:00 hrs</p>
-            </ion-col>
-            <ion-col size="1">
-              <ion-icon name="arrow-dropright"></ion-icon>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
-      <div class="clase-card" (click)="goToEditConfirm()">
-        <ion-grid>
-          <ion-row align-items-center>
-            <ion-col size="11">
-              <h2>Martes 17</h2>
-              <p>18:00 - 19:00 hrs</p>
-            </ion-col>
-            <ion-col size="1">
-              <ion-icon name="arrow-dropright"></ion-icon>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
+
+
+
     </div>
   </div>
 

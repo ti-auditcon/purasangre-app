@@ -1,7 +1,13 @@
+//env
+import { environment, SERVER_URL} from '../../../environments/environment';
+//imports
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 // import { ElementRef, ViewChild } from '@angular/core';
+let TOKEN_KEY = 'auth-token';
 
 @Component({
   selector: 'app-reservas',
@@ -9,39 +15,19 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['reservas.page.scss']
 })
 export class ReservasPage {
+  public clases: any = [];
 
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
-  // buttonFixAndroid: any = "";
 
-  // divToChange = <HTMLElement>document.getElementById('button-fix');
 
-  // alturaSinTabBar:any;
-  // variable = "inherit";
+  constructor(
+    private navCtrl: NavController,
+    public plt: Platform,
+    private storage: Storage,
+    private http: HttpClient,
 
-  // alturaTabBar = document.querySelector('.clase-card');
-  // printAlturaBar = this.alturaTabBar.offsetHeight;
-  // elemento = <HTMLElement>document.querySelector('.card-alert');
-  // altura = this.elemento.offsetHeight;
-
-  // boton = document.querySelector('.buttonFix');
-
-  // constructor( private navCtrl: NavController ) {}
-  // changeClassIOS = document.querySelectorAll('.button-fix');
-
-  // @ViewChild('.clase-card') elementView: ElementRef;
-  // viewHeight: number;
-
-  constructor( private navCtrl: NavController, public plt: Platform ) {
-
-    // plt.ready().then((readySource) => {
-    //   // console.log('Width: ' + plt.width());
-    //   console.log('Height: ' + plt.height());
-    //   console.log(plt.height() - 56);
-    //
-    //   let alturaSinTabBar = this.plt.height() -56;
-    //
-    // });
+  ) {
 
     if (this.plt.is('ios')) {
       //Si es iOS
@@ -54,8 +40,28 @@ export class ReservasPage {
     }
   }
 
-  goToEditConfirm() {
-    this.navCtrl.navigateForward( '/home/(reservas:edit-confirm)' );
+  ngOnInit() {
+    this.storage.get(TOKEN_KEY).then((value) => {
+
+      let Bearer = value;
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Authorization': 'Bearer '+ Bearer//updated
+        })};
+
+      this.http.get(SERVER_URL+"/clases-coming?sort_by_asc=date", httpOptions)
+          .subscribe((result: any) => {
+            console.log('entre a las calses coming');
+            this.clases = result.data;
+            console.log(this.clases);
+           });
+
+    });
+  }
+
+  goToEditConfirm(private id: string = "0") {
+  //  this.navCtrl.navigateForward( '/home/(clases:clase/'+id+')');
+    this.navCtrl.navigateForward( '/home/(reservas:edit-confirm/'+id+')' );
   }
   goToAddDay() {
     this.navCtrl.navigateForward( '/home/(reservas:add-day)' );
