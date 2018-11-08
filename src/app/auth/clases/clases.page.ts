@@ -15,7 +15,7 @@ let TOKEN_KEY = 'auth-token';
 })
 export class ClasesPage {
 
-  constructor(private storage: Storage,  private http: HttpClient) {}
+  constructor(private storage: Storage,  private http: HttpClient, private navCtrl: NavController) {}
 
 
 
