@@ -6,8 +6,8 @@ export const environment = {
   production: false,
 };
 
-export const SERVER_URL = 'http://purasangre-api.test';
-export const API_KEY = 'BnasJcpWFNNgnJkqNO5QXz4PSUWGlEn2eXlGo9d2';
+export const SERVER_URL = 'http://purasangre.asomic.com';
+export const API_KEY = 'JqqNsmXRAQRqW3uxgIiiDHz5gwqJWxdxqP8PqMUJ';
 
 /*
  * In development mode, to ignore zone related error stack frames such as
