@@ -117,7 +117,5 @@ export class EditConfirmPage implements OnInit {
     this.navCtrl.navigateForward( '/home/(reservas:edit-hour)' );
   }
 
-  ngOnInit() {
-  }
 
 }

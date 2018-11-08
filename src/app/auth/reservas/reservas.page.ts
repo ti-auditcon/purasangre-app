@@ -59,7 +59,7 @@ export class ReservasPage {
     });
   }
 
-  goToEditConfirm(private id: string = "0") {
+  goToEditConfirm(id: string = "0") {
   //  this.navCtrl.navigateForward( '/home/(clases:clase/'+id+')');
     this.navCtrl.navigateForward( '/home/(reservas:edit-confirm/'+id+')' );
   }
