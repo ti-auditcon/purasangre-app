@@ -33,7 +33,7 @@ const routes: Routes = [
       { path: 'edit-confirm/:id', outlet: 'reservas', component: EditConfirmPage },
       { path: 'add-day', outlet: 'reservas', component: AddDayPage },
       { path: 'add-hour/:date', outlet: 'reservas', component: AddHourPage },
-      { path: 'add-confirm', outlet: 'reservas', component: AddConfirmPage },
+      { path: 'add-confirm/:id', outlet: 'reservas', component: AddConfirmPage },
 
       { path: 'pagos', outlet: 'pagos', component: PagosPage }
     ]},
