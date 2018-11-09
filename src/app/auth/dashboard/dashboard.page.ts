@@ -19,6 +19,7 @@ export class DashboardPage implements OnInit {
   public user: any = '';
   public user_plan: any = '';
   public wod: any = '';
+  public alerts: any = [];
 
   constructor(
     private router: Router,
@@ -27,7 +28,7 @@ export class DashboardPage implements OnInit {
     private http: HttpClient
   ) { }
 
-  ngOnInit() {
+  ionViewDidEnter() {
     this.storage.get(TOKEN_KEY).then((value) => {
       //console.log(value);
       let Bearer = value;
@@ -59,6 +60,13 @@ export class DashboardPage implements OnInit {
           console.log(this.wod);
         });
 
+        this.http.get(SERVER_URL+"/users-alerts", httpOptions)
+        .subscribe((result: any) => {
+          this.alerts = result.data;
+
+          console.log(this.alerts);
+        });
+
     });
   }
 
@@ -70,6 +78,11 @@ export class DashboardPage implements OnInit {
     // this.router.navigate(['/clases/clase']);
     this.navCtrl.navigateForward( '/home/(clases:hoy)' );
     // this.router.navigate(['/home/(clases:clase)']);
+  }
+
+  goToEditConfirm(id: string = "0") {
+  //  this.navCtrl.navigateForward( '/home/(clases:clase/'+id+')');
+    this.navCtrl.navigateForward( '/home/(reservas:edit-confirm/'+id+')' );
   }
 
 }

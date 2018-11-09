@@ -83,7 +83,31 @@ export class ConfirmPage implements OnInit {
 
   dismiss() {
     this.viewCtrl.dismiss();
-}
+  }
 
+  confirm(id: string ) {
+    console.log('click confirm');
+    this.storage.get(TOKEN_KEY).then((value) => {
+
+      let Bearer = value;
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Authorization': 'Bearer '+ Bearer//updated
+        })};
+        console.log(id);
+      this.http.post(SERVER_URL+"/clases/"+id+"/confirm",null, httpOptions)
+          .subscribe((result: any) => {
+            console.log('voy a confirnar clase...');
+            this.viewCtrl.dismiss();
+            this.navCtrl.navigateRoot( '/home/(reservas:reservas)');
+          },
+          err => {
+            console.log('error 401');
+            console.log(err);
+            this.viewCtrl.dismiss();
+          });
+
+      });
+  }
 
 }

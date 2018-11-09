@@ -35,48 +35,48 @@ export class EditConfirmPage implements OnInit {
                public activatedRoute: ActivatedRoute,
               ) {
 
-    if (this.plt.is('ios')) {
-      //Si es iOS
-      this.buttonFixIOS = "button-fix-ios";
-      this.buttonFixAndroid = "display-none";
-    } else {
-      //Si es Android
-      this.buttonFixIOS = "display-none";
-      this.buttonFixAndroid = "button-fix";
-    }
-    console.log('hola entre a la clase para editar');
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log('sii');
-    this.storage.get(TOKEN_KEY).then((value) => {
-
-      let Bearer = value;
-      const httpOptions = {
-        headers: new HttpHeaders({
-          'Authorization': 'Bearer '+ Bearer//updated
-        })};
-
-      this.http.get(SERVER_URL+"/clases/"+id, httpOptions)
-          .subscribe((result: any) => {
-            console.log(' http entre a la clase para editar');
-            this.clase = result.data;
-            console.log(this.clase);
-            this.reservation = this.clase.rels.auth_reservation;
-            this.http.get(this.clase.rels.users.href, httpOptions)
-                .subscribe((result: any) => {
-                  console.log('tiene users');
-                  this.users = result.data;
-                  console.log(this.users);
-                 });
-             });
-
-
-      });
 
 
   }
 
-  ngOnInit() {
+  ionViewDidEnter() {
 
+        if (this.plt.is('ios')) {
+          //Si es iOS
+          this.buttonFixIOS = "button-fix-ios";
+          this.buttonFixAndroid = "display-none";
+        } else {
+          //Si es Android
+          this.buttonFixIOS = "display-none";
+          this.buttonFixAndroid = "button-fix";
+        }
+        console.log('hola entre a la clase para editar');
+        let id = this.activatedRoute.snapshot.paramMap.get('id');
+        console.log('sii');
+        this.storage.get(TOKEN_KEY).then((value) => {
+
+          let Bearer = value;
+          const httpOptions = {
+            headers: new HttpHeaders({
+              'Authorization': 'Bearer '+ Bearer//updated
+            })};
+
+          this.http.get(SERVER_URL+"/clases/"+id, httpOptions)
+              .subscribe((result: any) => {
+                console.log(' http entre a la clase para editar');
+                this.clase = result.data;
+                console.log(this.clase);
+                this.reservation = this.clase.rels.auth_reservation;
+                this.http.get(this.clase.rels.users.href, httpOptions)
+                    .subscribe((result: any) => {
+                      console.log('tiene users');
+                      this.users = result.data;
+                      console.log(this.users);
+                     });
+                 });
+
+
+          });
   }
 
   async openModal(){
@@ -88,7 +88,7 @@ export class EditConfirmPage implements OnInit {
         message: this.clase.dateHuman+' de '+this.clase.start+' a '+this.clase.end+'hrs. No podras cancelar esta accion ',
         buttonIcon: 'information-circle',
         claseId: this.clase.clase_id,
-        buttonActionEdit: true,
+        buttonActionConfirm: true,
       },
       cssClass: 'modal-confirm'
     });
