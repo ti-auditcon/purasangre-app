@@ -2,6 +2,7 @@
 import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
@@ -19,7 +20,10 @@ export class ConfirmPage implements OnInit {
   constructor( public viewCtrl: ModalController,
                private navCtrl: NavController,
                private storage: Storage,
-               private http: HttpClient, ) { }
+               private http: HttpClient,
+               private router: Router,
+
+              ) { }
 
   ngOnInit() {
   }
@@ -37,7 +41,7 @@ export class ConfirmPage implements OnInit {
           .subscribe((result: any) => {
             console.log('voy a reservar...');
             this.viewCtrl.dismiss();
-            this.navCtrl.navigate( '/home/(reservas:reservas)');
+            this.navCtrl.navigateRoot( '/home/(reservas:reservas)');
 
           },
           err => {
@@ -66,7 +70,7 @@ export class ConfirmPage implements OnInit {
           .subscribe((result: any) => {
             console.log('voy a remover...');
             this.viewCtrl.dismiss();
-            this.navCtrl.navigate( '/home/(reservas:reservas)');
+            this.navCtrl.navigateRoot( '/home/(reservas:reservas)');
 
           },
           err => {

@@ -46,7 +46,7 @@ export class ClasesPage {
     });
   }
 
-  irAClase(private id: string = "0"){
+  irAClase(id: string = "0"){
     // this.router.navigateByUrl( '/home/(clases:clase)' );
   //  this.storage.set('clase_id', '1');
   //  this.navCtrl.navigateForward( '/home/(clases:clase/{{1}})')
