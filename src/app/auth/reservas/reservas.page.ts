@@ -60,7 +60,7 @@ export class ReservasPage {
             console.log(this.clases);
            });
 
-           console.log(this.today);
+           // console.log(this.today);
 
       this.http.get(SERVER_URL+"/users-alerts", httpOptions)
            .subscribe((result: any) => {

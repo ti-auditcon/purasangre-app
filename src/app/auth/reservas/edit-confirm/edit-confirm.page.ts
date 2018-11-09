@@ -1,7 +1,7 @@
 //env
 import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { Platform, ModalController, NavController } from '@ionic/angular';
 import { ConfirmPage } from '../confirm/confirm.page';
 import { Storage } from '@ionic/storage';
@@ -15,7 +15,7 @@ let TOKEN_KEY = 'auth-token';
   templateUrl: './edit-confirm.page.html',
   styleUrls: ['./edit-confirm.page.scss'],
 })
-export class EditConfirmPage implements OnInit {
+export class EditConfirmPage  {
   public clase: any = [];
   public reservation: any = [];
   public users: any = [];

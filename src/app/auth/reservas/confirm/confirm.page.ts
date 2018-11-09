@@ -1,7 +1,7 @@
 //env
 import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
@@ -15,7 +15,7 @@ let TOKEN_KEY = 'auth-token';
   templateUrl: './confirm.page.html',
   styleUrls: ['./confirm.page.scss'],
 })
-export class ConfirmPage implements OnInit {
+export class ConfirmPage {
 
   constructor( public viewCtrl: ModalController,
                private navCtrl: NavController,
@@ -25,8 +25,7 @@ export class ConfirmPage implements OnInit {
 
               ) { }
 
-  ngOnInit() {
-  }
+
 
   reserve(id: string ) {
     this.storage.get(TOKEN_KEY).then((value) => {

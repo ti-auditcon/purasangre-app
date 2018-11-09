@@ -1,7 +1,7 @@
 //env
 import { environment, SERVER_URL} from '../../../environments/environment';
 //imports
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
@@ -15,7 +15,7 @@ let TOKEN_KEY = 'auth-token';
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss'],
 })
-export class DashboardPage implements OnInit {
+export class DashboardPage  {
   public user: any = '';
   public user_plan: any = '';
   public wod: any = '';

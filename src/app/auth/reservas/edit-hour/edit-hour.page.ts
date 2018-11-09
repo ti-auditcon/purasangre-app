@@ -43,7 +43,7 @@ export class EditHourPage implements OnInit {
     });
   }
 
-  goToEditConfirm(id:string = "0",has:bool = false) {
+  goToEditConfirm(id:string = "0", has = false) {
     if(!has){
         this.navCtrl.navigateForward( '/home/(reservas:edit-confirm/'+id+')' );
     }
