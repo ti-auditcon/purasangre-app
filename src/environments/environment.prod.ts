@@ -3,3 +3,4 @@ export const environment = {
 };
 
 export const SERVER_URL = 'http://purasangreapi.asomic.com/';
+export const API_KEY = 'JqqNsmXRAQRqW3uxgIiiDHz5gwqJWxdxqP8PqMUJ';
