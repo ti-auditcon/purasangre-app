@@ -67,4 +67,8 @@ export class ReservasPage {
     this.navCtrl.navigateForward( '/home/(reservas:add-day)' );
   }
 
+  enter() {
+    console.log('entreeeeeeeee!!!!!!!!!!!!!!!');
+  }
+
 }

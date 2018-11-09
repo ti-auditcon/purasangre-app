@@ -86,7 +86,9 @@ export class EditConfirmPage implements OnInit {
         custom_id: 1,
         title: 'Reservar esta hora',
         message: 'Viernes 13 de 19:00 a 20:00 hrs',
-        buttonIcon: 'information-circle'
+        buttonIcon: 'information-circle',
+        claseId: this.clase.clase_id,
+        buttonActionEdit: true,
       },
       cssClass: 'modal-confirm'
     });
@@ -103,7 +105,9 @@ export class EditConfirmPage implements OnInit {
         custom_id: 0,
         title: 'Ceder tu Cupo',
         message: 'Si cedes tu cupo podrás reservar en otro horario',
-        buttonIcon: 'information-circle'
+        buttonIcon: 'information-circle',
+        claseId: this.clase.clase_id,
+        buttonActionRemove: true,
       },
       cssClass: 'modal-confirm'
     });

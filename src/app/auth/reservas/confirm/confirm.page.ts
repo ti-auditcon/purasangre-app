@@ -37,7 +37,7 @@ export class ConfirmPage implements OnInit {
           .subscribe((result: any) => {
             console.log('voy a reservar...');
             this.viewCtrl.dismiss();
-            this.navCtrl.navigateForward( '/home/(reservas:reservas)' );
+            this.navCtrl.navigate( '/home/(reservas:reservas)');
 
           },
           err => {
@@ -52,5 +52,35 @@ export class ConfirmPage implements OnInit {
       });
 
   }
+
+  remove(id: string ) {
+    this.storage.get(TOKEN_KEY).then((value) => {
+
+      let Bearer = value;
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Authorization': 'Bearer '+ Bearer//updated
+        })};
+        console.log(id);
+      this.http.post(SERVER_URL+"/clases/"+id+"/remove",null, httpOptions)
+          .subscribe((result: any) => {
+            console.log('voy a remover...');
+            this.viewCtrl.dismiss();
+            this.navCtrl.navigate( '/home/(reservas:reservas)');
+
+          },
+          err => {
+
+            console.log('error 401');
+            console.log(err);
+            this.viewCtrl.dismiss();
+
+          });
+
+
+      });
+
+  }
+
 
 }
