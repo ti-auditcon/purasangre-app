@@ -29,7 +29,7 @@ const routes: Routes = [
       { path: 'hoy', outlet: 'clases', component: HoyPage },
 
       { path: 'reservas', outlet: 'reservas', component: ReservasPage },
-      { path: 'edit-hour', outlet: 'reservas', component: EditHourPage },
+      { path: 'edit-hour/:date', outlet: 'reservas', component: EditHourPage },
       { path: 'edit-confirm/:id', outlet: 'reservas', component: EditConfirmPage },
       { path: 'add-day', outlet: 'reservas', component: AddDayPage },
       { path: 'add-hour/:date', outlet: 'reservas', component: AddHourPage },

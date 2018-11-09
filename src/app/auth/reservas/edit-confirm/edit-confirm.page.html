@@ -1,10 +1,10 @@
-<app-navbar titulo="Editar Reserva"></app-navbar>
+<app-navbar titulo="Reserva"></app-navbar>
 
 <ion-content padding>
 
   <div class="reserva">
     <h1 class="titleReserva-section margin-bottom">
-      Cambia el horario o cede tu cupo
+      Reserva {{clase.rels?.auth_reservation.status}}
     </h1>
     <h4 class="date-section">
       {{clase.dateHuman}} de {{clase.start}} - {{clase.end}} hrs
@@ -19,8 +19,8 @@
     </div>
 
     <div class="buttons-edit-reserva">
-      <button class="button-edit" (click)="goToEditHour()">Cambiar hora</button>
-      <button class="button-edit" (click)="openModalCeder()">Ceder cupo</button>
+      <!-- <button class="button-edit" (click)="goToEditHour(this.clase.date)">Cambiar hora</button> -->
+      <button *ngIf="clase.rels?.auth_reservation.status === 'Pendiente'" class="button-edit" (click)="openModalCeder()">Ceder cupo</button>
     </div>
 
     <div class="card card-crossfiters">
@@ -46,14 +46,14 @@
     </div>
   </div>
 
-  <div [ngClass]="buttonFixIOS">
-    <button class="reservar" (click)="openModal()">Confirmar esta hora</button>
+  <div [ngClass]="buttonFixIOS" *ngIf="clase.rels?.auth_reservation.status === 'Pendiente'">
+    <button class="reservar" (click)="openModal()">Confirmar asistencia</button>
   </div>
 
 </ion-content>
 
 <ion-footer>
-  <div [ngClass]="buttonFixAndroid">
-    <button class="reservar" (click)="openModal()">Confirmar esta hora</button>
+  <div [ngClass]="buttonFixAndroid" *ngIf="clase.rels?.auth_reservation.status === 'Pendiente'">
+    <button class="reservar" (click)="openModal()">Confirmar asistencia</button>
   </div>
 </ion-footer>

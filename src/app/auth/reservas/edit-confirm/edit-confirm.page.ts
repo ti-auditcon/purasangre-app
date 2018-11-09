@@ -84,8 +84,8 @@ export class EditConfirmPage implements OnInit {
       component: ConfirmPage,
       componentProps: {
         custom_id: 1,
-        title: 'Reservar esta hora',
-        message: 'Viernes 13 de 19:00 a 20:00 hrs',
+        title: 'Confirmar esta clase',
+        message: this.clase.dateHuman+' de '+this.clase.start+' a '+this.clase.end+'hrs. No podras cancelar esta accion ',
         buttonIcon: 'information-circle',
         claseId: this.clase.clase_id,
         buttonActionEdit: true,
@@ -117,8 +117,8 @@ export class EditConfirmPage implements OnInit {
     return await modal.present();
   }
 
-  goToEditHour() {
-    this.navCtrl.navigateForward( '/home/(reservas:edit-hour)' );
+  goToEditHour(date:string = "2015-01-01") {
+    this.navCtrl.navigateForward( '/home/(reservas:edit-hour/'+date+')' );
   }
 
 

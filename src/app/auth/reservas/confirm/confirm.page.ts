@@ -71,20 +71,19 @@ export class ConfirmPage implements OnInit {
             console.log('voy a remover...');
             this.viewCtrl.dismiss();
             this.navCtrl.navigateRoot( '/home/(reservas:reservas)');
-
           },
           err => {
-
             console.log('error 401');
             console.log(err);
             this.viewCtrl.dismiss();
-
           });
 
-
       });
-
   }
+
+  dismiss() {
+    this.viewCtrl.dismiss();
+}
 
 
 }
