@@ -6,9 +6,11 @@ export const environment = {
   production: false,
 };
 
-export const SERVER_URL = 'http://purasangre-api.test';
-export const API_KEY = 'BnasJcpWFNNgnJkqNO5QXz4PSUWGlEn2eXlGo9d2';
+// export const SERVER_URL = 'http://purasangre-api.test';
+// export const API_KEY = 'BnasJcpWFNNgnJkqNO5QXz4PSUWGlEn2eXlGo9d2';
 
+export const SERVER_URL = 'http://purasangreapi.asomic.com/';
+export const API_KEY = 'x3fStA3El2qt7HgecsQpmpmfCWLNuKSbvIpuVLds';
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can
