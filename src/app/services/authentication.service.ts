@@ -22,6 +22,7 @@ interface obj {
 })
 export class AuthenticationService {
   public alert: string = 'hola';
+  public authError: any = 'e' ;
 
   authenticationState = new BehaviorSubject(false);
 
@@ -54,22 +55,24 @@ export class AuthenticationService {
         'Content-Type': 'application/json', //updated
 
       })};
+    return new Promise((resolve, reject) => {
+      this.http.post(SERVER_URL+"/oauth/token",data, httpOptions)
+           .subscribe(
+               (result: any) => {
+                     console.log('success 200');
 
-    this.http.post(SERVER_URL+"/oauth/token",data, httpOptions)
-    .subscribe(
-        (result: any) => {
-              console.log('success 200');
-              return this.storage.set(TOKEN_KEY, result.access_token).then(() => {
-                this.authenticationState.next(true);
-            });
-        },
-        err => {
-          console.log('error 401');
-          return this.storage.set('alert', 'error de auntentificacion').then(() => {
-          //
-        });
-        }
-      );
+                       this.storage.set(TOKEN_KEY, result.access_token).then(() => {
+                       this.authenticationState.next(true);
+                   });
+                   resolve(result);
+               },
+               (err) => {
+                 console.log('error 401');
+                 reject(err);
+               }
+             );
+    });
+
 
   }
 
@@ -81,6 +84,10 @@ export class AuthenticationService {
 
   isAuthenticated() {
     return this.authenticationState.value;
+  }
+
+  lastError() {
+    return this.authError;
   }
 
 }

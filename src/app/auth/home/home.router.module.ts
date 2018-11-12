@@ -14,10 +14,11 @@ import { AddHourPage } from '../reservas/add-hour/add-hour.page';
 import { AddConfirmPage } from '../reservas/add-confirm/add-confirm.page';
 import { EditConfirmPage } from '../reservas/edit-confirm/edit-confirm.page';
 import { PagosPage } from '../pagos/pagos.page';
+import { AuthGuardService } from '../../services/auth-guard.service';
 
 const routes: Routes = [
   {
-    path: 'home', component: HomePage, children: [
+    path: 'home', canActivate: [AuthGuardService], component: HomePage, children: [
       { path: '', redirectTo: '/home/(dashboard:dashboard)', pathMatch: 'full', },
 
       { path: 'dashboard', outlet: 'dashboard', component: DashboardPage },

@@ -27,5 +27,21 @@
       </ion-col>
     </form>
 
+    <div class="card card-alert" *ngIf="error.error" >
+      <ion-grid>
+        <ion-row>
+
+          <ion-col class="text">
+            <p>
+              {{error.error}}
+            </p>
+            <p>
+              {{error.message}}
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
   </div>
 </section>

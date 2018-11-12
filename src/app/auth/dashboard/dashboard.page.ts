@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { AuthenticationService } from './../../services/authentication.service';
 
 
 let TOKEN_KEY = 'auth-token';
@@ -25,7 +26,8 @@ export class DashboardPage  {
     private router: Router,
     private navCtrl: NavController,
     private storage: Storage,
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthenticationService,
   ) { }
 
   ionViewDidEnter() {
@@ -50,22 +52,42 @@ export class DashboardPage  {
                   this.user_plan = result.data;
                   console.log(this.user_plan);
 
-                 });
-        });
+                },
+                 err =>{
+                   console.log('error plan');
+                   this.authService.logout();
+                 }
+               );
+        },
+        err =>{
+          console.log('error perfil');
+          this.authService.logout();
+        }
+
+
+      );
 
         this.http.get(SERVER_URL+"/todaywods", httpOptions)
         .subscribe((result: any) => {
           this.wod = result.data[0];
           console.log('ENTRE WOD');
           console.log(this.wod);
-        });
+        },
+         err =>{
+           console.log('error wod');
+         }
+      );
 
         this.http.get(SERVER_URL+"/users-alerts", httpOptions)
         .subscribe((result: any) => {
           this.alerts = result.data;
 
           console.log(this.alerts);
-        });
+        },
+         err =>{
+           console.log('error user-alerts');
+         }
+      );
 
     });
   }
