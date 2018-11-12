@@ -16,6 +16,9 @@ let TOKEN_KEY = 'auth-token';
 })
 export class ReservasPage {
   public clases: any = [];
+  public today_clase: any = [];
+  public alerts: any = [];
+
 
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
@@ -40,7 +43,8 @@ export class ReservasPage {
     }
   }
 
-  ngOnInit() {
+  ionViewDidEnter() {
+    console.log('estoy cargandome........');
     this.storage.get(TOKEN_KEY).then((value) => {
 
       let Bearer = value;
@@ -51,12 +55,22 @@ export class ReservasPage {
 
       this.http.get(SERVER_URL+"/clases-coming?sort_by_asc=date", httpOptions)
           .subscribe((result: any) => {
-            console.log('entre a las calses coming');
+            console.log('entre a las clases coming');
             this.clases = result.data;
             console.log(this.clases);
            });
 
+           // console.log(this.today);
+
+      this.http.get(SERVER_URL+"/users-alerts", httpOptions)
+           .subscribe((result: any) => {
+             this.alerts = result.data;
+
+             console.log(this.alerts);
+           });
     });
+
+
   }
 
   goToEditConfirm(id: string = "0") {
@@ -65,6 +79,10 @@ export class ReservasPage {
   }
   goToAddDay() {
     this.navCtrl.navigateForward( '/home/(reservas:add-day)' );
+  }
+
+  enter() {
+    console.log('entreeeeeeeee!!!!!!!!!!!!!!!');
   }
 
 }

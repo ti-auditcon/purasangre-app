@@ -1,7 +1,7 @@
 //env
 import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { Platform, ModalController, NavController } from '@ionic/angular';
 import { ConfirmPage } from '../confirm/confirm.page';
 import { Storage } from '@ionic/storage';
@@ -15,7 +15,7 @@ let TOKEN_KEY = 'auth-token';
   templateUrl: './edit-confirm.page.html',
   styleUrls: ['./edit-confirm.page.scss'],
 })
-export class EditConfirmPage implements OnInit {
+export class EditConfirmPage  {
   public clase: any = [];
   public reservation: any = [];
   public users: any = [];
@@ -35,48 +35,48 @@ export class EditConfirmPage implements OnInit {
                public activatedRoute: ActivatedRoute,
               ) {
 
-    if (this.plt.is('ios')) {
-      //Si es iOS
-      this.buttonFixIOS = "button-fix-ios";
-      this.buttonFixAndroid = "display-none";
-    } else {
-      //Si es Android
-      this.buttonFixIOS = "display-none";
-      this.buttonFixAndroid = "button-fix";
-    }
-    console.log('hola entre a la clase para editar');
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log('sii');
-    this.storage.get(TOKEN_KEY).then((value) => {
-
-      let Bearer = value;
-      const httpOptions = {
-        headers: new HttpHeaders({
-          'Authorization': 'Bearer '+ Bearer//updated
-        })};
-
-      this.http.get(SERVER_URL+"/clases/"+id, httpOptions)
-          .subscribe((result: any) => {
-            console.log(' http entre a la clase para editar');
-            this.clase = result.data;
-            console.log(this.clase);
-            this.reservation = this.clase.rels.auth_reservation;
-            this.http.get(this.clase.rels.users.href, httpOptions)
-                .subscribe((result: any) => {
-                  console.log('tiene users');
-                  this.users = result.data;
-                  console.log(this.users);
-                 });
-             });
-
-
-      });
 
 
   }
 
-  ngOnInit() {
+  ionViewDidEnter() {
 
+        if (this.plt.is('ios')) {
+          //Si es iOS
+          this.buttonFixIOS = "button-fix-ios";
+          this.buttonFixAndroid = "display-none";
+        } else {
+          //Si es Android
+          this.buttonFixIOS = "display-none";
+          this.buttonFixAndroid = "button-fix";
+        }
+        console.log('hola entre a la clase para editar');
+        let id = this.activatedRoute.snapshot.paramMap.get('id');
+        console.log('sii');
+        this.storage.get(TOKEN_KEY).then((value) => {
+
+          let Bearer = value;
+          const httpOptions = {
+            headers: new HttpHeaders({
+              'Authorization': 'Bearer '+ Bearer//updated
+            })};
+
+          this.http.get(SERVER_URL+"/clases/"+id, httpOptions)
+              .subscribe((result: any) => {
+                console.log(' http entre a la clase para editar');
+                this.clase = result.data;
+                console.log(this.clase);
+                this.reservation = this.clase.rels.auth_reservation;
+                this.http.get(this.clase.rels.users.href, httpOptions)
+                    .subscribe((result: any) => {
+                      console.log('tiene users');
+                      this.users = result.data;
+                      console.log(this.users);
+                     });
+                 });
+
+
+          });
   }
 
   async openModal(){
@@ -84,9 +84,11 @@ export class EditConfirmPage implements OnInit {
       component: ConfirmPage,
       componentProps: {
         custom_id: 1,
-        title: 'Reservar esta hora',
-        message: 'Viernes 13 de 19:00 a 20:00 hrs',
-        buttonIcon: 'information-circle'
+        title: 'Confirmar esta clase',
+        message: this.clase.dateHuman+' de '+this.clase.start+' a '+this.clase.end+'hrs. No podras cancelar esta accion ',
+        buttonIcon: 'information-circle',
+        claseId: this.clase.clase_id,
+        buttonActionConfirm: true,
       },
       cssClass: 'modal-confirm'
     });
@@ -103,7 +105,9 @@ export class EditConfirmPage implements OnInit {
         custom_id: 0,
         title: 'Ceder tu Cupo',
         message: 'Si cedes tu cupo podrás reservar en otro horario',
-        buttonIcon: 'information-circle'
+        buttonIcon: 'information-circle',
+        claseId: this.clase.clase_id,
+        buttonActionRemove: true,
       },
       cssClass: 'modal-confirm'
     });
@@ -113,9 +117,13 @@ export class EditConfirmPage implements OnInit {
     return await modal.present();
   }
 
-  goToEditHour() {
-    this.navCtrl.navigateForward( '/home/(reservas:edit-hour)' );
+  goToEditHour(date:string = "2015-01-01") {
+    this.navCtrl.navigateForward( '/home/(reservas:edit-hour/'+date+')' );
   }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 
 }

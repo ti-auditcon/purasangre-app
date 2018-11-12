@@ -10,6 +10,8 @@ import { NavController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   registerCredentials = { email: '', password: '' };
+  error:any = '';
+
 //  alert: string = this.storage.get('alert');
 
   constructor( private authService: AuthenticationService,
@@ -17,10 +19,23 @@ export class LoginPage implements OnInit {
                private navCtrl: NavController ) { }
 
   ngOnInit() {
+
   }
 
   login() {
-   this.authService.login(this.registerCredentials);
+
+    this.authService.login(this.registerCredentials)
+    .then(data => {
+          console.log(data);
+        })
+    .catch(e => {
+        console.log(e);
+        this.error = e.error;
+        console.log(this.error.error );
+        console.log(this.error.message );
+    });
+
+
   }
 
   goToForgot() {
