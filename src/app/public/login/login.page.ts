@@ -19,8 +19,7 @@ export class LoginPage implements OnInit {
                private navCtrl: NavController ) { }
 
   ngOnInit() {
-    alert = this.authService.lastError();
-    console.log(alert);
+
   }
 
   login() {
