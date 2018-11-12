@@ -121,9 +121,6 @@ export class EditConfirmPage  {
     this.navCtrl.navigateForward( '/home/(reservas:edit-hour/'+date+')' );
   }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> master
 
 }

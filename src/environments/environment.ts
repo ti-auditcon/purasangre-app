@@ -6,13 +6,8 @@ export const environment = {
   production: false,
 };
 
-<<<<<<< HEAD
-export const SERVER_URL = 'http://purasangre.asomic.com';
-export const API_KEY = 'JqqNsmXRAQRqW3uxgIiiDHz5gwqJWxdxqP8PqMUJ';
-=======
 // export const SERVER_URL = 'http://purasangre-api.test';
 // export const API_KEY = 'BnasJcpWFNNgnJkqNO5QXz4PSUWGlEn2eXlGo9d2';
->>>>>>> master
 
 export const SERVER_URL = 'http://purasangreapi.asomic.com/';
 export const API_KEY = '6xpyMQ7zXLZwmlkdIzCyh6eupMj4pDEA0cx3cHzf';
