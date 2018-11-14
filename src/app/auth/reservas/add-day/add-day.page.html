@@ -10,7 +10,7 @@
     <div class="section grid-days">
 
 
-      <div class="item-day" text-center (click)="goToAddHour(week[1]?.date)" [ngClass]="{'today' : week[1]?.today}">
+      <div class="item-day disabled" text-center (click)="goToAddHour(week[1]?.date)" [ngClass]="{'today' : week[1]?.today}">
         <p>{{week[1]?.dayName}}</p>
         <h1>{{week[1]?.day}}</h1>
       </div>

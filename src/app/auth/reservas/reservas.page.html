@@ -19,7 +19,7 @@
     </div>
 
   <div class="section">
-    <h1 class="title-section">Próximas Reservas</h1>
+    <h1 class="title-section">Sin Confirmar</h1>
     <div class="clases-cards">
       <div class="clase-card " *ngFor="let clase of clases" (click)="goToEditConfirm(clase.clase_id)">
         <ion-grid>
@@ -34,9 +34,25 @@
           </ion-row>
         </ion-grid>
       </div>
+    </div>
+  </div>
 
-
-
+  <div class="section">
+    <h1 class="title-section">Confirmadas</h1>
+    <div class="clases-cards">
+      <div class="clase-card " *ngFor="let clase of clases" (click)="goToEditConfirm(clase.clase_id)">
+        <ion-grid>
+          <ion-row align-items-center>
+            <ion-col size="11">
+              <h2>{{clase.dateHuman}} {{clase.rels?.auth_reservation.status}} </h2>
+              <p>{{clase.start}} - {{clase.end}} hrs</p>
+            </ion-col>
+            <ion-col size="1">
+              <ion-icon name="arrow-dropright"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
     </div>
   </div>
 
