@@ -36,7 +36,7 @@ export class ClasesPage {
           'Authorization': 'Bearer '+ Bearer//updated
         })};
 
-      this.http.get(SERVER_URL+"/clases-historic", httpOptions)
+      this.http.get(SERVER_URL+"/clases-historic?sort_by_desc=date", httpOptions)
           .subscribe((result: any) => {
             console.log('entre al historico');
             this.clases = result.data;
