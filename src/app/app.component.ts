@@ -24,7 +24,10 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       // this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      // this.splashScreen.hide();
+      setTimeout(()=>{
+        this.splashScreen.hide();
+      },1000);
 
       this.authenticationService.authenticationState.subscribe(state => {
         if (state) {

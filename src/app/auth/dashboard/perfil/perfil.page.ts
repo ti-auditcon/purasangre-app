@@ -5,6 +5,10 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Crop } from '@ionic-native/crop/ngx';
+import { Platform } from '@ionic/angular';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
 
 let TOKEN_KEY = 'auth-token';
 
@@ -17,10 +21,45 @@ export class PerfilPage implements OnInit {
   public user: any = '';
   public user_plan: any = '';
 
-  constructor(private storage: Storage, private authService: AuthenticationService, private http: HttpClient) {
+  constructor( private storage: Storage,
+               private authService: AuthenticationService,
+               private http: HttpClient,
+               private camera: Camera,
+               private crop: Crop,
+               private platform: Platform,
+               private webview: WebView ) {}
 
-  }
+  base64Image:any;
+  preImage:any;
 
+  selectImageFromCamera()
+  {
+    const options: CameraOptions = {
+      quality: 100,
+      targetWidth: 1000,
+      targetHeight: 1000,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+      correctOrientation: true,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+
+    this.camera.getPicture(options).then((imageData) => {
+    this.preImage = imageData;
+
+    this.crop.crop(this.preImage, {quality: 100})
+    .then(
+      newImage => {
+        this.base64Image = this.webview.convertFileSrc(newImage);
+      }, error => {
+         console.error('Error cropping image', error);
+        }
+     );
+     }, (err) => {
+       console.log(err);
+     });
+   }
 
   ngOnInit() {
     this.storage.get(TOKEN_KEY).then((value) => {

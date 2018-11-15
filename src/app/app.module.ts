@@ -9,10 +9,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
+import { Camera } from '@ionic-native/camera/ngx';
+import { Crop } from '@ionic-native/crop/ngx';
 
 import { HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ConfirmPage } from './public/confirm/confirm.page';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
 // import { BottombuttonComponent } from './auth/shared/bottombutton/bottombutton.component';
 // import { NavbarComponent } from './auth/shared/navbar/navbar.component';
 
@@ -30,6 +33,9 @@ import { ConfirmPage } from './public/confirm/confirm.page';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
+    Crop,
+    WebView,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
