@@ -14,7 +14,7 @@ let TOKEN_KEY = 'auth-token';
 })
 export class HoyPage implements OnInit {
 
-  public wod: any = '';
+  public today: any = '';
 
   constructor(
     private storage: Storage,
@@ -32,10 +32,10 @@ export class HoyPage implements OnInit {
         })};
 
 
-        this.http.get(SERVER_URL+"/todaywods", httpOptions)
+        this.http.get(SERVER_URL+"/today", httpOptions)
         .subscribe((result: any) => {
-          this.wod = result.data[0];
-          console.log('ENTRE WOD');
+          this.today = result.data;
+          console.log('today');
           console.log(result);
         });
 

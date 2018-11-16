@@ -19,21 +19,21 @@
   </div>
 
   <div class="plan-resumen">
-    <h1 class="plan-title">{{user_plan?.nombrePlan}}</h1>
-    <p class="plan-vencimiento">{{user_plan?.vencimiento}}</p>
+    <h1 class="plan-title">{{user.rels?.active_plan.plan}}</h1>
+    <p class="plan-vencimiento">{{user.rels?.active_plan.expiration}}</p>
     <div class="card card-info">
       <ion-grid>
         <ion-row>
           <ion-col class="info-item" text-center>
-            <p class="digit">21</p>
+            <p class="digit">{{ user.rels?.stats.clases_consumed}}</p>
             <p><b>Clases<br>Asistidas</b></p>
           </ion-col>
           <ion-col class="info-item" text-center>
-            <p class="digit">14</p>
+            <p class="digit">{{ user.rels?.stats.clases_quantity}}</p>
             <p><b>Clases<br>Restantes</b></p>
           </ion-col>
           <ion-col class="info-item" text-center>
-            <p class="digit">01</p>
+            <p class="digit">{{ user.rels?.stats.clases_lost}}</p>
             <p><b>Clases<br>Perdidas</b></p>
           </ion-col>
         </ion-row>
@@ -45,10 +45,12 @@
     <h1 class="title-section">W.O.D</h1>
     <div class="card card-resumen">
       <div class="text-box-resumen">
-        <p>
-          {{wod?.rels?.stages.wod }}
+        <p *ngIf="today?.wod?.has" >
+          {{today?.wod?.stages.wod}}
         </p>
-
+        <p *ngIf="!today?.wod?.has" >
+         No hay WOD registrado para el dia de hoy.
+        </p>
       </div>
       <button class="button-bottom" (click)="verWOD()">Ver Clase del día</button>
     </div>
