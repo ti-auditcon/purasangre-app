@@ -41,8 +41,10 @@ export class AddDayPage implements OnInit {
 
   }
 
-  goToAddHour(date: string = "2015-01-01") {
-    this.navCtrl.navigateForward('/home/(reservas:add-hour/'+date+')');
+  goToAddHour(date: string = "2015-01-01", has = false ) {
+    if(has){
+      this.navCtrl.navigateForward('/home/(reservas:add-hour/'+date+')');
+    }
   }
 
 }

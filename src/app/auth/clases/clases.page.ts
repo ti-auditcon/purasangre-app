@@ -36,10 +36,10 @@ export class ClasesPage {
           'Authorization': 'Bearer '+ Bearer//updated
         })};
 
-      this.http.get(SERVER_URL+"/clases-historic", httpOptions)
+      this.http.get(SERVER_URL+"/clases-historic?sort_by_desc=date", httpOptions)
           .subscribe((result: any) => {
             console.log('entre al historico');
-            this.clases = result.data;
+            this.clases = result.data.filter(clase => clase.rels.auth_reservation.status == 'Consumida');
             console.log(this.clases);
            });
 

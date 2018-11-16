@@ -8,7 +8,7 @@
 
 
     <div class="section grid-hours">
-      <div class="item-hour" *ngFor="let clase of clases" text-center (click)="goToAddConfirm(clase.clase_id)">
+      <div class="item-hour" *ngFor="let clase of clases" text-center (click)="goToAddConfirm(clase.clase_id,clase?.active)"  [ngClass]="{disabled : !clase?.active}">
         <p>
           <b>{{clase.start}} - {{clase.end}}</b><br>
           {{clase.rels.users.count}} / {{clase.quota}}

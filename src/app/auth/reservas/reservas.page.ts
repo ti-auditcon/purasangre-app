@@ -18,6 +18,8 @@ export class ReservasPage {
   public clases: any = [];
   public today_clase: any = [];
   public alerts: any = [];
+  public pendient: any = [];
+  public confirmed: any = [];
 
 
   buttonFixIOS: string = "";
@@ -58,6 +60,8 @@ export class ReservasPage {
             console.log('entre a las clases coming');
             this.clases = result.data;
             console.log(this.clases);
+            this.pendient =  this.clases.filter(clase=> clase.rels.auth_reservation.status == 'Pendiente');
+            this.confirmed =  this.clases.filter(clase=> clase.rels.auth_reservation.status == 'Confirmada');
            });
 
            // console.log(this.today);

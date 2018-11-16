@@ -43,8 +43,10 @@ export class AddHourPage implements OnInit {
     });
   }
 
-  goToAddConfirm(id: string = "0") {
-    this.navCtrl.navigateForward( '/home/(reservas:add-confirm/'+id+')' );
+  goToAddConfirm(id: string = "0", has = false) {
+    if(has){
+        this.navCtrl.navigateForward( '/home/(reservas:add-confirm/'+id+')' );
+    }
   }
 
 }

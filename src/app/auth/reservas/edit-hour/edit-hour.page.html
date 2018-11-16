@@ -7,7 +7,7 @@
     <h1 class="titleReserva-section">Cambiar hora para el <span class="sky-gradient">{{clases[0]?.dateHuman}}</span></h1>
 
     <div class="section grid-hours">
-      <div class="item-hour" [ngClass]="{'disabled' : clase.rels?.auth_reservation.has}" *ngFor="let clase of clases" text-center (click)="goToEditConfirm(clase.clase_id,clase.rels.auth_reservation.has)" >
+      <div class="item-hour" [ngClass]="{disabled : !clase?.active}" *ngFor="let clase of clases" text-center (click)="goToEditConfirm(clase.clase_id,clase.rels.auth_reservation.has)" >
         <p>
           <b>{{clase?.start}} - {{clase?.end}}</b><br>
           {{clase.rels?.users.count}} / {{clase?.quota}}
