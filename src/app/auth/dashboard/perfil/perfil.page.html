@@ -25,17 +25,18 @@
       <ion-grid>
         <ion-row>
           <ion-col class="info-item" text-center>
-            <p class="digit">21</p>
+            <p class="digit">{{ user.rels?.stats.clases_consumed}}</p>
             <p><b>Clases<br>Asistidas</b></p>
           </ion-col>
           <ion-col class="info-item" text-center>
-            <p class="digit">14</p>
+            <p class="digit">{{ user.rels?.stats.clases_quantity}}</p>
             <p><b>Clases<br>Restantes</b></p>
           </ion-col>
           <ion-col class="info-item" text-center>
-            <p class="digit">01</p>
+            <p class="digit">{{ user.rels?.stats.clases_lost}}</p>
             <p><b>Clases<br>Perdidas</b></p>
           </ion-col>
+        
         </ion-row>
       </ion-grid>
     </div>
