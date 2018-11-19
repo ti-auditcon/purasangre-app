@@ -3,14 +3,14 @@
 <ion-content padding>
 
 <!-- alerta de clase pendiente -->
-  <p>Este es el último commit 16:27</p>
+<p>Agregué un div para encerrar el contenido de la columna</p>
   <div class="card card-alert" *ngIf="alerts.has_confirmation" (click)="goToEditConfirm(alerts.confirmation.clase_id)">
     <ion-grid>
       <ion-row>
         <ion-col size="2">
           <ion-icon name="information-circle"></ion-icon>
         </ion-col>
-        <ion-col class="text">
+        <ion-col size="10">
           <p>
             Tienes una clase reservada a las {{alerts.confirmation.start}} ¡Confírma tu asistencia!
           </p>
@@ -26,16 +26,22 @@
       <ion-grid>
         <ion-row>
           <ion-col class="info-item" text-center>
-            <p class="digit">21</p>
-            <p><b>Clases<br>Asistidas</b></p>
+            <div>
+              <p class="digit">21</p>
+              <p><b>Clases<br>Asistidas</b></p>
+            </div>
           </ion-col>
           <ion-col class="info-item" text-center>
-            <p class="digit">14</p>
-            <p><b>Clases<br>Restantes</b></p>
+            <div>
+              <p class="digit">14</p>
+              <p><b>Clases<br>Restantes</b></p>
+            </div>
           </ion-col>
           <ion-col class="info-item" text-center>
-            <p class="digit">01</p>
-            <p><b>Clases<br>Perdidas</b></p>
+            <div>
+              <p class="digit">01</p>
+              <p><b>Clases<br>Perdidas</b></p>
+            </div>
           </ion-col>
         </ion-row>
       </ion-grid>
