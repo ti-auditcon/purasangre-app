@@ -96,36 +96,25 @@
 
 .ps-row {
   display: flex;
-  .col-10 {
-    width: 90%;
-  }
   .col-2 {
     width: 10%;
+  }
+  .col-3 {
+    width: 25%;
   }
   .col-4 {
     width: 33%;
   }
+  .col-8 {
+    width: 67%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 90%;
+  }
 }
-
-// /*fix for ios*/
-// @media (max-width: 768px) {
-//   ion-content.content-ios{
-//     ion-row[wrap] {
-//       ion-col {
-//         flex-basis: 50%;
-//       }
-//     }
-//   }
-// }
-// @media (max-width: 476px) {
-//   ion-content.content-ios{
-//     ion-row[wrap] {
-//       ion-col {
-//         flex-basis: 100%;
-//       }
-//     }
-//   }
-// }
 
 /* Animation buttonGradient */
 @-webkit-keyframes buttonGradient {
@@ -237,8 +226,8 @@
   }
   .card-info {
     background: #F2F2F2;
-    padding-top: 5px;
-    padding-bottom: 7px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     border: solid 1px rgba(black, 0.05);
     box-shadow: none;
     .info-item {
@@ -321,7 +310,7 @@
 .clases-cards {
   .clase-card {
     cursor: pointer;
-    padding: 7px 25px 7px 11px;
+    padding: 17px 11px 18px 18px;
     background: #F2F2F2;
     margin-bottom: 10px;
     border-radius: 4px;
@@ -367,7 +356,7 @@
 .card-pago {
   background: #F2F2F2;
   border-radius: 4px;
-  padding: 10px 12px;
+  padding: 18px 21px;
   margin-bottom: 12px;
   border: solid 1px rgba(black, 0.05);
   h2 {
@@ -640,6 +629,16 @@
         }
       }
     }
+  }
+}
+
+.persona-card {
+  .persona-item-img {
+    //
+  }
+  .persona-item-data {
+    padding-left: 18px !important;
+    margin-bottom: 16px;
   }
 }
 

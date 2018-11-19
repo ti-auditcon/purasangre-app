@@ -3,7 +3,6 @@
 <ion-content padding>
 
 <!-- alerta de clase pendiente -->
-<p>Agregué un div para encerrar el contenido de la columna commit 17:08</p>
   <div class="card card-alert" *ngIf="alerts.has_confirmation" (click)="goToEditConfirm(alerts.confirmation.clase_id)">
     <ion-grid>
       <ion-row>
@@ -23,28 +22,26 @@
     <h1 class="plan-title">{{user_plan?.nombrePlan}}</h1>
     <p class="plan-vencimiento">{{user_plan?.vencimiento}}</p>
     <div class="card card-info">
-      <!-- <ion-grid> -->
-        <div class="ps-row">
-          <div class="info-item col-4" text-center>
-            <div>
-              <p class="digit">21</p>
-              <p><b>Clases<br>Asistidas</b></p>
-            </div>
-          </div>
-          <div class="info-item col-4" text-center>
-            <div>
-              <p class="digit">14</p>
-              <p><b>Clases<br>Restantes</b></p>
-            </div>
-          </div>
-          <div class="info-item col-4" text-center>
-            <div>
-              <p class="digit">01</p>
-              <p><b>Clases<br>Perdidas</b></p>
-            </div>
+      <div class="ps-row">
+        <div class="info-item col-4" text-center>
+          <div>
+            <p class="digit">21</p>
+            <p><b>Clases<br>Asistidas</b></p>
           </div>
         </div>
-      <!-- </ion-grid> -->
+        <div class="info-item col-4" text-center>
+          <div>
+            <p class="digit">14</p>
+            <p><b>Clases<br>Restantes</b></p>
+          </div>
+        </div>
+        <div class="info-item col-4" text-center>
+          <div>
+            <p class="digit">01</p>
+            <p><b>Clases<br>Perdidas</b></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

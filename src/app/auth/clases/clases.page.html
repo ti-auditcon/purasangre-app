@@ -8,17 +8,17 @@
     <div class="clases-cards">
       <!-- <ion-button >Link</ion-button> -->
       <div class="clase-card today" (click)="irAClaseHoy()">
-        <ion-grid>
-          <ion-row align-items-center>
-            <ion-col size="11">
+
+          <div class="ps-row" align-items-center>
+            <div class="col-10">
               <h2>Jueves 12</h2>
               <p>No tienes clases Reservadas</p>
-            </ion-col>
-            <ion-col size="1">
+            </div>
+            <div class="col-2">
               <ion-icon name="arrow-dropright"></ion-icon>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+            </div>
+          </div>
+
       </div>
     </div>
 
@@ -28,17 +28,15 @@
     <h1 class="title-section">Clases Anteriores</h1>
     <div class="clases-cards">
       <div class="clase-card" *ngFor="let clase of clases" (click)="irAClase(clase.clase_id)">
-        <ion-grid>
-          <ion-row align-items-center>
-            <ion-col size="11">
-              <h2>{{clase.dateHuman}}  </h2>
-              <p>{{clase.start}} - {{clase.end}} hrs</p>
-            </ion-col>
-            <ion-col size="1">
-              <ion-icon name="arrow-dropright"></ion-icon>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+        <div class="ps-row" align-items-center>
+          <div class="col-10">
+            <h2>{{clase.dateHuman}}  </h2>
+            <p>{{clase.start}} - {{clase.end}} hrs</p>
+          </div>
+          <div class="col-2">
+            <ion-icon name="arrow-dropright"></ion-icon>
+          </div>
+        </div>
       </div>
 
     </div>
