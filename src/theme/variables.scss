@@ -94,6 +94,26 @@
   margin-top: 12px;
 }
 
+/*fix for ios*/
+@media (max-width: 768px) {
+  ion-content.content-ios{
+    ion-row[wrap] {
+      ion-col {
+        flex-basis: 50%;
+      }
+    }
+  }
+}
+@media (max-width: 476px) {
+  ion-content.content-ios{
+    ion-row[wrap] {
+      ion-col {
+        flex-basis: 100%;
+      }
+    }
+  }
+}
+
 /* Animation buttonGradient */
 @-webkit-keyframes buttonGradient {
     0%{background-position:0% 50%}
