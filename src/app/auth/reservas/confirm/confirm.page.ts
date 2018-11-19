@@ -9,13 +9,19 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 let TOKEN_KEY = 'auth-token';
 
-
 @Component({
   selector: 'app-confirm',
   templateUrl: './confirm.page.html',
   styleUrls: ['./confirm.page.scss'],
 })
 export class ConfirmPage {
+
+  buttonIcon: any;
+  title: any;
+  message: any;
+  buttonActionAdd: any;
+  buttonActionRemove: any;
+  buttonActionConfirm: any;
 
   constructor( public viewCtrl: ModalController,
                private navCtrl: NavController,

@@ -38,6 +38,8 @@ export class ForgotPage implements OnInit {
   ngOnInit() {
   }
 
+  login(){}
+
   backToLogin(){
     this.navCtrl.navigateBack( '/login' )
   }

@@ -8,6 +8,10 @@ import { ModalController, NavController } from '@ionic/angular';
 })
 export class ConfirmPage implements OnInit {
 
+  buttonIcon: any;
+  title: any;
+  message: any;
+
   constructor( public viewCtrl: ModalController,
                private navCtrl: NavController ) { }
 
