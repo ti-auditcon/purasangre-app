@@ -94,6 +94,19 @@
   margin-top: 12px;
 }
 
+.ps-row {
+  display: flex;
+  .col-10 {
+    width: 90%;
+  }
+  .col-2 {
+    width: 10%;
+  }
+  .col-4 {
+    width: 33%;
+  }
+}
+
 // /*fix for ios*/
 // @media (max-width: 768px) {
 //   ion-content.content-ios{
