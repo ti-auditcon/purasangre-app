@@ -17,6 +17,7 @@ let TOKEN_KEY = 'auth-token';
 })
 export class ClasesPage {
   public clases: any = [];
+  public today: any = [];
 
   constructor(
 
@@ -42,6 +43,12 @@ export class ClasesPage {
             this.clases = result.data.filter(clase => clase.rels.auth_reservation.status == 'Consumida');
             console.log(this.clases);
            });
+      this.http.get(SERVER_URL+"/today", httpOptions)
+           .subscribe((result: any) => {
+             this.today = result.data;
+             console.log('today');
+             console.log(result);
+           });
 
     });
   }
@@ -58,8 +65,14 @@ export class ClasesPage {
 
   }
 
-  irAClaseHoy(){
-    this.navCtrl.navigateForward( '/home/(clases:hoy)/');
+  irAClaseHoy(has = false){
+    if(has){
+      this.navCtrl.navigateForward( '/home/(reservas:edit-confirm/'+this.today.auth_reservation.reservation.id+')');
+    } else {
+      this.navCtrl.navigateForward( '/home/(clases:hoy)/');
+    }
+
+
   }
 
 }

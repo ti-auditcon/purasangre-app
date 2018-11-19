@@ -18,8 +18,9 @@ let TOKEN_KEY = 'auth-token';
 })
 export class DashboardPage  {
   public user: any = '';
-  public user_plan: any = '';
+  //public user_plan: any = '';
   public wod: any = '';
+  public today: any = []
   public alerts: any = [];
 
   constructor(
@@ -45,49 +46,34 @@ export class DashboardPage  {
             this.user = result.data;
             console.log('entre');
             console.log(this.user);
-            console.log(this.user.rels.active_plan.href);
-            this.http.get(this.user.rels.active_plan.href, httpOptions)
-                .subscribe((result: any) => {
-                  console.log('entre plan activo');
-                  this.user_plan = result.data;
-                  console.log(this.user_plan);
+            },
+            err =>{
+              console.log('error perfil');
+              this.authService.logout();
+            }
+          );
 
-                },
-                 err =>{
-                   console.log('error plan');
-                   this.authService.logout();
-                 }
-               );
-        },
-        err =>{
-          console.log('error perfil');
-          this.authService.logout();
-        }
-
-
-      );
-
-        this.http.get(SERVER_URL+"/todaywods", httpOptions)
-        .subscribe((result: any) => {
-          this.wod = result.data[0];
-          console.log('ENTRE WOD');
-          console.log(this.wod);
-        },
-         err =>{
-           console.log('error wod');
-         }
-      );
+        this.http.get(SERVER_URL+"/today", httpOptions)
+            .subscribe((result: any) => {
+              this.today = result.data;
+              console.log('ENTRE today');
+              console.log(this.today);
+              },
+               err =>{
+                 console.log('error wod');
+               }
+             );
 
         this.http.get(SERVER_URL+"/users-alerts", httpOptions)
-        .subscribe((result: any) => {
-          this.alerts = result.data;
+            .subscribe((result: any) => {
+              this.alerts = result.data;
 
-          console.log(this.alerts);
-        },
-         err =>{
-           console.log('error user-alerts');
-         }
-      );
+              console.log(this.alerts);
+              },
+               err =>{
+                 console.log('error user-alerts');
+               }
+             );
 
     });
   }

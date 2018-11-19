@@ -7,12 +7,13 @@
 
     <div class="clases-cards">
       <!-- <ion-button >Link</ion-button> -->
-      <div class="clase-card today" (click)="irAClaseHoy()">
+      <div class="clase-card today" (click)="irAClaseHoy(today?.auth_reservation?.has)">
         <ion-grid>
           <ion-row align-items-center>
             <ion-col size="11">
-              <h2>Jueves 12</h2>
-              <p>No tienes clases Reservadas</p>
+              <h2>{{today?.dateHuman}}</h2>
+              <p *ngIf="today?.auth_reservation?.has">Tienes Reservada una clase a las {{today?.auth_reservation?.reservation.start}}</p>
+              <p *ngIf="!today?.auth_reservation?.has">No tienes clases Reservadas</p>
             </ion-col>
             <ion-col size="1">
               <ion-icon name="arrow-dropright"></ion-icon>
