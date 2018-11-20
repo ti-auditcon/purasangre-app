@@ -3,42 +3,43 @@
 <ion-content padding>
 
   <div class="persona-card">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3" class="persona-item-img">
-          <div class="avatar-container" (click)="selectImageFromCamera()">
-            <!-- src="assets/img/image.jpg" -->
-            <img class="persona-avatar" [src]="user?.avatar">
-          </div>
-        </ion-col>
-        <ion-col size="9" class="persona-item-data">
-          <h1 class="persona-nombre">{{user?.nombre}} {{user?.apellido}}</h1>
-          <h5 class="persona-plan">{{user_plan?.nombrePlan}}</h5>
-          <p class="persona-vencimiento">{{user_plan?.vencimiento}}</p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <div class="ps-row">
+      <div class="col-3 persona-item-img">
+        <div class="avatar-container" (click)="selectImageFromCamera()">
+          <!-- src="assets/img/image.jpg" -->
+          <img class="persona-avatar" [src]="user?.avatar">
+        </div>
+      </div>
+      <div class="col-9 persona-item-data">
+        <h1 class="persona-nombre">{{user?.nombre}} {{user?.apellido}}</h1>
+        <h5 class="persona-plan">{{user_plan?.nombrePlan}}</h5>
+        <p class="persona-vencimiento">{{user_plan?.vencimiento}}</p>
+      </div>
+    </div>
   </div>
 
   <div class="plan-resumen">
     <div class="card card-info">
-      <ion-grid>
-        <ion-row>
-          <ion-col class="info-item" text-center>
+      <div class="ps-row">
+        <div class="info-item col-4" text-center>
+          <div>
             <p class="digit">{{ user.rels?.stats.clases_consumed}}</p>
             <p><b>Clases<br>Asistidas</b></p>
-          </ion-col>
-          <ion-col class="info-item" text-center>
+          </div>
+        </div>
+        <div class="info-item col-4" text-center>
+          <div>
             <p class="digit">{{ user.rels?.stats.clases_quantity}}</p>
             <p><b>Clases<br>Restantes</b></p>
-          </ion-col>
-          <ion-col class="info-item" text-center>
+          </div>
+        </div>
+        <div class="info-item col-4" text-center>
+          <div>
             <p class="digit">{{ user.rels?.stats.clases_lost}}</p>
             <p><b>Clases<br>Perdidas</b></p>
-          </ion-col>
-
-        </ion-row>
-      </ion-grid>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

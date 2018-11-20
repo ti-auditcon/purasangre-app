@@ -94,24 +94,38 @@
   margin-top: 12px;
 }
 
-/*fix for ios*/
-@media (max-width: 768px) {
-  ion-content.content-ios{
-    ion-row[wrap] {
-      ion-col {
-        flex-basis: 50%;
-      }
-    }
+.ps-row {
+  display: flex;
+  // .col-1 {
+  //   width: ;
+  // }
+  .col-2 {
+    width: 10%;
   }
-}
-@media (max-width: 476px) {
-  ion-content.content-ios{
-    ion-row[wrap] {
-      ion-col {
-        flex-basis: 100%;
-      }
-    }
+  .col-3 {
+    width: 25%;
   }
+  .col-4 {
+    width: 33%;
+  }
+  .col-5 {
+    width: 42%;
+  }
+  .col-7 {
+    width: 58%;
+  }
+  .col-8 {
+    width: 67%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 90%;
+  }
+  // .col-11 {
+  //   width: ;
+  // }
 }
 
 /* Animation buttonGradient */
@@ -224,8 +238,8 @@
   }
   .card-info {
     background: #F2F2F2;
-    padding-top: 5px;
-    padding-bottom: 7px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     border: solid 1px rgba(black, 0.05);
     box-shadow: none;
     .info-item {
@@ -308,7 +322,7 @@
 .clases-cards {
   .clase-card {
     cursor: pointer;
-    padding: 7px 25px 7px 11px;
+    padding: 17px 11px 18px 18px;
     background: #F2F2F2;
     margin-bottom: 10px;
     border-radius: 4px;
@@ -354,7 +368,7 @@
 .card-pago {
   background: #F2F2F2;
   border-radius: 4px;
-  padding: 10px 12px;
+  padding: 18px 21px;
   margin-bottom: 12px;
   border: solid 1px rgba(black, 0.05);
   h2 {
@@ -551,7 +565,7 @@
       display: flex;
       flex-wrap: nowrap;
       .cupos-item {
-        width: 50&;
+        // width: 50%;
         font-weight: 300;
         padding: 0;
         margin: 0;
@@ -600,9 +614,9 @@
       }
     }
     .content {
-      padding: 10px 10px;
+      padding: 14px 14px 16px;
       .item-crossfiters {
-        margin-bottom: 7px;
+        margin-bottom: 15px;
         &:last-child {
           margin-bottom: 0;
         }
@@ -622,11 +636,21 @@
           p {
             margin: 0;
             font-weight: 300;
-            font-size: 15px;
+            font-size: 14px;
           }
         }
       }
     }
+  }
+}
+
+.persona-card {
+  .persona-item-img {
+    //
+  }
+  .persona-item-data {
+    padding-left: 18px !important;
+    margin-bottom: 16px;
   }
 }
 
