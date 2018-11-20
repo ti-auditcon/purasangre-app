@@ -8,7 +8,7 @@
         <ion-col size="3" class="persona-item-img">
           <div class="avatar-container" (click)="selectImageFromCamera()">
             <!-- src="assets/img/image.jpg" -->
-            <img class="persona-avatar" [src]="base64Image">
+            <img class="persona-avatar" [src]="user?.avatar">
           </div>
         </ion-col>
         <ion-col size="9" class="persona-item-data">
@@ -36,7 +36,7 @@
             <p class="digit">{{ user.rels?.stats.clases_lost}}</p>
             <p><b>Clases<br>Perdidas</b></p>
           </ion-col>
-        
+
         </ion-row>
       </ion-grid>
     </div>
