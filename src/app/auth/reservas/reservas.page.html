@@ -52,13 +52,16 @@
     </div>
   </div>
 
-  <div [ngClass]="buttonFixIOS">
+  <!-- <div [ngClass]="buttonFixIOS">
     <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
-  </div>
+  </div> -->
 
 </ion-content>
 
 <ion-footer>
+  <div [ngClass]="buttonFixIOS">
+    <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
+  </div>
   <div [ngClass]="buttonFixAndroid">
     <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
   </div>
