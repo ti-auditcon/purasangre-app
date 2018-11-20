@@ -96,6 +96,9 @@
 
 .ps-row {
   display: flex;
+  // .col-1 {
+  //   width: ;
+  // }
   .col-2 {
     width: 10%;
   }
@@ -104,6 +107,12 @@
   }
   .col-4 {
     width: 33%;
+  }
+  .col-5 {
+    width: 42%;
+  }
+  .col-7 {
+    width: 58%;
   }
   .col-8 {
     width: 67%;
@@ -114,6 +123,9 @@
   .col-10 {
     width: 90%;
   }
+  // .col-11 {
+  //   width: ;
+  // }
 }
 
 /* Animation buttonGradient */
@@ -553,7 +565,7 @@
       display: flex;
       flex-wrap: nowrap;
       .cupos-item {
-        width: 50&;
+        // width: 50%;
         font-weight: 300;
         padding: 0;
         margin: 0;
@@ -602,9 +614,9 @@
       }
     }
     .content {
-      padding: 10px 10px;
+      padding: 14px 14px 16px;
       .item-crossfiters {
-        margin-bottom: 7px;
+        margin-bottom: 15px;
         &:last-child {
           margin-bottom: 0;
         }
@@ -624,7 +636,7 @@
           p {
             margin: 0;
             font-weight: 300;
-            font-size: 15px;
+            font-size: 14px;
           }
         }
       }

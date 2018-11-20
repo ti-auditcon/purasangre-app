@@ -13,8 +13,8 @@
     <div class="cupos">
       <h5>Cupos</h5>
       <div class="cupos-wrapper">
-        <ion-col size="5" class="cupos-item">{{clase.quota - clase.rels?.users.count}} Disponibles</ion-col>
-        <ion-col size="7" class="cupos-item">{{clase.rels?.users.count}} Reservados</ion-col>
+        <div class="col-5 cupos-item">{{clase.quota - clase.rels?.users.count}} Disponibles</div>
+        <div class="col-7 cupos-item">{{clase.rels?.users.count}} Reservados</div>
       </div>
     </div>
 
@@ -28,17 +28,17 @@
         <h5>Crossfiters en esta Clase</h5>
       </div>
       <div class="content">
-        <ion-grid>
-          <ion-row class="item-crossfiters" *ngFor="let user of users" >
-            <ion-col size="2" class="item-img">
-              <img src="{{user.avatar}}">
-            </ion-col>
-            <ion-col size="10" class="item-data">
-              <h6>{{user.nombre}}</h6>
-              <p>Atleta hace 1 año</p>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+
+        <div class="item-crossfiters" *ngFor="let user of users" >
+          <div class="col-2 item-img">
+            <img src="{{user.avatar}}">
+          </div>
+          <div class="col-10 item-data">
+            <h6>{{user.nombre}}</h6>
+            <p>Atleta hace 1 año</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
