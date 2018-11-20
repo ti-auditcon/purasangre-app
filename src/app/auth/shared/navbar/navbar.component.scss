@@ -32,11 +32,19 @@
 //   }
 // }
 
+.sc-ion-back-button-md-h {
+  --min-width: 10px;
+  --margin-end: 0;
+  --padding-end: 0;
+  display: inline-block;
+}
+
 .shield {
   position: absolute;
   top: -20px;
   right: -10px;
   width: 160px;
+  z-index: -20
 }
 
 .font-bold {

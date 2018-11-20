@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from '../../../services/authentication.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-navbar',
@@ -11,13 +12,18 @@ export class NavbarComponent implements OnInit {
   @Input() titulo: string
   mainTabs = ['Dashboard', 'Tus Clases'];
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService,
+              private navCtrl: NavController) { }
 
   ngOnInit() {
   }
 
   logout() {
     this.authService.logout();
+  }
+
+  goToPerfil() {
+    this.navCtrl.navigateForward('home/(dashboard:perfil)')
   }
 
 }
