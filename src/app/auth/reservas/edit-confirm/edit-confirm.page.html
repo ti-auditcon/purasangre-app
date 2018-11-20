@@ -12,7 +12,7 @@
 
     <div class="cupos">
       <h5>Cupos</h5>
-      <div class="cupos-wrapper">
+      <div class="cupos-wrapper ps-row">
         <div class="col-5 cupos-item">{{clase.quota - clase.rels?.users.count}} Disponibles</div>
         <div class="col-7 cupos-item">{{clase.rels?.users.count}} Reservados</div>
       </div>
@@ -29,7 +29,7 @@
       </div>
       <div class="content">
 
-        <div class="item-crossfiters" *ngFor="let user of users" >
+        <div class="item-crossfiters ps-row" *ngFor="let user of users" >
           <div class="col-2 item-img">
             <img src="{{user.avatar}}">
           </div>
