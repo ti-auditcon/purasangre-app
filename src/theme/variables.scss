@@ -694,25 +694,25 @@
   }
 }
 
-// @-webkit-keyframes animationbutton {
-//   0% {bottom: -20px;}
-//   100% {bottom: -2px;}
-// }
-//
-// @-moz-keyframes animationbutton {
-//   0% {bottom: -20px;}
-//   100% {bottom: -2px;}
-// }
-//
-// @-o-keyframes animationbutton {
-//   0% {bottom: -20px;}
-//   100% {bottom: -2px;}
-// }
-//
-// @keyframes animationbutton {
-//   0% {bottom: -20px;}
-//   100% {bottom: -2px;}
-// }
+@-webkit-keyframes animationbutton {
+  0% {bottom: -20px;}
+  100% {bottom: 50px;}
+}
+
+@-moz-keyframes animationbutton {
+  0% {bottom: -20px;}
+  100% {bottom: 50px;}
+}
+
+@-o-keyframes animationbutton {
+  0% {bottom: -20px;}
+  100% {bottom: 50px;}
+}
+
+@keyframes animationbutton {
+  0% {bottom: -20px;}
+  100% {bottom: 50px;}
+}
 
 .display-none {
   display: none;
@@ -720,11 +720,7 @@
 
 .button-fix {
   width: 100%;
-  // position: relative;
-  // margin-bottom: -4px;
-  // margin: 0;
   transition: all ease 0.2s;
-  // animation: animationbutton 1s;
   .reservar {
     width: 100%;
     display: block;
@@ -742,25 +738,6 @@
   }
 }
 
-
-@-webkit-keyframes animationbuttonIOS {
-  0% {
-    bottom: -20px;
-  }
-  100% {
-    bottom: 50px;
-  }
-}
-
-@keyframes animationbuttonIOS {
-  0% {
-    bottom: -20px;
-  }
-  100% {
-    bottom: 50px;
-  }
-}
-
 .button-fix-ios {
   position: fixed;
   width: 100%;
@@ -769,7 +746,10 @@
   left: 0;
   right: 0;
   transition: all ease 0.2s;
-  // animation: animationbuttonIOS 1s;
+  -webkit-animation: animationbutton 3s ease infinite;
+  -moz-animation: animationbutton 3s ease infinite;
+  -o-animation: animationbutton 3s ease infinite;
+  animation: animationbutton 3s ease infinite;
   .reservar {
     width: 100%;
     display: block;
@@ -780,10 +760,10 @@
     color: white;
     background: linear-gradient(108.43deg, #259F06 11.38%, #35AF17 63.4%);
     background-size: 300% 300%;
-    // -webkit-animation: buttonGradientSuccess 3s ease infinite;
-    // -moz-animation: buttonGradientSuccess 3s ease infinite;
-    // -o-animation: buttonGradientSuccess 3s ease infinite;
-    // animation: buttonGradientSuccess 3s ease infinite;
+    -webkit-animation: buttonGradientSuccess 3s ease infinite;
+    -moz-animation: buttonGradientSuccess 3s ease infinite;
+    -o-animation: buttonGradientSuccess 3s ease infinite;
+    animation: buttonGradientSuccess 3s ease infinite;
   }
 }
 
