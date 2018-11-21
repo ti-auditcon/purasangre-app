@@ -178,6 +178,46 @@
   -webkit-text-fill-color: transparent;
 }
 
+.header-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+  height: 50px;
+  .toolbar-left {
+    width: 50%;
+    vertical-align: middle;
+    // padding-left: 16px;
+    .button, .title {
+      display: inline-block;
+      vertical-align: middle;
+      align-self: center;
+    }
+    .title {
+      padding-top: 2px;
+      .logo {
+        margin-left: 12px;
+      }
+      .title-header {
+        margin-left: 16px;
+      }
+    }
+  }
+  .toolbar-right {
+    width: 50%;
+    text-align: right;
+    .button-header {
+      font-size: 22px;
+      padding: 0 8px 3px;
+      vertical-align: middle;
+      ion-icon {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
 .logo {
   width: 120px;
   display: block;
@@ -322,7 +362,7 @@
 .clases-cards {
   .clase-card {
     cursor: pointer;
-    padding: 17px 11px 18px 18px;
+    padding: 17px 18px 18px 18px;
     background: #F2F2F2;
     margin-bottom: 10px;
     border-radius: 4px;
@@ -745,6 +785,10 @@
     -o-animation: buttonGradientSuccess 3s ease infinite;
     animation: buttonGradientSuccess 3s ease infinite;
   }
+}
+
+.buttonFixIOS {
+  bottom: 0;
 }
 
 .modal-confirm {
