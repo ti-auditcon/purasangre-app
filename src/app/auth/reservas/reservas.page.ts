@@ -21,10 +21,9 @@ export class ReservasPage {
   public pendient: any = [];
   public confirmed: any = [];
 
-
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
-
+  confirmation: string = "";
 
   constructor(
     private navCtrl: NavController,
@@ -42,6 +41,17 @@ export class ReservasPage {
       //Si es Android
       this.buttonFixIOS = "display-none";
       this.buttonFixAndroid = "button-fix";
+    }
+
+    if (true) {
+      if(this.plt.is('ios')) {
+        this.confirmation = "confirmation-ios confirmation-show";
+      } else {
+        this.confirmation = "confirmation-android confirmation-show";
+      }
+      console.log('Se disparó la confirmación');
+    } else {
+      this.confirmation ="confirmation confirmation-hide"
     }
   }
 
