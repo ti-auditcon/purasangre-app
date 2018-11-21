@@ -769,7 +769,7 @@
   left: 0;
   right: 0;
   transition: all ease 0.2s;
-  animation: animationbuttonIOS 1s;
+  // animation: animationbuttonIOS 1s;
   .reservar {
     width: 100%;
     display: block;
@@ -780,10 +780,10 @@
     color: white;
     background: linear-gradient(108.43deg, #259F06 11.38%, #35AF17 63.4%);
     background-size: 300% 300%;
-    -webkit-animation: buttonGradientSuccess 3s ease infinite;
-    -moz-animation: buttonGradientSuccess 3s ease infinite;
-    -o-animation: buttonGradientSuccess 3s ease infinite;
-    animation: buttonGradientSuccess 3s ease infinite;
+    // -webkit-animation: buttonGradientSuccess 3s ease infinite;
+    // -moz-animation: buttonGradientSuccess 3s ease infinite;
+    // -o-animation: buttonGradientSuccess 3s ease infinite;
+    // animation: buttonGradientSuccess 3s ease infinite;
   }
 }
 
