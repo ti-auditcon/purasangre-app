@@ -6,10 +6,10 @@
   <div class="card card-alert" *ngIf="alerts.has_confirmation" (click)="goToEditConfirm(alerts.confirmation.clase_id)">
 
       <div class="ps-row">
-        <div class="col-2">
+        <div class="col-2 icon">
           <ion-icon name="information-circle"></ion-icon>
         </div>
-        <div class="col-10">
+        <div class="col-10 text">
           <p>
             Tienes una clase reservada a las {{alerts.confirmation.start}} ¡Confírma tu asistencia!
           </p>

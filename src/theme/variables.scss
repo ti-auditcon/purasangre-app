@@ -238,7 +238,7 @@
 }
 
 .card-alert {
-  padding: 5px 12px;
+  padding: 14px 12px;
   color: white;
   margin-bottom: 32px;
   background: linear-gradient(153.33deg, #FC0F85 6.69%, #9300AB 88.08%);
@@ -248,7 +248,12 @@
   ion-icon {
     font-size: 30px;
   }
+  // .icon {
+  //   vertical-align: middle;
+  //   align-self: center;
+  // }
   .text {
+    padding-left: 12px;
     p {
       margin: 0;
       font-size: 15px;
