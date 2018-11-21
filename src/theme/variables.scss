@@ -186,7 +186,7 @@
   flex-direction: row;
   height: 50px;
   .toolbar-left {
-    width: 50%;
+    width: 80%;
     vertical-align: middle;
     // padding-left: 16px;
     .button, .title {
@@ -205,7 +205,7 @@
     }
   }
   .toolbar-right {
-    width: 50%;
+    width: 20%;
     text-align: right;
     .button-header {
       font-size: 22px;
