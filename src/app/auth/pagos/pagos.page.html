@@ -3,11 +3,11 @@
 <ion-content padding>
   <div class="section">
 
-    <div class="card-pago">
+    <div class="card-pago" *ngFor="let plan of plans">
       <div class="ps-row pago-up">
         <div class="col-8">
-          <h2>21 de Junio 2018</h2>
-          <p>Mensual</p>
+          <h2>{{plan?.inicio}}</h2>
+          <p>{{plan?.plan_name}}</p>
         </div>
         <div class="col-4" text-end>
           <img class="icon-check" src="assets/icon/check.png">
@@ -17,39 +17,16 @@
         <div class="col-8">
           <p>
             <b>Pagado el</b><br>
-            21/06/18<br>
-            Transferencia Bancaria
+            {{plan?.rels?.bill.date}}<br>
+            {{plan?.rels?.bill.method}}
           </p>
         </div>
         <div class="col-4" text-end>
-          <h4>$45.000</h4>
+          <h4>{{plan?.rels?.bill.amount}}</h4>
         </div>
       </div>
     </div>
 
-    <div class="card-pago">
-      <div class="ps-row pago-up">
-        <div class="col-8">
-          <h2>21 de Junio 2018</h2>
-          <p>Mensual</p>
-        </div>
-        <div class="col-4" text-end>
-          <img class="icon-check" src="assets/icon/check.png">
-        </div>
-      </div>
-      <div align-items-end class="ps-row pago-bottom">
-        <div class="col-8">
-          <p>
-            <b>Pagado el</b><br>
-            21/06/18<br>
-            Transferencia Bancaria
-          </p>
-        </div>
-        <div class="col-4" text-end>
-          <h4>$45.000</h4>
-        </div>
-      </div>
-    </div>
 
   </div>
 </ion-content>

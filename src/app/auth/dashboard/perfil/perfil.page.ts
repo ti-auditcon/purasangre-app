@@ -20,6 +20,7 @@ let TOKEN_KEY = 'auth-token';
 export class PerfilPage implements OnInit {
   public user: any = '';
   public user_plan: any = '';
+  public errors: any = 'sin errores';
 
   constructor( private storage: Storage,
                private authService: AuthenticationService,
@@ -52,6 +53,35 @@ export class PerfilPage implements OnInit {
     .then(
       newImage => {
         this.base64Image = this.webview.convertFileSrc(newImage);
+
+        this.storage.get(TOKEN_KEY).then((value) => {
+
+          let Bearer = value;
+        //  console.log(this.textModel);
+          let data=JSON.stringify({
+            image: this.base64Image,
+          });
+          console.log(data);
+          const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json', //updated
+              'Authorization': 'Bearer '+ Bearer//updated
+
+            })};
+
+            this.http.post(SERVER_URL+"/profile/image",data, httpOptions)
+                .subscribe((result: any) => {
+                  console.log('me responfio profile/image');
+                  console.log(result);
+                  this.errors = result;
+                },
+                err =>{
+                  console.log('error perfil');
+                  this.errors = err;
+                });
+        });
+
+
       }, error => {
          console.error('Error cropping image', error);
         }

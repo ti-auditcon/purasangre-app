@@ -19,6 +19,8 @@ export class ClasePage implements OnInit {
   public clase: any = [];
   public reservation: any = [];
   public wod: any = [];
+  public textModel: string = '';
+
   constructor(
     public activatedRoute: ActivatedRoute,
     private storage: Storage,
@@ -45,7 +47,8 @@ export class ClasePage implements OnInit {
              this.clase = result.data;
              console.log(this.clase);
              this.reservation = this.clase.rels.auth_reservation;
-
+             console.log(this.reservation);
+             this.textModel = this.reservation.details;
              this.http.get(this.clase.rels.wod.href, httpOptions)
                  .subscribe((result: any) => {
                    console.log('tiene wod');
@@ -58,12 +61,43 @@ export class ClasePage implements OnInit {
 
   // input = document.getElementById('inputEdit');
 
-  focusInput(){
-    document.getElementById('inputEdit').focus();
-  }
+  // focusInput(){
+  //   document.getElementById('inputEdit').focus();
+  // }
 
-  editDetails(){
+  // editDetails(){
+  //
+  // }
 
-  }
+  saveDetails(){
+    this.storage.get(TOKEN_KEY).then((value) => {
+
+      let Bearer = value;
+      console.log(this.textModel);
+      let data=JSON.stringify({
+        details: this.textModel,
+      });
+      console.log(data);
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json', //updated
+          'Authorization': 'Bearer '+ Bearer//updated
+
+        })};
+      let id =  this.reservation.reservation_id;
+      console.log(id);
+      this.http.post(SERVER_URL+"/reservations/"+id+"/details",data, httpOptions)
+           .subscribe(
+               (result: any) => {
+
+                     console.log(result);
+
+               },
+               (err) => {
+                 console.log('error 401');
+               },
+             );
+           });
+         }
 
 }
