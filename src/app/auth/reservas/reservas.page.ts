@@ -26,15 +26,32 @@ let TOKEN_KEY = 'auth-token';
           style({transform: 'translate3d(0, -50px, 0)', offset: 0.9}),
           style({transform: 'translate3d(0, 0px, 0)', offset: 1})
         ]))
+      ]),
+      state('mostrarios', style({
+        transform: 'translate3d(0,0,0)'
+      })),
+      transition('* => mostrarios', [
+        animate('3000ms ease-in-out', keyframes([
+          style({transform: 'translate3d(0, -49px, 0)', offset: 0}),
+          style({transform: 'translate3d(0, -100px, 0)', offset: 0.1}),
+          style({transform: 'translate3d(0, -100px, 0)', offset: 0.9}),
+          style({transform: 'translate3d(0, -49px, 0)', offset: 1})
+        ]))
       ])
-      // state('invisible', style({
-      //   bottom: '0px'
-      // })),
-      // state('visible', style({
-      //   bottom: '-50px'
-      // })),
-      // transition('* => *', animate('3000ms linear'))
-    ])
+    ]),
+    // trigger('aparecer', [
+    //   state('mostrarios', style({
+    //     transform: 'translate3d(0,0,0)'
+    //   })),
+    //   transition('* => mostrarios', [
+    //     animate('3000ms ease-in-out', keyframes([
+    //       style({transform: 'translate3d(0, 0px, 0)', offset: 0}),
+    //       style({transform: 'translate3d(0, -100px, 0)', offset: 0.1}),
+    //       style({transform: 'translate3d(0, -100px, 0)', offset: 0.9}),
+    //       style({transform: 'translate3d(0, 0px, 0)', offset: 1})
+    //     ]))
+    //   ])
+    // ])
   ]
 })
 
@@ -48,7 +65,7 @@ export class ReservasPage {
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
   confirmation: string = "";
-  estadoConfirmacion: string = 'mostrar';
+  estadoConfirmacion: string;
 
   constructor(
     private navCtrl: NavController,
@@ -70,13 +87,13 @@ export class ReservasPage {
 
     if (true) {
       if(this.plt.is('ios')) {
-        this.confirmation = "confirmation-ios confirmation-show";
+        this.estadoConfirmacion = 'mostrarios';
       } else {
-        this.confirmation = "confirmation-android confirmation-show";
+        this.estadoConfirmacion = 'mostrar';
       }
       console.log('Se disparó la confirmación');
     } else {
-      this.confirmation ="confirmation confirmation-hide"
+      console.log('Error en el mensaje de confirmacion');
     }
 
     var buttonConf = document.getElementById('confirmacion');
