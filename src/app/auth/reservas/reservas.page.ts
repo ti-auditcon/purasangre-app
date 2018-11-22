@@ -2,57 +2,16 @@
 import { environment, SERVER_URL} from '../../../environments/environment';
 //imports
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
-// import { ElementRef, ViewChild } from '@angular/core';
 let TOKEN_KEY = 'auth-token';
 
 @Component({
   selector: 'app-reservas',
   templateUrl: 'reservas.page.html',
   styleUrls: ['reservas.page.scss'],
-  animations: [
-    trigger('aparecer', [
-      state('mostrar', style({
-        transform: 'translate3d(0,0,0)'
-      })),
-      transition('* => mostrar', [
-        animate('3000ms ease-in-out', keyframes([
-          style({transform: 'translate3d(0, 0px, 0)', offset: 0}),
-          style({transform: 'translate3d(0, -50px, 0)', offset: 0.1}),
-          style({transform: 'translate3d(0, -50px, 0)', offset: 0.9}),
-          style({transform: 'translate3d(0, 0px, 0)', offset: 1})
-        ]))
-      ]),
-      state('mostrarios', style({
-        transform: 'translate3d(0,0,0)'
-      })),
-      transition('* => mostrarios', [
-        animate('3000ms ease-in-out', keyframes([
-          style({transform: 'translate3d(0, -49px, 0)', offset: 0}),
-          style({transform: 'translate3d(0, -100px, 0)', offset: 0.1}),
-          style({transform: 'translate3d(0, -100px, 0)', offset: 0.9}),
-          style({transform: 'translate3d(0, -49px, 0)', offset: 1})
-        ]))
-      ])
-    ]),
-    // trigger('aparecer', [
-    //   state('mostrarios', style({
-    //     transform: 'translate3d(0,0,0)'
-    //   })),
-    //   transition('* => mostrarios', [
-    //     animate('3000ms ease-in-out', keyframes([
-    //       style({transform: 'translate3d(0, 0px, 0)', offset: 0}),
-    //       style({transform: 'translate3d(0, -100px, 0)', offset: 0.1}),
-    //       style({transform: 'translate3d(0, -100px, 0)', offset: 0.9}),
-    //       style({transform: 'translate3d(0, 0px, 0)', offset: 1})
-    //     ]))
-    //   ])
-    // ])
-  ]
 })
 
 export class ReservasPage {
@@ -65,13 +24,13 @@ export class ReservasPage {
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
   confirmation: string = "";
-  estadoConfirmacion: string;
 
   constructor(
     private navCtrl: NavController,
     public plt: Platform,
     private storage: Storage,
     private http: HttpClient,
+    public toastController: ToastController
 
   ) {
 
@@ -85,20 +44,17 @@ export class ReservasPage {
       this.buttonFixAndroid = "button-fix";
     }
 
-    if (true) {
-      if(this.plt.is('ios')) {
-        this.estadoConfirmacion = 'mostrarios';
-      } else {
-        this.estadoConfirmacion = 'mostrar';
-      }
-      console.log('Se disparó la confirmación');
-    } else {
-      console.log('Error en el mensaje de confirmacion');
-    }
-
     var buttonConf = document.getElementById('confirmacion');
 
   }
+
+  async presentToast() {
+     const toast = await this.toastController.create({
+       message: 'Your settings have been saved.',
+       duration: 2000
+     });
+     toast.present();
+   }
 
   ionViewDidEnter() {
     console.log('estoy cargandome........');
