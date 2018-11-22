@@ -835,33 +835,60 @@
   }
 }
 
-@-webkit-keyframes confirmationShowHideAndroid {
-  0% {bottom: -50px;}
-  20% {bottom: 0px;}
-  70% {bottom: 0px;}
-  100% {bottom: -50px;}
+.confirmation {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -50px;
+  background: linear-gradient(312deg, #fc0f85, #9300ab);
+  background-size: 200% 200%;
+  color: white;
+  text-align: left;
+  padding: 13px 18px;
+  vertical-align: middle;
+  z-index: 20;
+  ion-icon {
+    font-size: 18px;
+    vertical-align: middle;
+    margin-bottom: 2px;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    display: inline-block;
+    margin-left: 6px;
+  }
 }
 
-@-moz-keyframes confirmationShowHideAndroid {
-  0% {bottom: -50px;}
-  20% {bottom: 0px;}
-  70% {bottom: 0px;}
-  100% {bottom: -50px;}
-}
-
-@-o-keyframes confirmationShowHideAndroid {
-  0% {bottom: -50px;}
-  20% {bottom: 0px;}
-  70% {bottom: 0px;}
-  100% {bottom: -50px;}
-}
-
-@keyframes confirmationShowHideAndroid {
-  0% {bottom: -50px;}
-  20% {bottom: 0px;}
-  70% {bottom: 0px;}
-  100% {bottom: -50px;}
-}
+// @-webkit-keyframes confirmationShowHideAndroid {
+//   0% {bottom: -50px;}
+//   20% {bottom: 0px;}
+//   70% {bottom: 0px;}
+//   100% {bottom: -50px;}
+// }
+//
+// @-moz-keyframes confirmationShowHideAndroid {
+//   0% {bottom: -50px;}
+//   20% {bottom: 0px;}
+//   70% {bottom: 0px;}
+//   100% {bottom: -50px;}
+// }
+//
+// @-o-keyframes confirmationShowHideAndroid {
+//   0% {bottom: -50px;}
+//   20% {bottom: 0px;}
+//   70% {bottom: 0px;}
+//   100% {bottom: -50px;}
+// }
+//
+// @keyframes confirmationShowHideAndroid {
+//   0% {bottom: -50px;}
+//   20% {bottom: 0px;}
+//   70% {bottom: 0px;}
+//   100% {bottom: -50px;}
+// }
 
 .confirmation-android {
   position: fixed;
@@ -894,34 +921,34 @@
   }
 }
 
-@-moz-keyframes confirmationShowHideiOS {
-  0% {bottom: 0px;}
-  20% {bottom: 50px;}
-  70% {bottom: 50px;}
-  100% {bottom: 0px;}
-}
-
-@-o-keyframes confirmationShowHideiOS {
-  0% {bottom: 0px;}
-  20% {bottom: 50px;}
-  70% {bottom: 50px;}
-  100% {bottom: 0px;}
-}
-
-
-@-webkit-keyframes confirmationShowHideiOS {
-  0% {bottom: 0px;}
-  20% {bottom: 50px;}
-  70% {bottom: 50px;}
-  100% {bottom: 0px;}
-}
-
-@keyframes confirmationShowHideiOS {
-  0% {bottom: 0px;}
-  20% {bottom: 50px;}
-  70% {bottom: 50px;}
-  100% {bottom: 0px;}
-}
+// @-moz-keyframes confirmationShowHideiOS {
+//   0% {bottom: 0px;}
+//   20% {bottom: 50px;}
+//   70% {bottom: 50px;}
+//   100% {bottom: 0px;}
+// }
+//
+// @-o-keyframes confirmationShowHideiOS {
+//   0% {bottom: 0px;}
+//   20% {bottom: 50px;}
+//   70% {bottom: 50px;}
+//   100% {bottom: 0px;}
+// }
+//
+//
+// @-webkit-keyframes confirmationShowHideiOS {
+//   0% {bottom: 0px;}
+//   20% {bottom: 50px;}
+//   70% {bottom: 50px;}
+//   100% {bottom: 0px;}
+// }
+//
+// @keyframes confirmationShowHideiOS {
+//   0% {bottom: 0px;}
+//   20% {bottom: 50px;}
+//   70% {bottom: 50px;}
+//   100% {bottom: 0px;}
+// }
 
 .confirmation-ios {
   position: fixed;

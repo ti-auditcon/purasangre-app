@@ -59,7 +59,7 @@
 </ion-content>
 
 <ion-footer>
-  <div [ngClass]="confirmation">
+  <div class="confirmation" [@aparecer]="estadoConfirmacion">
     <ion-icon name="checkmark"></ion-icon>
     <p>Hora Reservada</p>
   </div>

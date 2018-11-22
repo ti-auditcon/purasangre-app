@@ -8,20 +8,21 @@ import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { AuthenticationService } from './../../services/authentication.service';
 
-
 let TOKEN_KEY = 'auth-token';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
-  styleUrls: ['./dashboard.page.scss'],
+  styleUrls: ['./dashboard.page.scss']
 })
+
 export class DashboardPage  {
   public user: any = '';
   //public user_plan: any = '';
   public wod: any = '';
   public today: any = []
   public alerts: any = [];
+
 
   constructor(
     private router: Router,
@@ -30,6 +31,7 @@ export class DashboardPage  {
     private http: HttpClient,
     private authService: AuthenticationService,
   ) { }
+
 
   ionViewDidEnter() {
     this.storage.get(TOKEN_KEY).then((value) => {

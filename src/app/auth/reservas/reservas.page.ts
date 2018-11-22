@@ -6,14 +6,38 @@ import { NavController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 // import { ElementRef, ViewChild } from '@angular/core';
 let TOKEN_KEY = 'auth-token';
 
 @Component({
   selector: 'app-reservas',
   templateUrl: 'reservas.page.html',
-  styleUrls: ['reservas.page.scss']
+  styleUrls: ['reservas.page.scss'],
+  animations: [
+    trigger('aparecer', [
+      state('mostrar', style({
+        transform: 'translate3d(0,0,0)'
+      })),
+      transition('* => mostrar', [
+        animate('3000ms ease-in-out', keyframes([
+          style({transform: 'translate3d(0, 0px, 0)', offset: 0}),
+          style({transform: 'translate3d(0, -50px, 0)', offset: 0.1}),
+          style({transform: 'translate3d(0, -50px, 0)', offset: 0.9}),
+          style({transform: 'translate3d(0, 0px, 0)', offset: 1})
+        ]))
+      ])
+      // state('invisible', style({
+      //   bottom: '0px'
+      // })),
+      // state('visible', style({
+      //   bottom: '-50px'
+      // })),
+      // transition('* => *', animate('3000ms linear'))
+    ])
+  ]
 })
+
 export class ReservasPage {
   public clases: any = [];
   public today_clase: any = [];
@@ -24,6 +48,7 @@ export class ReservasPage {
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
   confirmation: string = "";
+  estadoConfirmacion: string = 'mostrar';
 
   constructor(
     private navCtrl: NavController,
@@ -53,6 +78,9 @@ export class ReservasPage {
     } else {
       this.confirmation ="confirmation confirmation-hide"
     }
+
+    var buttonConf = document.getElementById('confirmacion');
+
   }
 
   ionViewDidEnter() {
