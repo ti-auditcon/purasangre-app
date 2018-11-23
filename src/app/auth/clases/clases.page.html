@@ -2,6 +2,14 @@
 
 <ion-content padding>
 
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Arrastra para actualizar"
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
   <div class="section">
     <h1 class="title-section">Hoy</h1>
 
@@ -12,8 +20,8 @@
           <div class="ps-row" align-items-center>
             <div class="col-10">
               <h2>{{today?.dateHuman}}</h2>
-              <p *ngIf="today?.auth_reservation?.has">Tienes Reservada una clase a las {{today?.auth_reservation?.reservation.start}}</p>
-              <p *ngIf="!today?.auth_reservation?.has">No tienes clases Reservadas</p>
+              <p *ngIf="today?.auth_reservation?.has">Tienes una clase a las {{today?.auth_reservation?.reservation.start}}</p>
+              <p *ngIf="!today?.auth_reservation?.has">No tienes clases Reservadas hoy</p>
             </div>
             <div class="col-2">
               <ion-icon name="arrow-dropright"></ion-icon>

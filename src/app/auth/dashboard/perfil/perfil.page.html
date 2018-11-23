@@ -11,8 +11,8 @@
         </div>
       </div>
       <div class="col-9 persona-item-data">
-        <h1 class="persona-nombre">{{user?.nombre}} {{user?.apellido}}</h1>
-        <h5 class="persona-plan">{{user_plan?.nombrePlan}}</h5>
+        <h1 class="persona-nombre">{{user?.nombre | titlecase}} {{user?.apellido | titlecase}}</h1>
+        <h5 class="persona-plan">{{user.rels?.active_plan.plan}}</h5>
         <p class="persona-vencimiento">{{user_plan?.vencimiento}}</p>
       </div>
     </div>

@@ -22,6 +22,16 @@ export class PagosPage {
     private http: HttpClient
   ) { }
 
+  // Refresh
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
+
   ngOnInit() {
     this.storage.get(TOKEN_KEY).then((value) => {
       //console.log(value);

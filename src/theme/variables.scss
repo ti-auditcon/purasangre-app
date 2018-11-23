@@ -201,6 +201,7 @@
       }
       .title-header {
         margin-left: 16px;
+        font-size: 18px;
       }
     }
   }
@@ -208,7 +209,7 @@
     width: 20%;
     text-align: right;
     .button-header {
-      font-size: 22px;
+      font-size: 24px;
       padding: 0 8px 3px;
       vertical-align: middle;
       ion-icon {
@@ -832,4 +833,9 @@
   .confirm-modal-button-cancel {
     background: linear-gradient(92.33deg, #FF3F33 1.14%, #D41D12 99.87%);
   }
+}
+
+.toast-wrapper {
+  background: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%) !important;
+  color: white;
 }

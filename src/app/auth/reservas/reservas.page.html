@@ -2,6 +2,16 @@
 
 <ion-content padding>
 
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Arrastra para actualizar"
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-button (click)="presentToast()">Ejecutar Toast</ion-button>
+
   <!-- alerta de clase pendiente -->
     <div class="card card-alert" *ngIf="alerts.has_confirmation"  (click)="goToEditConfirm(alerts.confirmation.clase_id)">
 
@@ -59,6 +69,10 @@
 </ion-content>
 
 <ion-footer>
+  <!-- <div class="confirmation" [@aparecer]="estadoConfirmacion">
+    <ion-icon name="checkmark"></ion-icon>
+    <p>Hora Reservada</p>
+  </div> -->
   <div [ngClass]="buttonFixIOS">
     <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
   </div>
