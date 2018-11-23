@@ -70,7 +70,7 @@ export class EditConfirmPage  {
                 this.auth_reservation = this.clase.rels.auth_reservation;
                 this.http.get(this.clase.rels.reservations.href, httpOptions)
                     .subscribe((result: any) => {
-                      console.log('tiene users');
+                      console.log('tiene reservas');
                       this.reservations = result.data;
                       console.log(this.reservations);
                      });
