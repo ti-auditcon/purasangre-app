@@ -17,7 +17,8 @@ let TOKEN_KEY = 'auth-token';
 })
 export class EditConfirmPage  {
   public clase: any = [];
-  public reservation: any = [];
+  public auth_reservation: any = [];
+  public reservations: any = [];
   public users: any = [];
 
   buttonFixIOS: string = "";
@@ -66,12 +67,12 @@ export class EditConfirmPage  {
                 console.log(' http entre a la clase para editar');
                 this.clase = result.data;
                 console.log(this.clase);
-                this.reservation = this.clase.rels.auth_reservation;
-                this.http.get(this.clase.rels.users.href, httpOptions)
+                this.auth_reservation = this.clase.rels.auth_reservation;
+                this.http.get(this.clase.rels.reservations.href, httpOptions)
                     .subscribe((result: any) => {
                       console.log('tiene users');
-                      this.users = result.data;
-                      console.log(this.users);
+                      this.reservations = result.data;
+                      console.log(this.reservations);
                      });
                  });
 

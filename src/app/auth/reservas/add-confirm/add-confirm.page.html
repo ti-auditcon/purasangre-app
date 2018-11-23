@@ -13,8 +13,8 @@
     <div class="cupos">
       <h5>Cupos</h5>
       <div class="cupos-wrapper ps-row">
-        <div class="col-5 cupos-item">{{clase.quota - clase.rels?.users.count}} Disponibles</div>
-        <div class="col-7 cupos-item">{{clase.rels?.users.count}} Reservados</div>
+        <div class="col-5 cupos-item">{{clase.quota - clase.rels?.reservations.count}} Disponibles</div>
+        <div class="col-7 cupos-item">{{clase.rels?.reservations.count}} Reservados</div>
       </div>
     </div>
 
@@ -24,13 +24,13 @@
       </div>
       <div class="content">
 
-        <div class="ps-row item-crossfiters" *ngFor="let user of users" >
+        <div class="ps-row item-crossfiters" *ngFor="let reservation of reservations" >
           <div class="col-2 item-img">
-            <img src="{{user.avatar}}">
+            <img src="{{reservation?.rels.user.avatar}}">
           </div>
           <div class="col-10 item-data">
-            <h6>{{user.nombre}}</h6>
-            <p>Confirmado / Sin Confirmar</p>
+            <h6>{{reservation?.rels.user.first_name}} {{reservation?.rels.user.last_name}}</h6>
+            <p>{{reservation?.status}}</p>
           </div>
         </div>
 

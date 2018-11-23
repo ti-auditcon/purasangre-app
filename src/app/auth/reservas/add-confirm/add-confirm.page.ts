@@ -18,6 +18,7 @@ let TOKEN_KEY = 'auth-token';
 export class AddConfirmPage implements OnInit {
   public clase: any = [];
   public users: any = [];
+  public reservations: any = [];
 
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
@@ -80,11 +81,11 @@ export class AddConfirmPage implements OnInit {
             console.log('entre al dia que quiero agendar');
             this.clase = result.data;
             console.log(this.clase);
-            this.http.get(this.clase.rels.users.href, httpOptions)
+            this.http.get(this.clase.rels.reservations.href, httpOptions)
                 .subscribe((result: any) => {
-                  console.log('tiene users');
-                  this.users = result.data;
-                  console.log(this.users);
+                  console.log('tiene reservas');
+                  this.reservations = result.data;
+                  console.log(this.reservations);
                  });
            });
 
