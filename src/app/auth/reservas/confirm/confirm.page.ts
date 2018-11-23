@@ -3,7 +3,7 @@ import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController, NavController } from '@ionic/angular';
+import { ModalController, NavController, ToastController  } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 
@@ -28,9 +28,17 @@ export class ConfirmPage {
                private storage: Storage,
                private http: HttpClient,
                private router: Router,
+               public toastController: ToastController
 
               ) { }
 
+  async presentToast(message: string) {
+     const toast = await this.toastController.create({
+       message: message,
+       duration: 2500
+     });
+     toast.present();
+   }
 
 
   reserve(id: string ) {
@@ -47,6 +55,8 @@ export class ConfirmPage {
             console.log('voy a reservar...');
             this.viewCtrl.dismiss();
             this.navCtrl.navigateRoot( '/home/(reservas:reservas)');
+            this.presentToast('clase reservada');
+
 
           },
           err => {
@@ -76,6 +86,7 @@ export class ConfirmPage {
             console.log('voy a remover...');
             this.viewCtrl.dismiss();
             this.navCtrl.navigateRoot( '/home/(reservas:reservas)');
+            this.presentToast('reserva liberada');
           },
           err => {
             console.log('error 401');
@@ -105,6 +116,7 @@ export class ConfirmPage {
             console.log('voy a confirnar clase...');
             this.viewCtrl.dismiss();
             this.navCtrl.navigateRoot( '/home/(reservas:reservas)');
+            this.presentToast('reserva confirmada');
           },
           err => {
             console.log('error 401');

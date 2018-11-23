@@ -2,6 +2,7 @@
 import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
 import { Component, OnInit } from '@angular/core';
+import { NavController, ToastController } from '@ionic/angular';
 import { ActivatedRoute } from  '@angular/router';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
@@ -25,8 +26,17 @@ export class ClasePage implements OnInit {
     public activatedRoute: ActivatedRoute,
     private storage: Storage,
     private http: HttpClient,
+    public toastController: ToastController
   ) {
   }
+
+  async presentToast() {
+     const toast = await this.toastController.create({
+       message: 'Nota guardada',
+       duration: 2500
+     });
+     toast.present();
+   }
 
   ngOnInit() {
     //console.log('entre amigos mios a la clase id:');
@@ -91,6 +101,7 @@ export class ClasePage implements OnInit {
                (result: any) => {
 
                      console.log(result);
+                     this.presentToast();
 
                },
                (err) => {
