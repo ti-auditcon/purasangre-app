@@ -51,7 +51,7 @@ export class ReservasPage {
   // Refresh
   doRefresh(event) {
     console.log('Begin async operation');
-
+    this.ionViewDidEnter();
     setTimeout(() => {
       console.log('Async operation has ended');
       event.target.complete();
