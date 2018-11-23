@@ -48,10 +48,20 @@ export class ReservasPage {
 
   }
 
+  // Refresh
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
+
   async presentToast() {
      const toast = await this.toastController.create({
-       message: 'Your settings have been saved.',
-       duration: 2000
+       message: 'Hora Reservada',
+       duration: 2500
      });
      toast.present();
    }
