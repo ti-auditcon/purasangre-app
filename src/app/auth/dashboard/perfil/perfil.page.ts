@@ -21,6 +21,7 @@ export class PerfilPage implements OnInit {
   public user: any = '';
   public user_plan: any = '';
   public errors: any = 'sin errores';
+  public link: any = 'sin link';
 
   constructor( private storage: Storage,
                private authService: AuthenticationService,
@@ -59,7 +60,7 @@ export class PerfilPage implements OnInit {
           let Bearer = value;
         //  console.log(this.textModel);
           let data=JSON.stringify({
-            image: this.base64Image,
+            image: newImage,
           });
           console.log(data);
           const httpOptions = {
