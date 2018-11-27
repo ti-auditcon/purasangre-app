@@ -17,6 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ConfirmPage } from './public/confirm/confirm.page';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+import { File } from '@ionic-native/file/ngx';
+
 // import { BottombuttonComponent } from './auth/shared/bottombutton/bottombutton.component';
 // import { NavbarComponent } from './auth/shared/navbar/navbar.component';
 
@@ -38,7 +41,11 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
     Camera,
     Crop,
     WebView,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    FileTransfer,
+    //FileUploadOptions,
+    //FileTransferObject,
+    File,
   ],
   bootstrap: [AppComponent]
 })

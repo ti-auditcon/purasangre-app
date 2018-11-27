@@ -7,13 +7,14 @@
       <div class="col-3 persona-item-img">
         <div class="avatar-container" (click)="selectImageFromCamera()">
           <!-- src="assets/img/image.jpg" -->
-          <img class="persona-avatar" [src]="user?.avatar">
+          <img class="persona-avatar" [src]="image">
         </div>
       </div>
       <div class="col-9 persona-item-data">
         <h1 class="persona-nombre">{{user?.nombre | titlecase}} {{user?.apellido | titlecase}}</h1>
         <h5 class="persona-plan">{{user.rels?.active_plan.plan}}</h5>
         <p class="persona-vencimiento">{{user_plan?.vencimiento}}</p>
+        <p class="persona-vencimiento">vercion 1.11</p>
       </div>
     </div>
   </div>
@@ -65,7 +66,9 @@
     </div>
   </div>
   <div class="section">
-    {{errors}}
+    <p *ngFor="let alert of alerts ">
+      {{alert}}
+    </p>
     </div>
 
 </ion-content>
