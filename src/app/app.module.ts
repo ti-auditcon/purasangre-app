@@ -19,6 +19,8 @@ import { ConfirmPage } from './public/confirm/confirm.page';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { File } from '@ionic-native/file/ngx';
+import { ChartsModule } from 'ng2-charts';
+
 
 // import { BottombuttonComponent } from './auth/shared/bottombutton/bottombutton.component';
 // import { NavbarComponent } from './auth/shared/navbar/navbar.component';
@@ -33,7 +35,8 @@ import { File } from '@ionic-native/file/ngx';
     AppRoutingModule,
     IonicStorageModule.forRoot(),
     // NavbarComponent,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [
     StatusBar,

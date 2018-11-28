@@ -1,14 +1,18 @@
 //env
 import { environment, SERVER_URL} from '../../../environments/environment';
 //imports
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { AuthenticationService } from './../../services/authentication.service';
+import { ChartsModule } from 'ng2-charts';
+
 
 let TOKEN_KEY = 'auth-token';
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -17,11 +21,19 @@ let TOKEN_KEY = 'auth-token';
 })
 
 export class DashboardPage  {
+
+   @ViewChild('barCanvas') barCanvas;
+
+   barChart: any;
+
   public user: any = '';
   //public user_plan: any = '';
   public wod: any = '';
-  public today: any = []
+  public today: any = [];
   public alerts: any = [];
+  public assistance: any = [];
+
+  public active: boolean = false;
 
 
   constructor(
@@ -30,7 +42,7 @@ export class DashboardPage  {
     private storage: Storage,
     private http: HttpClient,
     private authService: AuthenticationService,
-  ) { }
+  ) {}
 
   // Refresh
   doRefresh(event) {
@@ -41,6 +53,7 @@ export class DashboardPage  {
       event.target.complete();
     }, 2000);
   }
+
 
   ionViewDidEnter() {
     this.storage.get(TOKEN_KEY).then((value) => {
@@ -85,6 +98,33 @@ export class DashboardPage  {
                  console.log('error user-alerts');
                }
              );
+
+         this.http.get(SERVER_URL+"/assistance", httpOptions)
+             .subscribe((result: any) => {
+               this.assistance = result;
+
+               console.log(this.assistance);
+               this.barChart = new Chart(this.barCanvas.nativeElement, {
+
+                   type: 'bar',
+                   data: {
+                       labels: this.assistance.label,
+
+                       datasets: [{
+                           data: this.assistance.data,
+                           label:'',
+                           backgroundColor:  'rgba(255, 99, 132, 0.2)',
+                           borderWidth: 1
+                       }]
+                   },
+
+
+               });
+               },
+                err =>{
+                  console.log('error assistance');
+                }
+              );
 
     });
   }
