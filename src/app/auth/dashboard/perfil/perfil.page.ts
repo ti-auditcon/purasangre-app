@@ -7,7 +7,7 @@ import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Crop } from '@ionic-native/crop/ngx';
-import { Platform } from '@ionic/angular';
+import { Platform, ToastController } from '@ionic/angular';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 
@@ -38,6 +38,7 @@ export class PerfilPage {
                private platform: Platform,
                private webview: WebView,
                private transfer: FileTransfer,
+               public toastController: ToastController
              ) {}
 
   base64Image:any;
@@ -139,6 +140,7 @@ export class PerfilPage {
                // success
                console.log("success");
                this.ionViewDidEnter();
+               this.presentToast('Imagen Actualizada');
 
              }, (err) => {
                // error

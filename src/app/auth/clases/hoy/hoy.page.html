@@ -13,17 +13,11 @@
       <div class="card card-info">
         <div class="info-content" *ngIf = "today?.wod?.has">
           <h3>Warm Up</h3>
-          <p>
-            {{today?.wod?.stages.warmup }}
-          </p>
+          <p>{{today?.wod?.stages.warmup }}</p>
           <h3>SKILLS</h3>
-          <p>
-            {{today?.wod?.stages.skill }}
-          </p>
+          <p>{{today?.wod?.stages.skill }}</p>
           <h3>W.O.D.</h3>
-          <p>
-            {{today?.wod?.stages.wod }}
-          </p>
+          <p>{{today?.wod?.stages.wod }}</p>
         </div>
         <div class="info-content" *ngIf = "!today?.wod?.has">
           No hay W.O.D. para el dia de hoy
