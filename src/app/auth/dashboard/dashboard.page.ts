@@ -8,6 +8,8 @@ import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { AuthenticationService } from './../../services/authentication.service';
 import { ChartsModule } from 'ng2-charts';
+import * as chart from 'chart.js';
+
 
 
 let TOKEN_KEY = 'auth-token';
@@ -104,7 +106,7 @@ export class DashboardPage  {
                this.assistance = result;
 
                console.log(this.assistance);
-               this.barChart = new Chart(this.barCanvas.nativeElement, {
+               this.barChart = new chart(this.barCanvas.nativeElement, {
 
                    type: 'bar',
                    data: {
