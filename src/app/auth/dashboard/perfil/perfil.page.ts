@@ -45,6 +45,15 @@ export class PerfilPage {
   preImage:any;
   public fileTransfer: FileTransferObject = this.transfer.create();
 
+  async presentToast(message: string) {
+     const toast = await this.toastController.create({
+       message: message,
+       duration: 2500
+     });
+     toast.present();
+   }
+
+
   // selectImageFromCamera()
   // {
   //   const options: CameraOptions = {
