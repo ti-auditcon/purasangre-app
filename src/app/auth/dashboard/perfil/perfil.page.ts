@@ -133,39 +133,44 @@ export class PerfilPage {
       correctOrientation: true,
     }
 
-    this.camera.getPicture(options).then((imageData) => {
-        this.crop.crop(imageData, {quality: 100})
-        .then(
-          newImage => {
-            //this.imageURI = imageData;
-            let options1: FileUploadOptions = {
-             fileKey: 'image',
-             fileName: 'avatar.jpg',
-             headers: {}
-            }
+    if (this.platform.is('ios')){
+      this.presentToast('Función aun no disponible');
+    } else {
+      this.camera.getPicture(options).then((imageData) => {
+          this.crop.crop(imageData, {quality: 100})
+          .then(
+            newImage => {
+              //this.imageURI = imageData;
+              let options1: FileUploadOptions = {
+               fileKey: 'image',
+               fileName: 'avatar.jpg',
+               headers: {}
+              }
 
-            this.fileTransfer.upload(newImage, 'http://purasangre.asomic.com/api/users/1/image', options1)
-             .then((data) => {
-               // success
-               console.log("success");
-               this.ionViewDidEnter();
-               this.presentToast('Imagen Actualizada');
+              this.fileTransfer.upload(newImage, 'http://purasangre.asomic.com/api/users/1/image', options1)
+               .then((data) => {
+                 // success
+                 console.log("success");
+                 this.ionViewDidEnter();
+                 this.presentToast('Imagen Actualizada');
 
-             }, (err) => {
-               // error
-               console.log("error"+JSON.stringify(err));
-             });
-           }, error => {
-              console.error('Error cropping image', error);
-              //this.alerts.push('Error cropping image');
-             }
-          );
+               }, (err) => {
+                 // error
+                 console.log("error"+JSON.stringify(err));
+               });
+             }, error => {
+                console.error('Error cropping image', error);
+                //this.alerts.push('Error cropping image');
+               }
+            );
 
-    }, (err) => {
-      console.log('error camera');
-      console.log(err);
-    //  this.presentToast(err);
-    });
+      }, (err) => {
+        console.log('error camera');
+        console.log(err);
+      //  this.presentToast(err);
+      });
+    }
+  // );
 
   }
 
