@@ -25,7 +25,7 @@ export class ReservasPage {
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
   confirmation: string = "";
-  tehto: string = "Device UUID is: " + this.device.uuid;
+  tehto: string = "Device UUID is: " + this.device.uuid + "El modelo es: " + this.device.model + "La version es :" + this.device.version;
 
   constructor(
     private navCtrl: NavController,
