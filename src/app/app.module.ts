@@ -6,6 +6,7 @@ import { RouterModule, RouteReuseStrategy, Routes } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Device } from '@ionic-native/device/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ import { ChartsModule } from 'ng2-charts';
     StatusBar,
     SplashScreen,
     Camera,
+    Device,
     Crop,
     WebView,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

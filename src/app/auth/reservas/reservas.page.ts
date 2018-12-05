@@ -4,6 +4,7 @@ import { environment, SERVER_URL} from '../../../environments/environment';
 import { Component } from '@angular/core';
 import { NavController, ToastController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
+import { Device } from '@ionic-native/device/ngx';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 let TOKEN_KEY = 'auth-token';
@@ -24,13 +25,15 @@ export class ReservasPage {
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
   confirmation: string = "";
+  tehto: string = "Device UUID is: " + this.device.uuid;
 
   constructor(
     private navCtrl: NavController,
     public plt: Platform,
     private storage: Storage,
     private http: HttpClient,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private device: Device
 
   ) {
 
