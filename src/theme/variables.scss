@@ -839,3 +839,15 @@
   background: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%) !important;
   color: white;
 }
+
+.version {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  p {
+    text-align: center;
+    color: rgba(white, 0.8);
+    font-size: 12px;
+  }
+}
