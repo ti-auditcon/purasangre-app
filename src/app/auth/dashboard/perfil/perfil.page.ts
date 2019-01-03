@@ -7,7 +7,7 @@ import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Crop } from '@ionic-native/crop/ngx';
-import { Platform } from '@ionic/angular';
+import { Platform, ToastController } from '@ionic/angular';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 
@@ -38,11 +38,20 @@ export class PerfilPage {
                private platform: Platform,
                private webview: WebView,
                private transfer: FileTransfer,
+               public toastController: ToastController
              ) {}
 
   base64Image:any;
   preImage:any;
   public fileTransfer: FileTransferObject = this.transfer.create();
+
+  async presentToast() {
+     const toast = await this.toastController.create({
+       message: 'Foto de perfil actualizada',
+       duration: 2500
+     });
+     toast.present();
+   }
 
   // selectImageFromCamera()
   // {
@@ -138,6 +147,7 @@ export class PerfilPage {
              .then((data) => {
                // success
                console.log("success");
+               this.presentToast();
                this.ionViewDidEnter();
 
              }, (err) => {
