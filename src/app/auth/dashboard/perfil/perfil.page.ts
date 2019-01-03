@@ -1,5 +1,5 @@
 //env
-import { environment, SERVER_URL} from '../../../../environments/environment';
+import { environment, SERVER_URL, IMAGE_URL} from '../../../../environments/environment';
 //imports
 import { Component} from '@angular/core';
 import { AuthenticationService } from '../../../services/authentication.service';
@@ -134,7 +134,7 @@ export class PerfilPage {
              headers: {}
             }
 
-            this.fileTransfer.upload(newImage, 'http://purasangre.asomic.com/api/users/1/image', options1)
+            this.fileTransfer.upload(newImage, IMAGE_URL+'api/users/'+this.user+'/image', options1)
              .then((data) => {
                // success
                console.log("success");
