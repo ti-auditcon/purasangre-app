@@ -45,10 +45,10 @@ export class PerfilPage {
   preImage:any;
   public fileTransfer: FileTransferObject = this.transfer.create();
 
-  async presentToast(text = 'Error') {
+  async presentToast(text = 'Error', duration = 2500) {
      const toast = await this.toastController.create({
        message: text,
-       duration: 2500
+       duration: duration
      });
      toast.present();
    }
@@ -144,7 +144,7 @@ export class PerfilPage {
              headers: {}
             }
 
-            this.fileTransfer.upload(newImage, IMAGE_URL+'/api/users/'+this.user.id+'/image', options1)
+            this.fileTransfer.upload(newImage, IMAGE_URL+'api/users/'+this.user.identificador+'/image', options1)
              .then((data) => {
                // success
                console.log("success");
@@ -153,11 +153,11 @@ export class PerfilPage {
 
              }, (err) => {
                // error
-               this.presentToast('Error post: '+err);
+               this.presentToast('Error post: '+ JSON.stringify(err), 10000);
                console.log("error"+JSON.stringify(err));
              });
            }, error => {
-              this.presentToast('Error crop: '+error);
+              this.presentToast('Error crop: '+error, 10000);
               console.error('Error cropping image', error);
               //this.alerts.push('Error cropping image');
              }
@@ -166,7 +166,7 @@ export class PerfilPage {
     }, (err) => {
       console.log('error camera');
       console.log(err);
-      this.presentToast('Error camara: '+err);
+      this.presentToast('Error camara: '+err, 10000);
     });
 
   }
