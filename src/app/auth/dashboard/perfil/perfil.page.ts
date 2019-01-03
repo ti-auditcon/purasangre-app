@@ -143,7 +143,7 @@ export class PerfilPage {
              headers: {}
             }
 
-            this.fileTransfer.upload(newImage, IMAGE_URL+'api/users/'+this.user.id+'/image', options1)
+            this.fileTransfer.upload(newImage, IMAGE_URL+'/api/users/'+this.user.id+'/image', options1)
              .then((data) => {
                // success
                console.log("success");
