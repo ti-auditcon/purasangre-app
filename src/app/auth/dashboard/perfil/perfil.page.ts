@@ -45,9 +45,9 @@ export class PerfilPage {
   preImage:any;
   public fileTransfer: FileTransferObject = this.transfer.create();
 
-  async presentToast() {
+  async presentToast(text = 'Error') {
      const toast = await this.toastController.create({
-       message: 'Foto de perfil actualizada',
+       message: text,
        duration: 2500
      });
      toast.present();
@@ -125,6 +125,7 @@ export class PerfilPage {
   //  }
 
   selectImageFromCamera() {
+    this.presentToast('images!!!');
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
@@ -147,14 +148,16 @@ export class PerfilPage {
              .then((data) => {
                // success
                console.log("success");
-               this.presentToast();
+               this.presentToast('Imagen actualizada.');
                this.ionViewDidEnter();
 
              }, (err) => {
                // error
+               this.presentToast('Error post: '+err);
                console.log("error"+JSON.stringify(err));
              });
            }, error => {
+              this.presentToast('Error crop: '+error);
               console.error('Error cropping image', error);
               //this.alerts.push('Error cropping image');
              }
@@ -163,12 +166,13 @@ export class PerfilPage {
     }, (err) => {
       console.log('error camera');
       console.log(err);
-    //  this.presentToast(err);
+      this.presentToast('Error camara: '+err);
     });
 
   }
 
   ionViewDidEnter() {
+
     this.storage.get(TOKEN_KEY).then((value) => {
       //console.log(value);
       let Bearer = value;
