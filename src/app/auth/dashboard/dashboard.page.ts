@@ -119,6 +119,36 @@ export class DashboardPage  {
                            borderWidth: 1
                        }]
                    },
+                   options: {
+                     legend: {
+                       display: false,
+                     },
+                     scales: {
+                       yAxes: [{
+                        type: "linear",
+                        display: true,
+                        position: "left",
+                        id: "y-axis-1",
+                        gridLines: {
+                          display: false
+                        },
+                        labels: {
+                          show: true,
+
+                        },
+                        ticks: {
+                          beginAtZero: true,
+                          userCallback: function(label, index, labels) {
+                            if (Math.floor(label) === label) {
+                              return label;
+                            }
+
+                          },
+                        }
+
+                      }]
+                     },
+                   },
 
 
                });

@@ -36,11 +36,11 @@ export class AuthenticationService {
   checkToken() {
     this.storage.get(TOKEN_KEY).then(res => {
       if (res) {
-        console.log('res:'+res);
+        // console.log('res:'+res);
         this.authenticationState.next(true);
       } else
       {
-        console.log('res:'+res);
+        // console.log('res:'+res);
         this.authenticationState.next(false);
       }
     })
