@@ -1,5 +1,5 @@
 //env
-import { environment, SERVER_URL} from '../../../../environments/environment';
+import { environment, SERVER_URL, IMAGE_URL} from '../../../../environments/environment';
 //imports
 import { Component} from '@angular/core';
 import { AuthenticationService } from '../../../services/authentication.service';
@@ -45,14 +45,13 @@ export class PerfilPage {
   preImage:any;
   public fileTransfer: FileTransferObject = this.transfer.create();
 
-  async presentToast(message: string) {
+  async presentToast(text = 'Error', duration = 2500) {
      const toast = await this.toastController.create({
-       message: message,
-       duration: 2500
+       message: text,
+       duration: duration
      });
      toast.present();
    }
-
 
   // selectImageFromCamera()
   // {
@@ -126,6 +125,7 @@ export class PerfilPage {
   //  }
 
   selectImageFromCamera() {
+    this.presentToast('images!!!');
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
@@ -133,48 +133,46 @@ export class PerfilPage {
       correctOrientation: true,
     }
 
-    if (this.platform.is('ios')){
-      this.presentToast('Función aun no disponible');
-    } else {
-      this.camera.getPicture(options).then((imageData) => {
-          this.crop.crop(imageData, {quality: 100})
-          .then(
-            newImage => {
-              //this.imageURI = imageData;
-              let options1: FileUploadOptions = {
-               fileKey: 'image',
-               fileName: 'avatar.jpg',
-               headers: {}
-              }
+    this.camera.getPicture(options).then((imageData) => {
+        this.crop.crop(imageData, {quality: 100})
+        .then(
+          newImage => {
+            //this.imageURI = imageData;
+            let options1: FileUploadOptions = {
+             fileKey: 'image',
+             fileName: 'avatar.jpg',
+             headers: {}
+            }
 
-              this.fileTransfer.upload(newImage, 'http://purasangre.asomic.com/api/users/1/image', options1)
-               .then((data) => {
-                 // success
-                 console.log("success");
-                 this.ionViewDidEnter();
-                 this.presentToast('Imagen Actualizada');
+            this.fileTransfer.upload(newImage, IMAGE_URL+'api/users/'+this.user.identificador+'/image', options1)
+             .then((data) => {
+               // success
+               console.log("success");
+               this.presentToast('Imagen actualizada.');
+               this.ionViewDidEnter();
 
-               }, (err) => {
-                 // error
-                 console.log("error"+JSON.stringify(err));
-               });
-             }, error => {
-                console.error('Error cropping image', error);
-                //this.alerts.push('Error cropping image');
-               }
-            );
+             }, (err) => {
+               // error
+               this.presentToast('Error post: '+ JSON.stringify(err), 10000);
+               console.log("error"+JSON.stringify(err));
+             });
+           }, error => {
+              this.presentToast('Error crop: '+error, 10000);
+              console.error('Error cropping image', error);
+              //this.alerts.push('Error cropping image');
+             }
+          );
 
-      }, (err) => {
-        console.log('error camera');
-        console.log(err);
-      //  this.presentToast(err);
-      });
-    }
-  // );
+    }, (err) => {
+      console.log('error camera');
+      console.log(err);
+      this.presentToast('Error camara: '+err, 10000);
+    });
 
   }
 
   ionViewDidEnter() {
+
     this.storage.get(TOKEN_KEY).then((value) => {
       //console.log(value);
       let Bearer = value;
