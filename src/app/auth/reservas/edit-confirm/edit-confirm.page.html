@@ -3,9 +3,11 @@
 <ion-content padding>
 
   <div class="reserva">
-    <h1 class="titleReserva-section margin-bottom">
-      <!-- Reserva {{clase.rels?.auth_reservation.status}} -->
+    <h1 class="titleReserva-section margin-bottom" *ngIf="clase.rels?.auth_reservation.status === 'Pendiente'">
       Reserva sin Confirmar
+    </h1>
+    <h1 class="titleReserva-section margin-bottom" *ngIf="clase.rels?.auth_reservation.status === 'Confirmada'">
+      Reserva Confirmada
     </h1>
     <h4 class="date-section">
       {{clase.dateHuman}}<br>{{clase.start}} - {{clase.end}} hrs
@@ -14,8 +16,9 @@
     <div class="cupos">
       <h5>Cupos</h5>
       <div class="cupos-wrapper ps-row">
-        <div class="col-5 cupos-item">{{clase.quota - clase.rels?.reservations.count}} Disponibles</div>
-        <div class="col-7 cupos-item">{{clase.rels?.reservations.count}} Reservados</div>
+        <!-- <div class="col-5 cupos-item">{{clase.quota - clase.rels?.reservations.count}} Disponibles</div>
+        <div class="col-7 cupos-item">{{clase.rels?.reservations.count}} Reservados</div> -->
+        <div class="cupos-item">{{clase.quota - clase.rels?.reservations.count}} Disponibles <span>&nbsp;</span> — <span>&nbsp;</span> {{clase.rels?.reservations.count}} Reservados</div>
       </div>
     </div>
 

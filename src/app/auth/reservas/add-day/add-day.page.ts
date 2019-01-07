@@ -27,7 +27,8 @@ export class AddDayPage implements OnInit {
       let Bearer = value;
       const httpOptions = {
         headers: new HttpHeaders({
-          'Authorization': 'Bearer '+ Bearer//updated
+          'Authorization': 'Bearer '+ Bearer
+          //updated
         })};
 
       this.http.get(SERVER_URL+"/week", httpOptions)

@@ -69,7 +69,7 @@ export class ReservasPage {
    }
 
   ionViewDidEnter() {
-    console.log('estoy cargandome........');
+    // console.log('estoy cargandome........');
     this.storage.get(TOKEN_KEY).then((value) => {
 
       let Bearer = value;

@@ -55,7 +55,7 @@ export class ConfirmPage {
             console.log('voy a reservar...');
             this.viewCtrl.dismiss();
             this.navCtrl.navigateRoot( '/home/(reservas:reservas)');
-            this.presentToast('clase reservada');
+            this.presentToast('Clase Reservada');
 
 
           },
@@ -83,13 +83,13 @@ export class ConfirmPage {
         console.log(id);
       this.http.post(SERVER_URL+"/clases/"+id+"/remove",null, httpOptions)
           .subscribe((result: any) => {
-            console.log('voy a remover...');
+            // console.log('voy a remover...');
             this.viewCtrl.dismiss();
             this.navCtrl.navigateRoot( '/home/(reservas:reservas)');
-            this.presentToast('reserva liberada');
+            this.presentToast('Has cedido tu cupo, ahora puedes reservar otra hora');
           },
           err => {
-            console.log('error 401');
+            // console.log('error 401');
             console.log(err);
             this.viewCtrl.dismiss();
           });
@@ -113,10 +113,10 @@ export class ConfirmPage {
         console.log(id);
       this.http.post(SERVER_URL+"/clases/"+id+"/confirm",null, httpOptions)
           .subscribe((result: any) => {
-            console.log('voy a confirnar clase...');
+            // console.log('voy a confirnar clase...');
             this.viewCtrl.dismiss();
             this.navCtrl.navigateRoot( '/home/(reservas:reservas)');
-            this.presentToast('reserva confirmada');
+            this.presentToast('Reserva Confirmada');
           },
           err => {
             console.log('error 401');
