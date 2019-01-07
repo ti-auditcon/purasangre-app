@@ -6,6 +6,7 @@ import { NavController, ToastController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { AuthenticationService } from './../../services/authentication.service';
 let TOKEN_KEY = 'auth-token';
 
 @Component({
@@ -30,7 +31,8 @@ export class ReservasPage {
     public plt: Platform,
     private storage: Storage,
     private http: HttpClient,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private authService: AuthenticationService,
 
   ) {
 
@@ -83,7 +85,11 @@ export class ReservasPage {
             console.log(this.clases);
             this.pendient =  this.clases.filter(clase=> clase.rels.auth_reservation.status == 'Pendiente');
             this.confirmed =  this.clases.filter(clase=> clase.rels.auth_reservation.status == 'Confirmada');
-           });
+          },
+          err => {
+            console.log('error clases');
+            this.authService.refreshToken();
+          });
 
            // console.log(this.today);
 

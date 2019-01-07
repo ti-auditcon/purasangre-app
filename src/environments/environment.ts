@@ -6,12 +6,15 @@ export const environment = {
   production: false,
 };
 
-// export const SERVER_URL = 'http://purasangre-api.test';
-// export const API_KEY = '0XykKUQ8VSU7qXG2FUTTKHNTlYxAKHMy8NtOaHFM';
+// export const SERVER_URL = 'https://api.purasangrecrossfit.cl/';
+// export const IMAGE_URL = 'https://admin.purasangrecrossfit.cl/';
+// export const API_KEY = '6xpyMQ7zXLZwmlkdIzCyh6eupMj4pDEA0cx3cHzf';
+
 
 export const SERVER_URL = 'https://api.purasangrecrossfit.cl/';
 export const IMAGE_URL = 'https://admin.purasangrecrossfit.cl/';
 export const API_KEY = '6xpyMQ7zXLZwmlkdIzCyh6eupMj4pDEA0cx3cHzf';
+
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can

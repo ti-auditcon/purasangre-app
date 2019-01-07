@@ -75,7 +75,7 @@ export class DashboardPage  {
             },
             err =>{
               console.log('error perfil');
-              this.authService.logout();
+              this.authService.refreshToken();
             }
           );
 

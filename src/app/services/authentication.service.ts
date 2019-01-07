@@ -10,6 +10,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 
 let TOKEN_KEY = 'auth-token';
+let REFRESH_TOKEN = 'refresh-token';
 
 interface obj {
     token: string;
@@ -35,9 +36,52 @@ export class AuthenticationService {
   checkToken() {
     this.storage.get(TOKEN_KEY).then(res => {
       if (res) {
+        console.log('res:'+res);
         this.authenticationState.next(true);
+      } else
+      {
+        console.log('res:'+res);
+        this.authenticationState.next(false);
       }
     })
+  }
+
+  refreshToken() {
+    this.storage.get(REFRESH_TOKEN).then(res => {
+      let refresh_token = res;
+      let data=JSON.stringify({
+        grant_type: 'refresh_token',
+        client_id: 2,
+        client_secret: API_KEY,
+        refresh_token: refresh_token,
+      });
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json', //updated
+        })};
+      // return new Promise((resolve, reject) => {
+        this.http.post(SERVER_URL+"/oauth/token",data, httpOptions)
+             .subscribe(
+                 (result: any) => {
+                     console.log('success refresh 200');
+                       this.storage.set(REFRESH_TOKEN, result.refresh_token);
+                       this.storage.set(TOKEN_KEY, result.access_token).then(() => {
+                         this.authenticationState.next(true);
+                         this.navCtrl.navigateForward('/home/');
+                       });
+                 },
+                 (err) => {
+                   console.log('error refrersh 401:'+JSON.stringify(err));
+                   this.logout();
+                 }
+               );
+      // });
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+
+
   }
 
   //login method
@@ -59,16 +103,18 @@ export class AuthenticationService {
       this.http.post(SERVER_URL+"/oauth/token",data, httpOptions)
            .subscribe(
                (result: any) => {
-                     console.log('success 200');
+                 console.log('success 200');
+                 this.storage.set(REFRESH_TOKEN, result.refresh_token);
+                 this.storage.set(TOKEN_KEY, result.access_token).then(() => {
+                   this.authenticationState.next(true);
+                 });
+                 resolve(result);
 
-                       this.storage.set(TOKEN_KEY, result.access_token).then(() => {
-                       this.authenticationState.next(true);
-                   });
-                   resolve(result);
                },
                (err) => {
                  console.log('error 401');
                  reject(err);
+
                }
              );
     });
@@ -77,6 +123,7 @@ export class AuthenticationService {
   }
 
   logout() {
+    this.storage.remove(REFRESH_TOKEN);
     return this.storage.remove(TOKEN_KEY).then(() => {
       this.authenticationState.next(false);
     });
