@@ -32,7 +32,7 @@ export class ClasePage implements OnInit {
 
   async presentToast() {
      const toast = await this.toastController.create({
-       message: 'Nota guardada',
+       message: 'Nota Guardada',
        duration: 2500
      });
      toast.present();

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { AuthenticationService } from './../../services/authentication.service';
 
 let TOKEN_KEY = 'auth-token';
 
@@ -25,6 +26,7 @@ export class ClasesPage {
     private http: HttpClient,
     private navCtrl: NavController,
     private router: Router,
+    private authService: AuthenticationService,
   ) {}
 
   // Refresh
@@ -52,7 +54,11 @@ export class ClasesPage {
             console.log('entre al historico');
             this.clases = result.data.filter(clase => clase.rels.auth_reservation.status == 'Consumida');
             console.log(this.clases);
-           });
+          },
+          err => {
+            console.log('error clases');
+            this.authService.refreshToken();
+          });
       this.http.get(SERVER_URL+"/today", httpOptions)
            .subscribe((result: any) => {
              this.today = result.data;

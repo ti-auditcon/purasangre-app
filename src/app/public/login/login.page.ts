@@ -23,7 +23,6 @@ export class LoginPage implements OnInit {
                private storage: Storage,
                private modalController: ModalController,
                private navCtrl: NavController ) { }
-
   ngOnInit() {
 
   }

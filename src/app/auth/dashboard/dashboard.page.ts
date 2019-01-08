@@ -75,7 +75,7 @@ export class DashboardPage  {
             },
             err =>{
               console.log('error perfil');
-              this.authService.logout();
+              this.authService.refreshToken();
             }
           );
 
@@ -118,6 +118,36 @@ export class DashboardPage  {
                            backgroundColor:  'rgba(255, 99, 132, 0.2)',
                            borderWidth: 1
                        }]
+                   },
+                   options: {
+                     legend: {
+                       display: false,
+                     },
+                     scales: {
+                       yAxes: [{
+                        type: "linear",
+                        display: true,
+                        position: "left",
+                        id: "y-axis-1",
+                        gridLines: {
+                          display: false
+                        },
+                        labels: {
+                          show: true,
+
+                        },
+                        ticks: {
+                          beginAtZero: true,
+                          userCallback: function(label, index, labels) {
+                            if (Math.floor(label) === label) {
+                              return label;
+                            }
+
+                          },
+                        }
+
+                      }]
+                     },
                    },
 
 
