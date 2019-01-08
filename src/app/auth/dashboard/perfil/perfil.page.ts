@@ -125,7 +125,7 @@ export class PerfilPage {
   //  }
 
   selectImageFromCamera() {
-    this.presentToast('images!!!');
+
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
@@ -166,7 +166,7 @@ export class PerfilPage {
     }, (err) => {
       console.log('error camera');
       console.log(err);
-      this.presentToast('Error camara: '+err, 10000);
+      // this.presentToast('Error camara: '+err, 10000);
     });
 
   }
