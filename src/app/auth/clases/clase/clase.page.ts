@@ -15,7 +15,7 @@ let TOKEN_KEY = 'auth-token';
   templateUrl: './clase.page.html',
   styleUrls: ['./clase.page.scss'],
 })
-export class ClasePage implements OnInit {
+export class ClasePage {
 
   public clase: any = [];
   public reservation: any = [];
@@ -30,6 +30,16 @@ export class ClasePage implements OnInit {
   ) {
   }
 
+  // Refresh
+  doRefresh(event) {
+    console.log('Begin async operation');
+    this.ionViewDidEnter();
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
+
   async presentToast() {
      const toast = await this.toastController.create({
        message: 'Nota Guardada',
@@ -38,7 +48,7 @@ export class ClasePage implements OnInit {
      toast.present();
    }
 
-  ngOnInit() {
+  ionViewDidEnter() {
     //console.log('entre amigos mios a la clase id:');
      //console.log(this.activatedRoute.snapshot);
      let id = this.activatedRoute.snapshot.paramMap.get('id');
