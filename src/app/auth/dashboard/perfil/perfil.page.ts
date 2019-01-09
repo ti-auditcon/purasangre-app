@@ -125,9 +125,9 @@ export class PerfilPage {
   //  }
 
   selectImageFromCamera() {
-
+    // this.presentToast('images!!!');
     const options: CameraOptions = {
-      quality: 100,
+      quality: 40,
       destinationType: this.camera.DestinationType.FILE_URI,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       correctOrientation: true,
@@ -157,7 +157,7 @@ export class PerfilPage {
                console.log("error"+JSON.stringify(err));
              });
            }, error => {
-              this.presentToast('Error crop: '+error, 10000);
+              this.presentToast('Error al ajustar imágen: '+error, 10000);
               console.error('Error cropping image', error);
               //this.alerts.push('Error cropping image');
              }
