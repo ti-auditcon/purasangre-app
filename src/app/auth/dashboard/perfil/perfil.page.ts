@@ -127,7 +127,7 @@ export class PerfilPage {
   selectImageFromCamera() {
     this.presentToast('images!!!');
     const options: CameraOptions = {
-      quality: 100,
+      quality: 40,
       destinationType: this.camera.DestinationType.FILE_URI,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       correctOrientation: true,
