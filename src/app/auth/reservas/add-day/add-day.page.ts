@@ -2,7 +2,7 @@
 import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, LoadingController  } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 
@@ -19,27 +19,39 @@ export class AddDayPage implements OnInit {
   constructor( private navCtrl: NavController,
                private storage: Storage,
                private http: HttpClient,
+               public loadingController: LoadingController
    ) { }
 
-  ngOnInit() {
-    this.storage.get(TOKEN_KEY).then((value) => {
+   async weekLoader()
+   {
+      const loading = await this.loadingController.create({
+       message: 'Cargando semana...',
+      });
+      loading.present().then(() => {
+        this.storage.get(TOKEN_KEY).then((value) => {
 
-      let Bearer = value;
-      const httpOptions = {
-        headers: new HttpHeaders({
-          'Authorization': 'Bearer '+ Bearer
-          //updated
-        })};
+          let Bearer = value;
+          const httpOptions = {
+            headers: new HttpHeaders({
+              'Authorization': 'Bearer '+ Bearer
+              //updated
+            })};
 
-      this.http.get(SERVER_URL+"/week", httpOptions)
-          .subscribe((result: any) => {
-            console.log('entre a las weeks');
-            this.week = result.data;
-            console.log(this.week);
-           });
+          this.http.get(SERVER_URL+"/week", httpOptions)
+              .subscribe((result: any) => {
+                console.log('entre a las weeks');
+                this.week = result.data;
+                console.log(this.week);
+                loading.dismiss();
 
-    });
+               });
 
+        });
+      };
+   }
+
+  ionViewDidEnter() {
+    this.weekLoader();
   }
 
   goToAddHour(date: string = "2015-01-01", has = false ) {

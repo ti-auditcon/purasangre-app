@@ -137,6 +137,7 @@ export class DashboardPage  {
 
                         },
                         ticks: {
+                          suggestedMax: 25,
                           beginAtZero: true,
                           userCallback: function(label, index, labels) {
                             if (Math.floor(label) === label) {
