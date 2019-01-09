@@ -13,7 +13,7 @@ let TOKEN_KEY = 'auth-token';
   templateUrl: './add-day.page.html',
   styleUrls: ['./add-day.page.scss'],
 })
-export class AddDayPage implements OnInit {
+export class AddDayPage  {
   public week: any = [];
 
   constructor( private navCtrl: NavController,
@@ -47,7 +47,7 @@ export class AddDayPage implements OnInit {
                });
 
         });
-      };
+      });
    }
 
   ionViewDidEnter() {
