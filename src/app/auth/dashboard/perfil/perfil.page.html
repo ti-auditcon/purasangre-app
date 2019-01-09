@@ -15,7 +15,12 @@
       <div class="col-3 persona-item-img">
         <div class="avatar-container" (click)="selectImageFromCamera()">
           <!-- src="assets/img/image.jpg" -->
-          <img class="persona-avatar" [src]="image">
+          <!-- image -->
+          <img class="persona-avatar" *ngIf="imageClean != null; else igualANull" [src]="image">
+
+          <ng-template #igualANull>
+            <img class="persona-avatar" [src]="'assets/img/default_user.png'">
+          </ng-template>
         </div>
       </div>
       <div class="col-9 persona-item-data">
