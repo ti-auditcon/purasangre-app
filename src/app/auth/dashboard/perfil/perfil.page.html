@@ -2,6 +2,14 @@
 
 <ion-content padding>
 
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Arrastra para actualizar"
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
   <div class="persona-card">
     <div class="ps-row">
       <div class="col-3 persona-item-img">

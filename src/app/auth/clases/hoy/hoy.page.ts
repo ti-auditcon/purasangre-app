@@ -12,7 +12,7 @@ let TOKEN_KEY = 'auth-token';
   templateUrl: './hoy.page.html',
   styleUrls: ['./hoy.page.scss'],
 })
-export class HoyPage implements OnInit {
+export class HoyPage {
 
   public today: any = '';
 
@@ -21,7 +21,17 @@ export class HoyPage implements OnInit {
     private http: HttpClient
   ) { }
 
-  ngOnInit() {
+  // Refresh
+  doRefresh(event) {
+    console.log('Begin async operation');
+    this.ionViewDidEnter();
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
+
+  ionViewDidEnter() {
     this.storage.get(TOKEN_KEY).then((value) => {
       //console.log(value);
       let Bearer = value;
