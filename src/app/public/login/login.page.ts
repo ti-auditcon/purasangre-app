@@ -41,8 +41,8 @@ export class LoginPage implements OnInit {
       const modal = await this.modalController.create({
         component: ConfirmPage,
         componentProps: {
-          title: this.error.hint,
-          message: this.error.message,
+          title: 'Error',
+          message: 'Usuario o contraseña incorrectos.',
           buttonIcon: 'close-circle'
         },
         cssClass: 'modal-confirm'
