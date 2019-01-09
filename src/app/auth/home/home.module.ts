@@ -9,6 +9,7 @@ import { HomePageRoutingModule } from './home.router.module';
 import { HomePage } from './home.page';
 import { DashboardPageModule } from '../dashboard/dashboard.module';
 import { PerfilPageModule } from '../dashboard/perfil/perfil.module';
+import { HoyDashboardPageModule } from '../dashboard/hoydashboard/hoydashboard.module';
 import { ClasesPageModule } from '../clases/clases.module';
 import { ClasePageModule } from '../clases/clase/clase.module';
 import { HoyPageModule } from '../clases/hoy/hoy.module';
@@ -30,6 +31,7 @@ import { ConfirmPage } from '../reservas/confirm/confirm.page';
     HomePageRoutingModule,
     DashboardPageModule,
     PerfilPageModule,
+    HoyDashboardPageModule,
     ClasesPageModule,
     ClasePageModule,
     HoyPageModule,

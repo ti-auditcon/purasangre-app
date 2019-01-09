@@ -76,11 +76,14 @@
         <p>{{user?.direccion}}</p>
       </div>
     </div>
+    <div class="wrap-logout">
+      <button class="button-logout" (click)="logout()">Cerrar Sesión</button>
+    </div>
   </div>
   <div class="section">
     <p *ngFor="let alert of alerts ">
       {{alert}}
     </p>
-    </div>
+  </div>
 
 </ion-content>

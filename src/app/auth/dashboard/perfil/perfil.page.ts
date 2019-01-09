@@ -11,7 +11,6 @@ import { Platform, ToastController } from '@ionic/angular';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 
-
 let TOKEN_KEY = 'auth-token';
 
 @Component({
@@ -30,6 +29,7 @@ export class PerfilPage {
 
   imageURI:any;
   imageFileName:any;
+  variable = "variable";
 
   constructor( private storage: Storage,
                private authService: AuthenticationService,

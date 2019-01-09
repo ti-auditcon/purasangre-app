@@ -9,11 +9,14 @@ import { NavController } from '@ionic/angular';
 })
 export class NavbarComponent implements OnInit {
 
-  @Input() titulo: string
+  @Input() titulo: string;
+  @Input() avatar: string;
   mainTabs = ['Dashboard', 'Tus Clases'];
 
   constructor(private authService: AuthenticationService,
               private navCtrl: NavController) { }
+
+  // passImage;
 
   ngOnInit() {
   }
