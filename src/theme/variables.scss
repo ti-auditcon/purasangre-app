@@ -209,8 +209,8 @@
     width: 20%;
     text-align: right;
     .button-header {
-      font-size: 24px;
-      padding: 0 8px 3px;
+      // font-size: 24px;
+      padding: 3px 8px;
       vertical-align: middle;
       ion-icon {
         vertical-align: middle;
@@ -855,5 +855,16 @@
     text-align: center;
     color: rgba(white, 0.8);
     font-size: 12px;
+  }
+}
+
+.wrap-logout {
+  margin-top: 30px;
+  .button-logout {
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: var(--ion-color-danger);
+    color: white;
   }
 }

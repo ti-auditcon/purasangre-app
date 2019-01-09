@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
 import { DashboardPage } from '../dashboard/dashboard.page';
 import { PerfilPage } from '../dashboard/perfil/perfil.page';
+import { HoyDashboardPage } from '../dashboard/hoydashboard/hoydashboard.page';
 import { ClasesPage } from '../clases/clases.page';
 import { ClasePage } from '../clases/clase/clase.page';
 import { HoyPage } from '../clases/hoy/hoy.page';
@@ -23,6 +24,7 @@ const routes: Routes = [
 
       { path: 'dashboard', outlet: 'dashboard', component: DashboardPage },
       { path: 'perfil', outlet: 'dashboard', component: PerfilPage },
+      { path: 'hoydashboard', outlet: 'dashboard', component: HoyDashboardPage },
 
       { path: 'clases', outlet: 'clases', component: ClasesPage },
       //{ path: 'clase/:id', outlet: 'clases', component: ClasePage },

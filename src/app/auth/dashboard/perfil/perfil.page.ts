@@ -11,7 +11,6 @@ import { Platform, ToastController } from '@ionic/angular';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 
-
 let TOKEN_KEY = 'auth-token';
 
 @Component({
@@ -26,9 +25,11 @@ export class PerfilPage {
   public link: any = 'sin link';
   public alerts: any = [];
   public image: any = '';
+  public imageClean: any = '';
 
   imageURI:any;
   imageFileName:any;
+  variable = "variable";
 
   constructor( private storage: Storage,
                private authService: AuthenticationService,
@@ -62,77 +63,6 @@ export class PerfilPage {
      });
      toast.present();
    }
-
-  // selectImageFromCamera()
-  // {
-  //   const options: CameraOptions = {
-  //     quality: 100,
-  //     targetWidth: 1000,
-  //     targetHeight: 1000,
-  //     destinationType: this.camera.DestinationType.FILE_URI,
-  //     sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
-  //     correctOrientation: true,
-  //     encodingType: this.camera.EncodingType.JPEG,
-  //     mediaType: this.camera.MediaType.PICTURE
-  //   }
-  //
-  //   this.camera.getPicture(options).then((imageData) => {
-  //   this.preImage = imageData;
-  //   console.log('original');
-  //   console.log(imageData);
-  //
-  //   this.crop.crop(this.preImage, {quality: 100})
-  //   .then(
-  //     newImage => {
-  //       console.log('crop');
-  //       console.log(newImage);
-  //       //this.base64Image = this.webview.convertFileSrc(newImage);
-  //       this.base64Image = 'data:image/jpeg;base64,' + newImage;
-  //
-  //       this.storage.get(TOKEN_KEY).then((value) => {
-  //
-  //         let Bearer = value;
-  //       //  console.log(this.textModel);
-  //         // let data=JSON.stringify({
-  //         //   image: newImage,
-  //         // });
-  //         console.log(this.base64Image);
-  //         let data = new FormData();
-  //         data.append('file', this.base64Image)
-  //         console.log(data);
-  //         const httpOptions = {
-  //           headers: new HttpHeaders({
-  //             // 'Content-Type': 'multipart/form-data', //updated
-  //             // 'Authorization': 'Bearer '+ Bearer//updated
-  //
-  //           })};
-  //
-  //           this.http.post("http://purasangre.asomic.com/api/users/1/image",data, httpOptions)
-  //               .subscribe((result: any) => {
-  //                 console.log('me responfio profile/image');
-  //             //    this.alerts.push('me responfio profile/image');
-  //                 console.log(result);
-  //             //    this.alerts.push(JSON.stringify(result));
-  //                 // this.errors = JSON.stringify(result);
-  //               },
-  //               err =>{
-  //                 console.log('error imagen servidor');
-  //                 console.log(err);
-  //                 this.errors = JSON.stringify(err);
-  //               //  this.alerts.push(JSON.stringify(err));
-  //               });
-  //       });
-  //
-  //
-  //     }, error => {
-  //        console.error('Error cropping image', error);
-  //        //this.alerts.push('Error cropping image');
-  //       }
-  //    );
-  //    }, (err) => {
-  //      console.log(err);
-  //    });
-  //  }
 
   selectImageFromCamera() {
     // this.presentToast('images!!!');
@@ -200,6 +130,7 @@ export class PerfilPage {
                     console.log(this.user.rels.active_plan.href);
                     var random = (new Date()).toString();
                     this.image = this.user.avatar+"?cb=" + random;
+                    this.imageClean = this.user.avatar;
 
                     this.http.get(this.user.rels.active_plan.href, httpOptions)
                                 .subscribe((result: any) => {

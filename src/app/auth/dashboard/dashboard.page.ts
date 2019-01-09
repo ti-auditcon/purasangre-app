@@ -10,11 +10,7 @@ import { AuthenticationService } from './../../services/authentication.service';
 import { ChartsModule } from 'ng2-charts';
 import * as chart from 'chart.js';
 
-
-
 let TOKEN_KEY = 'auth-token';
-
-
 
 @Component({
   selector: 'app-dashboard',
@@ -162,14 +158,8 @@ export class DashboardPage  {
     });
   }
 
-  go() {
-    this.router.navigate(['/perfil']);
-  }
-
   verWOD() {
-    // this.router.navigate(['/clases/clase']);
-    this.navCtrl.navigateForward( '/home/(clases:hoy)' );
-    // this.router.navigate(['/home/(clases:clase)']);
+    this.navCtrl.navigateForward('home/(dashboard:hoydashboard)');
   }
 
   goToEditConfirm(id: string = "0") {

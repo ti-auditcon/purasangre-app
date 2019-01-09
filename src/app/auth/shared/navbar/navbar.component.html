@@ -53,13 +53,14 @@
       <div class="toolbar-right">
 
         <div *ngIf="this.titulo == 'Dashboard'" class="button-header" (click)="goToPerfil()">
-          <ion-icon slot="icon-only" name="person" color="light"></ion-icon>
+          <!-- <ion-icon slot="icon-only" name="person" color="light"></ion-icon> -->
+          <img src="{{ this.avatar }}" style="width: 34px; border-radius: 60px; margin-top: 3px;">
         </div>
 
-        <div *ngIf="this.titulo == 'Tu Perfil'" class="button-header" (click)="logout()">
+        <!-- <div *ngIf="this.titulo == 'Tu Perfil'" class="button-header" (click)="logout()"> -->
           <!-- <ion-icon slot="icon-only" name="log-out"></ion-icon> -->
-          <ion-icon slot="icon-only" name="power" color="light"></ion-icon>
-        </div>
+          <!-- <ion-icon slot="icon-only" name="power" color="light"></ion-icon>
+        </div> -->
 
         <img class="shield" src="assets/brand/ma_purasangre.png">
 

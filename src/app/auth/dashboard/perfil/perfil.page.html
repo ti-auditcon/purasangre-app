@@ -15,7 +15,12 @@
       <div class="col-3 persona-item-img">
         <div class="avatar-container" (click)="selectImageFromCamera()">
           <!-- src="assets/img/image.jpg" -->
-          <img class="persona-avatar" [src]="image">
+          <!-- image -->
+          <img class="persona-avatar" *ngIf="imageClean != null; else igualANull" [src]="image">
+
+          <ng-template #igualANull>
+            <img class="persona-avatar" [src]="'assets/img/default_user.png'">
+          </ng-template>
         </div>
       </div>
       <div class="col-9 persona-item-data">
@@ -56,7 +61,7 @@
       <h1 class="title-section">Datos</h1>
       <div class="datos-item">
         <h5>Género</h5>
-        <p>{{user?.genero}}</p>
+        <p style="text-transform: capitalize;">{{user?.genero}}</p>
       </div>
       <div class="datos-item">
         <h5>Correo</h5>
@@ -71,11 +76,14 @@
         <p>{{user?.direccion}}</p>
       </div>
     </div>
+    <div class="wrap-logout">
+      <button class="button-logout" (click)="logout()">Cerrar Sesión</button>
+    </div>
   </div>
   <div class="section">
     <p *ngFor="let alert of alerts ">
       {{alert}}
     </p>
-    </div>
+  </div>
 
 </ion-content>
