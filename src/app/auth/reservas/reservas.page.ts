@@ -63,7 +63,8 @@ export class ReservasPage {
   async presentToast() {
      const toast = await this.toastController.create({
        message: 'Hora Reservada',
-       duration: 2500
+       duration: 2500,
+       position: 'top'
      });
      toast.present();
    }

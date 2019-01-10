@@ -35,7 +35,8 @@ export class ConfirmPage {
   async presentToast(message: string) {
      const toast = await this.toastController.create({
        message: message,
-       duration: 2500
+       duration: 2500,
+       position: 'top'
      });
      toast.present();
    }

@@ -59,7 +59,8 @@ export class PerfilPage {
   async presentToast(text = 'Error', duration = 2500) {
      const toast = await this.toastController.create({
        message: text,
-       duration: duration
+       duration: duration,
+       position: 'top'
      });
      toast.present();
    }
