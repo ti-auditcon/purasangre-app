@@ -15,13 +15,29 @@
 
     <div class="clases-cards">
       <!-- <ion-button >Link</ion-button> -->
-      <div class="clase-card today" (click)="irAClaseHoy()">
+      <div class="clase-card today" (click)="irAClaseHoy(today?.auth_reservation?.has)">
 
           <div class="ps-row" align-items-center>
             <div class="col-10">
               <h2>{{today?.dateHuman}}</h2>
-              <p *ngIf="today?.auth_reservation?.has">Tienes una clase a las {{today?.auth_reservation?.reservation.start}}</p>
-              <p *ngIf="!today?.auth_reservation?.has">No tienes clases Reservadas hoy</p>
+              <div *ngIf="today?.auth_reservation?.has">
+                <p *ngIf="today.auth_reservation.reservation.status ==1">
+                  Tienes una clase sin confirmar a las {{today?.auth_reservation?.reservation.start}}
+                </p>
+                <p *ngIf="today.auth_reservation.reservation.status ==2">
+                  Tienes una clase a las {{today?.auth_reservation?.reservation.start}}
+                </p>
+                <p *ngIf="today.auth_reservation.reservation.status ==3">
+                  Tuviste clase a las {{today?.auth_reservation?.reservation.start}}
+                </p>
+                <p *ngIf="today.auth_reservation.reservation.status ==4">
+                  Perdiste tu clase a las {{today?.auth_reservation?.reservation.start}}
+                </p>
+              </div>
+              <div *ngIf="!today?.auth_reservation?.has">
+                <p >No tienes clases Reservadas hoy</p>
+               </div>
+
             </div>
             <div class="col-2">
               <ion-icon name="arrow-dropright"></ion-icon>

@@ -82,8 +82,17 @@ export class ClasesPage {
   }
 
   irAClaseHoy(has = false){
+    status = this.today.auth_reservation.reservation.status
     if(has){
-      this.navCtrl.navigateForward( '/home/(reservas:edit-confirm/'+this.today.auth_reservation.reservation.id+')');
+      if((status == 1) || (status == 2) ){
+        this.navCtrl.navigateForward( '/home/(reservas:edit-confirm/'+this.today.auth_reservation.reservation.id+')');
+      }
+      if((status == 3) ){
+        this.navCtrl.navigateForward( '/home/(clases:clase/'+this.today.auth_reservation.reservation.id+')');
+      }
+      if((status == 4)){
+        this.navCtrl.navigateForward( '/home/(clases:hoy)/');
+      }
     } else {
       this.navCtrl.navigateForward( '/home/(clases:hoy)/');
     }

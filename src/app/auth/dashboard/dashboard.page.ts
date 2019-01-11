@@ -133,7 +133,7 @@ export class DashboardPage  {
 
                         },
                         ticks: {
-                          suggestedMax: 25,
+                          suggestedMax: 24,
                           beginAtZero: true,
                           userCallback: function(label, index, labels) {
                             if (Math.floor(label) === label) {
