@@ -4,7 +4,7 @@
     <div class="logo-auth-container">
       <img class="logo-auth" src="assets/img/ps_logo.png" alt="Pura Sangre Crossfit">
     </div>
-    <form (ngSubmit)="login()" #registerForm="ngForm">
+    <form (ngSubmit)="sendForgot()" #registerForm="ngForm">
       <div class="form-inner">
 
         <div class="a-input">
@@ -16,7 +16,7 @@
       </div>
       <ion-col class="signup-col">
 
-        <button class="submit-login-auth" full type="submit" expand="block" (click)="openModalForgot()">Enviar</button>
+        <button class="submit-login-auth" full type="submit" expand="block">Enviar</button>
         <!-- <ion-button (click)="openModalForgot()">Enviar</ion-button> -->
 
         <br><br>

@@ -82,7 +82,7 @@ export class ClasesPage {
   }
 
   irAClaseHoy(has = false){
-    status = this.today.auth_reservation.reservation.status
+    let status = this.today.auth_reservation.reservation.status;
     if(has){
       if((status == 1) || (status == 2) ){
         this.navCtrl.navigateForward( '/home/(reservas:edit-confirm/'+this.today.auth_reservation.reservation.id+')');
