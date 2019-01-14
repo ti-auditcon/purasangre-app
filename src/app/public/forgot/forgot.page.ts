@@ -13,10 +13,10 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 })
 export class ForgotPage {
   registerCredentials = { email: '' };
-
   title;
   message;
   buttonIcon;
+  disabled = false;
 
   constructor( private authService: AuthenticationService,
                private modalController: ModalController,
@@ -42,6 +42,7 @@ export class ForgotPage {
 
 
   sendForgot(){
+    this.disabled=true;
 
     let data=JSON.stringify({
       email: this.registerCredentials.email,
@@ -57,7 +58,7 @@ export class ForgotPage {
                    console.log('success reset');
                    console.log(result);
                    this.openModalForgot('Revisa tu Correo','Te hemos enviado las instrucciones para reestablecer tu contraseña');
-
+                   this.backToLogin();
                },
                (err) => {
                  console.log('error reset');
