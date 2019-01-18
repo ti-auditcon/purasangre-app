@@ -24,13 +24,13 @@ export class ForgotPage {
                private http: HttpClient
               ) { }
 
-  async openModalForgot(title,message){
+  async openModalForgot(title,message,buttonIcon){
    const modal = await this.modalController.create({
      component: ConfirmPage,
      componentProps: {
        title: title,
        message: message,
-       buttonIcon: 'checkmark-circle'
+       buttonIcon: buttonIcon
      },
      cssClass: 'modal-confirm'
    });
@@ -57,13 +57,13 @@ export class ForgotPage {
                (result: any) => {
                    console.log('success reset');
                    console.log(result);
-                   this.openModalForgot('Revisa tu Correo','Te hemos enviado las instrucciones para reestablecer tu contraseña');
+                   this.openModalForgot('Revisa tu Correo','Te hemos enviado las instrucciones para reestablecer tu contraseña','checkmark-circle');
                    this.backToLogin();
                },
                (err) => {
                  console.log('error reset');
                  console.log(err);
-                 this.openModalForgot('Error','El correo no existe o no es valido');
+                 this.openModalForgot('Error','El correo no existe o no es valido','close-circle');
                }
              );
 

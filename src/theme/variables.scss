@@ -90,6 +90,29 @@
 
 }
 
+ion-slides {
+  // background: var(--ion-color-success);
+  width: 100vw;
+  background: linear-gradient(153.33deg, #FC0F85 6.69%, #9300AB 88.08%);
+}
+
+ion-slide {
+    // width: 100vw !important;
+    height: 100vh !important;
+    padding: 0 40px;
+    flex-direction: column;
+}
+
+ion-img {
+    max-width: 50vw;
+    max-height: 50vh;
+    overflow: hidden;
+}
+
+.item-slide {
+    color: var(--ion-color-primary-contrast);
+}
+
 .master-content {
   margin-top: 12px;
 }
