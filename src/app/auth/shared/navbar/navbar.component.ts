@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from '../../../services/authentication.service';
-import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,9 @@ export class NavbarComponent implements OnInit {
   mainTabs = ['Dashboard', 'Tus Clases'];
 
   constructor(private authService: AuthenticationService,
-              private navCtrl: NavController) { }
+              private router: Router,
+              private location: Location
+            ) { }
 
   // passImage;
 
@@ -26,7 +29,11 @@ export class NavbarComponent implements OnInit {
   }
 
   goToPerfil() {
-    this.navCtrl.navigateForward('home/(dashboard:perfil)')
+    this.router.navigate(['/home/perfil']);
+  }
+
+  goBack() {
+    this.location.back(); // <-- go back to previous location on cancel
   }
 
 }

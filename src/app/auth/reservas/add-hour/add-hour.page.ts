@@ -2,10 +2,10 @@
 import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
 import { Component, OnInit } from '@angular/core';
-import { NavController, LoadingController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { ActivatedRoute } from  '@angular/router';
+import { Router, ActivatedRoute } from  '@angular/router';
 
 let TOKEN_KEY = 'auth-token';
 
@@ -17,9 +17,9 @@ let TOKEN_KEY = 'auth-token';
 export class AddHourPage {
   public clases: any = [];
 
-  constructor( private navCtrl: NavController,
-               private storage: Storage,
+  constructor( private storage: Storage,
                private http: HttpClient,
+               private router: Router,
                public activatedRoute: ActivatedRoute,
                public loadingController: LoadingController
    ) { }
@@ -57,7 +57,7 @@ export class AddHourPage {
 
   goToAddConfirm(id: string = "0", has = false) {
     if(has){
-        this.navCtrl.navigateForward( '/home/(reservas:add-confirm/'+id+')' );
+      this.router.navigate(['/home/add-confirm/'+id+')']);
     }
   }
 

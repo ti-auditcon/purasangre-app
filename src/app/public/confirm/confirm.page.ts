@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirm',
@@ -13,14 +14,14 @@ export class ConfirmPage implements OnInit {
   message: any;
 
   constructor( public viewCtrl: ModalController,
-               private navCtrl: NavController ) { }
+               private router: Router ) { }
 
   ngOnInit() {
   }
 
   closeModal() {
     this.viewCtrl.dismiss();
-    this.navCtrl.navigateForward( '/login' );
+    this.router.navigate( ['/login'] );
   }
 
 }

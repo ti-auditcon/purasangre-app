@@ -76,18 +76,59 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
-  --ion-toolbar-background-color: linear-gradient(180deg, #0075C9 0%, #00BFC9 100%);
-  --ion-toolbar-text-color: white;
-  --ion-toolbar-border-color-rgb: transparent;
-  --ion-tabbar-background-color: linear-gradient(95.73deg, #01BCC8 0.75%, #0396B6 81.3%);
-  --ion-tabbar-text-color: transparent;
-  --ion-tabbar-text-color-active: transparent;
+  /** Vibrant **/
+  --ion-color-vibrant: #e4ff38;
+  --ion-color-vibrant-rgb: 228,255,56;
+  --ion-color-vibrant-contrast: #ffffff;
+  --ion-color-vibrant-contrast-rgb: 255,255,255;
+  --ion-color-vibrant-shade: #cbeb00;
+  --ion-color-vibrant-tint: #ddff05;
+
+  // --color-selected: red;
+  // --button-selected: red;
+  --ion-background-color: white;
+
+  // --ion-toolbar-background-color: linear-gradient(180deg, #0075C9 0%, #00BFC9 100%);
+  --ion-toolbar-background: linear-gradient(180deg, #0075C9 0%, #00BFC9 100%);
+  --ion-toolbar-color: white;
+  --ion-toolbar-border-color: white;
+  // --ion-toolbar-text-color: white;
+  // --ion-tab-active-color: white;
+  // --ion-tabbar-text-color-active: red;
+  // --ion-tabbar-text-color-active: #000000;
+  // --ion-tabbar-text-color-focused: black;
+  --ion-tab-bar-color: transparent;
+  // --ion-tab-bar-color-activated: #9300AB;
+  // --ion-tabbar-background-color-focused: red;
+  --ion-background-color-focus: #0396B6;
+  --ion-tab-bar-color-activated: transparent;
+  // --ion-toolbar-border-color-rgb: transparent;
+  // --ion-tabbar-background-color: linear-gradient(95.73deg, #01BCC8 0.75%, #0396B6 81.3%);
+  // --ion-tab-bar-background: linear-gradient(180deg, #0075C9 0%, #00BFC9 100%);
+  --ion-background-tabbar: linear-gradient(95.73deg, #01BCC8 0.75%, #0396B6 81.3%);
+  --ion-tab-bar-background: transparent;
+  --ion-border-color: none;
+  // --ion-tabbar-text-color: transparent;
+  // --ion-tabbar-text-color-active: transparent;
   --ion-font-family: 'Ubuntu', sans-serif;
+
+  // --ion-background-toast: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%);
 
   --ion-padding: 18px;
 
   --padding-top: 80px;
 
+  --ion-color-step-800: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%) !important;
+
+}
+
+ion-tab-bar {
+  background: var(--ion-background-tabbar);
+}
+
+ion-tab-button.tab-selected {
+  background: var(--ion-background-color-focus);
+  // border: var(--ion-tab-bar-border-color)
 }
 
 ion-slides {
@@ -101,6 +142,26 @@ ion-slide {
     height: 100vh !important;
     padding: 0 40px;
     flex-direction: column;
+    span {
+      line-height: 42px;
+    }
+    ion-img {
+      margin-bottom: 8px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .button-start {
+      color: white;
+      background: linear-gradient(95.73deg, #01BCC8 0.75%, #0396B6 81.3%);
+      padding: 8px 14px;
+      border-radius: 3px;
+      font-size: 14px;
+      text-decoration: none;
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
 }
 
 ion-img {
@@ -112,6 +173,12 @@ ion-img {
 .item-slide {
     color: var(--ion-color-primary-contrast);
 }
+
+// .tab-btn-selected.sc-ion-tabbar-md {
+//   background: var(--ion-tabbar-background-color);
+// }
+
+/**/
 
 .master-content {
   margin-top: 12px;
@@ -217,9 +284,13 @@ ion-img {
       vertical-align: middle;
       align-self: center;
     }
+    .button {
+      margin-left: 13px;
+    }
     .title {
-      padding-top: 2px;
+      // padding-top: 2px;
       .logo {
+        margin-top: 2px;
         margin-left: 12px;
       }
       .title-header {
@@ -868,6 +939,14 @@ ion-img {
   background: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%) !important;
   color: white !important;
 }
+//
+// .toast-container {
+//   background: var(--ion-background-toast) !important;
+// }
+//
+// .toast-message {
+//   background: var(--ion-background-toast) !important;
+// }
 
 .version {
   position: absolute;

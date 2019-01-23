@@ -2,8 +2,9 @@
 import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
 import { Component} from '@angular/core';
-import { Platform, ModalController, NavController } from '@ionic/angular';
+import { Platform, ModalController } from '@ionic/angular';
 import { ConfirmPage } from '../confirm/confirm.page';
+import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from  '@angular/router';
@@ -30,21 +31,18 @@ export class EditConfirmPage  {
 
   constructor( public plt: Platform,
                private modalController: ModalController,
-               private navCtrl: NavController,
+               private router: Router,
                private storage: Storage,
                private http: HttpClient,
                public activatedRoute: ActivatedRoute,
               ) {
-
-
-
   }
 
   ionViewDidEnter() {
 
         if (this.plt.is('ios')) {
           //Si es iOS
-          this.buttonFixIOS = "button-fix-ios";
+          this.buttonFixIOS = "button-fix-ios"
           this.buttonFixAndroid = "display-none";
         } else {
           //Si es Android
@@ -119,7 +117,7 @@ export class EditConfirmPage  {
   }
 
   goToEditHour(date:string = "2015-01-01") {
-    this.navCtrl.navigateForward( '/home/(reservas:edit-hour/'+date+')' );
+    this.router.navigate( ['/home/edit-hour/'+date+''] );
   }
 
 

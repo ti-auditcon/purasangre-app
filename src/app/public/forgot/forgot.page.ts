@@ -1,7 +1,8 @@
 //env
 import { environment, SERVER_URL} from '../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
-import { NavController, ModalController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { AuthenticationService } from './../../services/authentication.service';
 import { ConfirmPage } from '../confirm/confirm.page';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
@@ -20,7 +21,7 @@ export class ForgotPage {
 
   constructor( private authService: AuthenticationService,
                private modalController: ModalController,
-               private navCtrl: NavController,
+               private router: Router,
                private http: HttpClient
               ) { }
 
@@ -70,7 +71,7 @@ export class ForgotPage {
   }
 
   backToLogin(){
-    this.navCtrl.navigateBack( '/login' )
+    this.router.navigate( ['/login'] )
   }
 
 }

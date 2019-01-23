@@ -2,7 +2,7 @@
 import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
 import { Component, OnInit } from '@angular/core';
-import { NavController, ToastController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 import { ActivatedRoute } from  '@angular/router';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';

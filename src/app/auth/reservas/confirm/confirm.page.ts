@@ -3,7 +3,7 @@ import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController, NavController, ToastController  } from '@ionic/angular';
+import { ModalController, ToastController  } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 
@@ -24,7 +24,6 @@ export class ConfirmPage {
   buttonActionConfirm: any;
 
   constructor( public viewCtrl: ModalController,
-               private navCtrl: NavController,
                private storage: Storage,
                private http: HttpClient,
                private router: Router,
@@ -55,7 +54,7 @@ export class ConfirmPage {
           .subscribe((result: any) => {
             console.log('voy a reservar...');
             this.viewCtrl.dismiss();
-            this.navCtrl.navigateRoot( '/home/(reservas:reservas)');
+            this.router.navigate( ['/home/reservas'] );
             this.presentToast('Clase Reservada');
 
 
@@ -86,7 +85,7 @@ export class ConfirmPage {
           .subscribe((result: any) => {
             // console.log('voy a remover...');
             this.viewCtrl.dismiss();
-            this.navCtrl.navigateRoot( '/home/(reservas:reservas)');
+            this.router.navigate( ['/home/reservas'] );
             this.presentToast('Has cedido tu cupo, ahora puedes reservar otra hora');
           },
           err => {
@@ -116,7 +115,7 @@ export class ConfirmPage {
           .subscribe((result: any) => {
             // console.log('voy a confirnar clase...');
             this.viewCtrl.dismiss();
-            this.navCtrl.navigateRoot( '/home/(reservas:reservas)');
+            this.router.navigate( ['/home/reservas'] );
             this.presentToast('Reserva Confirmada');
           },
           err => {

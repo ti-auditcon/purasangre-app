@@ -2,8 +2,9 @@
 import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
 import { Component, OnInit } from '@angular/core';
-import { NavController, LoadingController  } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 let TOKEN_KEY = 'auth-token';
@@ -16,11 +17,10 @@ let TOKEN_KEY = 'auth-token';
 export class AddDayPage  {
   public week: any = [];
 
-  constructor( private navCtrl: NavController,
-               private storage: Storage,
+  constructor( private storage: Storage,
+               private router: Router,
                private http: HttpClient,
-               public loadingController: LoadingController
-   ) { }
+               public loadingController: LoadingController ) { }
 
    async weekLoader()
    {
@@ -56,7 +56,7 @@ export class AddDayPage  {
 
   goToAddHour(date: string = "2015-01-01", has = false ) {
     if(has){
-      this.navCtrl.navigateForward('/home/(reservas:add-hour/'+date+')');
+      this.router.navigate(['/home/add-hour/'+date+'']);
     }
   }
 

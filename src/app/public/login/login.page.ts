@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './../../services/authentication.service';
 import { Storage } from '@ionic/storage';
-import { NavController, ModalController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { ConfirmPage } from '../confirm/confirm.page';
 
 @Component({
@@ -21,8 +22,8 @@ export class LoginPage implements OnInit {
 
   constructor( private authService: AuthenticationService,
                private storage: Storage,
-               private modalController: ModalController,
-               private navCtrl: NavController ) { }
+               private router: Router,
+               private modalController: ModalController ) { }
   ngOnInit() {
 
   }
@@ -57,7 +58,7 @@ export class LoginPage implements OnInit {
   }
 
   goToForgot() {
-    this.navCtrl.navigateForward( '/forgot' );
+    this.router.navigate( ['/forgot'] );
   }
 
 }

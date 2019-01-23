@@ -3,7 +3,6 @@ import { environment, SERVER_URL} from '../../../environments/environment';
 //imports
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { AuthenticationService } from './../../services/authentication.service';
@@ -24,7 +23,6 @@ export class ClasesPage {
 
     private storage: Storage,
     private http: HttpClient,
-    private navCtrl: NavController,
     private router: Router,
     private authService: AuthenticationService,
   ) {}
@@ -72,12 +70,9 @@ export class ClasesPage {
   irAClase(id: string = "0"){
     // this.router.navigateByUrl( '/home/(clases:clase)' );
   //  this.storage.set('clase_id', '1');
-  //  this.navCtrl.navigateForward( '/home/(clases:clase/{{1}})')
    //this.router.navigate('/home/(clases:clase/1)');
 
-   this.navCtrl.navigateForward( '/home/(clases:clase/'+id+')');
-
-
+   this.router.navigate(['/home/clase/'+id+'']);
 
   }
 
@@ -85,16 +80,17 @@ export class ClasesPage {
     let status = this.today.auth_reservation.reservation.status;
     if(has){
       if((status == 1) || (status == 2) ){
-        this.navCtrl.navigateForward( '/home/(reservas:edit-confirm/'+this.today.auth_reservation.reservation.id+')');
+        this.router.navigate( ['/home/edit-confirm/'+this.today.auth_reservation.reservation.id+''] );
+        this.router.navigate( ['/home/edit-confirm/'+this.today.auth_reservation.reservation.id+''] );
       }
       if((status == 3) ){
-        this.navCtrl.navigateForward( '/home/(clases:clase/'+this.today.auth_reservation.reservation.id+')');
+        this.router.navigate( ['/home/clase/'+this.today.auth_reservation.reservation.id+''] );
       }
       if((status == 4)){
-        this.navCtrl.navigateForward( '/home/(clases:hoy)/');
+        this.router.navigate( ['/home/hoy/]' );
       }
     } else {
-      this.navCtrl.navigateForward( '/home/(clases:hoy)/');
+      this.router.navigate( ['/home/hoy/'] );
     }
 
 

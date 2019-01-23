@@ -3,7 +3,6 @@ import { environment, SERVER_URL} from '../../../environments/environment';
 //imports
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { AuthenticationService } from './../../services/authentication.service';
@@ -36,7 +35,6 @@ export class DashboardPage  {
 
   constructor(
     private router: Router,
-    private navCtrl: NavController,
     private storage: Storage,
     private http: HttpClient,
     private authService: AuthenticationService,
@@ -159,12 +157,11 @@ export class DashboardPage  {
   }
 
   verWOD() {
-    this.navCtrl.navigateForward('home/(dashboard:hoydashboard)');
+    this.router.navigate( ['home/hoydashboard'] );
   }
 
   goToEditConfirm(id: string = "0") {
-  //  this.navCtrl.navigateForward( '/home/(clases:clase/'+id+')');
-    this.navCtrl.navigateForward( '/home/(reservas:edit-confirm/'+id+')' );
+    this.router.navigate( ['/home/edit-confirm/'+id+''] );
   }
 
 }

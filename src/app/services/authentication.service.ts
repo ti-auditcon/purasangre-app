@@ -1,8 +1,9 @@
 //env
 import { environment, SERVER_URL, API_KEY} from '../../environments/environment';
 //imports
-import { Platform, NavController  } from '@ionic/angular';
+import { Platform  } from '@ionic/angular';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
@@ -27,7 +28,7 @@ export class AuthenticationService {
 
   authenticationState = new BehaviorSubject(false);
 
-  constructor(private navCtrl:NavController, private storage: Storage, private plt: Platform, private http: HttpClient) {
+  constructor(private router: Router, private storage: Storage, private plt: Platform, private http: HttpClient) {
     this.plt.ready().then(() => {
       this.checkToken();
     });
@@ -67,7 +68,7 @@ export class AuthenticationService {
                        this.storage.set(REFRESH_TOKEN, result.refresh_token);
                        this.storage.set(TOKEN_KEY, result.access_token).then(() => {
                          this.authenticationState.next(true);
-                         this.navCtrl.navigateForward('/home/');
+                         this.router.navigate(['/home/']);
                        });
                  },
                  (err) => {

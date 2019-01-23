@@ -35,7 +35,31 @@
       <div class="toolbar-left">
 
         <div class="button" *ngIf="this.titulo != 'Dashboard' && this.titulo != 'Tus Clases' && this.titulo != 'Tus Reservas' && this.titulo != 'Tus Pagos'">
-          <ion-back-button defaultHref="home" mode="md"></ion-back-button>
+
+          <!-- <a href="#">hola</a> -->
+          <ion-icon src="assets/icon/arrow-back.svg" (click)="goBack()"></ion-icon>
+          <!-- <ion-icon name="arrow-back"></ion-icon> -->
+
+          <!-- <ion-back-button defaultHref="home" mode="md" icon="arrow-back">
+            <ion-icon name="arrow-back"></ion-icon>
+          </ion-back-button> -->
+
+          <!-- <ion-buttons slot="start">
+            <app-back-button [href]="previousPage"></app-back-button>
+          </ion-buttons> -->
+
+          <!-- <ion-buttons slot="start">
+            <ion-button>
+              <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+        	</ion-buttons> -->
+
+          <!-- <ion-back-button defaultHref="home"></ion-back-button> -->
+
+          <!-- <ion-buttons slot="start">
+            <ion-back-button mode="md" icon="arrow-back"></ion-back-button>
+          </ion-buttons> -->
+
         </div>
 
         <div align-self-center class="title font-bold" *ngIf="this.titulo == 'Dashboard'; else normalTitle">

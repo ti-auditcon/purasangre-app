@@ -20,27 +20,40 @@ import { AuthGuardService } from '../../services/auth-guard.service';
 const routes: Routes = [
   {
     path: 'home', canActivate: [AuthGuardService], component: HomePage, children: [
-      { path: '', redirectTo: '/home/(dashboard:dashboard)', pathMatch: 'full', },
+      { path: '', redirectTo: '/home/dashboard', pathMatch: 'full', },
 
-      { path: 'dashboard', outlet: 'dashboard', component: DashboardPage },
-      { path: 'perfil', outlet: 'dashboard', component: PerfilPage },
-      { path: 'hoydashboard', outlet: 'dashboard', component: HoyDashboardPage },
+      // { path: 'dashboard', outlet: 'dashboard', component: DashboardPage },
+      { path: 'dashboard', children: [{ path: '', component: DashboardPage }] },
 
-      { path: 'clases', outlet: 'clases', component: ClasesPage },
-      //{ path: 'clase/:id', outlet: 'clases', component: ClasePage },
-      { path: 'clase/:id', outlet: 'clases', component: ClasePage },
-      { path: 'hoy', outlet: 'clases', component: HoyPage },
+      // { path: 'perfil', outlet: 'dashboard', component: PerfilPage },
+      { path: 'perfil', children: [{ path: '', component: PerfilPage }] },
+      // { path: 'hoydashboard', outlet: 'dashboard', component: HoyDashboardPage },
+      { path: 'hoydashboard', children: [{ path: '', component: HoyDashboardPage }] },
 
-      { path: 'reservas', outlet: 'reservas', component: ReservasPage },
-      { path: 'edit-hour/:date', outlet: 'reservas', component: EditHourPage },
-      { path: 'edit-confirm/:id', outlet: 'reservas', component: EditConfirmPage },
-      { path: 'add-day', outlet: 'reservas', component: AddDayPage },
-      { path: 'add-hour/:date', outlet: 'reservas', component: AddHourPage },
-      { path: 'add-confirm/:id', outlet: 'reservas', component: AddConfirmPage },
+      // { path: 'clases', outlet: 'clases', component: ClasesPage },
+      { path: 'clases', children: [{ path: '', component: ClasesPage }] },
+      // { path: 'clase/:id', outlet: 'clases', component: ClasePage },
+      { path: 'clase/:id', children: [{ path: '', component: ClasePage }] },
+      // { path: 'hoy', outlet: 'clases', component: HoyPage },
+      { path: 'hoy', children: [{ path: '', component: HoyPage }] },
 
-      { path: 'pagos', outlet: 'pagos', component: PagosPage }
-    ]},
-    { path: '', redirectTo: '/home/(dashboard:dashboard)', pathMatch: 'full' }
+      // { path: 'reservas', outlet: 'reservas', component: ReservasPage },
+      { path: 'reservas', children: [{ path: '', component: ReservasPage }] },
+      // { path: 'edit-hour/:date', outlet: 'reservas', component: EditHourPage },
+      { path: 'edit-hour/:date', children: [{ path: '', component: EditHourPage }] },
+      // { path: 'edit-confirm/:id', outlet: 'reservas', component: EditConfirmPage },
+      { path: 'edit-confirm/:id', children: [{ path: '', component: EditConfirmPage }] },
+      // { path: 'add-day', outlet: 'reservas', component: AddDayPage },
+      { path: 'add-day', children: [{ path: '', component: AddDayPage }] },
+      // { path: 'add-hour/:date', outlet: 'reservas', component: AddHourPage },
+      { path: 'add-hour/:date', children: [{ path: '', component: AddHourPage }] },
+      // { path: 'add-confirm/:id', outlet: 'reservas', component: AddConfirmPage },
+      { path: 'add-confirm/:id', children: [{ path: '', component: AddConfirmPage }] },
+
+      // { path: 'pagos', outlet: 'pagos', component: PagosPage }
+      { path: 'pagos', children: [{ path: '', component: PagosPage }] },
+    ]}
+    // { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' }
   ];
 
 @NgModule({

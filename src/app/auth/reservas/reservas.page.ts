@@ -2,8 +2,9 @@
 import { environment, SERVER_URL} from '../../../environments/environment';
 //imports
 import { Component } from '@angular/core';
-import { NavController, ToastController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { AuthenticationService } from './../../services/authentication.service';
@@ -27,9 +28,9 @@ export class ReservasPage {
   confirmation: string = "";
 
   constructor(
-    private navCtrl: NavController,
     public plt: Platform,
     private storage: Storage,
+    private router: Router,
     private http: HttpClient,
     public toastController: ToastController,
     private authService: AuthenticationService,
@@ -106,11 +107,10 @@ export class ReservasPage {
   }
 
   goToEditConfirm(id: string = "0") {
-  //  this.navCtrl.navigateForward( '/home/(clases:clase/'+id+')');
-    this.navCtrl.navigateForward( '/home/(reservas:edit-confirm/'+id+')' );
+    this.router.navigate( ['/home/edit-confirm/'+id+')'] );
   }
   goToAddDay() {
-    this.navCtrl.navigateForward( '/home/(reservas:add-day)' );
+    this.router.navigate( ['/home/add-day'] );
   }
 
   enter() {
