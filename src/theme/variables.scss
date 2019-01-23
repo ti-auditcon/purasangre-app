@@ -147,6 +147,8 @@ ion-slide {
     }
     ion-img {
       margin-bottom: 8px;
+      max-width: 56vw;
+      max-height: 56vh;
     }
     p {
       font-size: 16px;
@@ -971,9 +973,19 @@ ion-img {
   margin-top: 30px;
   .button-logout {
     width: 100%;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-radius: 3px;
     background: var(--ion-color-danger);
     color: white;
+  }
+  .button-tutorial {
+    width: 100%;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-radius: 3px;
+    background: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%) !important;
+    color: white;
+    margin-bottom: 9px;
   }
 }
