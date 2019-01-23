@@ -53,7 +53,7 @@ export class AddConfirmPage implements OnInit {
       componentProps: {
         title: 'Reservar esta hora',
         message: this.clase.dateHuman+' de '+this.clase.start+' a '+this.clase.end+'hrs',
-        buttonIcon: 'information-circle',
+        buttonIcon: '/assets/icon/info.svg',
         claseId: this.clase.clase_id,
         buttonActionAdd: true,
       },

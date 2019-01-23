@@ -87,7 +87,7 @@ export class ClasesPage {
         this.router.navigate( ['/home/clase/'+this.today.auth_reservation.reservation.id+''] );
       }
       if((status == 4)){
-        this.router.navigate( ['/home/hoy/]' );
+        this.router.navigate( ['/home/hoy/'] );
       }
     } else {
       this.router.navigate( ['/home/hoy/'] );
