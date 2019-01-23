@@ -28,7 +28,11 @@
     <ion-img src="/assets/img/t4.gif"></ion-img>
     <h1>Tu Pagos</h1>
     <p>Aquí podrás revisar tus pagos anteriores</p>
-    <a class="button-start" href="#" (click)="finish()">Comienza ahora</a>
+    <div class="buttons">
+      <!-- <a class="button-start" href="#" (click)="finish()">Ver más tarde</a> -->
+      <a class="button-start" href="#" (click)="finish()">Listo, entendí</a>
+      <input type="checkbox" (change)="checkbox = !checkbox">
+    </div>
   </ion-slide>
 
 </ion-slides>

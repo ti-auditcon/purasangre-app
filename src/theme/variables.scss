@@ -152,15 +152,19 @@ ion-slide {
       font-size: 16px;
       line-height: 20px;
     }
-    .button-start {
-      color: white;
-      background: linear-gradient(95.73deg, #01BCC8 0.75%, #0396B6 81.3%);
-      padding: 8px 14px;
-      border-radius: 3px;
-      font-size: 14px;
-      text-decoration: none;
+    .buttons {
       margin-top: 10px;
-      margin-bottom: 0;
+      .button-start {
+        color: white;
+        background: linear-gradient(95.73deg, #01BCC8 0.75%, #0396B6 81.3%);
+        padding: 8px 14px;
+        border-radius: 3px;
+        font-size: 14px;
+        text-decoration: none;
+        margin-left: 4px;
+        margin-right: 4px;
+        margin-bottom: 0;
+      }
     }
 }
 
@@ -501,6 +505,9 @@ ion-img {
     -moz-animation: buttonGradient 3s ease infinite;
     -o-animation: buttonGradient 3s ease infinite;
     animation: buttonGradient 3s ease infinite;
+    p {
+      width: 97%;
+    }
   }
   ion-icon {
     font-size: 30px;
