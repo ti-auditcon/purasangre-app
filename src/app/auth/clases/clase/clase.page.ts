@@ -9,7 +9,6 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 let TOKEN_KEY = 'auth-token';
 
-
 @Component({
   selector: 'app-clase',
   templateUrl: './clase.page.html',
@@ -80,46 +79,35 @@ export class ClasePage {
      });
   }
 
-  // input = document.getElementById('inputEdit');
-
-  // focusInput(){
-  //   document.getElementById('inputEdit').focus();
-  // }
-
-  // editDetails(){
-  //
-  // }
-
   saveDetails(){
     this.storage.get(TOKEN_KEY).then((value) => {
 
       let Bearer = value;
-      console.log(this.textModel);
+      // console.log(this.textModel);
       let data=JSON.stringify({
         details: this.textModel,
       });
-      console.log(data);
+      // console.log(data);
       const httpOptions = {
         headers: new HttpHeaders({
-          'Content-Type': 'application/json', //updated
-          'Authorization': 'Bearer '+ Bearer//updated
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer '+ Bearer
+        })
+      };
 
-        })};
-      let id =  this.reservation.reservation_id;
-      console.log(id);
-      this.http.post(SERVER_URL+"/reservations/"+id+"/details",data, httpOptions)
-           .subscribe(
-               (result: any) => {
-
-                     console.log(result);
-                     this.presentToast();
-
-               },
-               (err) => {
-                 console.log('error 401');
-               },
-             );
-           });
-         }
+      let id = this.reservation.reservation_id;
+      // console.log(id);
+      this.http.post(SERVER_URL+"/reservations/"+id+"/details", data, httpOptions)
+      .subscribe(
+         (result: any) => {
+           console.log('Resultado: '+result);
+           this.presentToast();
+         },
+         (err) => {
+           console.log('error 401');
+         },
+       );
+     });
+   }
 
 }

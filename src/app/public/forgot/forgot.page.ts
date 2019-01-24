@@ -58,13 +58,13 @@ export class ForgotPage {
                (result: any) => {
                    console.log('success reset');
                    console.log(result);
-                   this.openModalForgot('Revisa tu Correo','Te hemos enviado las instrucciones para reestablecer tu contraseña','checkmark-circle');
+                   this.openModalForgot('Revisa tu Correo','Te hemos enviado las instrucciones para reestablecer tu contraseña','/assets/icon/check.svg');
                    this.backToLogin();
                },
                (err) => {
                  console.log('error reset');
                  console.log(err);
-                 this.openModalForgot('Error','El correo no existe o no es valido','close-circle');
+                 this.openModalForgot('Error','El correo no existe o no es valido','/assets/icon/close.svg');
                }
              );
 

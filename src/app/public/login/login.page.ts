@@ -44,7 +44,7 @@ export class LoginPage implements OnInit {
         componentProps: {
           title: 'Error',
           message: 'Usuario o contraseña incorrectos.',
-          buttonIcon: 'close-circle'
+          buttonIcon: '/assets/icon/close.svg'
         },
         cssClass: 'modal-confirm'
       });
