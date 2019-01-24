@@ -90,21 +90,20 @@ export class ClasePage {
       // console.log(data);
       const httpOptions = {
         headers: new HttpHeaders({
-          'Content-Type': 'application/json',
           'Authorization': 'Bearer '+ Bearer
         })
       };
 
       let id = this.reservation.reservation_id;
       // console.log(id);
-      this.http.post(SERVER_URL+"/reservations/"+id+"/details", data, httpOptions)
+      this.http.post(SERVER_URL+"reservations/"+id+"/details", data, httpOptions)
       .subscribe(
          (result: any) => {
            console.log('Resultado: '+result);
            this.presentToast();
          },
          (err) => {
-           console.log('error 401');
+           console.log('error 401:'+JSON.stringify(err));
          },
        );
      });
