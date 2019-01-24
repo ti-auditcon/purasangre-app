@@ -25,14 +25,14 @@ export class PagosPage {
   // Refresh
   doRefresh(event) {
     console.log('Begin async operation');
-
+    this.ionViewDidEnter();
     setTimeout(() => {
       console.log('Async operation has ended');
       event.target.complete();
     }, 2000);
   }
 
-  ngOnInit() {
+  ionViewDidEnter() {
     this.storage.get(TOKEN_KEY).then((value) => {
       //console.log(value);
       let Bearer = value;
