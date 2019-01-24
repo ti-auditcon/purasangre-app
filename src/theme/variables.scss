@@ -716,7 +716,8 @@ svg {
       -o-animation: buttonGradient 3s ease infinite;
       animation: buttonGradient 3s ease infinite;
       p, h1 {
-        color: rgba(black, 0.45);
+        // color: rgba(black, 0.45);
+        color: white;
       }
     }
   }
