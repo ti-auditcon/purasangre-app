@@ -48,9 +48,9 @@ export class LoginPage implements OnInit {
         },
         cssClass: 'modal-confirm'
       });
-      this.title = modal.componentProps.title;
-      this.message = modal.componentProps.message;
-      this.buttonIcon = modal.componentProps.buttonIcon;
+      // this.title = modal.componentProps.title;
+      // this.message = modal.componentProps.message;
+      // this.buttonIcon = modal.componentProps.buttonIcon;
       return await modal.present();
     });
 
