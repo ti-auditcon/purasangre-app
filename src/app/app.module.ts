@@ -21,6 +21,24 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 import { File } from '@ionic-native/file/ngx';
 import { ChartsModule } from 'ng2-charts';
 
+//firebase
+import { AngularFireModule } from '@angular/fire';
+// import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { Firebase } from '@ionic-native/firebase/ngx';
+
+//firebase config
+const config = {
+    apiKey: "AIzaSyB05wkjbGZlw0YbENGO-lm0_TgjZEfvTYk",
+    authDomain: "pura-sangre-crossfit.firebaseapp.com",
+    databaseURL: "https://pura-sangre-crossfit.firebaseio.com",
+    projectId: "pura-sangre-crossfit",
+    storageBucket: "pura-sangre-crossfit.appspot.com",
+    messagingSenderId: "74713033262"
+  };
+
+
+
+
 
 // import { BottombuttonComponent } from './auth/shared/bottombutton/bottombutton.component';
 // import { NavbarComponent } from './auth/shared/navbar/navbar.component';
@@ -36,7 +54,10 @@ import { ChartsModule } from 'ng2-charts';
     IonicStorageModule.forRoot(),
     // NavbarComponent,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    //firebase
+    AngularFireModule.initializeApp(config),
+    // AngularFirestoreModule
   ],
   providers: [
     StatusBar,
@@ -44,11 +65,14 @@ import { ChartsModule } from 'ng2-charts';
     Camera,
     Crop,
     WebView,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     FileTransfer,
     //FileUploadOptions,
     //FileTransferObject,
     File,
+    //firebase
+    Firebase,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+
   ],
   bootstrap: [AppComponent]
 })

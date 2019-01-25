@@ -28,7 +28,10 @@ export class AuthenticationService {
 
   authenticationState = new BehaviorSubject(false);
 
-  constructor(private router: Router, private storage: Storage, private plt: Platform, private http: HttpClient) {
+  constructor(private router: Router,
+              private storage: Storage,
+              private plt: Platform,
+              private http: HttpClient) {
     this.plt.ready().then(() => {
       this.checkToken();
     });
