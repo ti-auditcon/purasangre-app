@@ -55,7 +55,7 @@ export class FcmService {
              .subscribe(
                  (result: any) => {
                      console.log('success fcm token 200:'+JSON.stringify(result));
-                     return ;
+                     return true;
                  },
                  (err) => {
                    console.log('error refrersh 401:'+JSON.stringify(err));
