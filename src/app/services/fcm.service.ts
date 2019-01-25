@@ -37,10 +37,11 @@ export class FcmService {
       this.saveToken(token);
   }
 
-  private saveToken(token) {
+  async saveToken(token) {
       FCM_TOKEN = token;
+       console.log('primero'+FCM_TOKEN);
       this.storage.get(TOKEN_KEY).then((value) => {
-
+        console.log('segundo'+FCM_TOKEN);
         let Bearer = value;
         let data=JSON.stringify({
           fcmtoken: FCM_TOKEN,
@@ -50,7 +51,7 @@ export class FcmService {
             'Authorization': 'Bearer '+ Bearer//updated
           })};
 
-        this.http.post(SERVER_URL+"fcm/token",data, httpOptions)
+      await  this.http.post(SERVER_URL+"fcm/token",data, httpOptions)
              .subscribe(
                  (result: any) => {
                      console.log('success fcm token 200:'+JSON.stringify(result));
