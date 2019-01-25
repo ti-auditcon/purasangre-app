@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage';
 // import { AngularFirestore } from '@angular/fire/firestore';
 
 let TOKEN_KEY = 'auth-token';
+let FCM_TOKEN = '';
 
 @Injectable({
   providedIn: 'root'
@@ -37,11 +38,12 @@ export class FcmService {
   }
 
   private saveToken(token) {
-      if (!token) return;
+      FCM_TOKEN = token;
       this.storage.get(TOKEN_KEY).then((value) => {
+
         let Bearer = value;
         let data=JSON.stringify({
-          token: token,
+          fcmtoken: FCM_TOKEN,
         });
         const httpOptions = {
           headers: new HttpHeaders({
