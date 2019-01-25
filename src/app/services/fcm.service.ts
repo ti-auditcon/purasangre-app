@@ -46,12 +46,12 @@ export class FcmService {
         const httpOptions = {
           headers: new HttpHeaders({
             'Authorization': 'Bearer '+ Bearer//updated
-          })};
+          })};io
 
-        this.http.post(SERVER_URL+"/fcm/token",data, httpOptions)
+        this.http.post(SERVER_URL+"fcm/token",data, httpOptions)
              .subscribe(
                  (result: any) => {
-                     console.log('success refresh 200');
+                     console.log('success fcm token 200:'+JSON.stringify(result));
                      return true;
                  },
                  (err) => {
