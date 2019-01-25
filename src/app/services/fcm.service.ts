@@ -34,7 +34,7 @@ export class FcmService {
         await this.firebase.grantPermission();
       }
 
-      this.saveToken(token);
+    await  this.saveToken(token);
   }
 
   async saveToken(token) {
@@ -50,8 +50,8 @@ export class FcmService {
           headers: new HttpHeaders({
             'Authorization': 'Bearer '+ Bearer//updated
           })};
-
-      await  this.http.post(SERVER_URL+"fcm/token",data, httpOptions)
+           console.log('data:'+data);
+       this.http.post(SERVER_URL+"fcm/token",data, httpOptions)
              .subscribe(
                  (result: any) => {
                      console.log('success fcm token 200:'+JSON.stringify(result));
