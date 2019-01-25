@@ -151,6 +151,9 @@ ion-slide {
       max-width: 56vw;
       max-height: 56vh;
     }
+    h1 {
+      margin-bottom: 4px;
+    }
     p {
       font-size: 16px;
       line-height: 20px;
@@ -179,6 +182,11 @@ ion-img {
 
 .item-slide {
     color: var(--ion-color-primary-contrast);
+    video {
+      width: 60vw;
+      height: auto;
+      margin-bottom: 8px;
+    }
 }
 
 // .tab-btn-selected.sc-ion-tabbar-md {
