@@ -51,17 +51,28 @@ export class FcmService {
             'Authorization': 'Bearer '+ Bearer//updated
           })};
            console.log('data:'+data);
-       this.http.post(SERVER_URL+"fcm/token",data, httpOptions)
-             .subscribe(
-                 (result: any) => {
-                     console.log('success fcm token 200:'+JSON.stringify(result));
-                     return true;
-                 },
-                 (err) => {
-                   console.log('error refrersh 401:'+JSON.stringify(err));
-                   this.authService.logout();
-                 }
-               );
+       // this.http.post(SERVER_URL+"fcm/token",data, httpOptions)
+       //       .subscribe(
+       //           (result: any) => {
+       //               console.log('success fcm token 200:'+JSON.stringify(result));
+       //               // return true;
+       //           },
+       //           (err) => {
+       //             console.log('error refrersh 401:'+JSON.stringify(err));
+       //             this.authService.logout();
+       //           }
+       //         );
+       this.http.get(SERVER_URL+"fcm/token/"+FCM_TOKEN, httpOptions)
+                   .subscribe((result: any) => {
+                                console.log('success fcm token 200:'+JSON.stringify(result));
+                                return true;
+                               },
+                               (err) => {
+                                 console.log('error refrersh 401:'+JSON.stringify(err));
+                                 this.authService.logout();
+                               }
+                             );
+
       });
       // const devicesRef = this.afs.collection('devices');
       //
