@@ -3,6 +3,7 @@ import { environment, SERVER_URL, IMAGE_URL} from '../../../../environments/envi
 //imports
 import { Component} from '@angular/core';
 import { AuthenticationService } from '../../../services/authentication.service';
+import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
@@ -39,7 +40,8 @@ export class PerfilPage {
                private platform: Platform,
                private webview: WebView,
                private transfer: FileTransfer,
-               public toastController: ToastController
+               public toastController: ToastController,
+               private router: Router
              ) {}
 
   base64Image:any;
@@ -149,6 +151,11 @@ export class PerfilPage {
   }
   logout() {
     this.authService.logout();
+  }
+
+  tutorial() {
+    this.storage.remove('tutorialComplete');
+    this.router.navigateByUrl('/tutorial');
   }
 
 }

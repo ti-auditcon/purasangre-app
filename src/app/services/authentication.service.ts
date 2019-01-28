@@ -128,7 +128,7 @@ export class AuthenticationService {
 
   logout() {
     this.storage.remove(REFRESH_TOKEN);
-    this.storage.remove('tutorialComplete');
+    //this.storage.remove('tutorialComplete');
     return this.storage.remove(TOKEN_KEY).then(() => {
       this.authenticationState.next(false);
     });
