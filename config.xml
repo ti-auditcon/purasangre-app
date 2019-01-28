@@ -32,11 +32,6 @@
             <application android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" />
             <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/notification_icon" />
         </edit-config>
-        <resource-file src="res/push/drawable-mdpi/notification_icon.png" target="app/src/main/res/drawable-mdpi/ic_stat_iconandroid.png" />
-        <resource-file src="res/push/drawable-hdpi/notification_icon.png" target="app/src/main/res/drawable-hdpi/ic_stat_iconandroid.png" />
-        <resource-file src="res/push/drawable-xhdpi/notification_icon.png" target="app/src/main/res/drawable-xhdpi/ic_stat_iconandroid.png" />
-        <resource-file src="res/push/drawable-xxhdpi/notification_icon.png" target="app/src/main/res/drawable-xxhdpi/ic_stat_iconandroid.png" />
-        <resource-file src="res/push/drawable-xxxhdpi/notification_icon.png" target="app/src/main/res/drawable-xxxhdpi/ic_stat_iconandroid.png" />
         <resource-file src="res/mipmap-hdpi/ic_launcher.png" target="app/src/main/res/mipmap-hdpi/ic_launcher.png" />
         <resource-file src="res/mipmap-hdpi/ic_launcher_round.png" target="app/src/main/res/mipmap-hdpi/ic_launcher_round.png" />
         <resource-file src="res/mipmap-mdpi/ic_launcher.png" target="app/src/main/res/mipmap-mdpi/ic_launcher.png" />
