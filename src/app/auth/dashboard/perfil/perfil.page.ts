@@ -96,11 +96,11 @@ export class PerfilPage {
 
              }, (err) => {
                // error
-               this.presentToast('Error post: '+ JSON.stringify(err), 10000);
+               this.presentToast('Error post');
                console.log("error"+JSON.stringify(err));
              });
            }, error => {
-              this.presentToast('Error al ajustar imágen: '+error, 10000);
+              this.presentToast('Error al ajustar imágen');
               console.error('Error cropping image', error);
               //this.alerts.push('Error cropping image');
              }

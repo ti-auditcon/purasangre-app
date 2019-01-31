@@ -30,8 +30,11 @@ export class FcmService {
       }
 
       if (this.platform.is('ios')) {
+        console.log('entre a platform ios------------------------------------')
         token = await this.firebase.getToken();
         await this.firebase.grantPermission();
+        const grant = await this.firebase.grantPermission();
+        console.log('--------------------------------log--------------------------'+grant);
       }
 
     await  this.saveToken(token);
