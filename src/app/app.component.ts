@@ -31,8 +31,10 @@ export class AppComponent {
   private async presentToast(message) {
     const toast = await this.toastController.create({
       message,
-      duration: 3000,
-      position: 'top'
+      duration: 60000,
+      position: 'top',
+      showCloseButton: true,
+      closeButtonText: 'Ok'
     });
     toast.present();
   }

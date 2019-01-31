@@ -43,8 +43,7 @@ export class ClasePage {
      const toast = await this.toastController.create({
        message: 'Nota Guardada',
        duration: 2000,
-       position: 'top',
-       showCloseButton: true,
+       position: 'top'
      });
      toast.present();
    }

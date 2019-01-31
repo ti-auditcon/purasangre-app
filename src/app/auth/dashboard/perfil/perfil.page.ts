@@ -77,7 +77,7 @@ export class PerfilPage {
     }
 
     this.camera.getPicture(options).then((imageData) => {
-        this.crop.crop(imageData, {quality: 100})
+        this.crop.crop(imageData, {quality: 40})
         .then(
           newImage => {
             //this.imageURI = imageData;
