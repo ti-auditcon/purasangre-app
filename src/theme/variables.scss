@@ -200,6 +200,10 @@ svg {
 
 /**/
 
+ion-content {
+  --background: white;
+}
+
 .master-content {
   margin-top: 12px;
 }
@@ -373,7 +377,7 @@ svg {
 .card-alert-reserva {
   margin-bottom: 12px;
   background: linear-gradient(153.33deg, #FC0F85 6.69%, #9300AB 88.08%);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
   &:active, &:hover, &:focus {
     box-shadow: none;
   }
