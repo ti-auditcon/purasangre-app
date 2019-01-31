@@ -95,8 +95,8 @@ export class ClasePage {
       };
 
       let id = this.reservation.reservation_id;
-      // console.log(id);
-      this.http.post(SERVER_URL+"reservations/"+id+"/details", data, httpOptions)
+      console.log('reservation_id:'+id);
+      this.http.post(SERVER_URL+"/reservations/"+id+"/details", data, httpOptions)
       .subscribe(
          (result: any) => {
            console.log('Resultado: '+result);
