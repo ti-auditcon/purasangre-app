@@ -356,36 +356,38 @@ svg {
   cursor: pointer;
   padding: 14px 20px 14px 12px;
   color: white;
-  margin-bottom: 32px;
-  background: linear-gradient(153.33deg, #FC0F85 6.69%, #9300AB 88.08%);
-  -webkit-box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
   transition: all ease 0.3s;
-  &:active, &:hover, &:focus {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-  }
   ion-icon {
     font-size: 30px;
   }
-  // .icon {
-  //   vertical-align: middle;
-  //   align-self: center;
-  // }
   .text {
-    padding-left: 12px;
+    padding-left: 14px;
     p {
       margin: 0;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 18px;
     }
   }
 }
 
+.card-alert-reserva {
+  margin-bottom: 12px;
+  background: linear-gradient(153.33deg, #FC0F85 6.69%, #9300AB 88.08%);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  &:active, &:hover, &:focus {
+    box-shadow: none;
+  }
+}
+
+.card-alert-info {
+  margin-bottom: 12px;
+  background: linear-gradient(108.43deg, #259F06 11.38%, #35AF17 63.4%);
+  background-size: 150% 150%;
+}
+
 .plan-resumen {
   margin: 0;
+  margin-top: 21px;
   margin-bottom: 32px;
   border-radius: 4px;
   h1.plan-title {
