@@ -1,0 +1,39 @@
+<app-navbar titulo="Tus Pagos"></app-navbar>
+
+<ion-content padding>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Arrastra para actualizar"
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div class="section">
+
+    <div class="card-pago" *ngFor="let plan of plans">
+      <div class="ps-row pago-up">
+        <div class="col-8">
+          <h2>{{plan?.inicio}}</h2>
+          <p>{{plan?.plan_name}}</p>
+        </div>
+        <div class="col-4" text-end>
+          <img class="icon-check" src="assets/icon/check.png">
+        </div>
+      </div>
+      <div align-items-end class="ps-row pago-bottom">
+        <div class="col-8">
+          <p>
+            <b>Pagado el</b><br>{{plan?.rels?.bill.date}}<br>{{plan?.rels?.bill.method}}
+          </p>
+        </div>
+        <div class="col-4" text-end>
+          <h4>{{plan?.rels?.bill.amount}}</h4>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</ion-content>

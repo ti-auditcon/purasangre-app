@@ -1,0 +1,46 @@
+
+:root {
+  --color-selected: red;
+}
+
+ion-title {
+  font-weight: 700;
+}
+
+.tab-btn .tab-btn-has-icon .tab-btn-has-icon-only .sc-ion-tabbar-md .tab-btn-selected {
+  color: var(--color-selected);
+}
+
+.tab-btn-selected.sc-ion-tabbar-md {
+  color: var(--color-selected);
+}
+
+.tab-btn-selected {
+  background: green;
+}
+
+ion-tabs {
+  --ion-color-dark-contrast: #ff7800 !important;
+}
+
+// .tab-btn-selected.sc-ion-tabbar-md {
+//   background: red !important;
+// }
+// ion-tabbar {
+// 	--ion-color-primary: #fff;
+// }
+
+// .sc-ion-tabbar-md-h {
+//   color: var(--button-selected);
+// }
+// .icon-inner {
+//   background: var(--vsv);
+// }
+
+// .icon-inner, svg {
+//   // display:block;
+//   fill: red !important;
+//   // stroke:currentColor;
+//   // height:100%;
+//   // width:100%
+// }

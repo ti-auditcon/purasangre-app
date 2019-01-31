@@ -1,0 +1,11 @@
+<ion-content padding>
+
+  <div class="confirm-modal-content">
+    <ion-icon src="{{ this.buttonIcon }}"></ion-icon>
+    <!-- <ion-icon name="checkmark-circle"></ion-icon> -->
+    <h1>{{ this.title }}</h1>
+    <p>{{ this.message }}</p>
+    <button class="confirm-modal-button" ion-button block (click)="closeModal()">Ok</button>
+  </div>
+
+</ion-content>

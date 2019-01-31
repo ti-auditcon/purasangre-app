@@ -1,0 +1,56 @@
+// header.main-navbar {
+//   height: 60px;
+//   padding: 0.5em 0.5em 0;
+//   background: linear-gradient(180deg, #0075C9 0%, #00BFC9 100%);
+//   position: relative;
+//   overflow: hidden;
+//   .shield {
+//     position: absolute;
+//     top: -30px;
+//     right: -20px;
+//     width: 160px;
+//   }
+//   .icon-logout {
+//     float: right;
+//     top: 6px;
+//     right: 4px;
+//     position: absolute;
+//     color: white;
+//     font-size: 20px;
+//     cursor: pointer;
+//     // font-family: 'icomoon';
+//   }
+//   img.logo {
+//     max-width: 130px;
+//   }
+//   h3.navbar-title {
+//     margin: 0;
+//     vertical-align: middle;
+//     color: white;
+//     letter-spacing: 0.3px;
+//     font-weight: 700;
+//   }
+// }
+
+.sc-ion-back-button-md-h {
+  --min-width: 10px;
+  --margin-end: 0;
+  --padding-end: 0;
+  display: inline-block;
+}
+
+.shield {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  width: 160px;
+  z-index: -20
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.title-header {
+  color: white;
+}

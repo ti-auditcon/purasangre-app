@@ -1,0 +1,90 @@
+<app-navbar titulo="Tu Perfil"></app-navbar>
+
+<ion-content padding>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Arrastra para actualizar"
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div class="persona-card">
+    <div class="ps-row">
+      <div class="col-3 persona-item-img">
+        <div class="avatar-container" (click)="selectImageFromCamera()">
+          <!-- src="assets/img/image.jpg" -->
+          <!-- image -->
+          <img class="persona-avatar" *ngIf="imageClean != null; else igualANull" [src]="image">
+
+          <ng-template #igualANull>
+            <img class="persona-avatar" [src]="'assets/img/default_user.png'">
+          </ng-template>
+        </div>
+      </div>
+      <div class="col-9 persona-item-data">
+        <h1 class="persona-nombre">{{user?.nombre | titlecase}} {{user?.apellido | titlecase}}</h1>
+        <h5 class="persona-plan">{{user.rels?.active_plan.plan}}</h5>
+        <p class="persona-vencimiento">{{user_plan?.vencimiento}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="plan-resumen">
+    <div class="card card-info">
+      <div class="ps-row">
+        <div class="info-item col-4" text-center>
+          <div>
+            <p class="digit">{{ user.rels?.stats.clases_consumed}}</p>
+            <p><b>Clases<br>Asistidas</b></p>
+          </div>
+        </div>
+        <div class="info-item col-4" text-center>
+          <div>
+            <p class="digit">{{ user.rels?.stats.clases_quantity}}</p>
+            <p><b>Clases<br>Restantes</b></p>
+          </div>
+        </div>
+        <div class="info-item col-4" text-center>
+          <div>
+            <p class="digit">{{ user.rels?.stats.clases_lost}}</p>
+            <p><b>Clases<br>Perdidas</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card-datos">
+      <h1 class="title-section">Datos</h1>
+      <div class="datos-item">
+        <h5>Género</h5>
+        <p style="text-transform: capitalize;">{{user?.genero}}</p>
+      </div>
+      <div class="datos-item">
+        <h5>Correo</h5>
+        <p>{{user?.correo}}</p>
+      </div>
+      <div class="datos-item">
+        <h5>Cumpleaños</h5>
+        <p>{{user?.fechaNacimiento}}</p>
+      </div>
+      <div class="datos-item">
+        <h5>Dirección</h5>
+        <p>{{user?.direccion}}</p>
+      </div>
+    </div>
+    <div class="wrap-logout">
+      <button class="button-tutorial" (click)="tutorial()">Ver Tutorial</button>
+      <button class="button-logout" (click)="logout()">Cerrar Sesión</button>
+    </div>
+  </div>
+  <div class="section">
+    <p *ngFor="let alert of alerts ">
+      {{alert}}
+    </p>
+  </div>
+
+</ion-content>

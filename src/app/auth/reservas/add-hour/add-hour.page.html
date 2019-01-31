@@ -1,0 +1,21 @@
+<app-navbar titulo="Nueva Reserva"></app-navbar>
+
+<ion-content padding>
+
+  <div class="reserva">
+
+    <h1 class="titleReserva-section">Seleccionar hora para el <span class="sky-gradient">{{clases[0]?.dateHuman}}</span></h1>
+
+
+    <div class="section grid-hours">
+      <div class="item-hour" *ngFor="let clase of clases" text-center (click)="goToAddConfirm(clase.clase_id,clase?.active)"  [ngClass]="{disabled : (!clase?.active) || (clase.rels.reservations.count>=clase.quota) }">
+        <p>
+          <b>{{clase.start}} - {{clase.end}}</b><br>
+          {{clase.rels.reservations.count}} / {{clase.quota}}
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>

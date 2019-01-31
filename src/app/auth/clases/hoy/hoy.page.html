@@ -1,0 +1,41 @@
+<app-navbar titulo="Clase"></app-navbar>
+
+<ion-content padding>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Arrastra para actualizar"
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div class="clase-page">
+
+    <div class="section">
+      <h1 class="titleDay-section">{{today?.dateHuman}}</h1>
+    </div>
+
+    <div class="section">
+      <h1 class="title-section">Workout del Día</h1>
+      <div class="card card-info">
+        <div class="info-content" *ngIf = "today?.wod?.has">
+          <h3>Warm Up</h3>
+          <p>{{today?.wod?.stages.warmup }}</p>
+          <h3>SKILLS</h3>
+          <p>{{today?.wod?.stages.skill }}</p>
+          <h3>W.O.D.</h3>
+          <p>{{today?.wod?.stages.wod }}</p>
+        </div>
+        <div class="info-content" *ngIf = "!today?.wod?.has">
+          No hay W.O.D. para el dia de hoy
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+</ion-content>

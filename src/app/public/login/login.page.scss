@@ -1,0 +1,100 @@
+
+.auth-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  font-family: 'Ubuntu', sans-serif !important;
+  background: url('assets/img/container.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background: linear-gradient(180deg, #0075C9 0%, #00BFC9 100%);
+  .auth-inner {
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 3.5em;
+  }
+    .logo-auth-container {
+      margin: auto;
+      text-align: center;
+      .logo-auth {
+        width: 190px;
+        margin-bottom: 2.8em;
+      }
+    }
+    .form-inner {
+      background: transparent;
+      margin: 0 !important;
+      font-family: 'Ubuntu', sans-serif;
+      .a-input {
+        position: relative;
+        .icon-input-auth {
+          position: absolute;
+          bottom: 22px;
+          left: 4px;
+          color: rgba(white, 0.5);
+        }
+        input {
+          display: inline-block;
+          border: none;
+          width: 100%;
+          border-bottom: solid 1px rgba(white, 0.5);
+          background: transparent;
+          color: rgba(white, 0.5);
+          padding-top: 12px;
+          padding-bottom: 12px;
+          font-size: 15px;
+          margin: 7px 0;
+          text-indent: 34px;
+          letter-spacing: 0.3px;
+          outline: none !important;
+          transition: all ease 0.3s;
+          &:focus, &:hover {
+            background: transparent;
+            border-bottom: solid 1px rgba(white, 0.9);
+          }
+          &::placeholder {
+            color: rgba(white, 0.9);
+          }
+        }
+      }
+    }
+    .signup-col {
+      padding: 0;
+      text-align: center;
+      margin: auto;
+      .submit-login-auth {
+        margin-top: 18px;
+        margin-bottom: 3px;
+        border-radius: 4px;
+        color: rgba(white, 0.9);
+        font-family: 'Ubuntu', sans-serif;
+        width: 100%;
+        padding: 14px;
+        font-size: 14px;
+        font-weight: 600;
+        outline: none;
+        background-image: linear-gradient(153.33deg, #FC0F85 6.69%, #9300AB 88.08%);
+        background-size: 120%;
+        transition: all ease 0.3s;
+        &:hover, &:active, &:focus {
+          background-position: 100% 0;
+        }
+      }
+      .link-forget {
+        text-align: center;
+        color: white;
+        font-weight: 300;
+        font-size: 13px;
+        display: block;
+        letter-spacing: 0.3px;
+        text-decoration: none;
+      }
+    }
+}

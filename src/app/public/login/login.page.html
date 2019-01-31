@@ -1,0 +1,50 @@
+<section padding class="auth-content">
+  <div class="auth-inner">
+
+    <div class="logo-auth-container">
+      <img class="logo-auth" src="assets/img/ps_logo.png" alt="Pura Sangre Crossfit">
+    </div>
+    <form (ngSubmit)="login()" #registerForm="ngForm">
+      <div class="form-inner">
+
+        <div class="a-input">
+          <span class="icon-input-auth icon-auth-mail"></span>
+          <input type="email" class="input-email" autocapitalize="none" placeholder="Correo" name="email" [(ngModel)]="registerCredentials.email" required>
+        </div>
+
+        <div class="a-input">
+          <span class="icon-input-auth icon-auth-pass"></span>
+          <input type="password" class="input-pass" placeholder="Contraseña" name="password" [(ngModel)]="registerCredentials.password" required>
+        </div>
+
+      </div>
+      <ion-col class="signup-col">
+
+        <button class="submit-login-auth" full type="submit" expand="block">Ingresar</button>
+        <br><br>
+        <a class="link-forget" (click)="goToForgot()">¿Olvidaste tu Contraseña?</a>
+
+      </ion-col>
+      <div class="version">
+        <p>Versión 1.0.6</p>
+      </div>
+    </form>
+
+    <!-- <div class="card card-alert" *ngIf="error.error" >
+      <ion-grid>
+        <ion-row>
+
+          <ion-col class="text">
+            <p>
+              {{error.error}}
+            </p>
+            <p>
+              {{error.message}}
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div> -->
+
+  </div>
+</section>

@@ -1,0 +1,78 @@
+<app-navbar titulo="Tus Reservas"></app-navbar>
+
+<ion-content padding>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Arrastra para actualizar"
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!-- <ion-button (click)="presentToast()">Ejecutar Toast</ion-button> -->
+
+  <!-- alerta de clase pendiente -->
+    <div class="card card-alert" *ngIf="alerts.has_confirmation"  (click)="goToEditConfirm(alerts.confirmation.clase_id)">
+
+        <div class="ps-row">
+          <div class="col-2 icon">
+            <ion-icon src="/assets/icon/info.svg"></ion-icon>
+          </div>
+          <div class="col-10 text">
+            <p>
+              Tienes una clase reservada a las {{alerts.confirmation.start}} ¡Confírma tu asistencia!
+            </p>
+          </div>
+        </div>
+
+    </div>
+
+  <div class="section">
+    <h1 class="title-section">Sin Confirmar</h1>
+    <div class="clases-cards">
+      <div class="clase-card " *ngFor="let clase of pendient" (click)="goToEditConfirm(clase.clase_id)"  >
+        <div class="ps-row" align-items-center>
+          <div class="col-10">
+            <h2>{{clase.dateHuman}} </h2>
+            <p>{{clase.start}} - {{clase.end}} hrs</p>
+          </div>
+          <div class="col-2">
+            <ion-icon src="assets/icon/arrow-right-black.svg"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h1 class="title-section">Confirmadas</h1>
+    <div class="clases-cards">
+      <div class="clase-card " *ngFor="let clase of confirmed" (click)="goToEditConfirm(clase.clase_id)">
+        <div class="ps-row" align-items-center>
+          <div class="col-10">
+            <h2>{{clase.dateHuman}} </h2>
+            <p>{{clase.start}} - {{clase.end}} hrs</p>
+          </div>
+          <div class="col-2">
+            <ion-icon src="assets/icon/arrow-right-black.svg"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div [ngClass]="buttonFixIOS">
+    <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
+  </div> -->
+
+</ion-content>
+
+<ion-footer>
+  <div [ngClass]="buttonFixIOS">
+    <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
+  </div>
+  <div [ngClass]="buttonFixAndroid">
+    <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
+  </div>
+</ion-footer>

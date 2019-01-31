@@ -1,0 +1,76 @@
+<app-navbar titulo="Dashboard" avatar="{{ user.avatar }}"></app-navbar>
+
+<ion-content padding>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Arrastra para actualizar"
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+<!-- alerta de clase pendiente -->
+  <div class="card card-alert" *ngIf="alerts.has_confirmation" (click)="goToEditConfirm(alerts.confirmation.clase_id)">
+
+      <div class="ps-row">
+        <div class="col-2 icon">
+          <ion-icon src="/assets/icon/info.svg"></ion-icon>
+        </div>
+        <div class="col-10 text">
+          <p>
+            Tienes una clase reservada a las {{alerts.confirmation.start}} ¡Confírma tu asistencia!
+          </p>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="plan-resumen">
+    <h1 class="plan-title">{{user.rels?.active_plan.plan}}</h1>
+    <p class="plan-vencimiento">{{user.rels?.active_plan.expiration}}</p>
+    <div class="card card-info">
+      <div class="ps-row">
+        <div class="info-item col-4" text-center>
+          <div>
+            <p class="digit">{{ user.rels?.stats.clases_consumed}}</p>
+            <p><b>Clases<br>Asistidas</b></p>
+          </div>
+        </div>
+        <div class="info-item col-4" text-center>
+          <div>
+            <p class="digit">{{ user.rels?.stats.clases_quantity}}</p>
+            <p><b>Clases<br>Restantes</b></p>
+          </div>
+        </div>
+        <div class="info-item col-4" text-center>
+          <div>
+            <p class="digit">{{ user.rels?.stats.clases_lost}}</p>
+            <p><b>Clases<br>Perdidas</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section ">
+    <h1 class="title-section">W.O.D</h1>
+    <div class="card card-resumen">
+      <div class="text-box-resumen">
+        <p *ngIf="today?.wod?.has">{{today?.wod?.stages.wod}}</p>
+        <p *ngIf="!today?.wod?.has">No hay WOD registrado para el dia de hoy.</p>
+      </div>
+      <button class="button-bottom" (click)="verWOD()">Ver Clase del día</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h1 class="title-section">Tu Asistencia</h1>
+    <div class="card card-asistencia">
+
+      <canvas #barCanvas></canvas>
+    </div>
+
+  </div>
+
+</ion-content>

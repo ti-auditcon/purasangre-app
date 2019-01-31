@@ -1,5 +1,8 @@
 {
-  "name": "purasangrefinal",
-  "integrations": {},
-  "type": "angular"
+  "name": "pscrossfitc",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "897f4268"
 }

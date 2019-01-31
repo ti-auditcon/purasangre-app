@@ -7,7 +7,7 @@ describe('new App', () => {
     page = new AppPage();
   });
 
-  it('should be blank', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toContain('The world is your oyster.');
   });
