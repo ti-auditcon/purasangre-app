@@ -8,14 +8,15 @@
       pullingText="Arrastra para actualizar"
       refreshingSpinner="circles">
     </ion-refresher-content>
+    
   </ion-refresher>
 
 <!-- alerta de clase pendiente -->
-  <div class="card card-alert" *ngIf="alerts.has_confirmation" (click)="goToEditConfirm(alerts.confirmation.clase_id)">
+  <div class="card card-alert card-alert-reserva" *ngIf="alerts.has_confirmation" (click)="goToEditConfirm(alerts.confirmation.clase_id)">
 
       <div class="ps-row">
         <div class="col-2 icon">
-          <ion-icon src="/assets/icon/info.svg"></ion-icon>
+          <ion-icon src="/assets/icon/calendar.svg"></ion-icon>
         </div>
         <div class="col-10 text">
           <p>
@@ -25,6 +26,25 @@
       </div>
 
   </div>
+
+<!-- alerttas del sistema -->
+  <div *ngIf="alerts?.has_backend_notification">
+    <div class="card card-alert card-alert-info"  *ngFor="let bn of alerts.backend_notification" >
+
+        <div class="ps-row">
+          <div class="col-2 icon">
+            <ion-icon src="/assets/icon/info.svg"></ion-icon>
+          </div>
+          <div class="col-10 text">
+            <p >
+              {{bn.message}}
+            </p>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
 
   <div class="plan-resumen">
     <h1 class="plan-title">{{user.rels?.active_plan.plan}}</h1>

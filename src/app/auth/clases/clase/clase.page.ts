@@ -19,7 +19,7 @@ export class ClasePage {
   public clase: any = [];
   public reservation: any = [];
   public wod: any = [];
-  public textModel: string = '';
+  public textModel: string = 'no';
 
   constructor(
     public activatedRoute: ActivatedRoute,
@@ -86,18 +86,19 @@ export class ClasePage {
       let Bearer = value;
       // console.log(this.textModel);
       let data=JSON.stringify({
-        details: this.textModel,
+        details: this.textModel
       });
       // console.log(data);
       const httpOptions = {
         headers: new HttpHeaders({
+          'Content-Type': 'application/json', //updated
           'Authorization': 'Bearer '+ Bearer
         })
       };
 
       let id = this.reservation.reservation_id;
-      // console.log(id);
-      this.http.post(SERVER_URL+"reservations/"+id+"/details", data, httpOptions)
+      console.log('reservation_id:'+id);
+      this.http.post(SERVER_URL+"/reservations/"+id+"/details", data, httpOptions)
       .subscribe(
          (result: any) => {
            console.log('Resultado: '+result);
