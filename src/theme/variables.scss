@@ -110,6 +110,7 @@
   --ion-border-color: none;
   // --ion-tabbar-text-color: transparent;
   // --ion-tabbar-text-color-active: transparent;
+  --ion-toast-background: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%);
   --ion-font-family: 'Ubuntu', sans-serif;
 
   // --ion-background-toast: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%);
@@ -976,8 +977,13 @@ svg {
   }
 }
 
+ion-toast {
+  --background: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%);
+}
+
 .toast-wrapper {
-  background: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%) !important;
+  // background: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%) !important;
+  background: var(--ion-background-toast);
   color: white !important;
 }
 //

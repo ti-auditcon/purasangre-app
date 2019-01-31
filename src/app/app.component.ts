@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AuthenticationService } from './services/authentication.service';
 import { Router } from '@angular/router';
 
@@ -37,12 +37,17 @@ export class AppComponent {
     toast.present();
   }
 
+  // mensajito;
+  bodyText;
+
   private notificationSetup() {
     this.fcm.getToken();
     this.fcm.onNotifications().subscribe(
       (msg) => {
         if (this.platform.is('ios')) {
-          this.presentToast(msg.aps.alert);
+          this.bodyText = JSON.stringify(msg.aps.alert.body);
+          this.presentToast(this.bodyText.replace(/\"/g, ""));
+          // this.mensajito = msg;
         } else {
           this.presentToast(msg.body);
         }
