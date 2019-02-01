@@ -356,6 +356,10 @@ ion-content {
   border-radius: 4px;
 }
 
+.alerts-wrapper {
+  margin-bottom: 21px;
+}
+
 .card-alert {
   cursor: pointer;
   padding: 14px 20px 14px 12px;
@@ -391,7 +395,7 @@ ion-content {
 
 .plan-resumen {
   margin: 0;
-  margin-top: 21px;
+  // margin-top: 21px;
   margin-bottom: 32px;
   border-radius: 4px;
   h1.plan-title {
