@@ -28,6 +28,7 @@ export class PerfilPage {
   public alerts: any = [];
   public image: any = '';
   public imageClean: any = '';
+  public avatar: any = '';
 
   imageURI:any;
   imageFileName:any;
@@ -132,12 +133,11 @@ export class PerfilPage {
                   .subscribe((result: any) => {
                     this.user = result.data;
 
-                    console.log(this.user);
-                    console.log(this.user.rels.active_plan.href);
                     var random = (new Date()).toString();
                     this.image = this.user.avatar+"?cb=" + random;
                     this.imageClean = this.user.avatar;
-                    this.storage.set('avatar', this.imageClean );
+                    this.avatar = this.user.avatar;
+                    this.storage.set('avatar', this.image);
 
                     this.http.get(this.user.rels.active_plan.href, httpOptions)
                                 .subscribe((result: any) => {

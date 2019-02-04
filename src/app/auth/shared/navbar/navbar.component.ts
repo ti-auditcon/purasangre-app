@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
@@ -9,25 +9,29 @@ import { Location } from '@angular/common';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 
   @Input() titulo: string;
   @Input() avatar: string;
+  public image = '';
   mainTabs = ['Dashboard', 'Tus Clases'];
 
   constructor(private authService: AuthenticationService,
               private router: Router,
               private storage: Storage,
               private location: Location
-            ) { }
+            ) {
+            console.log('entre navbar');
+            console.log('entre navbar:'+this.avatar);
+            this.storage.get('avatar').then((value) => {
+              this.image = value;
+              console.log('entre navbar2:'+this.image);
+            });
+          }
 
   // passImage;
 
-  ionViewDidEnter() {
-    this.storage.get('avatar').then((value) => {
-      this.avatar = value;
-      console.log('Entre '+this.avatar)
-    });
+  ngOnInit() {
   }
 
   logout() {
