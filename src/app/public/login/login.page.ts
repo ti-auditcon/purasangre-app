@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticationService } from './../../services/authentication.service';
 import { Storage } from '@ionic/storage';
 import { ModalController } from '@ionic/angular';
@@ -10,7 +10,7 @@ import { ConfirmPage } from '../confirm/confirm.page';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
   registerCredentials = { email: '', password: '' };
   error:any = '';
 
@@ -24,7 +24,14 @@ export class LoginPage implements OnInit {
                private storage: Storage,
                private router: Router,
                private modalController: ModalController ) { }
-  ngOnInit() {
+
+  ionViewDidEnter() {
+    console.log('en el login');
+    if(this.authService.isAuthenticated())
+    {
+      console.log('auth voy al home');
+      this.router.navigate(['/home/']);
+    } else { console.log('no auth');}
 
   }
 

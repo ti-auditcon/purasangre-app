@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+
 import { Crop } from '@ionic-native/crop/ngx';
 import { Platform, ToastController } from '@ionic/angular';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
@@ -74,10 +75,12 @@ export class PerfilPage {
       destinationType: this.camera.DestinationType.FILE_URI,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       correctOrientation: true,
+      targetWidth: 400,
+      targetHeight: 400,
     }
 
     this.camera.getPicture(options).then((imageData) => {
-        this.crop.crop(imageData, {quality: 40})
+        this.crop.crop(imageData, {quality: 40, targetWidth: 400, targetHeight: 400 })
         .then(
           newImage => {
             //this.imageURI = imageData;
@@ -88,21 +91,21 @@ export class PerfilPage {
             }
 
             this.fileTransfer.upload(newImage, IMAGE_URL+'api/users/'+this.user.identificador+'/image', options1)
-             .then((data) => {
-               // success
-               console.log("success");
-               this.presentToast('Imagen actualizada.');
-               this.ionViewDidEnter();
+               .then((data) => {
+                 // success
+                 //console.log("success");
+                 this.presentToast('Imagen actualizada.');
+                 this.ionViewDidEnter();
 
-             }, (err) => {
-               // error
-               this.presentToast('Error post');
-               console.log("error"+JSON.stringify(err));
-             });
+               }, (err) => {
+                 // error
+                 this.presentToast('Error post');
+                 console.log("Error imagen muy grande");
+               });
            }, error => {
-              this.presentToast('Error al ajustar imágen');
-              console.error('Error cropping image', error);
-              //this.alerts.push('Error cropping image');
+                this.presentToast('Error al ajustar imágen');
+                console.error('Error ajustando imagen', error);
+                //this.alerts.push('Error cropping image');
              }
           );
 
@@ -128,12 +131,13 @@ export class PerfilPage {
       this.http.get(SERVER_URL+"/profile", httpOptions)
                   .subscribe((result: any) => {
                     this.user = result.data;
-                    console.log('entre');
+
                     console.log(this.user);
                     console.log(this.user.rels.active_plan.href);
                     var random = (new Date()).toString();
                     this.image = this.user.avatar+"?cb=" + random;
                     this.imageClean = this.user.avatar;
+                    this.storage.set('avatar', this.imageClean );
 
                     this.http.get(this.user.rels.active_plan.href, httpOptions)
                                 .subscribe((result: any) => {

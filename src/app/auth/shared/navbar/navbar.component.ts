@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from '../../../services/authentication.service';
+import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -16,12 +17,16 @@ export class NavbarComponent implements OnInit {
 
   constructor(private authService: AuthenticationService,
               private router: Router,
+              private storage: Storage,
               private location: Location
             ) { }
 
   // passImage;
 
   ngOnInit() {
+    this.storage.get('avatar').then((value) => {
+      this.avatar = value;
+    });
   }
 
   logout() {
