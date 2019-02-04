@@ -78,7 +78,7 @@
 
         <div *ngIf="this.titulo == 'Dashboard'" class="button-header" (click)="goToPerfil()">
           <!-- <ion-icon slot="icon-only" name="person" color="light"></ion-icon> -->
-          <img src="{{ this.avatar }}" style="width: 34px; border-radius: 60px; margin-top: 3px;">
+          <img [src]="this.avatar" style="width: 34px; border-radius: 60px; margin-top: 3px;">
         </div>
 
         <!-- <div *ngIf="this.titulo == 'Tu Perfil'" class="button-header" (click)="logout()"> -->

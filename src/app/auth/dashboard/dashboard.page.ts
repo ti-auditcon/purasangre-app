@@ -29,6 +29,7 @@ export class DashboardPage  {
   public today: any = [];
   public alerts: any = [];
   public assistance: any = [];
+  public avatar: any = '';
 
   public active: boolean = false;
 
@@ -64,6 +65,9 @@ export class DashboardPage  {
       this.http.get(SERVER_URL+"/profile", httpOptions)
           .subscribe((result: any) => {
             this.user = result.data;
+            //this.storage.set('avatar', this.user.avatar);
+            var random = (new Date()).toString();
+            this.avatar = this.user.avatar+"?cb=" + random;
             console.log('entre');
             console.log(this.user);
             },
