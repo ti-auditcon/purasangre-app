@@ -76,7 +76,7 @@ export class AuthenticationService {
                  },
                  (err) => {
                    console.log('error refrersh 401:'+JSON.stringify(err));
-                   this.logout();
+                   this.router.navigate(['/home/']);
                  }
                );
       // });

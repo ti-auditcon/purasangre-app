@@ -26,6 +26,8 @@ export class AppComponent {
     public toastController: ToastController
   ) {
     this.initializeApp();
+    // Initialize BackButton Eevent.
+    this.backButtonEvent();
   }
 
   private async presentToast(message) {
@@ -73,6 +75,14 @@ export class AppComponent {
           this.router.navigate(['login']);
         }
       });
+    });
+  }
+
+  // active hardware back button
+  backButtonEvent() {
+    this.platform.backButton.subscribe(() => {
+      console.log('go home');
+      this.router.navigate(['/home/']);
     });
   }
 }
