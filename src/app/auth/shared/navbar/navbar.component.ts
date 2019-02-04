@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
   @Input() titulo: string;
   @Input() avatar: string;
@@ -23,9 +23,10 @@ export class NavbarComponent implements OnInit {
 
   // passImage;
 
-  ngOnInit() {
+  ionViewDidEnter() {
     this.storage.get('avatar').then((value) => {
       this.avatar = value;
+      console.log('Entre '+this.avatar)
     });
   }
 
