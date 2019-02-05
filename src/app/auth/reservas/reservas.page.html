@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" style="padding-bottom: 50px;">
     <h1 class="title-section">Confirmadas</h1>
     <div class="clases-cards">
       <div class="clase-card" *ngFor="let clase of confirmed" (click)="goToEditConfirm(clase.clase_id)">
@@ -66,13 +66,18 @@
     <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
   </div> -->
 
+  <ion-fab [ngClass]="buttonFixIOS" vertical="bottom" slot="fixed">
+    <div class="reservar" (click)="goToAddDay()">
+      Nueva Reserva
+    </div>
+  </ion-fab>
+
 </ion-content>
 
 <ion-footer>
-  <div [ngClass]="buttonFixIOS">
-    <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
-  </div>
+
   <div [ngClass]="buttonFixAndroid">
     <button class="reservar" (click)="goToAddDay()">Nueva Reserva</button>
   </div>
+
 </ion-footer>

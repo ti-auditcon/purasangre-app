@@ -27,7 +27,7 @@
       <button class="button-edit" (click)="openModalCeder()">Ceder cupo</button>
     </div>
 
-    <div class="card card-crossfiters">
+    <div class="card card-crossfiters" style="margin-bottom: 55px;">
       <div class="title">
         <h5>Crossfiters en esta Clase</h5>
       </div>
@@ -47,15 +47,18 @@
     </div>
   </div>
 
-
+  <ion-fab [ngClass]="buttonFixIOS" *ngIf="clase.rels?.auth_reservation.status === 'Pendiente'" vertical="bottom" slot="fixed">
+    <div class="reservar" (click)="openModal()">
+      Confirmar asistencia
+    </div>
+  </ion-fab>
 
 </ion-content>
 
 <ion-footer>
-  <div [ngClass]="buttonFixIOS" *ngIf="clase.rels?.auth_reservation.status === 'Pendiente'">
-    <button class="reservar" (click)="openModal()">Confirmar asistencia</button>
-  </div>
+
   <div [ngClass]="buttonFixAndroid" *ngIf="clase.rels?.auth_reservation.status === 'Pendiente'">
     <button class="reservar" (click)="openModal()">Confirmar asistencia</button>
   </div>
+
 </ion-footer>
