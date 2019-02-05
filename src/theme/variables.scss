@@ -910,16 +910,30 @@ ion-content {
     margin: auto;
     font-size: 15px;
     padding: 14px 0;
+    margin-bottom: 4px;
     font-weight: 700;
     border-radius: 4px;
     color: white;
     text-align: center;
     background: linear-gradient(108.43deg, #259F06 11.38%, #35AF17 63.4%);
     background-size: 300% 300%;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.2);
+    transition: all ease 0.2s;
+    outline: none;
     -webkit-animation: buttonGradientSuccess 3s ease infinite;
     -moz-animation: buttonGradientSuccess 3s ease infinite;
     -o-animation: buttonGradientSuccess 3s ease infinite;
     animation: buttonGradientSuccess 3s ease infinite;
+    &:active,
+    &:focus,
+    &:hover {
+      -webkit-box-shadow: 0px 3px 11px rgba(0, 0, 0, 0);
+      -moz-box-shadow: 0px 3px 11px rgba(0, 0, 0, 0);
+      box-shadow: 0px 3px 11px rgba(0, 0, 0, 0);
+    }
   }
 }
 
