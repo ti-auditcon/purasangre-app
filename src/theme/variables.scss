@@ -897,21 +897,23 @@ ion-content {
 }
 
 .button-fix-ios {
-  position: fixed;
+  // position: fixed;
   width: 100%;
-  bottom: 50px;
-  margin: 0;
-  left: 0;
-  right: 0;
+  // bottom: 50px;
+  margin: auto;
+  // left: 0;
+  // right: 0;
   transition: all ease 0.2s;
   .reservar {
-    width: 100%;
+    width: 90%;
     display: block;
-    margin: 0;
+    margin: auto;
     font-size: 15px;
-    padding: 16px 0;
+    padding: 14px 0;
     font-weight: 700;
+    border-radius: 4px;
     color: white;
+    text-align: center;
     background: linear-gradient(108.43deg, #259F06 11.38%, #35AF17 63.4%);
     background-size: 300% 300%;
     -webkit-animation: buttonGradientSuccess 3s ease infinite;

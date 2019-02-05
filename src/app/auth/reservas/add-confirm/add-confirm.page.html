@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div class="card card-crossfiters">
+    <div class="card card-crossfiters" style="margin-bottom: 50px;">
       <div class="title">
         <h5>Crossfiters en esta Clase</h5>
       </div>
@@ -38,13 +38,18 @@
     </div>
   </div>
 
+  <ion-fab [ngClass]="buttonFixIOS" vertical="bottom" slot="fixed">
+    <div class="reservar" (click)="openModal()">
+      Reservar esta hora
+    </div>
+  </ion-fab>
+
 </ion-content>
 
 <ion-footer>
-  <div [ngClass]="buttonFixIOS">
-    <button class="reservar" (click)="openModal()">Resevar esta hora</button>
-  </div>
+
   <div [ngClass]="buttonFixAndroid">
     <button class="reservar" (click)="openModal()">Reservar esta hora</button>
   </div>
+
 </ion-footer>
