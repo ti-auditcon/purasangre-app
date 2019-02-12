@@ -22,6 +22,7 @@ export class ConfirmPage {
   buttonActionAdd: any;
   buttonActionRemove: any;
   buttonActionConfirm: any;
+  disabled =  false;
 
   constructor( public viewCtrl: ModalController,
                private storage: Storage,
@@ -42,6 +43,7 @@ export class ConfirmPage {
 
 
   reserve(id: string ) {
+    this.disabled = true;
     this.storage.get(TOKEN_KEY).then((value) => {
 
       let Bearer = value;
@@ -73,6 +75,7 @@ export class ConfirmPage {
   }
 
   remove(id: string ) {
+    this.disabled = true;
     this.storage.get(TOKEN_KEY).then((value) => {
 
       let Bearer = value;
@@ -102,6 +105,7 @@ export class ConfirmPage {
   }
 
   confirm(id: string ) {
+    this.disabled = true;
     console.log('click confirm');
     this.storage.get(TOKEN_KEY).then((value) => {
 
