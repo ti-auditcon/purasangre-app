@@ -1,12 +1,13 @@
 //env
 import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { Platform, ModalController } from '@ionic/angular';
 import { ConfirmPage } from '../confirm/confirm.page';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from  '@angular/router';
+import { IonInfiniteScroll } from '@ionic/angular';
 
 let TOKEN_KEY = 'auth-token';
 
@@ -15,10 +16,12 @@ let TOKEN_KEY = 'auth-token';
   templateUrl: './add-confirm.page.html',
   styleUrls: ['./add-confirm.page.scss'],
 })
-export class AddConfirmPage implements OnInit {
+export class AddConfirmPage  {
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   public clase: any = [];
   public users: any = [];
   public reservations: any = [];
+  public page = 1;
 
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
@@ -26,6 +29,7 @@ export class AddConfirmPage implements OnInit {
   message;
   buttonIcon;
   buttonAction;
+  httpOptions;
 
   constructor( public plt: Platform,
                private modalController: ModalController,
@@ -66,30 +70,51 @@ export class AddConfirmPage implements OnInit {
   }
 
 
-  ngOnInit() {
+  ionViewDidEnter() {
+    this.page = 1;
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.storage.get(TOKEN_KEY).then((value) => {
 
       let Bearer = value;
-      const httpOptions = {
+      this.httpOptions = {
         headers: new HttpHeaders({
           'Authorization': 'Bearer '+ Bearer//updated
         })};
 
-      this.http.get(SERVER_URL+"/clases/"+id, httpOptions)
+      this.http.get(SERVER_URL+"/clases/"+id, this.httpOptions )
           .subscribe((result: any) => {
-            console.log('entre al dia que quiero agendar');
             this.clase = result.data;
             console.log(this.clase);
-            this.http.get(this.clase.rels.reservations.href, httpOptions)
-                .subscribe((result: any) => {
-                  console.log('tiene reservas');
-                  this.reservations = result.data;
-                  console.log(this.reservations);
-                 });
+            this.reservationUrl = this.clase.rels.reservations.href;
+            this.loadUsers();
+
            });
 
     });
+  }
+//primeros 10 usuarios
+  loadUsers(){
+    console.log('cargando usuarios');
+    this.http.get(this.reservationUrl+"?page="+this.page, this.httpOptions)
+        .subscribe((result: any) => {
+          this.reservations = result.data;
+          console.log(this.reservations);
+          this.page++;
+         });
+  }
+
+//cargando usuarios por infinit loader
+  loadMoreUsers(infiniteScrollEvent){
+    this.http.get(this.reservationUrl+"?page="+this.page, this.httpOptions)
+        .subscribe((result: any) => {
+          console.log('mas users agregados');
+          this.reservations = this.reservations.concat(result.data);
+          console.log(this.reservations);
+          this.page++;
+          infiniteScrollEvent.target.complete();
+         });
+    //this.days = this.days.concat(response.data.data);
+  //  event.target.complete();
   }
 
 }

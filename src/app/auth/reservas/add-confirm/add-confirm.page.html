@@ -39,6 +39,14 @@
 
       </div>
     </div>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreUsers($event)">
+       <ion-infinite-scroll-content
+         loadingSpinner="bubbles"
+         loadingText="Cargando usuarios...">
+       </ion-infinite-scroll-content>
+     </ion-infinite-scroll>
+
   </div>
 
   <ion-fab [ngClass]="buttonFixIOS" vertical="bottom" slot="fixed" *ngIf="clase.active">
