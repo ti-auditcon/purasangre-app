@@ -30,6 +30,7 @@ export class AddConfirmPage  {
   buttonIcon;
   buttonAction;
   httpOptions;
+  reservationUrl;
 
   constructor( public plt: Platform,
                private modalController: ModalController,
@@ -74,6 +75,7 @@ export class AddConfirmPage  {
     this.page = 1;
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.storage.get(TOKEN_KEY).then((value) => {
+
 
       let Bearer = value;
       this.httpOptions = {
