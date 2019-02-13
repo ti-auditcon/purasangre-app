@@ -3,8 +3,11 @@
 <ion-content padding>
 
   <div class="reserva">
-    <h1 class="titleReserva-section margin-bottom">
+    <h1 class="titleReserva-section margin-bottom" *ngIf="clase.active">
       Estás a un paso de reservar
+    </h1>
+    <h1 class="titleReserva-section margin-bottom" *ngIf="!clase.active">
+      Clase
     </h1>
     <h4 class="date-section">
       {{clase.dateHuman}}<br>{{clase.start}} - {{clase.end}}  hrs
@@ -38,7 +41,7 @@
     </div>
   </div>
 
-  <ion-fab [ngClass]="buttonFixIOS" vertical="bottom" slot="fixed">
+  <ion-fab [ngClass]="buttonFixIOS" vertical="bottom" slot="fixed" *ngIf="clase.active">
     <div class="reservar" (click)="openModal()">
       Reservar esta hora
     </div>
@@ -48,7 +51,7 @@
 
 <ion-footer>
 
-  <div [ngClass]="buttonFixAndroid">
+  <div [ngClass]="buttonFixAndroid" *ngIf="clase.active">
     <button class="reservar" (click)="openModal()">Reservar esta hora</button>
   </div>
 
