@@ -81,10 +81,10 @@ export class ClasePage {
                    console.log('tiene wod');
                    this.wod = result.data;
                    console.log(this.wod);
-                   this.reservationUrl = this.clase.rels.reservations.href;
-                   this.loadUsers();
-                  });
 
+                  });
+              this.reservationUrl = this.clase.rels.reservations.href;
+              this.loadUsers();
               });
      });
   }
