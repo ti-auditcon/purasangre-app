@@ -72,7 +72,7 @@ export class PerfilPage {
   selectImageFromCamera() {
     // this.presentToast('images!!!');
     const options: CameraOptions = {
-      quality: 40,
+      quality: 60,
       destinationType: this.camera.DestinationType.FILE_URI,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       correctOrientation: true,
@@ -81,7 +81,7 @@ export class PerfilPage {
     }
 
     this.camera.getPicture(options).then((imageData) => {
-        this.crop.crop(imageData, {quality: 40, targetWidth: 400, targetHeight: 400 })
+        this.crop.crop(imageData, {})
         .then(
           newImage => {
             //this.imageURI = imageData;
