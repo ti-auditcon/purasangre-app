@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from  '@angular/router';
 import { IonInfiniteScroll } from '@ionic/angular';
+import { ImageModalPage } from '../../shared/image-modal/image-modal.page';
 
 let TOKEN_KEY = 'auth-token';
 
@@ -91,7 +92,6 @@ export class AddConfirmPage  {
             this.loadUsers();
 
            });
-
     });
   }
 //primeros 10 usuarios
@@ -117,6 +117,18 @@ export class AddConfirmPage  {
          });
     //this.days = this.days.concat(response.data.data);
   //  event.target.complete();
+  }
+
+//image popup
+  openPreview(img) {
+    this.modalController.create({
+      component: ImageModalPage,
+      componentProps: {
+        img: img
+      }
+    }).then(modal => {
+      modal.present();
+    });
   }
 
 }

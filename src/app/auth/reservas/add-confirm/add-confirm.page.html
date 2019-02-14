@@ -29,7 +29,7 @@
 
         <div class="ps-row item-crossfiters" *ngFor="let reservation of reservations" >
           <div class="col-2 item-img">
-            <img src="{{reservation?.rels.user.avatar}}">
+            <img src="{{reservation?.rels.user.avatar}}" tappable (click)="openPreview(reservation?.rels.user.avatar)">
           </div>
           <div class="col-10 item-data">
             <h6>{{reservation?.rels.user.first_name}} {{reservation?.rels.user.last_name}}</h6>

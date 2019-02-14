@@ -20,6 +20,7 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { ChartsModule } from 'ng2-charts';
+import { ImageModalPageModule } from './auth/shared/image-modal/image-modal.module';
 
 //firebase
 import { AngularFireModule } from '@angular/fire';
@@ -55,6 +56,7 @@ const config = {
     // NavbarComponent,
     HttpClientModule,
     ChartsModule,
+    ImageModalPageModule,
     //firebase
     AngularFireModule.initializeApp(config),
     // AngularFirestoreModule
