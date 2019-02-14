@@ -43,6 +43,7 @@ export class ClasesPage {
   }
 
   ionViewDidEnter() {
+    this.page = 1;
     this.storage.get(TOKEN_KEY).then((value) => {
 
       let Bearer = value;

@@ -21,7 +21,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     NavbarModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NavbarModule
   ],
   declarations: [ClasePage]
 })
