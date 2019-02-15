@@ -7,7 +7,9 @@ import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { AuthenticationService } from './../../services/authentication.service';
 import { ChartsModule } from 'ng2-charts';
+import { Firebase } from '@ionic-native/firebase/ngx';
 import * as chart from 'chart.js';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 let TOKEN_KEY = 'auth-token';
 
@@ -38,6 +40,8 @@ export class DashboardPage  {
     private router: Router,
     private storage: Storage,
     private http: HttpClient,
+    private firebase: Firebase,
+    private splashScreen: SplashScreen,
     private authService: AuthenticationService,
   ) {}
 
@@ -52,8 +56,11 @@ export class DashboardPage  {
   }
 
 
-  ionViewDidEnter() {
+  ionViewWillEnter() {
+
+
     this.storage.get(TOKEN_KEY).then((value) => {
+
       //console.log(value);
       let Bearer = value;
 
@@ -70,10 +77,14 @@ export class DashboardPage  {
             this.avatar = this.user.avatar+"?cb=" + random;
             console.log('entre');
             console.log(this.user);
+            this.splashScreen.hide();
+
             },
             err =>{
               console.log('error perfil');
               this.authService.refreshToken();
+              this.splashScreen.hide();
+
             }
           );
 
@@ -95,6 +106,7 @@ export class DashboardPage  {
               console.log(this.alerts);
               },
                err =>{
+                 // this.firebase.logEvent("user_alerts_error", {content_type: "http_error", item_id: "dashboard"});
                  console.log('error user-alerts');
                }
              );
@@ -159,12 +171,17 @@ export class DashboardPage  {
 
     });
   }
+  ionViewDidEnter() {
+
+  }
 
   verWOD() {
+    this.firebase.logEvent("go_to_wod", {content_type: "action", item_id: "dashboard_button"});
     this.router.navigate( ['home/hoydashboard'] );
   }
 
   goToEditConfirm(id: string = "0") {
+    this.firebase.logEvent("go_to_profile", {content_type: "action", item_id: "dashboard_profile_button"});
     this.router.navigate( ['/home/edit-confirm/'+id+''] );
   }
 

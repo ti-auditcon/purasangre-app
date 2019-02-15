@@ -158,8 +158,14 @@ export class PerfilPage {
   }
 
   tutorial() {
-    this.storage.remove('tutorialComplete');
-    this.router.navigateByUrl('/tutorial');
+    this.storage.remove('tutorialComplete')
+      .then(res => {
+        this.router.navigateByUrl('/tutorial');
+      })
+      .catch(rej => {
+         this.presentToast('Error tutorial.');
+      });
+
   }
 
 }

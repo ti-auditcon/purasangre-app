@@ -9,6 +9,7 @@ import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { IonInfiniteScroll } from '@ionic/angular';
 import { ImageModalPage } from '../../shared/image-modal/image-modal.page';
+import { Firebase } from '@ionic-native/firebase/ngx';
 
 let TOKEN_KEY = 'auth-token';
 
@@ -34,6 +35,7 @@ export class ClasePage {
     private modalController: ModalController,
     private storage: Storage,
     private http: HttpClient,
+    private firebase: Firebase,
     public toastController: ToastController
   ) {
   }
@@ -137,9 +139,11 @@ export class ClasePage {
          (result: any) => {
            console.log('Resultado: '+result);
            this.presentToast();
+           this.firebase.logEvent("add_details", {content_type: "clase", item_id: "add_detail_button"});
          },
          (err) => {
            console.log('error 401:'+JSON.stringify(err));
+           this.firebase.logEvent("add_details_error", {content_type: "clase", item_id: "add_detail_button"});
          },
        );
      });

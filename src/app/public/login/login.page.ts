@@ -4,6 +4,7 @@ import { Storage } from '@ionic/storage';
 import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ConfirmPage } from '../confirm/confirm.page';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 @Component({
   selector: 'app-login',
@@ -23,15 +24,36 @@ export class LoginPage {
   constructor( private authService: AuthenticationService,
                private storage: Storage,
                private router: Router,
+               private splashScreen: SplashScreen,
                private modalController: ModalController ) { }
 
-  ionViewDidEnter() {
-    console.log('en el login');
+  ionViewWillEnter() {
+    //si vio el tutorial
+
+    console.log('ionViewWillEnter');
+    this.storage.get('tutorialComplete').then(val =>{
+      if (val == null || val == false ) {
+        console.log("Sin tutorial");
+        this.router.navigateByUrl('/tutorial');
+      } else {
+        console.log("tiene tutorial");
+      }
+    });
+    //si esta auth
     if(this.authService.isAuthenticated())
     {
       console.log('auth voy al home');
       this.router.navigate(['/home/']);
-    } else { console.log('no auth');}
+
+    } else {
+      console.log('no auth');
+      this.splashScreen.hide();
+
+    }
+  }
+
+  ionViewDidEnter() {
+    console.log('entre login');
 
   }
 

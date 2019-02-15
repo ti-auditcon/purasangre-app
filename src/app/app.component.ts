@@ -63,7 +63,7 @@ export class AppComponent {
       // this.statusBar.styleDefault();
       // this.splashScreen.hide();
       setTimeout(()=>{
-        this.splashScreen.hide();
+
       },1000);
 
       this.authenticationService.authenticationState.subscribe(state => {
@@ -71,8 +71,10 @@ export class AppComponent {
           this.notificationSetup();
           this.router.navigate(['home']);
 
+
         } else {
           this.router.navigate(['login']);
+          
         }
       });
     });
@@ -82,7 +84,8 @@ export class AppComponent {
   backButtonEvent() {
     this.platform.backButton.subscribe(() => {
       console.log('go home');
-      this.router.navigate(['/home/']);
+      this.splashScreen.show();
+      this.router.navigate(['home']);
     });
   }
 }
