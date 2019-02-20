@@ -1,11 +1,15 @@
 //env
 import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild } from '@angular/core';
+import { Platform, ModalController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { ActivatedRoute } from  '@angular/router';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { IonInfiniteScroll } from '@ionic/angular';
+import { ImageModalPage } from '../../shared/image-modal/image-modal.page';
+import { Firebase } from '@ionic-native/firebase/ngx';
 
 let TOKEN_KEY = 'auth-token';
 
@@ -15,16 +19,23 @@ let TOKEN_KEY = 'auth-token';
   styleUrls: ['./clase.page.scss'],
 })
 export class ClasePage {
-
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   public clase: any = [];
   public reservation: any = [];
   public wod: any = [];
   public textModel: string = 'no';
+  public reservations: any = [];
+  public page = 1;
+
+  httpOptions;
+  reservationUrl;
 
   constructor(
     public activatedRoute: ActivatedRoute,
+    private modalController: ModalController,
     private storage: Storage,
     private http: HttpClient,
+    private firebase: Firebase,
     public toastController: ToastController
   ) {
   }
@@ -49,19 +60,17 @@ export class ClasePage {
    }
 
   ionViewDidEnter() {
-    //console.log('entre amigos mios a la clase id:');
-     //console.log(this.activatedRoute.snapshot);
+     this.page = 1;
      let id = this.activatedRoute.snapshot.paramMap.get('id');
      this.storage.get(TOKEN_KEY).then((value) => {
 
        let Bearer = value;
-
-       const httpOptions = {
+       this.httpOptions = {
          headers: new HttpHeaders({
            'Authorization': 'Bearer '+ Bearer//updated
          })};
 
-       this.http.get(SERVER_URL+"/clases/"+id, httpOptions)
+       this.http.get(SERVER_URL+"/clases/"+id,  this.httpOptions)
            .subscribe((result: any) => {
              console.log('entre la clase');
              this.clase = result.data;
@@ -69,15 +78,43 @@ export class ClasePage {
              this.reservation = this.clase.rels.auth_reservation;
              console.log(this.reservation);
              this.textModel = this.reservation.details;
-             this.http.get(this.clase.rels.wod.href, httpOptions)
+             this.http.get(this.clase.rels.wod.href,  this.httpOptions)
                  .subscribe((result: any) => {
                    console.log('tiene wod');
                    this.wod = result.data;
                    console.log(this.wod);
+
                   });
+              this.reservationUrl = this.clase.rels.reservations.href;
+              this.loadUsers();
               });
      });
   }
+
+//primeros 10 usuarios
+  loadUsers(){
+    console.log('cargando usuarios');
+    this.http.get(this.reservationUrl+"?page="+this.page, this.httpOptions)
+        .subscribe((result: any) => {
+          this.reservations = result.data;
+          console.log(this.reservations);
+          this.page++;
+         });
+  }
+  //cargando usuarios por infinit loader
+    loadMoreUsers(infiniteScrollEvent){
+      this.http.get(this.reservationUrl+"?page="+this.page, this.httpOptions)
+          .subscribe((result: any) => {
+            console.log('mas users agregados');
+            this.reservations = this.reservations.concat(result.data);
+            console.log(this.reservations);
+            this.page++;
+            infiniteScrollEvent.target.complete();
+           });
+      //this.days = this.days.concat(response.data.data);
+    //  event.target.complete();
+    }
+
 
   saveDetails(){
     this.storage.get(TOKEN_KEY).then((value) => {
@@ -102,11 +139,24 @@ export class ClasePage {
          (result: any) => {
            console.log('Resultado: '+result);
            this.presentToast();
+           this.firebase.logEvent("add_details", {content_type: "clase", item_id: "add_detail_button"});
          },
          (err) => {
            console.log('error 401:'+JSON.stringify(err));
+           this.firebase.logEvent("add_details_error", {content_type: "clase", item_id: "add_detail_button"});
          },
        );
+     });
+   }
+   //image popup
+   openPreview(img) {
+     this.modalController.create({
+       component: ImageModalPage,
+       componentProps: {
+         img: img
+       }
+     }).then(modal => {
+       modal.present();
      });
    }
 

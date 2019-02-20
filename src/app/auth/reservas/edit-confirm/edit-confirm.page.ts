@@ -1,13 +1,15 @@
 //env
 import { environment, SERVER_URL} from '../../../../environments/environment';
 //imports
-import { Component} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Platform, ModalController } from '@ionic/angular';
 import { ConfirmPage } from '../confirm/confirm.page';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from  '@angular/router';
+import { IonInfiniteScroll } from '@ionic/angular';
+import { ImageModalPage } from '../../shared/image-modal/image-modal.page';
 // import { ElementRef, ViewChild } from '@angular/core';
 let TOKEN_KEY = 'auth-token';
 
@@ -17,10 +19,12 @@ let TOKEN_KEY = 'auth-token';
   styleUrls: ['./edit-confirm.page.scss'],
 })
 export class EditConfirmPage  {
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   public clase: any = [];
   public auth_reservation: any = [];
   public reservations: any = [];
   public users: any = [];
+  public page = 1;
 
   buttonFixIOS: string = "";
   buttonFixAndroid: string = "";
@@ -28,6 +32,8 @@ export class EditConfirmPage  {
   title;
   message;
   buttonIcon;
+  httpOptions;
+  reservationUrl;
 
   constructor( public plt: Platform,
                private modalController: ModalController,
@@ -39,7 +45,7 @@ export class EditConfirmPage  {
   }
 
   ionViewDidEnter() {
-
+        this.page = 1;
         if (this.plt.is('ios')) {
           //Si es iOS
           this.buttonFixIOS = "button-fix-ios"
@@ -55,28 +61,48 @@ export class EditConfirmPage  {
         this.storage.get(TOKEN_KEY).then((value) => {
 
           let Bearer = value;
-          const httpOptions = {
+          this.httpOptions = {
             headers: new HttpHeaders({
               'Authorization': 'Bearer '+ Bearer//updated
             })};
 
-          this.http.get(SERVER_URL+"/clases/"+id, httpOptions)
+          this.http.get(SERVER_URL+"/clases/"+id, this.httpOptions)
               .subscribe((result: any) => {
                 console.log(' http entre a la clase para editar');
                 this.clase = result.data;
                 console.log(this.clase);
-                this.auth_reservation = this.clase.rels.auth_reservation;
-                this.http.get(this.clase.rels.reservations.href, httpOptions)
-                    .subscribe((result: any) => {
-                      console.log('tiene reservas');
-                      this.reservations = result.data;
-                      console.log(this.reservations);
-                     });
+                this.reservationUrl = this.clase.rels.reservations.href;
+                this.loadUsers();
                  });
 
 
           });
   }
+
+  //primeros 10 usuarios
+    loadUsers(){
+      console.log('cargando usuarios');
+      this.http.get(this.reservationUrl+"?page="+this.page, this.httpOptions)
+          .subscribe((result: any) => {
+            this.reservations = result.data;
+            console.log(this.reservations);
+            this.page++;
+           });
+    }
+
+  //cargando usuarios por infinit loader
+    loadMoreUsers(infiniteScrollEvent){
+      this.http.get(this.reservationUrl+"?page="+this.page, this.httpOptions)
+          .subscribe((result: any) => {
+            console.log('mas users agregados');
+            this.reservations = this.reservations.concat(result.data);
+            console.log(this.reservations);
+            this.page++;
+            infiniteScrollEvent.target.complete();
+           });
+      //this.days = this.days.concat(response.data.data);
+    //  event.target.complete();
+    }
 
   async openModal(){
     const modal = await this.modalController.create({
@@ -119,7 +145,17 @@ export class EditConfirmPage  {
   goToEditHour(date:string = "2015-01-01") {
     this.router.navigate( ['/home/edit-hour/'+date+''] );
   }
-
+  //image popup
+  openPreview(img) {
+    this.modalController.create({
+      component: ImageModalPage,
+      componentProps: {
+        img: img
+      }
+    }).then(modal => {
+      modal.present();
+    });
+  }
 
 
 }

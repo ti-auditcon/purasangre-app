@@ -38,6 +38,35 @@
           <p>{{wod?.rels?.stages.wod }}</p>
         </div>
       </div>
+
+    </div>
+    <div class="section">
+      <h1 class="title-section">Crossfiters</h1>
+      <div class="card card-crossfiters">
+        <!-- <div class="title">
+          <h5>Crossfiters en esta Clase</h5>
+        </div> -->
+        <div class="content">
+
+          <div class="ps-row item-crossfiters" *ngFor="let reservation of reservations" >
+            <div class="col-2 item-img">
+              <img src="{{reservation?.rels.user.avatar}}" tappable (click)="openPreview(reservation?.rels.user.avatar)">
+            </div>
+            <div class="col-10 item-data">
+              <h6>{{reservation?.rels.user.first_name}} {{reservation?.rels.user.last_name}}</h6>
+              <p>{{reservation?.status}}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreUsers($event)">
+         <ion-infinite-scroll-content
+           loadingSpinner="bubbles"
+           loadingText="Cargando usuarios...">
+         </ion-infinite-scroll-content>
+       </ion-infinite-scroll>
     </div>
 
   </div>

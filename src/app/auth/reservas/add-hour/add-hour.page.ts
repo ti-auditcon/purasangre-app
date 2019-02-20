@@ -56,9 +56,9 @@ export class AddHourPage {
   }
 
   goToAddConfirm(id: string = "0", has = false) {
-    if(has){
+
       this.router.navigate(['/home/add-confirm/'+id+')']);
-    }
+
   }
 
 }

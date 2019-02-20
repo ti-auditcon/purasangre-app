@@ -16,12 +16,13 @@ export class AuthGuardService implements CanActivate {
     state: RouterStateSnapshot
   ): Promise<boolean> {
 
-    const isComplete = await this.storage.get('tutorialComplete');
+    // const isComplete = true;
+    // const isComplete = await this.storage.get('tutorialComplete');
 
-    if (!isComplete) {
-      console.log("Sin tutorial");
-      this.router.navigateByUrl('/tutorial');
-    }
+    // if (!isComplete) {
+    //   console.log("Sin tutorial");
+    //   this.router.navigateByUrl('/tutorial');
+    // }
 
     return this.auth.isAuthenticated();
   }

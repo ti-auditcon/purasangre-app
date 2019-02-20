@@ -71,12 +71,12 @@ export class AuthenticationService {
                        this.storage.set(REFRESH_TOKEN, result.refresh_token);
                        this.storage.set(TOKEN_KEY, result.access_token).then(() => {
                          this.authenticationState.next(true);
-                         this.router.navigate(['/home/']);
+                         this.router.navigate(['home']);
                        });
                  },
                  (err) => {
                    console.log('error refrersh 401:'+JSON.stringify(err));
-                   this.router.navigate(['/home/']);
+                   this.router.navigate(['home']);
                  }
                );
       // });
@@ -108,9 +108,11 @@ export class AuthenticationService {
            .subscribe(
                (result: any) => {
                  console.log('success 200');
-                 this.storage.set(REFRESH_TOKEN, result.refresh_token);
+
                  this.storage.set(TOKEN_KEY, result.access_token).then(() => {
-                   this.authenticationState.next(true);
+                   this.storage.set(REFRESH_TOKEN, result.refresh_token).then(()=> {
+                      this.authenticationState.next(true);
+                   });
                  });
                  resolve(result);
 

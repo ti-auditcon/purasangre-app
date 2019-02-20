@@ -66,6 +66,12 @@
       </div>
 
     </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreClases($event)">
+       <ion-infinite-scroll-content
+         loadingSpinner="bubbles"
+         loadingText="Cargando clases...">
+       </ion-infinite-scroll-content>
+     </ion-infinite-scroll>
   </div>
 
 </ion-content>

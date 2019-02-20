@@ -21,8 +21,6 @@ export class NavbarComponent implements OnInit {
               private storage: Storage,
               private location: Location
             ) {
-            console.log('entre navbar');
-            console.log('entre navbar:'+this.avatar);
             this.storage.get('avatar').then((value) => {
               this.image = value;
               console.log('entre navbar2:'+this.image);

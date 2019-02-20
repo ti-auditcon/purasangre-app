@@ -5,13 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ClasePage } from './clase.page';
-import { NavbarModule } from '../../shared/navbar/navbar.module';
+import { ImageModalPage } from './image-modal.page';
+import { NavbarModule } from '../navbar/navbar.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: ClasePage
+    component: ImageModalPage
   }
 ];
 
@@ -20,10 +20,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    NavbarModule,
     RouterModule.forChild(routes),
     NavbarModule
   ],
-  declarations: [ClasePage]
+  declarations: [ImageModalPage]
 })
-export class ClasePageModule {}
+export class ImageModalPageModule {}
