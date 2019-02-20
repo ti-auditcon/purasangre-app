@@ -1,16 +1,16 @@
-<!-- <app-navbar titulo="Volver"></app-navbar> -->
 
 <ion-content >
 
 
-  <ion-slides #slider [options]="sliderOpts" >
+  <ion-slides #slider [options]="sliderOpts">
 
-    <ion-slide >
-      <img [src]="img" />
-      <ion-button (click)="close()" fill="clear" color="light">
-        <ion-icon name="close" slot="start"></ion-icon>
-        Cerrar
-      </ion-button>
+    <ion-slide>
+      <div class="photo-avatar-wrapper">
+        <img [src]="img" class="photo-avatar" />
+        <ion-button (click)="close()" fill="clear" color="light" class="button-close">
+          <ion-icon src="/assets/icon/close.svg"></ion-icon>
+        </ion-button>
+      </div>
     </ion-slide>
   </ion-slides>
 
