@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { AuthenticationService } from './services/authentication.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -22,12 +23,13 @@ export class AppComponent {
     private authenticationService: AuthenticationService,
     private router: Router,
     private fcm: FcmService,
+    private location: Location,
     // private toastr: ToastService,
     public toastController: ToastController
   ) {
     this.initializeApp();
     // Initialize BackButton Eevent.
-    this.backButtonEvent();
+
   }
 
   private async presentToast(message) {
@@ -60,6 +62,7 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      this.backButtonEvent();
       // this.statusBar.styleDefault();
       // this.splashScreen.hide();
       setTimeout(()=>{
@@ -74,18 +77,17 @@ export class AppComponent {
 
         } else {
           this.router.navigate(['login']);
-          
+
         }
       });
     });
   }
 
   // active hardware back button
-  backButtonEvent() {
-    this.platform.backButton.subscribe(() => {
-      console.log('go home');
-      this.splashScreen.show();
-      this.router.navigate(['home']);
+  backButtonEvent(): void {
+    const sub = this.platform.backButton.subscribeWithPriority(9999, () => {
+      console.log('called');
+      this.location.back();
     });
   }
 }
