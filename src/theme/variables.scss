@@ -173,6 +173,19 @@ ion-slide {
         margin-bottom: 0;
       }
     }
+    .photo-avatar-wrapper {
+      position: relative;
+      .button-close {
+        position: absolute;
+        top: -33px;
+        right: -39px;
+        font-size: 16px
+        // margin: 0;
+      }
+      .photo-avatar {
+        border-radius: 8px;
+      }
+    }
 }
 
 ion-img {
