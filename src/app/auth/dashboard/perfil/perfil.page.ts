@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Firebase } from '@ionic-native/firebase/ngx';
 
 import { Crop } from '@ionic-native/crop/ngx';
 import { Platform, ToastController } from '@ionic/angular';
@@ -39,6 +40,7 @@ export class PerfilPage {
                private http: HttpClient,
                private camera: Camera,
                private crop: Crop,
+              private firebase: Firebase,
                private platform: Platform,
                private webview: WebView,
                private transfer: FileTransfer,
@@ -158,13 +160,8 @@ export class PerfilPage {
   }
 
   tutorial() {
-    this.storage.remove('tutorialComplete')
-      .then(res => {
-        this.router.navigateByUrl('/tutorial');
-      })
-      .catch(rej => {
-         this.presentToast('Error tutorial.');
-      });
+    this.firebase.logEvent("view_tutorial", {content_type: "page_view", item_id: "view_tutorial"});
+    this.router.navigateByUrl('/tutorial');
 
   }
 

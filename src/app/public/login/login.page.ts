@@ -30,15 +30,15 @@ export class LoginPage {
   ionViewWillEnter() {
     //si vio el tutorial
 
-    console.log('ionViewWillEnter');
-    this.storage.get('tutorialComplete').then(val =>{
-      if (val == null || val == false ) {
-        console.log("Sin tutorial");
-        this.router.navigateByUrl('/tutorial');
-      } else {
-        console.log("tiene tutorial");
-      }
-    });
+
+    // this.storage.get('tutorialComplete').then(val =>{
+    //   if (val == null || val == false ) {
+    //     console.log("Sin tutorial");
+    //     this.router.navigateByUrl('/tutorial');
+    //   } else {
+    //     console.log("tiene tutorial");
+    //   }
+    // });
     //si esta auth
     if(this.authService.isAuthenticated())
     {
