@@ -75,9 +75,11 @@ export class DashboardPage  {
             //this.storage.set('avatar', this.user.avatar);
             var random = (new Date()).toString();
             this.avatar = this.user.avatar+"?cb=" + random;
-            console.log('entre');
             console.log(this.user);
             this.splashScreen.hide();
+            if(!this.user.tutorial){
+              this.router.navigateByUrl('/tutorial');
+            }
 
             },
             err =>{

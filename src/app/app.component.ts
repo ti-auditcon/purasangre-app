@@ -86,8 +86,14 @@ export class AppComponent {
   // active hardware back button
   backButtonEvent(): void {
     const sub = this.platform.backButton.subscribeWithPriority(9999, () => {
-      console.log('called');
-      this.location.back();
+      console.log(this.location.path());
+      if(this.location.isCurrentPathEqualTo('/home/dashboard'))
+      {
+        navigator['app'].exitApp();
+      } else {
+        this.location.back();
+      }
+
     });
   }
 }

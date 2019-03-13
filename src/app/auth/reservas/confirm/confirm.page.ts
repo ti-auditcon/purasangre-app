@@ -62,10 +62,10 @@ export class ConfirmPage {
 
           },
           err => {
-
-            console.log('error 401');
             console.log(err);
+
             this.viewCtrl.dismiss();
+            this.presentToast('No es posible reservar esta clase');
 
           });
 
