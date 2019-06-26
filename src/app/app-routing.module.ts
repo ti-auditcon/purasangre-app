@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: './public/login/login.module#LoginPageModule' },
   { path: 'confirm', loadChildren: './auth/reservas/confirm/confirm.module#ConfirmPageModule' },
   { path: 'forgot', loadChildren: './public/forgot/forgot.module#ForgotPageModule' },
-  { path: 'tutorial', loadChildren: './public/tutorial/tutorial.module#TutorialPageModule' },  { path: 'image-modal', loadChildren: './auth/shared/image-modal/image-modal.module#ImageModalPageModule' },
+  { path: 'tutorial', loadChildren: './public/tutorial/tutorial.module#TutorialPageModule' },
+  { path: 'image-modal', loadChildren: './auth/shared/image-modal/image-modal.module#ImageModalPageModule' }
 
 ];
 

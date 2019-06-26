@@ -10,6 +10,7 @@ import { ClasePage } from '../clases/clase/clase.page';
 import { HoyPage } from '../clases/hoy/hoy.page';
 import { ReservasPage } from '../reservas/reservas.page';
 import { EditHourPage } from '../reservas/edit-hour/edit-hour.page';
+import { AddClassPage } from '../reservas/add-class/add-class.page';
 import { AddDayPage } from '../reservas/add-day/add-day.page';
 import { AddHourPage } from '../reservas/add-hour/add-hour.page';
 import { AddConfirmPage } from '../reservas/add-confirm/add-confirm.page';
@@ -44,6 +45,7 @@ const routes: Routes = [
       // { path: 'edit-confirm/:id', outlet: 'reservas', component: EditConfirmPage },
       { path: 'edit-confirm/:id', children: [{ path: '', component: EditConfirmPage }] },
       // { path: 'add-day', outlet: 'reservas', component: AddDayPage },
+      { path: 'add-class', children: [{ path: '', component: AddClassPage }] },
       { path: 'add-day', children: [{ path: '', component: AddDayPage }] },
       // { path: 'add-hour/:date', outlet: 'reservas', component: AddHourPage },
       { path: 'add-hour/:date', children: [{ path: '', component: AddHourPage }] },

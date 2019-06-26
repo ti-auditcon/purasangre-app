@@ -110,7 +110,7 @@ export class ReservasPage {
     this.router.navigate( ['/home/edit-confirm/'+id+')'] );
   }
   goToAddDay() {
-    this.router.navigate( ['/home/add-day'] );
+    this.router.navigate( ['/home/add-class'] );
   }
 
   enter() {

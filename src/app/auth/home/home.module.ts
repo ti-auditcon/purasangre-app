@@ -16,6 +16,7 @@ import { HoyPageModule } from '../clases/hoy/hoy.module';
 import { ReservasPageModule } from '../reservas/reservas.module';
 import { EditHourPageModule } from '../reservas/edit-hour/edit-hour.module';
 import { EditConfirmPageModule } from '../reservas/edit-confirm/edit-confirm.module';
+import { AddClassPageModule } from '../reservas/add-class/add-class.module';
 import { AddDayPageModule } from '../reservas/add-day/add-day.module';
 import { AddHourPageModule } from '../reservas/add-hour/add-hour.module';
 import { AddConfirmPageModule } from '../reservas/add-confirm/add-confirm.module';
@@ -37,6 +38,7 @@ import { ConfirmPage } from '../reservas/confirm/confirm.page';
     HoyPageModule,
     ReservasPageModule,
     EditHourPageModule,
+    AddClassPageModule,
     AddHourPageModule,
     AddDayPageModule,
     AddConfirmPageModule,
