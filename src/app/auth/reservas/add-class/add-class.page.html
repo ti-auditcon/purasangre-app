@@ -5,18 +5,18 @@
   <!-- <ion-button (click)="goToAddHour()"></ion-button> -->
   <div class="reserva">
 
-    <h1 class="titleReserva-section">Selecciona una Clase</h1>
+    <h1 class="titleReserva-section">Selecciona<br>una Clase</h1>
 
     <div class="section grid-days">
 
-      <div class="item-day" text-center>
+      <div class="item-day" text-center (click)="goToDay()">
         <h1></h1>
-        <img src="">
+        <img src="../../assets/icon/clases/crossfit.svg">
         <p>CrossFit</p>
       </div>
-      <div class="item-day" text-center>
+      <div class="item-day" text-center (click)="goToDay()">
         <h1></h1>
-        <img src="">
+        <img src="../../assets/icon/clases/hiit.svg">
         <p>Hit</p>
       </div>
 
