@@ -31,6 +31,7 @@ export class AddHourPage {
       });
       loading.present().then(() => {
         let date = this.activatedRoute.snapshot.paramMap.get('date');
+        let clasetype = this.activatedRoute.snapshot.paramMap.get('clasetype');
         this.storage.get(TOKEN_KEY).then((value) => {
 
           let Bearer = value;
@@ -39,7 +40,7 @@ export class AddHourPage {
               'Authorization': 'Bearer '+ Bearer//updated
             })};
 
-          this.http.get(SERVER_URL+"/clases?date="+date, httpOptions)
+          this.http.get(SERVER_URL+"/clases?date="+date+"&type="+clasetype, httpOptions)
               .subscribe((result: any) => {
                 console.log('entre a las clases del dia');
                 this.clases = result.data;

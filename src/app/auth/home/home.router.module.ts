@@ -45,10 +45,10 @@ const routes: Routes = [
       // { path: 'edit-confirm/:id', outlet: 'reservas', component: EditConfirmPage },
       { path: 'edit-confirm/:id', children: [{ path: '', component: EditConfirmPage }] },
       // { path: 'add-day', outlet: 'reservas', component: AddDayPage },
-      { path: 'add-class', children: [{ path: '', component: AddClassPage }] },
-      { path: 'add-day', children: [{ path: '', component: AddDayPage }] },
+      { path: 'clase-type', children: [{ path: '', component: AddClassPage }] },
+      { path: 'clase-type/:clasetype/add-day', children: [{ path: '', component: AddDayPage }] },
       // { path: 'add-hour/:date', outlet: 'reservas', component: AddHourPage },
-      { path: 'add-hour/:date', children: [{ path: '', component: AddHourPage }] },
+      { path: 'clase-type/:clasetype/add-day/:date', children: [{ path: '', component: AddHourPage }] },
       // { path: 'add-confirm/:id', outlet: 'reservas', component: AddConfirmPage },
       { path: 'add-confirm/:id', children: [{ path: '', component: AddConfirmPage }] },
 

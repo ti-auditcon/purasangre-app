@@ -4,8 +4,9 @@ import { environment, SERVER_URL} from '../../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+
 
 let TOKEN_KEY = 'auth-token';
 
@@ -20,6 +21,7 @@ export class AddDayPage  {
   constructor( private storage: Storage,
                private router: Router,
                private http: HttpClient,
+               public activatedRoute: ActivatedRoute,
                public loadingController: LoadingController ) { }
 
    async weekLoader()
@@ -29,7 +31,7 @@ export class AddDayPage  {
       });
       loading.present().then(() => {
         this.storage.get(TOKEN_KEY).then((value) => {
-
+          let clasetype = this.activatedRoute.snapshot.paramMap.get('clasetype');
           let Bearer = value;
           const httpOptions = {
             headers: new HttpHeaders({
@@ -37,7 +39,7 @@ export class AddDayPage  {
               //updated
             })};
 
-          this.http.get(SERVER_URL+"/week", httpOptions)
+          this.http.get(SERVER_URL+"/week/"+clasetype, httpOptions)
               .subscribe((result: any) => {
                 console.log('entre a las weeks');
                 this.week = result.data;
@@ -54,9 +56,11 @@ export class AddDayPage  {
     this.weekLoader();
   }
 
-  goToAddHour(date: string = "2015-01-01", has = false ) {
+  goToAddHour(date: string = "2015-01-01", has:boolean = false ) {
+    console.log(has);
     if(has){
-      this.router.navigate(['/home/add-hour/'+date+'']);
+      let clasetype = this.activatedRoute.snapshot.paramMap.get('clasetype');
+      this.router.navigate(['/home/clase-type/'+clasetype+'/add-day/'+date]);
     }
   }
 
