@@ -84,36 +84,19 @@
   --ion-color-vibrant-shade: #cbeb00;
   --ion-color-vibrant-tint: #ddff05;
 
-  // --color-selected: red;
-  // --button-selected: red;
   --ion-background-color: white;
 
-  // --ion-toolbar-background-color: linear-gradient(180deg, #0075C9 0%, #00BFC9 100%);
   --ion-toolbar-background: linear-gradient(180deg, #0075C9 0%, #00BFC9 100%);
   --ion-toolbar-color: white;
   --ion-toolbar-border-color: white;
-  // --ion-toolbar-text-color: white;
-  // --ion-tab-active-color: white;
-  // --ion-tabbar-text-color-active: red;
-  // --ion-tabbar-text-color-active: #000000;
-  // --ion-tabbar-text-color-focused: black;
   --ion-tab-bar-color: transparent;
-  // --ion-tab-bar-color-activated: #9300AB;
-  // --ion-tabbar-background-color-focused: red;
   --ion-background-color-focus: #0396B6;
   --ion-tab-bar-color-activated: transparent;
-  // --ion-toolbar-border-color-rgb: transparent;
-  // --ion-tabbar-background-color: linear-gradient(95.73deg, #01BCC8 0.75%, #0396B6 81.3%);
-  // --ion-tab-bar-background: linear-gradient(180deg, #0075C9 0%, #00BFC9 100%);
   --ion-background-tabbar: linear-gradient(95.73deg, #01BCC8 0.75%, #0396B6 81.3%);
   --ion-tab-bar-background: transparent;
   --ion-border-color: none;
-  // --ion-tabbar-text-color: transparent;
-  // --ion-tabbar-text-color-active: transparent;
   --ion-toast-background: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%);
   --ion-font-family: 'Ubuntu', sans-serif;
-
-  // --ion-background-toast: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%);
 
   --ion-padding: 18px;
 
@@ -129,17 +112,14 @@ ion-tab-bar {
 
 ion-tab-button.tab-selected {
   background: var(--ion-background-color-focus);
-  // border: var(--ion-tab-bar-border-color)
 }
 
 ion-slides {
-  // background: var(--ion-color-success);
   width: 100vw;
   background: linear-gradient(153.33deg, #FC0F85 6.69%, #9300AB 88.08%);
 }
 
 ion-slide {
-    // width: 100vw !important;
     height: 100vh !important;
     padding: 0 40px;
     flex-direction: column;
@@ -178,8 +158,7 @@ ion-slide {
         position: absolute;
         top: -33px;
         right: -39px;
-        font-size: 16px
-        // margin: 0;
+        font-size: 16px;
       }
       .photo-avatar {
         border-radius: 8px;
@@ -521,12 +500,35 @@ ion-content {
     -moz-box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.2);
     transition: all ease 0.2s;
+    .class-type {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      padding-left: 4px;
+      box-sizing: border-box;
+      .class-icon {
+        width: 80%;
+      }
+      .class-name {
+        font-size: 12px;
+        font-weight: 700;
+      }
+    }
+    .class-data {
+      .type-class {
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+    }
     h2 {
       margin: 0;
       font-weight: 700;
       font-size: 18px;
       margin-top: 0;
-      margin-bottom: 4px;
+      // margin-bottom: 4px;
+    }
+    h6 {
+      margin: 0;
     }
     p {
       margin: 0;
@@ -744,9 +746,9 @@ ion-content {
         font-size: 38px;
       }
       img {
-        height: 50px;
+        height: 64px;
         margin: auto;
-        margin-bottom: 8px;
+        margin-bottom: 3px;
       }
       &:active,
       &:focus,

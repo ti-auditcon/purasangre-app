@@ -22,12 +22,12 @@ export class AddClassPage implements OnInit {
     private http: HttpClient,
     public loadingController: LoadingController ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.claseTypeLoader();
   }
-  ionViewDidEnter() {
-    
-  }
+
+  ionViewDidEnter() {}
+
   async claseTypeLoader()
   {
      const loading = await this.loadingController.create({
