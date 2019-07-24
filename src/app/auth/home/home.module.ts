@@ -13,6 +13,7 @@ import { HoyDashboardPageModule } from '../dashboard/hoydashboard/hoydashboard.m
 import { ClasesPageModule } from '../clases/clases.module';
 import { ClasePageModule } from '../clases/clase/clase.module';
 import { HoyPageModule } from '../clases/hoy/hoy.module';
+import { WodsPageModule } from '../wods/wods.module';
 import { ReservasPageModule } from '../reservas/reservas.module';
 import { EditHourPageModule } from '../reservas/edit-hour/edit-hour.module';
 import { EditConfirmPageModule } from '../reservas/edit-confirm/edit-confirm.module';
@@ -43,6 +44,7 @@ import { ConfirmPage } from '../reservas/confirm/confirm.page';
     AddDayPageModule,
     AddConfirmPageModule,
     EditConfirmPageModule,
+    WodsPageModule,
     PagosPageModule
   ],
   entryComponents: [

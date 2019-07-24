@@ -32,7 +32,7 @@
       <div class="clase-card" *ngFor="let clase of pendient" (click)="goToEditConfirm(clase.clase_id)"  >
         <div class="ps-row" align-items-center>
           <div class="col-3 class-type">
-            <img class="class-icon" src="assets/icon/clases/crossfit.svg">
+            <img class="class-icon" [src]="clase.rels.claseType.icon">
           </div>
           <div class="col-10 class-data">
             <h2>{{clase.dateHuman}}</h2>
@@ -53,7 +53,7 @@
       <div class="clase-card" *ngFor="let clase of confirmed" (click)="goToEditConfirm(clase.clase_id)">
         <div class="ps-row" align-items-center>
           <div class="col-3 class-type">
-            <img class="class-icon" src="assets/icon/clases/crossfit.svg">
+            <img class="class-icon" [src]="clase.rels.claseType.icon">
           </div>
           <div class="col-10 class-data">
             <h2>{{clase.dateHuman}}</h2>

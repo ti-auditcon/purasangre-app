@@ -17,7 +17,7 @@ let TOKEN_KEY = 'auth-token';
 })
 export class ClasesPage {
   public clases: any = [];
-  public today: any = [];
+  public todayWods: any = [];
   public page = 1;
 
   httpOptions;
@@ -64,41 +64,41 @@ export class ClasesPage {
             console.log('error clases');
             this.authService.refreshToken();
           });
-      this.http.get(SERVER_URL+"/today", this.httpOptions)
+      this.http.get(SERVER_URL+"/todaywods", this.httpOptions)
            .subscribe((result: any) => {
-             this.today = result.data;
+             this.todayWods = result.data;
              console.log('today');
-             console.log(result);
+             console.log(result.data);
            });
 
     });
   }
 
-  irAClase(id: string = "0"){
-    // this.router.navigateByUrl( '/home/(clases:clase)' );
-  //  this.storage.set('clase_id', '1');
-   //this.router.navigate('/home/(clases:clase/1)');
-
+  goClase(id: string = "0"){
    this.router.navigate(['/home/clase/'+id+'']);
-
   }
+  goTodayClase(){
+    
+  }
+  goTodayWod(id: string = "0"){
+    this.router.navigate( ['/home/wods/'+id+''] );
+    // console.log('hola');
+    // let status = this.today.auth_reservation.reservation.status;
+    // if(has){
+    //   if((status == 1) || (status == 2) ){
+    //     this.router.navigate( ['/home/edit-confirm/'+this.today.auth_reservation.reservation.id+''] );
+    //   //  this.router.navigate( ['/home/edit-confirm/'+this.today.auth_reservation.reservation.id+''] );
+    //   }
+    //   if((status == 3) ){
+    //     this.router.navigate( ['/home/clase/'+this.today.auth_reservation.reservation.id+''] );
+    //   }
+    //   if((status == 4)){
+    //     this.router.navigate( ['/home/hoy/'] );
+    //   }
+    // } else {
+    //   this.router.navigate( ['/home/hoy/'] );
+    // }
 
-  irAClaseHoy(has = false){
-    let status = this.today.auth_reservation.reservation.status;
-    if(has){
-      if((status == 1) || (status == 2) ){
-        this.router.navigate( ['/home/edit-confirm/'+this.today.auth_reservation.reservation.id+''] );
-      //  this.router.navigate( ['/home/edit-confirm/'+this.today.auth_reservation.reservation.id+''] );
-      }
-      if((status == 3) ){
-        this.router.navigate( ['/home/clase/'+this.today.auth_reservation.reservation.id+''] );
-      }
-      if((status == 4)){
-        this.router.navigate( ['/home/hoy/'] );
-      }
-    } else {
-      this.router.navigate( ['/home/hoy/'] );
-    }
   }
 
   loadMoreClases(infiniteScrollEvent){

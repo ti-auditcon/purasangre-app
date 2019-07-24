@@ -1,0 +1,42 @@
+<app-navbar titulo="Wod"></app-navbar>
+
+<ion-content padding>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Arrastra para actualizar"
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div class="clase-page">
+
+    <div class="section">
+      <h1 class="titleDay-section">{{wod.fechaHuman}}</h1>
+      <p class="type-class">{{wod.claseType}}</p>
+    </div>
+
+    <div class="section">
+      <h1 class="title-section">Workout del Día</h1>
+      <div class="card card-info">
+        <div class="info-content" *ngIf = "wod?.rels?.stages.has">
+          <div *ngFor="let stage of stages">
+              <h3>{{stage.stageType }}</h3>
+              <p>{{stage.description }}</p>
+          </div>
+
+        </div>
+        <div class="info-content" *ngIf = "!wod?.rels?.stages.has">
+          No hay W.O.D. para el dia de hoy
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+</ion-content>
+

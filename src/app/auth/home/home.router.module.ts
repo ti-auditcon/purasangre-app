@@ -8,6 +8,7 @@ import { HoyDashboardPage } from '../dashboard/hoydashboard/hoydashboard.page';
 import { ClasesPage } from '../clases/clases.page';
 import { ClasePage } from '../clases/clase/clase.page';
 import { HoyPage } from '../clases/hoy/hoy.page';
+import { WodsPage } from '../wods/wods.page';
 import { ReservasPage } from '../reservas/reservas.page';
 import { EditHourPage } from '../reservas/edit-hour/edit-hour.page';
 import { AddClassPage } from '../reservas/add-class/add-class.page';
@@ -37,7 +38,7 @@ const routes: Routes = [
       { path: 'clase/:id', children: [{ path: '', component: ClasePage }] },
       // { path: 'hoy', outlet: 'clases', component: HoyPage },
       { path: 'hoy', children: [{ path: '', component: HoyPage }] },
-
+      { path: 'wods/:id', children: [{ path: '', component: WodsPage }] },
       // { path: 'reservas', outlet: 'reservas', component: ReservasPage },
       { path: 'reservas', children: [{ path: '', component: ReservasPage }] },
       // { path: 'edit-hour/:date', outlet: 'reservas', component: EditHourPage },

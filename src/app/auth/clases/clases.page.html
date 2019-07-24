@@ -12,13 +12,48 @@
 
   <div class="section">
     <h1 class="title-section">Hoy</h1>
+    <div class="clases-cards" *ngFor="let wod of todayWods" (click)="goTo(wod.identificador)">
+      <div class="clase-card today" >
+        <div class="ps-row" align-items-center>
+          <div class="col-3 class-type">
+            <img class="class-icon" [src]="wod.rels.claseType.iconWhite">
+          </div>
+          <div class="col-10 class-data">
+            <h2>{{wod.fechaHuman}}</h2>
+            <p class="type-class">{{wod.claseType}}</p>
+            <div *ngIf="wod.rels.auth.reservationHas">
+              <p *ngIf="wod.rels.auth.todayReservation.status ==1">
+                Tienes una clase sin confirmar a las {{wod.rels.auth.todayReservation.start}}
+              </p>
+              <p *ngIf="wod.rels.auth.todayReservation.status ==2">
+                Tienes una clase a las {{wod.rels.auth.todayReservation.start}}
+              </p>
+              <p *ngIf="wod.rels.auth.todayReservation.status ==3">
+                Tuviste clase a las {{wod.rels.auth.todayReservation.start}}
+              </p>
+              <p *ngIf="wod.rels.auth.todayReservation.status ==4">
+                Perdiste tu clase a las {{wod.rels.auth.todayReservation.start}}
+              </p>
+            </div>
+            <div *ngIf="!wod.rels.auth.reservationHas">
+              <p >No tienes clases Reservadas hoy</p>
+            </div>
+          </div>
+          <div class="col-2">
+            <ion-icon src="assets/icon/arrow-right.svg"></ion-icon>
+          </div>
 
-    <div class="clases-cards">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div class="clases-cards">
       <div class="clase-card today" (click)="irAClaseHoy(today?.auth_reservation?.has)">
 
           <div class="ps-row" align-items-center>
             <div class="col-3 class-type">
-              <img class="class-icon" src="assets/icon/clases/crossfit-white.svg">
+              <img class="class-icon" >
             </div>
             <div class="col-10 class-data">
               <h2>{{today?.dateHuman}}</h2>
@@ -47,7 +82,7 @@
           </div>
 
       </div>
-    </div>
+    </div> -->
 
   </div>
 
@@ -57,7 +92,7 @@
       <div class="clase-card" *ngFor="let clase of clases" (click)="irAClase(clase.clase_id)">
         <div class="ps-row" align-items-center>
           <div class="col-3 class-type">
-            <img class="class-icon" src="assets/icon/clases/crossfit.svg">
+            <img class="class-icon" [src]="clase.rels.claseType.icon">
           </div>
           <div class="col-10 class-data">
             <h2>{{clase.dateHuman}}</h2>
