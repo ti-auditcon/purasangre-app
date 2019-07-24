@@ -19,8 +19,8 @@
             <img class="class-icon" [src]="wod.rels.claseType.iconWhite">
           </div>
           <div class="col-10 class-data">
-            <h2>{{wod.fechaHuman}}</h2>
-            <p class="type-class">{{wod.claseType}}</p>
+            <h2 style="margin-bottom: 4px; text-transform: capitalize;">{{wod.claseType}}</h2>
+            <!-- <p class="type-class">{{wod.claseType}}</p> -->
             <div *ngIf="wod.rels.auth.reservationHas">
               <p *ngIf="wod.rels.auth.todayReservation.status ==1">
                 Tienes una clase sin confirmar a las {{wod.rels.auth.todayReservation.start}}
@@ -36,7 +36,7 @@
               </p>
             </div>
             <div *ngIf="!wod.rels.auth.reservationHas">
-              <p >No tienes clases Reservadas hoy</p>
+              <p >No tienes clases reservadas hoy</p>
             </div>
           </div>
           <div class="col-2">
