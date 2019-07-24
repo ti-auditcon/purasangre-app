@@ -28,6 +28,7 @@ export class DashboardPage  {
   public user: any = '';
   //public user_plan: any = '';
   public wod: any = '';
+  public wods: any = '';
   public today: any = [];
   public alerts: any = [];
   public assistance: any = [];
@@ -95,16 +96,27 @@ export class DashboardPage  {
             }
           );
 
-        this.http.get(SERVER_URL+"/today", httpOptions)
-            .subscribe((result: any) => {
-              this.today = result.data;
-              console.log('ENTRE today');
-              console.log(this.today);
-              },
-               err =>{
-                 console.log('error wod');
-               }
-             );
+        // this.http.get(SERVER_URL+"/today", httpOptions)
+        //     .subscribe((result: any) => {
+        //       this.today = result.data;
+        //       console.log('ENTRE today');
+        //       console.log(this.today);
+        //       },
+        //        err =>{
+        //          console.log('error wod');
+        //        }
+        //      );
+
+        this.http.get(SERVER_URL+"/todaywods", httpOptions)
+             .subscribe((result: any) => {
+               this.wods = result.data;
+               console.log('ENTRE wods');
+               console.log(this.wods);
+               },
+                err =>{
+                  console.log('error wod');
+                }
+              );
 
         this.http.get(SERVER_URL+"/users-alerts", httpOptions)
             .subscribe((result: any) => {
@@ -182,9 +194,9 @@ export class DashboardPage  {
 
   }
 
-  verWOD() {
+  verWOD(id:any) {
     this.firebase.logEvent("go_to_wod", {content_type: "action", item_id: "dashboard_button"});
-    this.router.navigate( ['home/hoydashboard'] );
+    this.router.navigate( ['/home/wods/'+id+''] );
   }
 
   goToEditConfirm(id: string = "0") {
