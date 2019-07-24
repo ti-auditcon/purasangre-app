@@ -55,6 +55,11 @@ export class DashboardPage  {
     }, 2000);
   }
 
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
+
 
   ionViewWillEnter() {
 

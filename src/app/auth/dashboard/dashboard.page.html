@@ -77,14 +77,28 @@
   </div>
 
   <div class="section ">
-    <h1 class="title-section">W.O.D</h1>
-    <div class="card card-resumen">
-      <div class="text-box-resumen">
-        <p *ngIf="today?.wod?.has">{{today?.wod?.stages.wod}}</p>
-        <p *ngIf="!today?.wod?.has">No hay WOD registrado para el dia de hoy.</p>
-      </div>
-      <button class="button-bottom" (click)="verWOD()">Ver Clase del día</button>
-    </div>
+    <ion-slides>
+      <ion-slide>
+        <h1 class="title-section">W.O.D</h1>
+        <div class="card card-resumen">
+          <div class="text-box-resumen">
+            <p *ngIf="today?.wod?.has">{{today?.wod?.stages.wod}}</p>
+            <p *ngIf="!today?.wod?.has">No hay WOD registrado para el dia de hoy.</p>
+          </div>
+          <button class="button-bottom" (click)="verWOD()">Ver Clase del día</button>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <h1 class="title-section">Frenetik</h1>
+        <div class="card card-resumen">
+          <div class="text-box-resumen">
+            <p *ngIf="today?.wod?.has">{{today?.wod?.stages.wod}}</p>
+            <p *ngIf="!today?.wod?.has">No hay WOD registrado para el dia de hoy.</p>
+          </div>
+          <button class="button-bottom" (click)="verWOD()">Ver Clase del día</button>
+        </div>
+      </ion-slide>
+    </ion-slides>
   </div>
 
   <div class="section">
