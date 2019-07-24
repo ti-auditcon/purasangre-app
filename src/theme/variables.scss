@@ -458,8 +458,9 @@ ion-content {
     width: 100%;
     padding: 24px 21px;
     padding-bottom: 51px;
-    // margin-bottom: 51px;
+    height: 200px;
     background: transparent;
+    overflow: scroll;
     p {
       padding-top: 0;
       margin-top: 0;
@@ -606,6 +607,7 @@ ion-content {
     margin: 0;
     font-size: 18px;
     font-weight: 700;
+    text-transform: capitalize;
   }
   .card-resumen {
     p {
