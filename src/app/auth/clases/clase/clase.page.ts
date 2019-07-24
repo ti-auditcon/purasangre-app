@@ -22,7 +22,7 @@ export class ClasePage {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   public clase: any = [];
   public reservation: any = [];
-  public wod: any = [];
+  public stages: any = [];
   public textModel: string = 'no';
   public reservations: any = [];
   public page = 1;
@@ -78,13 +78,20 @@ export class ClasePage {
              this.reservation = this.clase.rels.auth_reservation;
              console.log(this.reservation);
              this.textModel = this.reservation.details;
-             this.http.get(this.clase.rels.wod.href,  this.httpOptions)
-                 .subscribe((result: any) => {
-                   console.log('tiene wod');
-                   this.wod = result.data;
-                   console.log(this.wod);
+             this.http.get(this.clase.rels.wod.stages,  this.httpOptions)
+                .subscribe((result: any) => {
+                  console.log('tiene stages');
+                  this.stages = result.data;
+                  console.log(this.stages);
 
-                  });
+                });
+            //  this.http.get(this.clase.rels.wod.href,  this.httpOptions)
+            //      .subscribe((result: any) => {
+            //        console.log('tiene wod');
+            //        this.wod = result.data;
+            //        console.log(this.wod);
+
+            //       });
               this.reservationUrl = this.clase.rels.reservations.href;
               this.loadUsers();
               });

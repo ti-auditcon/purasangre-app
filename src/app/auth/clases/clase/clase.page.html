@@ -34,12 +34,11 @@
       <h1 class="title-section">Workout del Día</h1>
       <div class="card card-info">
         <div class="info-content">
-          <h3>Warm Up</h3>
-          <p>{{wod?.rels?.stages.warmup }}</p>
-          <h3>SKILLS</h3>
-          <p>{{wod?.rels?.stages.skill }}</p>
-          <h3>W.O.D.</h3>
-          <p>{{wod?.rels?.stages.wod }}</p>
+            <div *ngFor="let stage of stages">
+                <h3>{{stage.stageType }}</h3>
+                <p>{{stage.description }}</p>
+            </div>
+  
         </div>
       </div>
 

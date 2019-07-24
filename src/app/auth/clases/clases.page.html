@@ -12,7 +12,7 @@
 
   <div class="section">
     <h1 class="title-section">Hoy</h1>
-    <div class="clases-cards" *ngFor="let wod of todayWods" (click)="goTo(wod.identificador)">
+    <div class="clases-cards" *ngFor="let wod of todayWods" (click)="goTo(wod)">
       <div class="clase-card today" >
         <div class="ps-row" align-items-center>
           <div class="col-3 class-type">
@@ -89,7 +89,7 @@
   <div class="section">
     <h1 class="title-section">Clases Anteriores</h1>
     <div class="clases-cards">
-      <div class="clase-card" *ngFor="let clase of clases" (click)="irAClase(clase.clase_id)">
+      <div class="clase-card" *ngFor="let clase of clases" (click)="goClase(clase.clase_id)">
         <div class="ps-row" align-items-center>
           <div class="col-3 class-type">
             <img class="class-icon" [src]="clase.rels.claseType.icon">
