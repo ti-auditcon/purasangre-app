@@ -102,11 +102,11 @@ export class PerfilPage {
 
                }, (err) => {
                  // error
-                 this.presentToast(JSON.stringify(err));
-                 console.log("Error imagen muy grande: "+JSON.stringify(err));
+                 this.presentToast("Error al subir imagen");
+                 console.log("Source: "+JSON.stringify(err.source)+" Target: "+JSON.stringify(err.target)+" Code: "+JSON.stringify(err.code));
                });
            }, error => {
-                this.presentToast('Error al ajustar imágen');
+                this.presentToast('Error al ajustar imagen');
                 console.error('Error ajustando imagen', error);
                 //this.alerts.push('Error cropping image');
              }
