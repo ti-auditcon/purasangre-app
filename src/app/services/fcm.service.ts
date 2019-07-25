@@ -43,17 +43,17 @@ export class FcmService {
   async saveToken(token) {
       FCM_TOKEN = token;
        console.log('primero'+FCM_TOKEN);
-      this.storage.get(TOKEN_KEY).then((value) => {
-        console.log('segundo'+FCM_TOKEN);
-        let Bearer = value;
-        let data=JSON.stringify({
-          fcmtoken: FCM_TOKEN,
-        });
-        const httpOptions = {
-          headers: new HttpHeaders({
-            'Authorization': 'Bearer '+ Bearer//updated
-          })};
-           console.log('data:'+data);
+       this.storage.get(TOKEN_KEY).then((value) => {
+      console.log('segundo'+FCM_TOKEN);
+      let Bearer = value;
+      let data=JSON.stringify({
+        fcmtoken: FCM_TOKEN,
+      });
+      const httpOptions = {
+        headers: new HttpHeaders({
+        'Authorization': 'Bearer '+ Bearer//updated
+      })};
+      console.log('data:'+data);
        // this.http.post(SERVER_URL+"fcm/token",data, httpOptions)
        //       .subscribe(
        //           (result: any) => {
@@ -66,17 +66,16 @@ export class FcmService {
        //           }
        //         );
        this.http.get(SERVER_URL+"fcm/token/"+FCM_TOKEN, httpOptions)
-                   .subscribe((result: any) => {
-                                console.log('success fcm token 200:'+JSON.stringify(result));
-                                return true;
-                               },
-                               (err) => {
-                                 console.log('error refrersh 401:'+JSON.stringify(err));
-                                 this.authService.logout();
-                               }
-                             );
-
-      });
+         .subscribe((result: any) => {
+              console.log('success fcm token 200:'+JSON.stringify(result));
+              return true;
+             },
+             (err) => {
+               console.log('error refrersh 401:'+JSON.stringify(err));
+               this.authService.logout();
+             }
+           );
+       });
       // const devicesRef = this.afs.collection('devices');
       //
       // const data = {
@@ -85,8 +84,6 @@ export class FcmService {
       // };
       //
       // return devicesRef.doc(token).set(data);
-
-
   }
 
   onNotifications() {
