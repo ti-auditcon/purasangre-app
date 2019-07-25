@@ -94,9 +94,6 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {
-        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
-      },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-camera": {},
       "cordova-plugin-crop": {},
@@ -105,10 +102,12 @@
       "cordova-sqlite-storage": {},
       "cordova-plugin-firebase": {},
       "cordova-android-support-gradle-release": {},
-      "cordova-plugin-androidx": {}
+      "cordova-plugin-androidx": {},
+      "cordova-plugin-ionic-webview": {}
     },
     "platforms": [
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }
