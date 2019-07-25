@@ -103,7 +103,7 @@ export class PerfilPage {
                }, (err) => {
                  // error
                  this.presentToast('Error post');
-                 console.log("Error imagen muy grande: "+err);
+                 console.log("Error imagen muy grande: "+JSON.stringify(err));
                });
            }, error => {
                 this.presentToast('Error al ajustar imágen');
