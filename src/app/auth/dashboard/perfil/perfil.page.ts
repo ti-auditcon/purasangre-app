@@ -103,7 +103,7 @@ export class PerfilPage {
                }, (err) => {
                  // error
                  this.presentToast('Error guardando imagen');
-                 console.log(JSON.parse(err));
+                 console.log( 'hola:'+JSON.stringify(err));
                });
            }, error => {
                 this.presentToast('Error al ajustar imágen');
