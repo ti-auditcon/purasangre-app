@@ -102,8 +102,8 @@ export class PerfilPage {
 
                }, (err) => {
                  // error
-                 this.presentToast('Error post');
-                 console.log("Error imagen muy grande");
+                 this.presentToast('Error guardando imagen');
+                 console.log(JSON.parse(err));
                });
            }, error => {
                 this.presentToast('Error al ajustar imágen');
