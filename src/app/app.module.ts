@@ -50,9 +50,7 @@ const config = {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    IonicModule.forRoot({
-      swipeBackEnabled: false
-    }),
+    IonicModule.forRoot(),
     AppRoutingModule,
     IonicStorageModule.forRoot(),
     // NavbarComponent,
