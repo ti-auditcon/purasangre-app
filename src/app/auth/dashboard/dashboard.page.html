@@ -78,8 +78,13 @@
 
   <div class="section ">
     <ion-slides>
-      <ion-slide *ngFor="let wod of wods">
-        <h1 class="title-section">{{wod.claseType}}</h1>
+      <ion-slide *ngFor="let wod of wods" class="wod-slide">
+        <div class="card-header">
+          <h1 class="title-section">{{wod.claseType}}</h1>
+          <div class="step-icon">
+            <img *ngIf="wodsCount > 1" src="assets/icon/arrow-black.svg">
+          </div>
+        </div>
         <div class="card card-resumen">
           <div class="text-box-resumen">
             <p *ngIf="wod.rels.stages.has">{{wod.rels.stages.featured}}</p>
@@ -88,8 +93,13 @@
           <button class="button-bottom" (click)="verWOD(wod.identificador)">Ver Clase del día</button>
         </div>
       </ion-slide>
-      <!-- <ion-slide>
-        <h1 class="title-section">Frenetik</h1>
+      <!-- <ion-slide class="wod-slide">
+        <div class="card-header">
+          <h1 class="title-section">Frenetik</h1>
+          <div class="step-icon">
+            <img src="assets/icon/arrow-black.svg">
+          </div>
+        </div>
         <div class="card card-resumen">
           <div class="text-box-resumen">
             <p *ngIf="today?.wod?.has">{{today?.wod?.stages.wod}}</p>

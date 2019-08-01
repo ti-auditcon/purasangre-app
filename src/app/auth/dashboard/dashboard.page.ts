@@ -36,6 +36,9 @@ export class DashboardPage  {
 
   public active: boolean = false;
 
+  public wodsMeta: any;
+  public wodsCount: any;
+
 
   constructor(
     private router: Router,
@@ -112,6 +115,9 @@ export class DashboardPage  {
                this.wods = result.data;
                console.log('ENTRE wods');
                console.log(this.wods);
+               this.wodsMeta = result.meta;
+               this.wodsCount = this.wodsMeta.pagination.total;
+               // console.log(this.wodsMeta.pagination.total);
                },
                 err =>{
                   console.log('error wod');
