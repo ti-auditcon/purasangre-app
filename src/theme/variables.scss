@@ -710,8 +710,15 @@ ion-content {
     margin: 0;
     font-weight: 700;
     width: 80%;
-    margin-bottom: 24px;
-    display: inline-block;
+    // margin-bottom: 24px;
+    // display: inline-block;
+    display: inline;
+    &:after {
+      content: '';
+      display: block;
+      height: 20px;
+      width: 100%;
+    }
   }
   .grid-hours {
     display: flex;

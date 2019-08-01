@@ -5,8 +5,8 @@
   <div class="reserva">
 
     <h1 class="titleReserva-section">Seleccionar hora para el <span class="sky-gradient">{{clases[0]?.dateHuman}}</span></h1>
-
-
+    <!-- <br>
+    <br> -->
     <div class="section grid-hours">
       <div class="item-hour" *ngFor="let clase of clases" text-center (click)="goToAddConfirm(clase.clase_id,clase?.active)"  [ngClass]="{disabled : (!clase?.active) || (clase.rels.reservations.count>=clase.quota) || (!clase.rels.auth_reservation.can)  }">
         <p>
