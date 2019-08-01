@@ -102,7 +102,6 @@
       "cordova-plugin-crop": {},
       "cordova-plugin-file": {},
       "cordova-plugin-file-transfer": {},
-<<<<<<< HEAD
       "cordova-android-support-gradle-release": {
         "ANDROID_SUPPORT_VERSION": "27.+"
       },
@@ -118,13 +117,6 @@
         "ANDROID_CRASHLYTICS_NDK_VERSION": "2.1.0",
         "ANDROID_SHORTCUTBADGER_VERSION": "1.1.22"
       }
-=======
-      "cordova-sqlite-storage": {},
-      "cordova-plugin-firebase": {},
-      "cordova-android-support-gradle-release": {},
-      "cordova-plugin-androidx": {},
-      "cordova-plugin-ionic-webview": {}
->>>>>>> master
     },
     "platforms": [
       "ios",
