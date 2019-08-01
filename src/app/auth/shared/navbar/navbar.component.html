@@ -1,112 +1,29 @@
 <ion-header>
-  <!-- <ion-toolbar>
-
-    <ion-buttons slot="start" *ngIf="this.titulo != 'Dashboard' && this.titulo != 'Tus Clases' && this.titulo != 'Tus Reservas' && this.titulo != 'Tus Pagos'">
-      <ion-back-button defaultHref="home" mode="md"></ion-back-button>
-    </ion-buttons>
-
-    <ion-title slot="start" align-self-center class="font-bold" *ngIf="this.titulo == 'Dashboard'; else normalTitle">
-      <img class="logo" src="assets/img/logo.png" alt="PuraSangre CrossFit">
-    </ion-title>
-
-    <ng-template #normalTitle>
-      <ion-title start class="font-bold">{{ this.titulo }}</ion-title>
-    </ng-template>
-
-    <ion-buttons slot="end" *ngIf="this.titulo == 'Dashboard'">
-      <ion-button href="home/(dashboard:perfil)">
-        <ion-icon slot="icon-only" name="person" color="light"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
-    <ion-buttons slot="end" *ngIf="this.titulo == 'Tu Perfil'">
-      <ion-button (click)="logout()">
-        <ion-icon slot="icon-only" name="power" color="light"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
-    <img class="shield" src="assets/brand/ma_purasangre.png">
-
-  </ion-toolbar> -->
 
   <ion-toolbar>
 
     <div class="header-toolbar">
       <div class="toolbar-left">
-
         <div class="button" *ngIf="this.titulo != 'Dashboard' && this.titulo != 'Tus Clases' && this.titulo != 'Tus Reservas' && this.titulo != 'Tus Pagos'">
-
-          <!-- <a href="#">hola</a> -->
           <ion-icon src="assets/icon/arrow-back.svg" (click)="goBack()"></ion-icon>
-          <!-- <ion-icon name="arrow-back"></ion-icon> -->
-
-          <!-- <ion-back-button defaultHref="home" mode="md" icon="arrow-back">
-            <ion-icon name="arrow-back"></ion-icon>
-          </ion-back-button> -->
-
-          <!-- <ion-buttons slot="start">
-            <app-back-button [href]="previousPage"></app-back-button>
-          </ion-buttons> -->
-
-          <!-- <ion-buttons slot="start">
-            <ion-button>
-              <ion-icon name="arrow-back"></ion-icon>
-            </ion-button>
-        	</ion-buttons> -->
-
-          <!-- <ion-back-button defaultHref="home"></ion-back-button> -->
-
-          <!-- <ion-buttons slot="start">
-            <ion-back-button mode="md" icon="arrow-back"></ion-back-button>
-          </ion-buttons> -->
-
         </div>
-
         <div align-self-center class="title font-bold" *ngIf="this.titulo == 'Dashboard'; else normalTitle">
           <img class="logo" src="assets/img/logo.png" alt="PuraSangre CrossFit">
         </div>
-
         <ng-template #normalTitle>
-          <!-- <ion-title start class="font-bold">{{ this.titulo }}</ion-title> -->
           <div class="title font-bold">
             <span class="title-header">{{ this.titulo }}</span>
           </div>
         </ng-template>
-
       </div>
       <div class="toolbar-right">
-
         <div *ngIf="this.titulo == 'Dashboard'" class="button-header" (click)="goToPerfil()">
-          <!-- <ion-icon slot="icon-only" name="person" color="light"></ion-icon> -->
           <img [src]="this.avatar" style="width: 34px; border-radius: 60px; margin-top: 3px;">
         </div>
-
-        <!-- <div *ngIf="this.titulo == 'Tu Perfil'" class="button-header" (click)="logout()"> -->
-          <!-- <ion-icon slot="icon-only" name="log-out"></ion-icon> -->
-          <!-- <ion-icon slot="icon-only" name="power" color="light"></ion-icon>
-        </div> -->
-
         <img class="shield" src="assets/brand/ma_purasangre.png">
-
       </div>
     </div>
 
   </ion-toolbar>
 
 </ion-header>
-
-<!-- <header class="main-navbar">
-  <ion-grid>
-    <ion-row>
-      <ion-col> -->
-        <!-- <img class="logo" src="assets/brand/logo.png" alt="PuraSangre Crossfit"> -->
-        <!-- <h3 class="navbar-title">Titulo</h3>
-        <img class="shield" src="assets/brand/ma_purasangre.png"> -->
-        <!-- <ion-button (click)="logout()">
-          <ion-icon slot="icon-only" name="log-out"></ion-icon>
-        </ion-button> -->
-        <!-- <span class="icon-logout icon-auth-logout" (click)="logout()"></span>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</header> -->

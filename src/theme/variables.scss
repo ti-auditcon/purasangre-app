@@ -427,6 +427,34 @@ ion-content {
   }
 }
 
+.wod-slide {
+  .card-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 4px;
+    .step-icon {
+      img {
+        width: 20px;
+      }
+    }
+  }
+  &:last-child {
+    .card-header {
+      .step-icon {
+        img {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+.d-none {
+  display: none;
+}
+
 .card-resumen {
   background: #F2F2F2;
   position: relative;
@@ -682,7 +710,15 @@ ion-content {
     margin: 0;
     font-weight: 700;
     width: 80%;
-    margin-bottom: 24px;
+    // margin-bottom: 24px;
+    // display: inline-block;
+    display: inline;
+    &:after {
+      content: '';
+      display: block;
+      height: 20px;
+      width: 100%;
+    }
   }
   .grid-hours {
     display: flex;

@@ -106,7 +106,7 @@ export class PerfilPage {
                  console.log( 'hola:'+JSON.stringify(err));
                });
            }, error => {
-                this.presentToast('Error al ajustar imágen');
+                this.presentToast('Error al ajustar imagen');
                 console.error('Error ajustando imagen', error);
                 //this.alerts.push('Error cropping image');
              }
