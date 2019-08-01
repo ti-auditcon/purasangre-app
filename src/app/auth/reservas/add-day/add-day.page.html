@@ -63,6 +63,15 @@
         <p>{{week[6]?.dayName}}</p>
         <h1>{{week[6]?.day}}</h1>
       </div>
+      <div class="item-day" text-center (click)="goToAddHour(week[7]?.date,(week[7]?.dayHasClases))"
+      [ngClass]="{
+        today : week[7]?.today,
+        disabled :  !(week[7]?.dayHasClases),
+        todaydisabled : (week[7]?.today && !(week[7]?.dayHasClases))
+      }">
+        <p>{{week[7]?.dayName}}</p>
+        <h1>{{week[7]?.day}}</h1>
+      </div>
 
     </div>
 
