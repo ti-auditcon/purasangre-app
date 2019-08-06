@@ -504,6 +504,7 @@ ion-content {
     height: 200px;
     background: transparent;
     overflow: scroll;
+    z-index: 5;
     p {
       padding-top: 0;
       margin-top: 0;
@@ -525,6 +526,7 @@ ion-content {
     font-size: 15px;
     font-weight: 700;
     color: white;
+    z-index: 10;
     // background: linear-gradient(108.43deg, #2CB70A 11.38%, #35AF17 63.4%);
     background: linear-gradient(161.62deg, #FC0F85 6.69%, #9300AB 88.08%);
   }
