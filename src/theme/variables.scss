@@ -504,8 +504,8 @@ ion-content {
     height: 200px;
     background: transparent;
     overflow: scroll;
-    z-index: 5;
     p {
+      z-index: 5;
       padding-top: 0;
       margin-top: 0;
       font-size: 14px;
