@@ -51,7 +51,7 @@
 
   <div class="plan-resumen">
     <h1 class="plan-title">{{user.rels?.active_plan.plan}}</h1>
-    <p class="plan-vencimiento">{{user.rels?.active_plan.expiration}}</p>
+    <p class="plan-vencimiento">Termina el {{user.rels?.active_plan.expiration}}</p>
     <div class="card card-info">
       <div class="ps-row">
         <div class="info-item col-4" text-center>
@@ -78,11 +78,12 @@
 
   <div class="section ">
     <ion-slides>
-      <ion-slide *ngFor="let wod of wods" class="wod-slide">
+      <ion-slide *ngFor="let wod of wods; let i = index" class="wod-slide">
         <div class="card-header">
           <h1 class="title-section">{{wod.claseType}}</h1>
           <div class="step-icon">
-            <img *ngIf="wodsCount > 1" src="assets/icon/arrow-black.svg">
+            <!-- <img *ngIf="wodsCount > 1" src="assets/icon/arrow-black.svg"> -->
+            <div class="step" *ngFor="let wod of wods; let num = index" [ngClass]="{'active':num == i}"></div>
           </div>
         </div>
         <div class="card card-resumen">

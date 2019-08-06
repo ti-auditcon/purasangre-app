@@ -433,10 +433,25 @@ ion-content {
     align-items: center;
     width: 100%;
     justify-content: space-between;
+    flex-wrap: nowrap;
     padding-bottom: 4px;
     .step-icon {
-      img {
-        width: 25px;
+      display: flex;
+      align-items: center;
+      // img {
+      //   width: 25px;
+      // }
+      .step {
+        width: 8px;
+        height: 8px;
+        margin-left: 4px;
+        border-radius: 10px;
+        background: #DDDDDD;
+        &.active {
+          background: #FC0F85;
+          width: 10px;
+          height: 10px;
+        }
       }
     }
   }
