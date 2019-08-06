@@ -473,6 +473,7 @@ ion-content {
 .card-resumen {
   background: #F2F2F2;
   position: relative;
+  // width: 100%;
   // padding: 24px 21px 50px 21px;
   overflow: hidden;
   border-radius: 4px;
@@ -501,7 +502,7 @@ ion-content {
     width: 100%;
     padding: 24px 21px;
     padding-bottom: 51px;
-    height: 200px;
+    height: 180px;
     background: transparent;
     overflow: scroll;
     p {
@@ -513,26 +514,42 @@ ion-content {
       white-space: pre-wrap;
     }
   }
-  .button-bottom {
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    display: block;
-    width: 100%;
-    // margin-top: 21px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    font-size: 15px;
-    font-weight: 700;
-    color: white;
-    z-index: 10;
-    // background: linear-gradient(108.43deg, #2CB70A 11.38%, #35AF17 63.4%);
-    background: linear-gradient(161.62deg, #FC0F85 6.69%, #9300AB 88.08%);
-  }
+  // .button-bottom {
+  //   position: absolute;
+  //   bottom: -2px;
+  //   left: 0;
+  //   right: 0;
+  //   display: block;
+  //   width: 100%;
+  //   // margin-top: 21px;
+  //   padding-top: 14px;
+  //   padding-bottom: 14px;
+  //   font-size: 15px;
+  //   font-weight: 700;
+  //   color: white;
+  //   z-index: 10;
+  //   // background: linear-gradient(108.43deg, #2CB70A 11.38%, #35AF17 63.4%);
+  //   background: linear-gradient(161.62deg, #FC0F85 6.69%, #9300AB 88.08%);
+  // }
   .button-success {
     background: linear-gradient(108.43deg, #2CB70A 11.38%, #35AF17 63.4%);
   }
+}
+
+.button-wod-today {
+  display: block;
+  width: 100%;
+  // margin-top: 21px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  z-index: 10;
+  margin: auto;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: linear-gradient(161.62deg, #FC0F85 6.69%, #9300AB 88.08%);
 }
 
 .clases-cards {
