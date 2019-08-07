@@ -52,7 +52,7 @@
 
   </div>
 
-  <ion-fab [ngClass]="buttonFixIOS" vertical="bottom" slot="fixed" *ngIf="clase.active">
+  <ion-fab [ngClass]="buttonFixIOS" vertical="bottom" slot="fixed" *ngIf="(clase.active) && (clase.rels.auth_reservation.can) && (!clase.rels.auth_reservation.has)">
     <div class="reservar" (click)="openModal()">
       Reservar esta hora
     </div>
