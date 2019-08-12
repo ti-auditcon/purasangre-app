@@ -15,6 +15,8 @@
       {{clase.start}} - {{clase.end}} hrs
     </h4>
 
+    <hr class="separator">
+
     <div class="cupos">
       <h5>Cupos</h5>
       <div class="cupos-wrapper ps-row">
@@ -24,10 +26,14 @@
       </div>
     </div>
 
+    <!-- <hr class="separator"> -->
+
     <div *ngIf="clase.rels?.auth_reservation.status === 'Pendiente'" class="buttons-edit-reserva">
       <!-- <button class="button-edit" (click)="goToEditHour(this.clase.date)">Cambiar hora</button> -->
       <button class="button-edit" (click)="openModalCeder()">Ceder cupo</button>
     </div>
+
+    <hr class="separator">
 
     <div class="card card-crossfiters">
       <div class="title">
