@@ -1250,17 +1250,20 @@ ion-toast {
 .wrap-logout {
   margin-top: 30px;
   .button-logout {
+    display: block;
     width: 100%;
-    padding-top: 13px;
-    padding-bottom: 13px;
-    border-radius: 3px;
-    background: var(--ion-color-danger);
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-size: 15px;
+    font-weight: 700;
     color: white;
-    -webkit-box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
-    transition: all ease 0.3s;
-    outline: none;
+    z-index: 10;
+    margin: auto;
+    border-radius: 4px;
+    background: var(--ion-color-danger);
+    &:nth-child(n+2) {
+      margin-top: 8px;
+    }
     &:active, &:hover, &:focus {
       -webkit-box-shadow: none;
       -moz-box-shadow: none;
@@ -1268,18 +1271,20 @@ ion-toast {
     }
   }
   .button-tutorial {
+    display: block;
     width: 100%;
-    padding-top: 13px;
-    padding-bottom: 13px;
-    border-radius: 3px;
-    background: linear-gradient(108.4deg, #FC0F85 6.69%, #9300AB 88.08%) !important;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-size: 15px;
+    font-weight: 700;
     color: white;
-    margin-bottom: 9px;
-    -webkit-box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
-    transition: all ease 0.3s;
-    outline: none;
+    z-index: 10;
+    margin: auto;
+    border-radius: 4px;
+    background: linear-gradient(161.62deg, #FC0F85 6.69%, #9300AB 88.08%);
+    &:nth-child(n+2) {
+      margin-top: 8px;
+    }
     &:active, &:hover, &:focus {
       -webkit-box-shadow: none;
       -moz-box-shadow: none;
