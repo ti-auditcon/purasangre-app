@@ -115,6 +115,13 @@ ion-tab-bar {
   background: var(--ion-background-tabbar);
 }
 
+ion-tab-button {
+  ion-icon {
+    width: 25px;
+    height: 100%;
+  }
+}
+
 ion-tab-button.tab-selected {
   background: var(--ion-background-color-focus);
 }
