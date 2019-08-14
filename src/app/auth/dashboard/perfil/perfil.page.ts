@@ -165,4 +165,8 @@ export class PerfilPage {
 
   }
 
+  goToHistorial(){
+    this.router.navigate(['/home/pay-historial']);
+  }
+
 }

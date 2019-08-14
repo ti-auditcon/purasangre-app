@@ -1,0 +1,86 @@
+<app-navbar titulo="Detalle de Plan"></app-navbar>
+
+<ion-content padding>
+
+  <div class="detalle-plan">
+
+    <div class="section">
+      <div class="detalle-header ps-row">
+        <div class="col-9">
+          <h2>Plan 12 Sesiones</h2>
+          <h5>Mensual</h5>
+        </div>
+        <div class="col-3" text-end>
+          <!-- Solo si es el plan actual -->
+          <!-- <div class="status active">
+            Activo
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="section data">
+      <div class="ps-row">
+        <div class="col-6 data-from">
+          <p>
+            <b>Contratado el</b><br>
+            21 de Junio de 2019
+          </p>
+        </div>
+        <div class="col-6 data-until">
+          <p>
+            <b>Vence el</b><br>
+            21 de Julio de 2019
+          </p>
+        </div>
+      </div>
+      <div class="data-desc">
+        <p>
+          <b>Descripción</b><br>
+          Atrévete a cambiar tu vida con un plan diseñado para quienes buscan los mejores resultados. Puedes reservar una clase al día, en cualquier horario, todos los días de la semana. Sin dudas, el plan más conveniente.
+        </p>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="section total ps-row wrap">
+      <div class="col-6 pretotal-item ps-row between">
+        <p>Valor del Plan</p>
+        <p>$45.000</p>
+      </div>
+      <div class="col-6 pretotal-item ps-row between">
+        <p>Comisión FLOW</p>
+        <p>$1.330</p>
+      </div>
+      <div class="col-12 total-item">
+        <p>Total</p>
+        <h4>$45.330</h4>
+      </div>
+    </div>
+
+  </div>
+
+  <ion-fab [ngClass]="buttonFixIOS" vertical="bottom" slot="fixed">
+    <div class="reservar">
+      <span>Contratar Plan</span>
+      <!-- Si es el plan actual -->
+      <!-- <span>Renovar Plan</span> -->
+    </div>
+  </ion-fab>
+
+</ion-content>
+
+<ion-footer>
+
+  <div [ngClass]="buttonFixAndroid">
+    <button class="reservar">
+      <span>Contratar Plan</span>
+      <!-- Si es el Plan Actual -->
+      <!-- <span>Renovar Plan</span> -->
+    </button>
+  </div>
+
+</ion-footer>

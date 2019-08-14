@@ -9,6 +9,7 @@ import { HomePageRoutingModule } from './home.router.module';
 import { HomePage } from './home.page';
 import { DashboardPageModule } from '../dashboard/dashboard.module';
 import { PerfilPageModule } from '../dashboard/perfil/perfil.module';
+import { HistorialPageModule } from '../dashboard/historial/historial.module';
 import { HoyDashboardPageModule } from '../dashboard/hoydashboard/hoydashboard.module';
 import { ClasesPageModule } from '../clases/clases.module';
 import { ClasePageModule } from '../clases/clase/clase.module';
@@ -21,7 +22,9 @@ import { AddClassPageModule } from '../reservas/add-class/add-class.module';
 import { AddDayPageModule } from '../reservas/add-day/add-day.module';
 import { AddHourPageModule } from '../reservas/add-hour/add-hour.module';
 import { AddConfirmPageModule } from '../reservas/add-confirm/add-confirm.module';
-import { PagosPageModule } from '../pagos/pagos.module';
+import { PlansPageModule } from '../plans/plans.module';
+import { PlanDetailPageModule } from '../plans/plan-detail/plan-detail.module';
+import { PlanPaymentPageModule } from '../plans/plan-payment/plan-payment.module';
 
 import { ConfirmPage } from '../reservas/confirm/confirm.page';
 
@@ -33,6 +36,7 @@ import { ConfirmPage } from '../reservas/confirm/confirm.page';
     HomePageRoutingModule,
     DashboardPageModule,
     PerfilPageModule,
+    HistorialPageModule,
     HoyDashboardPageModule,
     ClasesPageModule,
     ClasePageModule,
@@ -45,7 +49,9 @@ import { ConfirmPage } from '../reservas/confirm/confirm.page';
     AddConfirmPageModule,
     EditConfirmPageModule,
     WodsPageModule,
-    PagosPageModule
+    PlansPageModule,
+    PlanDetailPageModule,
+    PlanPaymentPageModule,
   ],
   entryComponents: [
     ConfirmPage

@@ -1,0 +1,142 @@
+<app-navbar titulo="Planes"></app-navbar>
+
+<ion-content padding>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Arrastra para actualizar"
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div class="section">
+
+    <h1 class="title-section">Tu Plan</h1>
+    <div class="card-plan actual">
+      <div class="ps-row plan-up">
+        <div class="col-8">
+          <h2>Plan Full Fit</h2>
+          <h5>Mensual</h5>
+        </div>
+        <div class="col-4" text-end>
+          <div class="status active">
+            Activo
+          </div>
+        </div>
+      </div>
+      <div align-items-end class="ps-row plan-bottom">
+        <div class="col-9">
+          <p>
+            <b>Contratado el</b><br>
+            21 de Junio de 2019
+          </p>
+          <p>
+            <b>Vence el</b><br>
+            21 de Julio de 2019
+          </p>
+        </div>
+        <div class="col-3" text-end>
+          <h4>$45.000</h4>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="section">
+
+    <h1 class="title-section">Contratar otro Plan</h1>
+    <div class="card-plan clickable" (click)="goToDetail()">
+      <div class="ps-row plan-up">
+        <div class="col-9">
+          <h2>Plan 12 Sesiones</h2>
+          <h5>Mensual</h5>
+        </div>
+        <div class="col-3" text-end>
+        </div>
+      </div>
+      <div align-items-end class="ps-row plan-bottom">
+        <div class="col-9">
+          <p>
+            <b>Lunes a Sábado</b><br>
+            12 Clases al mes
+          </p>
+        </div>
+        <div class="col-3" text-end>
+          <h4>$40.000</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-plan clickable" (click)="goToDetail()">
+      <div class="ps-row plan-up">
+        <div class="col-9">
+          <h2>Plan Full AM</h2>
+          <h5>Mensual</h5>
+        </div>
+        <div class="col-3" text-end>
+        </div>
+      </div>
+      <div align-items-end class="ps-row plan-bottom">
+        <div class="col-9">
+          <p>
+            <b>Lunes a Sábado</b><br>
+            09:00 - 12:00 hrs
+          </p>
+        </div>
+        <div class="col-3" text-end>
+          <h4>$30.000</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-plan clickable" (click)="goToDetail()">
+      <div class="ps-row plan-up">
+        <div class="col-9">
+          <h2>Plan Estudiantes</h2>
+          <h5>Mensual</h5>
+        </div>
+        <div class="col-3" text-end>
+        </div>
+      </div>
+      <div align-items-end class="ps-row plan-bottom">
+        <div class="col-9">
+          <p>
+            <b>Lunes a Sábado</b><br>
+            07:00 a 12:00 hrs ó<br>
+            17:00 a 18:00 hrs
+          </p>
+        </div>
+        <div class="col-3" text-end>
+          <h4>$25.990</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-plan clickable" (click)="goToDetail()">
+      <div class="ps-row plan-up">
+        <div class="col-9">
+          <h2>Pase Diario</h2>
+          <h5>Diario</h5>
+        </div>
+        <div class="col-3" text-end>
+        </div>
+      </div>
+      <div align-items-end class="ps-row plan-bottom">
+        <div class="col-9">
+          <p>
+            <b>Lunes a Sábado</b><br>
+            Horario Liberado
+          </p>
+        </div>
+        <div class="col-3" text-end>
+          <h4>$5.000</h4>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
   @Input() titulo: string;
   @Input() avatar: string;
   public image = '';
-  mainTabs = ['Dashboard', 'Tus Clases'];
+  mainTabs = ['Dashboard', 'Tus Clases', 'Planes'];
 
   constructor(private authService: AuthenticationService,
               private router: Router,

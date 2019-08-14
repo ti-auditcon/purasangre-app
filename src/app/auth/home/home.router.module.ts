@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
 import { DashboardPage } from '../dashboard/dashboard.page';
 import { PerfilPage } from '../dashboard/perfil/perfil.page';
+import { HistorialPage } from '../dashboard/historial/historial.page';
 import { HoyDashboardPage } from '../dashboard/hoydashboard/hoydashboard.page';
 import { ClasesPage } from '../clases/clases.page';
 import { ClasePage } from '../clases/clase/clase.page';
@@ -16,7 +17,9 @@ import { AddDayPage } from '../reservas/add-day/add-day.page';
 import { AddHourPage } from '../reservas/add-hour/add-hour.page';
 import { AddConfirmPage } from '../reservas/add-confirm/add-confirm.page';
 import { EditConfirmPage } from '../reservas/edit-confirm/edit-confirm.page';
-import { PagosPage } from '../pagos/pagos.page';
+import { PlansPage } from '../plans/plans.page';
+import { PlanDetailPage } from '../plans/plan-detail/plan-detail.page';
+import { PlanPaymentPage } from '../plans/plan-payment/plan-payment.page';
 import { AuthGuardService } from '../../services/auth-guard.service';
 
 const routes: Routes = [
@@ -29,6 +32,7 @@ const routes: Routes = [
 
       // { path: 'perfil', outlet: 'dashboard', component: PerfilPage },
       { path: 'perfil', children: [{ path: '', component: PerfilPage }] },
+      { path: 'pay-historial', children: [{ path: '', component: HistorialPage }] },
       // { path: 'hoydashboard', outlet: 'dashboard', component: HoyDashboardPage },
       { path: 'hoydashboard', children: [{ path: '', component: HoyDashboardPage }] },
 
@@ -53,8 +57,10 @@ const routes: Routes = [
       // { path: 'add-confirm/:id', outlet: 'reservas', component: AddConfirmPage },
       { path: 'add-confirm/:id', children: [{ path: '', component: AddConfirmPage }] },
 
-      // { path: 'pagos', outlet: 'pagos', component: PagosPage }
-      { path: 'pagos', children: [{ path: '', component: PagosPage }] },
+      // { path: 'plans', outlet: 'plans', component: PlansPage }
+      { path: 'plans', children: [{ path: '', component: PlansPage }] },
+      { path: 'plan-detail', children: [{ path: '', component: PlanDetailPage }] },
+      { path: 'plan-payment', children: [{ path: '', component: PlanPaymentPage }] },
     ]}
     // { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' }
   ];

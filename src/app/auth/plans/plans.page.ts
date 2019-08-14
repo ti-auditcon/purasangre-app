@@ -4,21 +4,23 @@ import { environment, SERVER_URL} from '../../../environments/environment';
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 let TOKEN_KEY = 'auth-token';
 
 
 @Component({
   selector: 'app-pagos',
-  templateUrl: 'pagos.page.html',
-  styleUrls: ['pagos.page.scss']
+  templateUrl: 'plans.page.html',
+  styleUrls: ['plans.page.scss']
 })
-export class PagosPage {
+export class PlansPage {
 
   public plans: any = '';
 
   constructor(
     private storage: Storage,
+    private router: Router,
     private http: HttpClient
   ) { }
 
@@ -53,6 +55,9 @@ export class PagosPage {
     });
   }
 
+  goToDetail(){
+    this.router.navigate(['/home/plan-detail']);
+  }
 
 
 }

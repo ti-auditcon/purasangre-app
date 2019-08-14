@@ -216,6 +216,12 @@ ion-content {
   // .col-1 {
   //   width: ;
   // }
+  &.wrap {
+    flex-wrap: wrap;
+  }
+  &.between {
+    justify-content: space-between;
+  }
   .col-2 {
     width: 10%;
   }
@@ -227,6 +233,9 @@ ion-content {
   }
   .col-5 {
     width: 42%;
+  }
+  .col-6 {
+    width: 50%;
   }
   .col-7 {
     width: 58%;
@@ -712,6 +721,83 @@ ion-content {
   margin: 22px 0;
 }
 
+.card-plan {
+  background: #FCFCFC;
+  border-radius: 6px;
+  padding: 26px 22px;
+  margin-bottom: 12px;
+  border: 0.5px solid #E4E4E4;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-height: 190px;
+  &.actual {
+    min-height: 220px;
+  }
+  &.clickable {
+    box-shadow: 0px 1px 10px rgba(85, 85, 85, 0.14);
+    transition: all ease 0.3s;
+    &:hover {
+      box-shadow: 0px 1px 10px rgba(85, 85, 85, 0);
+    }
+  }
+  h2 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    margin-bottom: 4px;
+    background: linear-gradient(159.42deg, #FC0F85 6.69%, #9300AB 88.08%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  h4 {
+    margin: 0;
+    font-weight: 700;
+  }
+  h5 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 126.39%;
+  }
+  p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 18px;
+    &:nth-child(n+2){
+      margin-top: 10px;
+    }
+  }
+  .plan-up {
+    width: 100%;
+    .status {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      background: #C4C4C4;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+      &.active {
+        background-color: #36AF17;
+        color: white;
+      }
+    }
+  }
+  .plan-bottom {
+    width: 100%;
+    padding-top: 26px;
+  }
+  .icon-inner {
+    stroke: transparent !important;
+  }
+  img.icon-check {
+    width: 24px;
+  }
+}
+
 .clase-page {
   h1.titleDay-section {
     margin: 0;
@@ -802,6 +888,78 @@ ion-content {
             font-size: 13px;
           }
         }
+      }
+    }
+  }
+}
+
+.detalle-plan {
+  .detalle-header {
+    display: flex;
+    h2 {
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 32px;
+      margin: 0;
+      background: linear-gradient(162.32deg, #FC0F85 6.69%, #9300AB 88.08%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h5 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 20px;
+      color: #565353;
+    }
+    .status {
+      margin-top: 4px;
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      background: #C4C4C4;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+      &.active {
+        background-color: #36AF17;
+        color: white;
+      }
+    }
+  }
+  .data {
+    width: 100%;
+    p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 18px;
+      color: #565353;
+    }
+    .data-desc {
+      padding-top: 30px;
+      padding-right: 28px;
+    }
+  }
+  .total {
+    p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 18px;
+      color: #565353;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .pretotal-item {
+      width: 100%;
+    }
+    .total-item {
+      margin-top: 21px;
+      h4 {
+        margin: 0;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 23px;
       }
     }
   }

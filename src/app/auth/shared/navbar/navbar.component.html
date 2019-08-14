@@ -4,7 +4,7 @@
 
     <div class="header-toolbar">
       <div class="toolbar-left">
-        <div class="button" *ngIf="this.titulo != 'Dashboard' && this.titulo != 'Tus Clases' && this.titulo != 'Tus Reservas' && this.titulo != 'Tus Pagos'">
+        <div class="button" *ngIf="this.titulo != 'Dashboard' && this.titulo != 'Tus Clases' && this.titulo != 'Tus Reservas' && this.titulo != 'Tus Pagos' && this.titulo != 'Planes'">
           <ion-icon src="assets/icon/arrow-back.svg" (click)="goBack()"></ion-icon>
         </div>
         <div align-self-center class="title font-bold" *ngIf="this.titulo == 'Dashboard'; else normalTitle">

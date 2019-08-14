@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { PagosPage } from './pagos.page';
+import { PlansPage } from './plans.page';
 import { NavbarModule } from '../shared/navbar/navbar.module';
 
 @NgModule({
@@ -12,8 +12,8 @@ import { NavbarModule } from '../shared/navbar/navbar.module';
     CommonModule,
     FormsModule,
     NavbarModule,
-    RouterModule.forChild([{ path: '', component: PagosPage }])
+    RouterModule.forChild([{ path: '', component: PlansPage }])
   ],
-  declarations: [PagosPage]
+  declarations: [PlansPage]
 })
-export class PagosPageModule {}
+export class PlansPageModule {}
