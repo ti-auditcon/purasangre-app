@@ -357,11 +357,35 @@ ion-content {
 .section {
   margin: 0;
   margin-bottom: 26px;
+  .title-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+  }
   .title-section {
     font-size: 21px;
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 12px;
+  }
+  .option {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 12px;
+    img, p {
+      margin: 0;
+    }
+    img {
+      margin-right: 8px;
+    }
+    p {
+      color: #4D4D4D;
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 700;
+    }
   }
 }
 
@@ -722,17 +746,36 @@ ion-content {
 }
 
 .card-plan {
-  background: #FCFCFC;
+  background: linear-gradient(153.33deg, #FC0F85 6.69%, #9300AB 88.08%);
   border-radius: 6px;
-  padding: 26px 22px;
-  margin-bottom: 12px;
+  padding: 18px 22px;
+  margin-bottom: 10px;
   border: 0.5px solid #E4E4E4;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  min-height: 190px;
+  // min-height: 190px;
+  color: #fff;
   &.actual {
+    padding: 26px 22px;
     min-height: 220px;
+    background: #FCFCFC;
+    color: #000;
+    h2 {
+      background: linear-gradient(159.42deg, #FC0F85 6.69%, #9300AB 88.08%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 100%;
+      margin-bottom: 4px;
+    }
+    h4 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 20px;
+    }
   }
   &.clickable {
     box-shadow: 0px 1px 10px rgba(85, 85, 85, 0.14);
@@ -744,16 +787,17 @@ ion-content {
   h2 {
     margin: 0;
     font-weight: 700;
-    font-size: 24px;
-    line-height: 100%;
-    margin-bottom: 4px;
-    background: linear-gradient(159.42deg, #FC0F85 6.69%, #9300AB 88.08%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 19px;
+    // line-height: 100%;
+    // margin-bottom: 4px;
+    // background: linear-gradient(159.42deg, #FC0F85 6.69%, #9300AB 88.08%);
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
   }
   h4 {
     margin: 0;
     font-weight: 700;
+    font-size: 17px;
   }
   h5 {
     margin: 0;
