@@ -58,8 +58,9 @@
     <div class="title-grid">
       <h1 class="title-section">Planes</h1>
       <div class="option click-ver-filtros">
-        <img src="/assets/icon/icon-filter.svg">
-        <p>Clases</p>
+        <ion-select [interfaceOptions]="customAlertOptions" value="CrossFit" okText="Ok" cancelText="Cancelar">
+          <ion-select-option *ngFor="let class of classes">{{class.name}}</ion-select-option>
+        </ion-select>
       </div>
     </div>
 

@@ -24,6 +24,19 @@ export class PlansPage {
     private http: HttpClient
   ) { }
 
+  customAlertOptions: any = {
+    header: 'Clases'
+  };
+
+  classes: any[] = [
+    {
+      name: 'CrossFit'
+    },
+    {
+      name: 'Frenetik'
+    }
+  ];
+
   // Refresh
   doRefresh(event) {
     console.log('Begin async operation');
