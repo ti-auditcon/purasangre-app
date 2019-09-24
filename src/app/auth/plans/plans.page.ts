@@ -59,5 +59,9 @@ export class PlansPage {
     this.router.navigate(['/home/plan-detail']);
   }
 
+  goToHistorial(){
+    this.router.navigate(['/home/pay-historial']);
+  }
+
 
 }

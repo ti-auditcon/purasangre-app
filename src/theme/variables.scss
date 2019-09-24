@@ -745,6 +745,31 @@ ion-content {
   margin: 22px 0;
 }
 
+.items-filter {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
+  border: 0.5px solid #E4E4E4;
+  box-sizing: border-box;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  padding: 20px 4px;
+  .item {
+    text-align: center;
+    width: 25%;
+    img {
+
+    }
+    h6 {
+      margin: 0;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 126.39%;
+    }
+  }
+}
+
 .card-plan {
   background: linear-gradient(153.33deg, #FC0F85 6.69%, #9300AB 88.08%);
   border-radius: 6px;
@@ -935,6 +960,10 @@ ion-content {
       }
     }
   }
+}
+
+.separator-plan {
+  margin: 30px 0;
 }
 
 .detalle-plan {
@@ -1348,6 +1377,38 @@ ion-content {
       -moz-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0);
       box-shadow: 0px 1px 10px rgba(0, 0, 0, 0);
     }
+  }
+}
+
+.button-confirm {
+  width: 100%;
+  display: block;
+  margin: auto;
+  font-size: 15px;
+  padding: 14px 0;
+  margin-bottom: 4px;
+  font-weight: 700;
+  border-radius: 6px;
+  color: white;
+  text-align: center;
+  background: linear-gradient(108.43deg, #259F06 11.38%, #35AF17 63.4%);
+  background-size: 300% 300%;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 1px 10px rgba(85, 85, 85, 0.14);
+  -moz-box-shadow: 0px 1px 10px rgba(85, 85, 85, 0.14);
+  box-shadow: 0px 1px 10px rgba(85, 85, 85, 0.14);
+  transition: all ease 0.2s;
+  outline: none;
+  -webkit-animation: buttonGradientSuccess 3s ease infinite;
+  -moz-animation: buttonGradientSuccess 3s ease infinite;
+  -o-animation: buttonGradientSuccess 3s ease infinite;
+  animation: buttonGradientSuccess 3s ease infinite;
+  &:active,
+  &:focus,
+  &:hover {
+    -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0);
   }
 }
 

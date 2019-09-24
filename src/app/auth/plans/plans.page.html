@@ -1,4 +1,4 @@
-<app-navbar titulo="Planes"></app-navbar>
+<app-navbar titulo="Planes y Pagos"></app-navbar>
 
 <ion-content padding>
 
@@ -14,7 +14,7 @@
 
     <div class="title-grid">
       <h1 class="title-section">Plan Actual</h1>
-      <div class="option click-ver-pagos">
+      <div class="option click-ver-pagos" (click)="goToHistorial()">
         <img src="/assets/icon/pay-historial.svg">
         <p>Ver Pagos</p>
       </div>
@@ -47,66 +47,81 @@
         </div>
       </div>
     </div>
+    <button class="button-confirm" (click)="goToDetail()">Renovar este Plan</button>
 
   </div>
 
-  <div class="separator"></div>
+  <div class="separator separator-plan"></div>
 
   <div class="section">
 
     <div class="title-grid">
       <h1 class="title-section">Planes</h1>
-      <!-- <h1 class="title-section">Tu Plan</h1> -->
       <div class="option click-ver-filtros">
         <img src="/assets/icon/icon-filter.svg">
-        <p>Filtrar</p>
+        <p>Clases</p>
       </div>
     </div>
 
-    <div class="card-plan clickable" (click)="goToDetail()">
-      <div class="ps-row plan-up">
-        <div class="col-9">
-          <h2>Plan 12 Sesiones</h2>
-          <!-- <h5>Mensual</h5> -->
-        </div>
-        <div class="col-3" text-end>
-          <h4>$40.000</h4>
-        </div>
+    <div class="items-filter">
+      <div class="item">
+        <img src="/assets/icon/filter-icon-1.svg">
+        <h6>Mensual</h6>
+      </div>
+      <div class="item">
+        <img src="/assets/icon/filter-icon-1.svg">
+        <h6>Trimestral</h6>
+      </div>
+      <div class="item">
+        <img src="/assets/icon/filter-icon-1.svg">
+        <h6>Semestral</h6>
+      </div>
+      <div class="item">
+        <img src="/assets/icon/filter-icon-1.svg">
+        <h6>Anual</h6>
       </div>
     </div>
 
-    <div class="card-plan clickable" (click)="goToDetail()">
-      <div class="ps-row plan-up">
-        <div class="col-9">
-          <h2>Plan Full AM</h2>
-          <!-- <h5>Mensual</h5> -->
-        </div>
-        <div class="col-3" text-end>
-          <h4>$30.000</h4>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-plan clickable" (click)="goToDetail()">
-      <div class="ps-row plan-up">
-        <div class="col-9">
-          <h2>Plan Estudiantes</h2>
-          <!-- <h5>Mensual</h5> -->
-        </div>
-        <div class="col-3" text-end>
-          <h4>$25.990</h4>
+    <div class="plans-items">
+      <!-- Aquí se listan los Planes -->
+      <div class="card-plan clickable" (click)="goToDetail()">
+        <div class="ps-row plan-up">
+          <div class="col-9">
+            <h2>Plan 12 Sesiones</h2>
+          </div>
+          <div class="col-3" text-end>
+            <h4>$40.000</h4>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="card-plan clickable" (click)="goToDetail()">
-      <div class="ps-row plan-up">
-        <div class="col-9">
-          <h2>Pase Diario</h2>
-          <!-- <h5>Diario</h5> -->
+      <div class="card-plan clickable" (click)="goToDetail()">
+        <div class="ps-row plan-up">
+          <div class="col-9">
+            <h2>Plan Full AM</h2>
+          </div>
+          <div class="col-3" text-end>
+            <h4>$30.000</h4>
+          </div>
         </div>
-        <div class="col-3" text-end>
-          <h4>$5.000</h4>
+      </div>
+      <div class="card-plan clickable" (click)="goToDetail()">
+        <div class="ps-row plan-up">
+          <div class="col-9">
+            <h2>Plan Estudiantes</h2>
+          </div>
+          <div class="col-3" text-end>
+            <h4>$25.990</h4>
+          </div>
+        </div>
+      </div>
+      <div class="card-plan clickable" (click)="goToDetail()">
+        <div class="ps-row plan-up">
+          <div class="col-9">
+            <h2>Pase Diario</h2>
+          </div>
+          <div class="col-3" text-end>
+            <h4>$5.000</h4>
+          </div>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { DashboardPage } from '../dashboard/dashboard.page';
-import { PerfilPage } from '../dashboard/perfil/perfil.page';
+import { PerfilPage } from '../perfil/perfil.page';
 import { HistorialPage } from '../dashboard/historial/historial.page';
 import { HoyDashboardPage } from '../dashboard/hoydashboard/hoydashboard.page';
 import { ClasesPage } from '../clases/clases.page';
