@@ -5,13 +5,13 @@ import { AuthGuardService } from './services/auth-guard.service';
 const routes: Routes = [
   { path: '', canActivate: [AuthGuardService], loadChildren: './auth/home/home.module#HomePageModule' },
   { path: 'tutorial', loadChildren: './public/tutorial/tutorial.module#TutorialPageModule' },
-  { path: 'perfil', loadChildren: './auth/dashboard/perfil/perfil.module#PerfilPageModule' },
   { path: 'hoydashboard', loadChildren: './auth/dashboard/hoydashboard/hoydashboard.module#HoyDashboardPageModule' },
   { path: 'login', loadChildren: './public/login/login.module#LoginPageModule' },
   { path: 'confirm', loadChildren: './auth/reservas/confirm/confirm.module#ConfirmPageModule' },
   { path: 'forgot', loadChildren: './public/forgot/forgot.module#ForgotPageModule' },
   { path: 'tutorial', loadChildren: './public/tutorial/tutorial.module#TutorialPageModule' },
-  { path: 'image-modal', loadChildren: './auth/shared/image-modal/image-modal.module#ImageModalPageModule' },  { path: 'historial', loadChildren: './auth/dashboard/historial/historial.module#HistorialPageModule' },
+  { path: 'image-modal', loadChildren: './auth/shared/image-modal/image-modal.module#ImageModalPageModule' },
+  // { path: 'historial', loadChildren: './auth/dashboard/historial/historial.module#HistorialPageModule' },
 
   //{ path: 'wods/:id', loadChildren: './auth/wods/wods.module#WodsPageModule' }
 

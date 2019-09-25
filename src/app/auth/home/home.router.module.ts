@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
 import { DashboardPage } from '../dashboard/dashboard.page';
 import { PerfilPage } from '../perfil/perfil.page';
-import { HistorialPage } from '../dashboard/historial/historial.page';
+import { HistorialPage } from '../plans/historial/historial.page';
 import { HoyDashboardPage } from '../dashboard/hoydashboard/hoydashboard.page';
 import { ClasesPage } from '../clases/clases.page';
 import { ClasePage } from '../clases/clase/clase.page';
@@ -32,7 +32,6 @@ const routes: Routes = [
 
       // { path: 'perfil', outlet: 'dashboard', component: PerfilPage },
       { path: 'perfil', children: [{ path: '', component: PerfilPage }] },
-      { path: 'pay-historial', children: [{ path: '', component: HistorialPage }] },
       // { path: 'hoydashboard', outlet: 'dashboard', component: HoyDashboardPage },
       { path: 'hoydashboard', children: [{ path: '', component: HoyDashboardPage }] },
 
@@ -60,6 +59,7 @@ const routes: Routes = [
       // { path: 'plans', outlet: 'plans', component: PlansPage }
       { path: 'plans', children: [{ path: '', component: PlansPage }] },
       { path: 'plan-detail', children: [{ path: '', component: PlanDetailPage }] },
+      { path: 'pay-historial', children: [{ path: '', component: HistorialPage }] },
       { path: 'plan-payment', children: [{ path: '', component: PlanPaymentPage }] },
     ]}
     // { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' }

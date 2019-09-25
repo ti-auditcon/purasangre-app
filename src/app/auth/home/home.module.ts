@@ -9,7 +9,7 @@ import { HomePageRoutingModule } from './home.router.module';
 import { HomePage } from './home.page';
 import { DashboardPageModule } from '../dashboard/dashboard.module';
 import { PerfilPageModule } from '../perfil/perfil.module';
-import { HistorialPageModule } from '../dashboard/historial/historial.module';
+import { HistorialPageModule } from '../plans/historial/historial.module';
 import { HoyDashboardPageModule } from '../dashboard/hoydashboard/hoydashboard.module';
 import { ClasesPageModule } from '../clases/clases.module';
 import { ClasePageModule } from '../clases/clase/clase.module';

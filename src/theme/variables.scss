@@ -381,10 +381,25 @@ ion-content {
       margin-right: 8px;
     }
     p {
-      color: #4D4D4D;
-      font-size: 14px;
-      line-height: 16px;
-      font-weight: 700;
+      color: #000;
+      font-size: 15px;
+      line-height: 13px;
+      font-weight: 400;
+      padding-right: 13px;
+      position: relative;
+      &:after {
+        content: '';
+        // display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid gray;
+      }
     }
   }
 }
