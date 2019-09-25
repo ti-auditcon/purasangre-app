@@ -801,7 +801,7 @@ ion-content {
     padding: 26px 22px;
     min-height: 220px;
     background: #FCFCFC;
-    color: #000;
+    color: #565353;
     h2 {
       background: linear-gradient(159.42deg, #FC0F85 6.69%, #9300AB 88.08%);
       -webkit-background-clip: text;
@@ -817,6 +817,16 @@ ion-content {
       font-weight: 700;
       font-size: 20px;
     }
+  }
+  &.no-plan {
+    padding: 26px 22px;
+    background: transparent;
+    text-align: center;
+    color: #000;
+    min-height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   &.clickable {
     box-shadow: 0px 1px 10px rgba(85, 85, 85, 0.14);
