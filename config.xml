@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="100018" id="com.asomic.purasangre" version="1.2.4" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="100026" id="purasangrecrossfit.app.com" version="1.2.4" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Pura Sangre CrossFit</name>
     <description>La app de Pura Sangre CrossFit</description>
     <author email="contacto@asomic.com" href="https://asomic.com">Asomic</author>
@@ -99,17 +99,19 @@
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
-    <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
-    <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
-    <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
-    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <plugin name="cordova-plugin-device" spec="2.0.2" />
-    <plugin name="cordova-plugin-camera" spec="4.0.3" />
-    <plugin name="cordova-plugin-crop" spec="0.4.0" />
-    <plugin name="cordova-plugin-file-transfer" spec="1.7.1" />
-    <plugin name="cordova-plugin-file" spec="^6.0.1" />
-    <plugin name="cordova-sqlite-storage" spec="2.6.0" />
-    <plugin name="cordova-plugin-firebase" spec="2.0.5" />
     <engine name="ios" spec="4.5.5" />
-    <engine name="android" spec="~7.1.4" />
+    <plugin name="cordova-plugin-device" spec="^2.0.3" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.3" />
+    <plugin name="cordova-plugin-splashscreen" spec="^5.0.3" />
+    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.3" />
+    <plugin name="cordova-plugin-camera" spec="^4.1.0" />
+    <plugin name="cordova-plugin-crop" spec="^0.4.0" />
+    <plugin name="cordova-plugin-file" spec="^6.0.2" />
+    <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
+    <plugin name="cordova-android-support-gradle-release" spec="~3.0.1" />
+    <plugin name="cordova-plugin-androidx" spec="^1.0.2" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^2.5.1" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.1.0" />
+    <plugin name="cordova-plugin-firebasex" spec="^6.1.0" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.4" />
 </widget>

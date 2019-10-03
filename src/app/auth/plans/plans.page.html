@@ -20,15 +20,15 @@
       </div>
     </div>
     <!-- Si tiene plan activo -->
-    <div class="card-plan actual">
+    <div class="card-plan actual" >
       <div class="ps-row plan-up">
         <div class="col-8">
-          <h2>Plan Full Fit</h2>
-          <h5>Mensual</h5>
+          <h2>{{userActualPlan?.rels?.plan.name}}</h2>
+          <h5>{{userActualPlan?.rels?.plan.period}}</h5>
         </div>
         <div class="col-4" text-end>
           <div class="status active">
-            Activo
+            {{userActualPlan?.status?.name}}
           </div>
         </div>
       </div>
@@ -36,19 +36,19 @@
         <div class="col-9">
           <p>
             <b>Contratado el</b><br>
-            21 de Junio de 2019
+            {{userActualPlan?.inicio}}
           </p>
           <p>
-            <b>Vence el</b><br>
-            21 de Julio de 2019
+            <b>Vencimiento el</b><br>
+            {{userActualPlan?.vencimiento}}
           </p>
         </div>
-        <div class="col-3" text-end>
-          <h4>$45.000</h4>
+        <div class="col-3" text-end *ngIf="userActualPlan?.rels?.bill.has">
+          <h4>{{userActualPlan?.rels?.bill.amount}}</h4>
         </div>
       </div>
     </div>
-    <button class="button-confirm" (click)="goToDetail()">Renovar este Plan</button>
+    <button class="button-confirm" (click)="goToDetail(userActualPlan?.rels?.plan.id)" *ngIf="userActualPlan?.canContract">Renovar este Plan</button>
 
     <!-- Si no tiene plan activo -->
     <!-- <div class="card-plan no-plan">
@@ -67,26 +67,26 @@
     <div class="title-grid">
       <h1 class="title-section">Planes</h1>
       <div class="option click-ver-filtros">
-        <ion-select [interfaceOptions]="customAlertOptions" value="CrossFit" okText="Ok" cancelText="Cancelar">
+        <!-- <ion-select [interfaceOptions]="customAlertOptions" value="CrossFit" okText="Ok" cancelText="Cancelar">
           <ion-select-option *ngFor="let class of classes">{{class.name}}</ion-select-option>
-        </ion-select>
+        </ion-select> -->
       </div>
     </div>
 
     <div class="items-filter">
-      <div class="item">
+      <div class="item" (click)="planFilter(1)" >
         <img src="/assets/icon/filter-monthly.svg">
         <h6>Mensual</h6>
       </div>
-      <div class="item">
+      <div class="item" (click)="planFilter(3)">
         <img src="/assets/icon/filter-quarterly.svg">
         <h6>Trimestral</h6>
       </div>
-      <div class="item">
+      <div class="item" (click)="planFilter(5)">
         <img src="/assets/icon/filter-biannual.svg">
         <h6>Semestral</h6>
       </div>
-      <div class="item">
+      <div class="item" (click)="planFilter(6)">
         <img src="/assets/icon/filter-annual.svg">
         <h6>Anual</h6>
       </div>
@@ -94,46 +94,17 @@
 
     <div class="plans-items">
       <!-- Aquí se listan los Planes -->
-      <div class="card-plan clickable" (click)="goToDetail()">
-        <div class="ps-row plan-up">
+      <div class="card-plan clickable" (click)="goToDetail(plan?.id)" *ngFor="let plan of filteredPlans">
+        <div class="ps-row plan-up" >
           <div class="col-9">
-            <h2>Plan 12 Sesiones</h2>
+            <h2>{{plan?.name}}</h2>
           </div>
           <div class="col-3" text-end>
-            <h4>$40.000</h4>
+            <h4>${{plan?.amount}}</h4>
           </div>
         </div>
       </div>
-      <div class="card-plan clickable" (click)="goToDetail()">
-        <div class="ps-row plan-up">
-          <div class="col-9">
-            <h2>Plan Full AM</h2>
-          </div>
-          <div class="col-3" text-end>
-            <h4>$30.000</h4>
-          </div>
-        </div>
-      </div>
-      <div class="card-plan clickable" (click)="goToDetail()">
-        <div class="ps-row plan-up">
-          <div class="col-9">
-            <h2>Plan Estudiantes</h2>
-          </div>
-          <div class="col-3" text-end>
-            <h4>$25.990</h4>
-          </div>
-        </div>
-      </div>
-      <div class="card-plan clickable" (click)="goToDetail()">
-        <div class="ps-row plan-up">
-          <div class="col-9">
-            <h2>Pase Diario</h2>
-          </div>
-          <div class="col-3" text-end>
-            <h4>$5.000</h4>
-          </div>
-        </div>
-      </div>
+
     </div>
 
   </div>

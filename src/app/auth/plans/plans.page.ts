@@ -17,6 +17,10 @@ let TOKEN_KEY = 'auth-token';
 export class PlansPage {
 
   public plans: any = '';
+  public filteredPlans: any = '';
+  public userPlans: any = '';
+  public userActivePlan: any = '';
+  public userActualPlan: any = '';
 
   constructor(
     private storage: Storage,
@@ -57,19 +61,31 @@ export class PlansPage {
           'Authorization': 'Bearer '+ Bearer//updated
         })};
 
-        this.http.get(SERVER_URL+"/plans", httpOptions)
+        this.http.get(SERVER_URL+"/profile/actualplan", httpOptions)
         .subscribe((result: any) => {
-          this.plans = result.data.filter(plan => plan.rels.bill.has == true);
-          console.log('entre plans');
+          this.userActualPlan = result.data;
+          console.log(this.userActualPlan);
+
+        });
+        this.http.get(SERVER_URL+"/plans?all=true", httpOptions)
+        .subscribe((result: any) => {
+          this.plans = result.data;
+          console.log('entre todos los planes');
           console.log(this.plans);
 
+          this.filteredPlans = this.plans.filter(plan => (plan.periodId == 1) && (plan.contractable) && (!plan.convenio) );
+          console.log('filtrados:'+ this.filteredPlans);
         });
 
     });
   }
 
-  goToDetail(){
-    this.router.navigate(['/home/plan-detail']);
+  planFilter(id:any){
+    this.filteredPlans = this.plans.filter(plan => (plan.periodId == id) && (plan.contractable) && (!plan.convenio) );
+  }
+
+  goToDetail(id:any){
+    this.router.navigate(['/home/plan-detail/'+id+'']);
   }
 
   goToHistorial(){

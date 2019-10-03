@@ -22,6 +22,8 @@ import { File } from '@ionic-native/file/ngx';
 import { ChartsModule } from 'ng2-charts';
 import { ImageModalPageModule } from './auth/shared/image-modal/image-modal.module';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 //firebase
 import { AngularFireModule } from '@angular/fire';
 // import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -62,17 +64,20 @@ const config = {
     // AngularFirestoreModule
   ],
   providers: [
+
     StatusBar,
     SplashScreen,
     Camera,
     Crop,
     WebView,
     FileTransfer,
+    InAppBrowser,
     //FileUploadOptions,
     //FileTransferObject,
     File,
     //firebase
     Firebase,
+    
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
 
   ],

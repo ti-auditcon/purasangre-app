@@ -25,6 +25,7 @@ import { AddConfirmPageModule } from '../reservas/add-confirm/add-confirm.module
 import { PlansPageModule } from '../plans/plans.module';
 import { PlanDetailPageModule } from '../plans/plan-detail/plan-detail.module';
 import { PlanPaymentPageModule } from '../plans/plan-payment/plan-payment.module';
+import { FlowPageModule } from '../flow/flow.module';
 
 import { ConfirmPage } from '../reservas/confirm/confirm.page';
 
@@ -52,6 +53,7 @@ import { ConfirmPage } from '../reservas/confirm/confirm.page';
     PlansPageModule,
     PlanDetailPageModule,
     PlanPaymentPageModule,
+    FlowPageModule,
   ],
   entryComponents: [
     ConfirmPage

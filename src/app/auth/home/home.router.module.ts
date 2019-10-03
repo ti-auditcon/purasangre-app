@@ -18,6 +18,7 @@ import { AddHourPage } from '../reservas/add-hour/add-hour.page';
 import { AddConfirmPage } from '../reservas/add-confirm/add-confirm.page';
 import { EditConfirmPage } from '../reservas/edit-confirm/edit-confirm.page';
 import { PlansPage } from '../plans/plans.page';
+import { FlowPage } from '../flow/flow.page';
 import { PlanDetailPage } from '../plans/plan-detail/plan-detail.page';
 import { PlanPaymentPage } from '../plans/plan-payment/plan-payment.page';
 import { AuthGuardService } from '../../services/auth-guard.service';
@@ -58,9 +59,11 @@ const routes: Routes = [
 
       // { path: 'plans', outlet: 'plans', component: PlansPage }
       { path: 'plans', children: [{ path: '', component: PlansPage }] },
-      { path: 'plan-detail', children: [{ path: '', component: PlanDetailPage }] },
+      { path: 'plan-detail/:id', children: [{ path: '', component: PlanDetailPage }] },
       { path: 'pay-historial', children: [{ path: '', component: HistorialPage }] },
       { path: 'plan-payment', children: [{ path: '', component: PlanPaymentPage }] },
+      { path: 'plan-flow/:id', children: [{ path: '', component: FlowPage }] },
+      // { path: 'plan-flow/:planflow', loadChildren: './auth/flow/flow.module#FlowPageModule' },
     ]}
     // { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' }
   ];

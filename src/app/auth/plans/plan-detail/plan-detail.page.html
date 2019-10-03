@@ -7,8 +7,8 @@
     <div class="section">
       <div class="detalle-header ps-row">
         <div class="col-9">
-          <h2>Plan 12 Sesiones</h2>
-          <h5>Mensual</h5>
+          <h2>{{plan?.name}}</h2>
+          <h5>{{plan?.period}}</h5>
         </div>
         <div class="col-3" text-end>
           <!-- Solo si es el plan actual -->
@@ -27,18 +27,18 @@
         <div class="col-6 data-from">
           <p>
             <b>Inicia el</b><br>
-            21 de Junio de 2019
+            {{dates?.start}}
           </p>
         </div>
         <div class="col-6 data-until">
           <p>
-            <b>Vence el</b><br>
-            21 de Julio de 2019
+            <b>Vencimiento el</b><br>
+            {{dates?.end}}
           </p>
         </div>
       </div>
       <!-- Descripcion -->
-      <div class="data-desc">
+      <div class="data-desc" *ngIf="plan?.description">
         <p>
           <b>Descripción</b><br>
           Atrévete a cambiar tu vida con un plan diseñado para quienes buscan los mejores resultados. Puedes reservar una clase al día, en cualquier horario, todos los días de la semana. Sin dudas, el plan más conveniente.
@@ -51,15 +51,15 @@
     <div class="section total ps-row wrap">
       <div class="col-6 pretotal-item ps-row between">
         <p>Valor del Plan</p>
-        <p>$45.000</p>
+        <p>${{plan?.amount}}</p>
       </div>
       <div class="col-6 pretotal-item ps-row between">
         <p>Comisión Pago Online</p>
-        <p>$1.330</p>
+        <p>${{plan?.commission}}</p>
       </div>
       <div class="col-12 total-item">
         <p>Total</p>
-        <h4>$45.330</h4>
+        <h4>${{plan?.total}}</h4>
       </div>
     </div>
 
@@ -76,7 +76,7 @@
 <ion-footer>
 
   <div [ngClass]="buttonFixAndroid">
-    <button class="reservar">
+    <button class="reservar" (click)="contract(plan?.id)">
       <span>Contratar Plan</span>
       <!-- Si es el Plan Actual -->
       <!-- <span>Renovar Plan</span> -->

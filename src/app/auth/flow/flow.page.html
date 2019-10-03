@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <ion-menu-button></ion-menu-button> -->
+    </ion-buttons>
+    <ion-title>
+      Paga tu plan
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button  routerLink="/home/plans"  class="no-background" >Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-spinner *ngIf="loading"></ion-spinner>
+  <div slot="fixed">
+    
+    <iframe *ngIf="loaded"
+      id="flow"
+      [src]="sanitizer.bypassSecurityTrustResourceUrl(url)"
+      frameborder="0"
+      webkitallowfullscreen
+      mozallowfullscreen
+      allowfullscreen
+      style="border:none;height:100%;width:100%" 
+    ></iframe>
+  </div>
+</ion-content>
