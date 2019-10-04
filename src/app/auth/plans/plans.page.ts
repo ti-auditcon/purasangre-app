@@ -81,7 +81,9 @@ export class PlansPage {
   }
 
   planFilter(id:any){
-    this.filteredPlans = this.plans.filter(plan => (plan.periodId == id) && (plan.contractable) && (!plan.convenio) );
+    this.filteredPlans = this.plans.filter(
+      plan => (plan.periodId == id) && (plan.contractable) && (!plan.convenio)
+    );
   }
 
   goToDetail(id:any){
