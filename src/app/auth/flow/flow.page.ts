@@ -66,10 +66,16 @@ export class FlowPage implements OnInit  {
             this.loading = false;
             this.loaded = true;
             this.url = result.url;
-          //  this.url = result;
+          
+            
+            
+            
           
           });
         });
+
+
+
     });
 
   }
