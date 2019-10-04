@@ -880,10 +880,20 @@ ion-content {
         color: white;
       }
     }
+    .amount {
+      h4 {
+        white-space: nowrap;
+      }
+    }
   }
   .plan-bottom {
     width: 100%;
     padding-top: 26px;
+    .amount {
+      h4 {
+        white-space: nowrap;
+      }
+    }
   }
   .icon-inner {
     stroke: transparent !important;
