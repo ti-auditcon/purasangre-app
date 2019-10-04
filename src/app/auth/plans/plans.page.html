@@ -33,7 +33,7 @@
         </div>
       </div>
       <div align-items-end class="ps-row plan-bottom">
-        <div class="col-9">
+        <div class="col-8">
           <p>
             <b>Contratado el</b><br>
             {{userActualPlan?.inicio}}
@@ -43,7 +43,7 @@
             {{userActualPlan?.vencimiento}}
           </p>
         </div>
-        <div class="col-3" text-end *ngIf="userActualPlan?.rels?.bill.has">
+        <div class="col-5 amount" text-end *ngIf="userActualPlan?.rels?.bill.has">
           <h4>{{userActualPlan?.rels?.plan.amount}}</h4>
         </div>
       </div>
@@ -96,10 +96,10 @@
       <!-- Aquí se listan los Planes -->
       <div class="card-plan clickable" (click)="goToDetail(plan?.id)" *ngFor="let plan of filteredPlans">
         <div class="ps-row plan-up" >
-          <div class="col-9">
+          <div class="col-8">
             <h2>{{plan?.name}}</h2>
           </div>
-          <div class="col-3" text-end>
+          <div class="col-4 amount" text-end>
             <h4>${{plan?.amount}}</h4>
           </div>
         </div>
