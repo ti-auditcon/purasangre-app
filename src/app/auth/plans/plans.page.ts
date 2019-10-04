@@ -1,7 +1,7 @@
 //env
 import { environment, SERVER_URL} from '../../../environments/environment';
 //imports
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -21,11 +21,17 @@ export class PlansPage {
   public userPlans: any = '';
   public userActivePlan: any = '';
   public userActualPlan: any = '';
+  public selectedFilter1 = false;
+  public selectedFilter3 = false;
+  public selectedFilter5 = false;
+  public selectedFilter6 = false;
 
   constructor(
     private storage: Storage,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private el: ElementRef,
+    private renderer: Renderer
   ) { }
 
   customAlertOptions: any = {
@@ -84,6 +90,7 @@ export class PlansPage {
     this.filteredPlans = this.plans.filter(
       plan => (plan.periodId == id) && (plan.contractable) && (!plan.convenio)
     );
+    // this.selectedFilter1 = true;
   }
 
   goToDetail(id:any){

@@ -74,21 +74,29 @@
     </div>
 
     <div class="items-filter">
-      <div class="item" (click)="planFilter(1)" >
-        <img src="/assets/icon/filter-monthly.svg">
-        <h6>Mensual</h6>
+      <div class="item" [ngClass]="{'active': selectedFilter1}" (click)="planFilter(1)" >
+        <img class="normal" src="/assets/icon/filter-monthly.svg">
+        <img class="active" src="/assets/icon/filter-monthly-selected.svg">
+        <h6 class="normal">Mensual</h6>
+        <h6 class="active">Mensual</h6>
       </div>
-      <div class="item" (click)="planFilter(3)">
-        <img src="/assets/icon/filter-quarterly.svg">
-        <h6>Trimestral</h6>
+      <div class="item" [ngClass]="{'active': selectedFilter3}" (click)="planFilter(3)">
+        <img class="normal" src="/assets/icon/filter-quarterly.svg">
+        <img class="active" src="/assets/icon/filter-quarterly-selected.svg">
+        <h6 class="normal">Trimestral</h6>
+        <h6 class="active">Trimestral</h6>
       </div>
-      <div class="item" (click)="planFilter(5)">
-        <img src="/assets/icon/filter-biannual.svg">
-        <h6>Semestral</h6>
+      <div class="item" [ngClass]="{'active': selectedFilter5}" (click)="planFilter(5)">
+        <img class="normal" src="/assets/icon/filter-biannual.svg">
+        <img class="active" src="/assets/icon/filter-biannual-selected.svg">
+        <h6 class="normal">Semestral</h6>
+        <h6 class="active">Semestral</h6>
       </div>
-      <div class="item" (click)="planFilter(6)">
-        <img src="/assets/icon/filter-annual.svg">
-        <h6>Anual</h6>
+      <div class="item" [ngClass]="{'active': selectedFilter6}" (click)="planFilter(6)">
+        <img class="normal" src="/assets/icon/filter-annual.svg">
+        <img class="active" src="/assets/icon/filter-annual-selected.svg">
+        <h6 class="normal">Anual</h6>
+        <h6 class="active">Anual</h6>
       </div>
     </div>
 

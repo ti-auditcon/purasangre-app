@@ -782,6 +782,35 @@ ion-content {
       font-weight: bold;
       font-size: 12px;
       line-height: 126.39%;
+      width: 100%;
+    }
+    img.normal {
+      display: inline-block;
+    }
+    img.active {
+      display: none;
+    }
+    h6.normal {
+      display: inline-block;
+    }
+    h6.active {
+      display: none;
+    }
+    &.active {
+      img.normal {
+        display: none;
+      }
+      img.active {
+        display: inline-block;
+      }
+      h6.normal {
+        color: inherit;
+        display: none;
+      }
+      h6.active {
+        display: inline-block;
+        color: #FC0F85;
+      }
     }
   }
 }
