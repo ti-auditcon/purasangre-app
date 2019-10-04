@@ -21,7 +21,7 @@ export class PlansPage {
   public userPlans: any = '';
   public userActivePlan: any = '';
   public userActualPlan: any = '';
-  public selectedFilter1 = false;
+  public selectedFilter1 = true;
   public selectedFilter3 = false;
   public selectedFilter5 = false;
   public selectedFilter6 = false;
@@ -87,6 +87,35 @@ export class PlansPage {
   }
 
   planFilter(id:any){
+
+    switch (id) {
+      case 1:
+          this.selectedFilter1 = true;
+          this.selectedFilter3 = false;
+          this.selectedFilter5 = false;
+          this.selectedFilter6 = false;
+          break;
+      case 3:
+          this.selectedFilter1 = false;
+          this.selectedFilter3 = true;
+          this.selectedFilter5 = false;
+          this.selectedFilter6 = false;
+          break;
+      case 5:
+          this.selectedFilter1 = false;
+          this.selectedFilter3 = false;
+          this.selectedFilter5 = true;
+          this.selectedFilter6 = false;
+          break;
+      case 6:
+          this.selectedFilter1 = false;
+          this.selectedFilter3 = false;
+          this.selectedFilter5 = false;
+          this.selectedFilter6 = true;
+          break;
+      default:
+    }
+
     this.filteredPlans = this.plans.filter(
       plan => (plan.periodId == id) && (plan.contractable) && (!plan.convenio)
     );
