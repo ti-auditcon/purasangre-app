@@ -66,7 +66,7 @@
   </div>
 
   <ion-fab [ngClass]="buttonFixIOS" vertical="bottom" slot="fixed">
-    <div class="reservar">
+    <div class="reservar" (click)="contract(plan?.id)">
       <span>Contratar Plan</span>
     </div>
   </ion-fab>
