@@ -40,11 +40,12 @@ export class HistorialPage implements OnInit {
           'Authorization': 'Bearer '+ Bearer//updated
         })};
 
-        this.http.get(SERVER_URL+"/plans", httpOptions)
+        this.http.get(SERVER_URL+"profile/plans", httpOptions)
         .subscribe((result: any) => {
-          this.plans = result.data.filter(plan => plan.rels.bill.has == true);
+
           console.log('entre plans');
-          console.log(this.plans);
+          console.log(result.data);
+          this.plans = result.data;
 
         });
 
