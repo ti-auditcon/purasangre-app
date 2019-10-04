@@ -908,6 +908,10 @@ ion-content {
         background-color: #36AF17;
         color: white;
       }
+      &.finished {
+        background-color: #f04141;
+        color: white;
+      }
     }
     .amount {
       h4 {
