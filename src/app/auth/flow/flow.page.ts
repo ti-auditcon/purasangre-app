@@ -19,10 +19,10 @@ let TOKEN_KEY = 'auth-token';
   styleUrls: ['./flow.page.scss'],
 })
 export class FlowPage implements OnInit  {
-  loading = true;
-  loaded = false;
-  progress: number;
-  url:string;
+  public loading = true;
+  public loaded = false;
+  public progress: number;
+  public url:string;
 
 //   @ViewChild('webview') webviewEl: ElementRef;
 
@@ -44,7 +44,8 @@ export class FlowPage implements OnInit  {
 
 
   ionViewDidEnter() {
-    
+    this.loaded = false;
+    this.loading = true;
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     console.log(id);
     this.storage.get(TOKEN_KEY).then((value) => {
@@ -63,9 +64,10 @@ export class FlowPage implements OnInit  {
           .subscribe((result: any) => {
             console.log('url flow');
             console.log(result.url);
+
+            this.url = result.url;
             this.loading = false;
             this.loaded = true;
-            this.url = result.url;
           
             
             
