@@ -70,8 +70,8 @@ export class FlowPage implements OnInit  {
             const target = "_self";
             const options = '{location:"no"}' ;
 
-            
-            const browser = this.iap.create(result.url, '_self', "hideurlbar=yes,toolbarcolor=#00BFC9");
+
+            const browser = this.iap.create(result.url, '_self', "");
             browser.on('loadstop').subscribe((event) => {
               console.log('cargo');
             });
@@ -80,7 +80,7 @@ export class FlowPage implements OnInit  {
               this.route.navigate(['/home/plans']);
             });
 
-            
+
 
           });
         });
@@ -90,8 +90,8 @@ export class FlowPage implements OnInit  {
     });
 
   }
-  
-  
+
+
 
 
 
