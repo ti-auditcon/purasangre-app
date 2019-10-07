@@ -71,7 +71,7 @@ export class FlowPage implements OnInit  {
             const options = '{location:"no"}' ;
 
 
-            const browser = this.iap.create(result.url, '_self', "");
+            const browser = this.iap.create(result.url, '_self', "usewkwebview=yes");
             browser.on('loadstop').subscribe((event) => {
               console.log('cargo');
             });
