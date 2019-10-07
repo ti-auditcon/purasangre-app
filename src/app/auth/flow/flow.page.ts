@@ -11,6 +11,7 @@ import { Router,ActivatedRoute  } from '@angular/router';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
+
 let TOKEN_KEY = 'auth-token';
 
 @Component({
@@ -34,8 +35,8 @@ export class FlowPage implements OnInit  {
     public zone: NgZone,
     public storage: Storage,
     public http:HttpClient,
-    public route: ActivatedRoute,
-    public  iap: InAppBrowser,
+    public route: Router,
+    public iap: InAppBrowser,
     public sanitizer: DomSanitizer
 
   ) { }
@@ -65,7 +66,7 @@ export class FlowPage implements OnInit  {
           .subscribe((result: any) => {
             console.log('url flow');
             console.log(result.url);
-            //console.log(this.sanitizer.bypassSecurityTrustResourceUrl(result.url));
+            console.log(this.sanitizer.bypassSecurityTrustResourceUrl(result.url));
 
             let htmlRaw  ='<iframe id="flow" src="'+result.url+'" frameborder="0"  webkitallowfullscreen mozallowfullscreen allowfullscreen style="border:none;height:100%;width:100%" ></iframe> ' ;
             console.log(htmlRaw);
@@ -74,11 +75,8 @@ export class FlowPage implements OnInit  {
             console.log(this.html);
             this.loading = false;
             this.loaded = true;
-          
-            
-            
-            
-          
+
+
           });
         });
 
