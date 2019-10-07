@@ -14,9 +14,9 @@
 
 <ion-content>
   <ion-spinner *ngIf="loading"></ion-spinner>
-  <div slot="fixed">
+  <div slot="fixed" [innerHTML]="html" *ngIf="loaded">
     
-    <iframe *ngIf="loaded"
+    <!-- <iframe 
       id="flow"
       [src]="sanitizer.bypassSecurityTrustResourceUrl(url)"
       frameborder="0"
@@ -24,6 +24,6 @@
       mozallowfullscreen
       allowfullscreen
       style="border:none;height:100%;width:100%" 
-    ></iframe>
+    ></iframe> -->
   </div>
 </ion-content>

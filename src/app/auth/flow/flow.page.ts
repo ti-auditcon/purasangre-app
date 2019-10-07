@@ -23,6 +23,7 @@ export class FlowPage implements OnInit  {
   public loaded = false;
   public progress: number;
   public url:string;
+  public html:any;
 
 //   @ViewChild('webview') webviewEl: ElementRef;
 
@@ -64,8 +65,13 @@ export class FlowPage implements OnInit  {
           .subscribe((result: any) => {
             console.log('url flow');
             console.log(result.url);
+            //console.log(this.sanitizer.bypassSecurityTrustResourceUrl(result.url));
 
-            this.url = result.url;
+            let htmlRaw  ='<iframe id="flow" src="'+result.url+'" frameborder="0"  webkitallowfullscreen mozallowfullscreen allowfullscreen style="border:none;height:100%;width:100%" ></iframe> ' ;
+            console.log(htmlRaw);
+            this.html = this.sanitizer.bypassSecurityTrustHtml(htmlRaw);
+
+            console.log(this.html);
             this.loading = false;
             this.loaded = true;
           
