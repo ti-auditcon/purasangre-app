@@ -66,16 +66,21 @@ export class FlowPage implements OnInit  {
           .subscribe((result: any) => {
             console.log('url flow');
             console.log(result.url);
-            console.log(this.sanitizer.bypassSecurityTrustResourceUrl(result.url));
 
-            let htmlRaw  ='<iframe id="flow" src="'+result.url+'" frameborder="0"  webkitallowfullscreen mozallowfullscreen allowfullscreen style="border:none;height:100%;width:100%" ></iframe> ' ;
-            console.log(htmlRaw);
-            this.html = this.sanitizer.bypassSecurityTrustHtml(htmlRaw);
+            const target = "_self";
+            const options = '{location:"no"}' ;
 
-            console.log(this.html);
-            this.loading = false;
-            this.loaded = true;
+            
+            const browser = this.iap.create(result.url, '_self', "hideurlbar=yes,toolbarcolor=#00BFC9");
+            browser.on('loadstop').subscribe((event) => {
+              console.log('cargo');
+            });
 
+            browser.on('exit').subscribe((event) => {
+              this.route.navigate(['/home/plans']);
+            });
+
+            
 
           });
         });
